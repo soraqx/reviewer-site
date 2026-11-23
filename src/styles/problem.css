@@ -1,0 +1,448 @@
+/* Hallmark · checked: 2026-11-24 · genre: editorial (inferred)
+ * floor: 1 unresolved checker false-positive (73: nested KaTeX spans) · reflex: 0
+ * critique: Focused workspace; feedback and progress report their offline state.
+ * fixed: contrast, mobile width, and keyboard-scrollable equations */
+.problem-page {
+  padding-block: clamp(3rem, 7vw, 6rem) 5rem;
+}
+
+.problem-heading {
+  max-width: 55rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.problem-heading .eyebrow {
+  margin-bottom: 1.1rem;
+}
+
+.problem-heading h1 {
+  margin-bottom: 1rem;
+  font-size: clamp(3.2rem, 7vw, 6.4rem);
+}
+
+.problem-heading > p:last-child {
+  max-width: 40rem;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.problem-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(17rem, 0.65fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.work-column {
+  min-width: 0;
+}
+
+.problem-statement {
+  padding: 1.15rem 0 1.4rem;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+.problem-statement .eyebrow {
+  margin-bottom: 0.7rem;
+}
+
+.problem-statement > p:last-child {
+  margin-bottom: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 2.3vw, 1.7rem);
+  line-height: 1.45;
+}
+
+.step-section,
+.hint-section {
+  margin-top: 2.5rem;
+}
+
+.section-title-row {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section-title-row .eyebrow {
+  margin-bottom: 0.4rem;
+}
+
+.section-title-row h2,
+.answer-panel h2 {
+  margin-bottom: 0;
+  font-size: clamp(1.65rem, 3vw, 2.5rem);
+}
+
+#step-progress {
+  flex: 0 0 auto;
+  margin-bottom: 0.2rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.solution-steps,
+.hint-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.solution-step {
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.solution-step h3 {
+  margin-bottom: 0.35rem;
+  font-family: var(--sans);
+  font-size: 0.83rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.solution-step > p {
+  margin-bottom: 0.55rem;
+  color: var(--muted);
+  font-size: 0.83rem;
+}
+
+.step-equation {
+  max-width: 100%;
+  overflow-x: auto;
+  color: var(--ink);
+  font-size: clamp(0.95rem, 1.8vw, 1.25rem);
+}
+
+.step-equation:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.step-equation .katex-display {
+  margin: 0.4rem 0;
+  text-align: left;
+}
+
+.step-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line);
+}
+
+.text-button,
+.quiet-button,
+.new-problem {
+  min-height: 2.6rem;
+  padding: 0.35rem 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.79rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.text-button {
+  color: var(--accent);
+}
+
+.text-button:hover,
+.new-problem:hover {
+  color: var(--accent-strong);
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+}
+
+.quiet-button {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.quiet-button:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+}
+
+.text-button:disabled,
+.quiet-button:disabled {
+  color: var(--muted);
+  background: var(--page);
+  cursor: not-allowed;
+  opacity: 0.55;
+  text-decoration: none;
+}
+
+.hint-section .section-title-row {
+  align-items: center;
+}
+
+.hint-list {
+  counter-reset: hint;
+}
+
+.hint-list li {
+  position: relative;
+  padding: 0.8rem 0 0.8rem 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  counter-increment: hint;
+  font-size: 0.83rem;
+}
+
+.hint-list li::before {
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  content: counter(hint, decimal-leading-zero);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.answer-column {
+  position: sticky;
+  top: 1.5rem;
+}
+
+.answer-panel {
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+.answer-panel > .eyebrow {
+  margin-bottom: 0.45rem;
+}
+
+.answer-panel h2 {
+  margin-bottom: 1.4rem;
+  font-size: clamp(1.6rem, 2.7vw, 2.2rem);
+}
+
+#answer-form > label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.answer-input-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 5.3rem;
+  align-items: end;
+  gap: 0.55rem;
+}
+
+.answer-input-row > input,
+.unit-label input {
+  width: 100%;
+  min-height: 2.8rem;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+}
+
+.unit-label {
+  display: grid;
+  gap: 0.22rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.answer-help {
+  margin: 0.45rem 0 0.8rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.check-answer {
+  width: 100%;
+  min-height: 2.8rem;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--page);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.check-answer:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.check-answer:disabled,
+.problem-feedback button:disabled {
+  background: var(--muted);
+  color: var(--page);
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.answer-feedback {
+  min-height: 1.5rem;
+  margin: 0.85rem 0 0;
+  font-size: 0.78rem;
+}
+
+.answer-feedback[data-state="correct"] {
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.answer-feedback[data-state="incorrect"] {
+  color: var(--accent-strong);
+}
+
+.check-answer[aria-busy="true"]::after {
+  display: inline-block;
+  width: 0.85rem;
+  height: 0.85rem;
+  margin-left: 0.55rem;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  content: "";
+  vertical-align: -0.12em;
+  animation: progress-spin 700ms linear infinite;
+}
+
+@keyframes progress-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.problem-progress {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.problem-progress h2 {
+  margin-bottom: 0.45rem;
+  font-size: 1.35rem;
+}
+
+.problem-progress p {
+  margin-bottom: 0.35rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.problem-feedback {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.problem-feedback summary {
+  width: fit-content;
+  color: var(--accent);
+  cursor: pointer;
+  text-underline-offset: 0.2em;
+}
+
+.problem-feedback form {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.8rem;
+  min-width: 0;
+}
+
+.problem-feedback label {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.problem-feedback textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 7rem;
+  padding: 0.65rem;
+  box-sizing: border-box;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  resize: vertical;
+}
+
+.problem-feedback .check-answer {
+  min-height: 2.75rem;
+}
+
+.problem-feedback #feedback-status {
+  min-height: 1.5rem;
+  margin: 0;
+}
+
+.new-problem {
+  color: var(--accent);
+}
+
+.problem-source {
+  margin-top: 1.1rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.problem-source summary {
+  width: fit-content;
+  color: var(--accent);
+  cursor: pointer;
+  text-underline-offset: 0.2em;
+}
+
+.problem-source p {
+  margin: 0.65rem 0 0;
+}
+
+@media (max-width: 820px) {
+  .problem-workspace {
+    grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.7fr);
+    gap: 1.8rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .problem-page {
+    padding-top: 3rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .check-answer[aria-busy="true"]::after {
+      animation: none;
+    }
+  }
+
+  .problem-heading h1 {
+    font-size: clamp(3rem, 13vw, 4.5rem);
+  }
+
+  .problem-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .answer-column {
+    position: static;
+  }
+
+  .answer-panel h2 {
+    max-width: 25rem;
+  }
+}

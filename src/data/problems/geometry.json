@@ -1,0 +1,52 @@
+[
+  {
+    "id": "coordinate-distance",
+    "topic": "Cartesian coordinates",
+    "title": "Distance between two points",
+    "editorialStatus": "supplemental",
+    "source": {
+      "id": "SRC-CART",
+      "pages": "11–17",
+      "citation": "Supplemental randomized practice using the distance relationship F-C01 from the Geometry Website Content Pack, SRC-CART, PDF pages 11–17."
+    },
+    "prompt": "Find the ordinary distance between A=({{x1}}, {{y1}}) and B=({{x2}}, {{y2}}). All coordinates are in centimeters. Round your answer to two decimal places.",
+    "givens": [
+      { "key": "x1", "symbol": "x_1", "label": "x-coordinate of A", "unit": "cm", "range": { "min": -5, "max": 5, "step": 1 } },
+      { "key": "y1", "symbol": "y_1", "label": "y-coordinate of A", "unit": "cm", "range": { "min": -5, "max": 5, "step": 1 } },
+      { "key": "x2", "symbol": "x_2", "label": "x-coordinate of B", "unit": "cm", "range": { "min": -5, "max": 5, "step": 1 } },
+      { "key": "y2", "symbol": "y_2", "label": "y-coordinate of B", "unit": "cm", "range": { "min": -5, "max": 5, "step": 1 } }
+    ],
+    "constraints": ["points-distinct"],
+    "steps": [
+      {
+        "title": "Find the coordinate differences",
+        "text": "Subtract in the same order for both coordinates: B minus A.",
+        "latex": "\\Delta x={{x2}}-({{x1}})={{dx}}\\text{ cm},\\qquad \\Delta y={{y2}}-({{y1}})={{dy}}\\text{ cm}"
+      },
+      {
+        "title": "Apply the distance formula",
+        "text": "The Pythagorean theorem combines the horizontal and vertical differences.",
+        "latex": "d=\\sqrt{(\\Delta x)^2+(\\Delta y)^2}=\\sqrt{({{dx}})^2+({{dy}})^2}=\\sqrt{{{sumSquares}}}\\text{ cm}"
+      },
+      {
+        "title": "Evaluate and round",
+        "text": "Keep the square root until the final step, then round the nonnegative distance to two decimal places.",
+        "latex": "d\\approx {{roundedAnswer}}\\text{ cm}"
+      }
+    ],
+    "hints": [
+      "Compute Δx = x₂ − x₁ and Δy = y₂ − y₁. Keep the signs until after squaring.",
+      "Square both differences, add the squares, and take the positive square root. Do not subtract the squares.",
+      "A distance cannot be negative. Convert your answer to the unit you enter before checking it."
+    ],
+    "answer": {
+      "operation": "euclidean-distance-2d",
+      "arguments": ["x1", "y1", "x2", "y2"],
+      "dimension": "length",
+      "displayUnit": "cm",
+      "tolerance": 0.01,
+      "toleranceUnit": "cm",
+      "precision": 2
+    }
+  }
+]

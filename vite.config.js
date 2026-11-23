@@ -13,6 +13,7 @@ export default defineConfig({
         home: resolve(root, 'index.html'),
         formulas: resolve(root, 'formulas/index.html'),
         polygonVocabulary: resolve(root, 'lessons/polygon-vocabulary.html'),
+        coordinateDistance: resolve(root, 'problems/coordinate-distance.html'),
       },
     },
   },

@@ -4,6 +4,12 @@ import './styles/formulas.css';
 import formulas from './data/formulas.json';
 import { renderMath } from './lib/katex-render.js';
 import { mountSharedLayout } from './lib/shared-layout.js';
+import { updateScrollableRegion } from './lib/scroll-region.js';
+import {
+  addBookmark,
+  listBookmarks,
+  removeBookmark,
+} from './lib/api-client.js';
 
 mountSharedLayout();
 
@@ -14,7 +20,10 @@ const results = document.querySelector('#formula-results');
 const resultCount = document.querySelector('#result-count');
 const emptyState = document.querySelector('#empty-state');
 const copyStatus = document.querySelector('#copy-status');
+const bookmarkStatus = document.querySelector('#bookmark-status');
 const formulaById = new Map(formulas.map((formula) => [formula.id, formula]));
+const bookmarkedFormulaIds = new Set();
+let bookmarksReady = false;
 
 function addOptions(select, values) {
   for (const value of values) {
@@ -48,7 +57,7 @@ function createVariableList(variables) {
   return list;
 }
 
-function createFormulaEntry(formula, index) {
+function createFormulaEntry(formula) {
   const entry = document.createElement('article');
   entry.className = 'formula-entry';
   entry.id = formula.id;
@@ -58,7 +67,7 @@ function createFormulaEntry(formula, index) {
   heading.className = 'formula-heading';
   const topic = document.createElement('p');
   topic.className = 'formula-topic';
-  topic.textContent = `${String(index + 1).padStart(2, '0')} / ${formula.topic}`;
+  topic.textContent = formula.topic;
   const nameRow = document.createElement('div');
   nameRow.className = 'formula-name-row';
   const name = document.createElement('h2');
@@ -67,9 +76,9 @@ function createFormulaEntry(formula, index) {
   permalink.className = 'formula-permalink';
   permalink.href = `#${formula.id}`;
   permalink.setAttribute('aria-label', `Link directly to ${formula.name}`);
-  permalink.textContent = '↗';
+  permalink.textContent = '#';
   nameRow.append(name, permalink);
-  heading.append(topic, nameRow);
+  heading.append(nameRow, topic);
 
   const equation = document.createElement('div');
   equation.className = 'formula-equation';
@@ -108,7 +117,20 @@ function createFormulaEntry(formula, index) {
   copyButton.className = 'copy-latex';
   copyButton.dataset.formulaId = formula.id;
   copyButton.textContent = 'Copy LaTeX';
-  footer.append(tags, copyButton);
+
+  const bookmarkButton = document.createElement('button');
+  bookmarkButton.type = 'button';
+  bookmarkButton.className = 'bookmark-toggle';
+  bookmarkButton.dataset.formulaId = formula.id;
+  bookmarkButton.disabled = !bookmarksReady;
+  bookmarkButton.setAttribute(
+    'aria-pressed',
+    String(bookmarkedFormulaIds.has(formula.id)),
+  );
+  bookmarkButton.textContent = bookmarkedFormulaIds.has(formula.id)
+    ? 'Remove bookmark'
+    : 'Save bookmark';
+  footer.append(tags, bookmarkButton, copyButton);
 
   entry.append(heading, equation, explanation, variableSection, footer);
   return entry;
@@ -146,9 +168,13 @@ function renderResults() {
 
   results.replaceChildren(
     ...filteredFormulas.map((formula) =>
-      createFormulaEntry(formula, formulas.indexOf(formula)),
+      createFormulaEntry(formula),
     ),
   );
+  for (const formula of filteredFormulas) {
+    const equation = document.getElementById(formula.id).querySelector('.formula-equation');
+    updateScrollableRegion(equation, `Equation for ${formula.name}`);
+  }
   resultCount.textContent = `Showing ${filteredFormulas.length} of ${formulas.length} formulas`;
   emptyState.hidden = filteredFormulas.length > 0;
   return filteredFormulas;
@@ -174,10 +200,93 @@ addOptions(topicFilter, [...new Set(formulas.map(({ topic }) => topic))]);
 addOptions(tagFilter, [...new Set(formulas.flatMap(({ tags }) => tags))].sort());
 renderResults();
 
+async function loadBookmarks() {
+  bookmarkStatus.textContent = 'Loading saved bookmarks…';
+  try {
+    const result = await listBookmarks();
+    const activeId = document.activeElement?.id;
+    bookmarkedFormulaIds.clear();
+    for (const bookmark of result.bookmarks) {
+      if (formulaById.has(bookmark.formulaId)) {
+        bookmarkedFormulaIds.add(bookmark.formulaId);
+      }
+    }
+    bookmarksReady = true;
+    renderResults();
+    if (activeId && formulaById.has(activeId)) {
+      document.getElementById(activeId)?.focus({ preventScroll: true });
+    }
+    if (result.offline) {
+      bookmarkStatus.textContent = result.locallyStored
+        ? 'Offline. Bookmarks are saved on this device and will sync when the service returns.'
+        : 'Offline. Device storage is unavailable, so bookmarks last only until this page closes.';
+    } else {
+      bookmarkStatus.textContent = result.locallyStored
+        ? 'Bookmarks are ready.'
+        : 'Bookmarks are available online, but this device cannot save an offline copy.';
+    }
+  } catch (error) {
+    bookmarksReady = true;
+    renderResults();
+    bookmarkStatus.textContent = `Bookmarks could not be loaded: ${error.message}`;
+  }
+}
+
+async function toggleBookmark(button) {
+  const formulaId = button.dataset.formulaId;
+  const formula = formulaById.get(formulaId);
+  if (!formula) {
+    bookmarkStatus.textContent = 'Could not find the formula to bookmark.';
+    return;
+  }
+
+  const wasBookmarked = bookmarkedFormulaIds.has(formulaId);
+  button.disabled = true;
+  button.textContent = wasBookmarked ? 'Removing…' : 'Saving…';
+  try {
+    const result = wasBookmarked
+      ? await removeBookmark(formulaId)
+      : await addBookmark(formulaId);
+
+    if (wasBookmarked) {
+      bookmarkedFormulaIds.delete(formulaId);
+    } else {
+      bookmarkedFormulaIds.add(formulaId);
+    }
+    if (button.isConnected) {
+      button.setAttribute('aria-pressed', String(!wasBookmarked));
+      button.textContent = wasBookmarked ? 'Save bookmark' : 'Remove bookmark';
+    }
+    bookmarkStatus.textContent = result.offline
+      ? result.locallyStored
+        ? `${wasBookmarked ? 'Removed' : 'Saved'} on this device. The change will sync when the service returns.`
+        : 'Device storage is unavailable, so this change will last only until the page closes.'
+      : wasBookmarked
+        ? 'Bookmark removed.'
+        : 'Bookmark saved.';
+  } catch (error) {
+    bookmarkStatus.textContent = `Could not update bookmark: ${error.message}`;
+    if (button.isConnected) {
+      button.textContent = wasBookmarked ? 'Remove bookmark' : 'Save bookmark';
+      button.setAttribute('aria-pressed', String(wasBookmarked));
+    }
+  } finally {
+    if (button.isConnected) button.disabled = false;
+  }
+}
+
+void loadBookmarks();
+
 searchInput.addEventListener('input', renderResults);
 topicFilter.addEventListener('change', renderResults);
 tagFilter.addEventListener('change', renderResults);
 window.addEventListener('hashchange', showDeepLinkedFormula);
+window.addEventListener('resize', () => {
+  for (const formula of formulas) {
+    const equation = document.getElementById(formula.id)?.querySelector('.formula-equation');
+    if (equation) updateScrollableRegion(equation, `Equation for ${formula.name}`);
+  }
+});
 
 document.querySelector('#reset-filters').addEventListener('click', (event) => {
   event.preventDefault();
@@ -192,9 +301,14 @@ document.querySelector('#reset-filters').addEventListener('click', (event) => {
 });
 
 results.addEventListener('click', async (event) => {
+  const bookmarkButton = event.target.closest('.bookmark-toggle');
+  if (bookmarkButton) {
+    await toggleBookmark(bookmarkButton);
+    return;
+  }
+
   const button = event.target.closest('.copy-latex');
   if (!button) return;
-
   const formula = formulaById.get(button.dataset.formulaId);
   if (!formula) {
     copyStatus.textContent = 'Could not find the formula to copy.';

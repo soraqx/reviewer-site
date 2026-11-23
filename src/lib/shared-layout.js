@@ -7,7 +7,7 @@ const headerMarkup = `
     <nav class="site-nav" aria-label="Main navigation">
       <a href="/formulas/">Formulas</a>
       <a href="/lessons/polygon-vocabulary.html">Lessons</a>
-      <a href="/#practice">Practice</a>
+      <a href="/problems/coordinate-distance.html">Practice</a>
     </nav>
     <button class="theme-toggle" type="button" aria-pressed="false">
       <span class="theme-indicator" aria-hidden="true"></span>
@@ -20,7 +20,7 @@ const footerMarkup = `
   <div class="site-footer page-width">
     <a class="footer-wordmark" href="/">fieldnotes<span class="wordmark-period">.</span></a>
     <p>Engineering mathematics, with a little more clarity.</p>
-    <span class="footer-edition">A STUDY GUIDE IN PROGRESS</span>
+    <span class="footer-edition">Study guide in progress</span>
   </div>
 `;
 

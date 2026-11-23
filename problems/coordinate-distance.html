@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Practice the distance formula with randomized coordinates, guided steps, hints, and unit-aware answer checking."
+    />
+    <meta name="theme-color" content="#f4f1e8" />
+    <title>Distance between two points: Fieldnotes practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header id="site-header"></header>
+
+    <main id="main" class="problem-page page-width">
+      <header class="problem-heading">
+        <h1 id="problem-title">Distance between two points.</h1>
+        <p>Work the method one step at a time. New coordinates are generated for each attempt.</p>
+      </header>
+
+      <div class="problem-workspace">
+        <section class="work-column" aria-labelledby="problem-label">
+          <div class="problem-statement">
+            <h2 class="visually-hidden" id="problem-label">Problem statement</h2>
+            <p id="problem-prompt"></p>
+          </div>
+
+          <section class="step-section" aria-labelledby="steps-title">
+            <div class="section-title-row">
+              <div>
+                <h2 id="steps-title">Work through the steps.</h2>
+              </div>
+              <p id="step-progress" aria-live="polite"></p>
+            </div>
+            <ol class="solution-steps" id="solution-steps"></ol>
+            <div class="step-actions">
+              <button class="text-button" type="button" id="next-step">Show next step</button>
+              <button class="quiet-button" type="button" id="show-solution">Show full solution</button>
+            </div>
+          </section>
+
+          <section class="hint-section" aria-labelledby="hints-title">
+            <div class="section-title-row">
+              <div>
+                <h2 id="hints-title">Hints, one at a time.</h2>
+              </div>
+              <button class="quiet-button" type="button" id="next-hint">Reveal a hint</button>
+            </div>
+            <ol class="hint-list" id="hint-list"></ol>
+          </section>
+        </section>
+
+        <aside class="answer-column" aria-labelledby="answer-title">
+          <div class="answer-panel">
+            <h2 id="answer-title">What distance did you get?</h2>
+            <form id="answer-form" novalidate>
+              <label for="answer-value">Distance</label>
+              <div class="answer-input-row">
+                <input id="answer-value" name="answer" type="number" step="any" inputmode="decimal" autocomplete="off" aria-describedby="answer-help answer-feedback" required />
+                <label class="unit-label" for="answer-unit">
+                  <span>Unit</span>
+                  <input id="answer-unit" name="unit" type="text" list="length-units" value="cm" autocomplete="off" spellcheck="false" required />
+                </label>
+                <datalist id="length-units">
+                  <option value="mm"></option>
+                  <option value="cm"></option>
+                  <option value="m"></option>
+                  <option value="km"></option>
+                </datalist>
+              </div>
+              <p class="answer-help" id="answer-help">Use a supported length unit (mm, cm, m, or km).</p>
+              <button class="check-answer" type="submit">Check answer</button>
+            </form>
+            <p class="answer-feedback" id="answer-feedback" role="status" aria-live="polite"></p>
+            <button class="new-problem" type="button" id="new-problem">New point set</button>
+          </div>
+          <section class="problem-progress" aria-labelledby="progress-title">
+            <h2 id="progress-title">Your practice</h2>
+            <p id="progress-summary">Loading your progress…</p>
+            <p id="progress-status" role="status" aria-live="polite"></p>
+          </section>
+          <details class="problem-feedback">
+            <summary>Send feedback about this problem</summary>
+            <form id="feedback-form">
+              <label for="feedback-message">What should we improve?</label>
+              <textarea
+                id="feedback-message"
+                name="message"
+                maxlength="1000"
+                required
+                aria-describedby="feedback-status"
+              ></textarea>
+              <button class="check-answer" type="submit">Send feedback</button>
+              <p id="feedback-status" role="status" aria-live="polite"></p>
+            </form>
+          </details>
+          <details class="problem-source">
+            <summary>Source &amp; method</summary>
+            <p id="problem-citation"></p>
+            <p>This randomized practice is supplemental; the distance formula and coordinate conventions follow the cited course content.</p>
+          </details>
+        </aside>
+      </div>
+    </main>
+
+    <footer id="site-footer"></footer>
+    <p class="visually-hidden" id="theme-status" aria-live="polite"></p>
+    <script type="module" src="/src/problem.js"></script>
+  </body>
+</html>

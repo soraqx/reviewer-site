@@ -1,3 +1,7 @@
+/* Hallmark · checked: 2026-11-24 · genre: editorial (inferred)
+ * floor: 1 unresolved checker false-positive (73: nested KaTeX spans) · reflex: 0
+ * critique: Shared focus, active, and disabled states use the site tokens.
+ * fixed: contrast, responsive controls, and visible focus states */
 @import "tailwindcss";
 
 :root {
@@ -11,8 +15,8 @@
   --page: #f4f1e8;
   --surface: #fbfaf6;
   --ink: #1b2a25;
-  --muted: #64736a;
-  --line: #d7d9cc;
+  --muted: #5c6a61;
+  --line: #7b897f;
   --accent: #a74431;
   --accent-strong: #853825;
   --teal: #286c61;
@@ -33,7 +37,7 @@
   --surface: #202e29;
   --ink: #f0eee4;
   --muted: #b0bbb1;
-  --line: #3d4c44;
+  --line: #6b7a70;
   --accent: #e58b71;
   --accent-strong: #f2a28a;
   --teal: #8bc2b3;
@@ -46,6 +50,11 @@
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+html,
+body {
+  overflow-x: clip;
 }
 
 body {
@@ -64,9 +73,18 @@ a {
 }
 
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 4px;
+}
+
+a:active,
+button:active:not(:disabled) {
+  transform: translateY(1px);
 }
 
 button {
@@ -142,7 +160,7 @@ button {
 .theme-toggle {
   color: var(--muted);
   font-size: 0.86rem;
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -198,7 +216,7 @@ button {
 .footer-edition {
   font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.13em;
+  letter-spacing: 0;
 }
 
 .eyebrow {
@@ -236,11 +254,7 @@ h1 {
   font-size: clamp(4.2rem, 8.6vw, 8.5rem);
   letter-spacing: -0.075em;
   line-height: 0.88;
-}
-
-h1 em {
-  color: var(--accent);
-  font-weight: 400;
+  text-wrap: balance;
 }
 
 .hero-intro {
@@ -327,7 +341,7 @@ h1 em {
   fill: var(--accent);
   font-family: var(--sans);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .plot-leader {
@@ -357,7 +371,6 @@ h1 em {
   bottom: 2.2rem;
   color: var(--muted);
   font-size: 0.62rem;
-  letter-spacing: 0.12em;
 }
 
 .explore {
@@ -383,6 +396,7 @@ h2 {
   font-size: clamp(2rem, 4.5vw, 4rem);
   letter-spacing: -0.055em;
   line-height: 1.05;
+  text-wrap: balance;
 }
 
 .pathways {
@@ -421,6 +435,7 @@ h3 {
   font-size: clamp(1.45rem, 2.2vw, 2rem);
   letter-spacing: -0.035em;
   line-height: 1.15;
+  text-wrap: balance;
 }
 
 .pathway > p:not(.pathway-index) {
@@ -476,7 +491,7 @@ h3 {
 }
 
 .footer-edition {
-  font-size: 0.59rem;
+  font-size: 0.75rem;
 }
 
 .visually-hidden {

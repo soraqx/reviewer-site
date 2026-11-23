@@ -1,3 +1,7 @@
+/* Hallmark · checked: 2026-11-24 · genre: editorial (inferred)
+ * floor: 1 unresolved checker false-positive (73: nested KaTeX spans) · reflex: 0
+ * critique: Dense formula index; bookmarking and copying stay distinct.
+ * fixed: contrast, mobile width, and keyboard-scrollable equations */
 .formula-page {
   padding-block: clamp(3rem, 7vw, 6.25rem) 5rem;
 }
@@ -40,10 +44,8 @@
 
 .formula-filters label > span {
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
 .formula-filters input,
@@ -78,10 +80,17 @@
   font-size: 0.78rem;
 }
 
+.directory-status {
+  min-height: 1.5rem;
+  margin: 0 0 0.5rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
 .reset-filters {
   color: var(--accent);
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 500;
   text-underline-offset: 0.2em;
 }
 
@@ -101,7 +110,8 @@
 }
 
 .formula-entry:focus {
-  outline: none;
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
 }
 
 .formula-heading {
@@ -109,12 +119,9 @@
 }
 
 .formula-topic {
-  margin-bottom: 0.6rem;
+  margin: 0.35rem 0 0;
   color: var(--teal);
-  font-size: 0.66rem;
-  font-weight: 700;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
+  font-size: 0.78rem;
 }
 
 .formula-name-row {
@@ -133,9 +140,11 @@
 
 .formula-permalink {
   flex: 0 0 auto;
-  padding: 0.05rem 0.25rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0.35rem;
   color: var(--muted);
-  font-size: 0.86rem;
+  font-size: 0.9rem;
   text-decoration: none;
 }
 
@@ -146,6 +155,11 @@
   overflow-x: auto;
   color: var(--ink);
   font-size: clamp(1rem, 1.45vw, 1.32rem);
+}
+
+.formula-equation:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
 }
 
 .formula-equation .katex-display {
@@ -169,7 +183,7 @@
 
 .formula-conditions strong {
   color: var(--ink);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .formula-variables {
@@ -181,27 +195,25 @@
   margin-bottom: 0.5rem;
   color: var(--muted);
   font-family: var(--sans);
-  font-size: 0.66rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
 .variable-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
   gap: 0.25rem 1rem;
   margin: 0;
 }
 
 .variable-item {
   display: grid;
-  grid-template-columns: 3.2rem minmax(0, 1fr) auto;
+  grid-template-columns: 3.2rem minmax(7rem, 1.2fr) minmax(4rem, 0.8fr);
   align-items: baseline;
   gap: 0.4rem;
   padding-block: 0.3rem;
   border-bottom: 1px solid color-mix(in srgb, var(--line) 65%, transparent);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 
 .variable-item dt,
@@ -220,15 +232,16 @@
 .variable-item dd {
   min-width: 0;
   color: var(--muted);
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .variable-item .variable-unit {
-  white-space: nowrap;
+  overflow-wrap: break-word;
 }
 
 .formula-entry-footer {
   display: flex;
+  flex-wrap: wrap;
   grid-column: 1 / 4;
   align-items: center;
   justify-content: space-between;
@@ -246,21 +259,44 @@
 }
 
 .formula-tags li {
-  padding: 0.18rem 0.48rem;
+  padding: 0.25rem 0.5rem;
   border: 1px solid var(--line);
   color: var(--muted);
-  font-size: 0.67rem;
+  font-size: 0.75rem;
 }
 
 .copy-latex {
-  min-height: 2.35rem;
+  min-height: 2.75rem;
   padding: 0.35rem 0.7rem;
   border: 1px solid var(--line);
   background: transparent;
   color: var(--ink);
   font-size: 0.74rem;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
+}
+
+.bookmark-toggle {
+  min-height: 2.75rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.bookmark-toggle:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+.bookmark-toggle:disabled {
+  background: var(--surface);
+  color: var(--muted);
+  cursor: not-allowed;
+  opacity: 0.55;
 }
 
 .copy-latex:hover {
