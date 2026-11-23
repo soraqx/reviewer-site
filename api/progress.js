@@ -1,6 +1,6 @@
 import { z } from 'zod';
+import { callConvex } from './_lib/convex.js';
 import { createRouteHandler, parseInput } from './_lib/http.js';
-import { getDatabase } from './_lib/mongo.js';
 
 const slugSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).max(80);
 const querySchema = z.object({
@@ -27,41 +27,11 @@ export default createRouteHandler({
   },
   async handler(req, res, input) {
     if (req.method === 'GET') {
-      const filter = { clientId: input.clientId };
-      if (input.problemId) filter.problemId = input.problemId;
-
-      const collection = (await getDatabase()).collection('progress');
-      const progress = await collection
-        .find(filter, { projection: { _id: 0 } })
-        .sort({ updatedAt: -1 })
-        .limit(500)
-        .toArray();
+      const progress = await callConvex('progress.list', input);
       return res.status(200).json({ progress });
     }
 
-    const collection = (await getDatabase()).collection('progress');
-    const filter = { clientId: input.clientId, problemId: input.problemId };
-    const now = new Date();
-    const update = {
-      $setOnInsert: {
-        clientId: body.clientId,
-        problemId: body.problemId,
-      },
-      $set: { updatedAt: now },
-      $inc: { attempts: 1 },
-    };
-
-    if (input.solved) {
-      update.$set.solved = true;
-    } else {
-      update.$setOnInsert.solved = false;
-    }
-    if (input.bestTimeMs !== undefined) {
-      update.$min = { bestTimeMs: input.bestTimeMs };
-    }
-
-    await collection.updateOne(filter, update, { upsert: true });
-    const progress = await collection.findOne(filter, { projection: { _id: 0 } });
+    const progress = await callConvex('progress.record', input);
     return res.status(200).json({ progress });
   },
 });

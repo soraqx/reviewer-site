@@ -1,6 +1,6 @@
 import { z } from 'zod';
+import { callConvex } from './_lib/convex.js';
 import { createRouteHandler, parseInput } from './_lib/http.js';
-import { getDatabase } from './_lib/mongo.js';
 
 const slugSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).max(80);
 const querySchema = z.object({
@@ -26,47 +26,18 @@ export default createRouteHandler({
   },
   async handler(req, res, input) {
     if (req.method === 'GET') {
-      const filter = { clientId: input.clientId };
-      if (input.formulaId) filter.formulaId = input.formulaId;
-
-      const collection = (await getDatabase()).collection('bookmarks');
-      const bookmarks = await collection
-        .find(filter, { projection: { _id: 0 } })
-        .sort({ createdAt: -1 })
-        .limit(500)
-        .toArray();
+      const bookmarks = await callConvex('bookmarks.list', input);
       return res.status(200).json({ bookmarks });
     }
 
     if (req.method === 'POST') {
-      const filter = { clientId: input.clientId, formulaId: input.formulaId };
-      const collection = (await getDatabase()).collection('bookmarks');
-      let upserted = false;
-      try {
-        const result = await collection.updateOne(
-          filter,
-          {
-            $setOnInsert: {
-              ...filter,
-              createdAt: new Date(),
-            },
-          },
-          { upsert: true },
-        );
-        upserted = result.upsertedCount === 1;
-      } catch (error) {
-        if (error.code !== 11000) throw error;
-      }
-
-      const bookmark = await collection.findOne(filter, { projection: { _id: 0 } });
-      return res.status(upserted ? 201 : 200).json({ bookmark });
+      const result = await callConvex('bookmarks.add', input);
+      return res.status(result.created ? 201 : 200).json({
+        bookmark: result.bookmark,
+      });
     }
 
-    const collection = (await getDatabase()).collection('bookmarks');
-    const result = await collection.deleteOne({
-      clientId: input.clientId,
-      formulaId: input.formulaId,
-    });
-    return res.status(200).json({ deleted: result.deletedCount === 1 });
+    const result = await callConvex('bookmarks.remove', input);
+    return res.status(200).json(result);
   },
 });

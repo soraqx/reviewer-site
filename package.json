@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "dev:vercel": "vercel dev",
+    "dev:convex": "convex dev",
     "validate:data": "node scripts/validate-data.js",
     "test:problems": "node --test scripts/problem-engine.test.js",
     "test": "node --test scripts/problem-engine.test.js scripts/api-client.test.js scripts/api-routes.test.js",
@@ -14,11 +15,11 @@
   },
   "dependencies": {
     "katex": "^0.19.1",
-    "mongodb": "^6.22.0",
     "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",
+    "convex": "^1.51.0",
     "tailwindcss": "^4.0.0",
     "vite": "^6.0.0"
   }

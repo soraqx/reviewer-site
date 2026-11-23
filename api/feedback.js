@@ -1,6 +1,6 @@
 import { z } from 'zod';
+import { callConvex } from './_lib/convex.js';
 import { createRouteHandler, parseInput } from './_lib/http.js';
-import { getDatabase } from './_lib/mongo.js';
 
 const slugSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).max(80);
 const bodySchema = z.object({
@@ -24,14 +24,7 @@ export default createRouteHandler({
     return parseInput(bodySchema, req.body);
   },
   async handler(req, res, body) {
-    const document = {
-      ...(body.problemId ? { problemId: body.problemId } : { lessonId: body.lessonId }),
-      message: body.message,
-      createdAt: new Date(),
-    };
-    const result = await (await getDatabase())
-      .collection('feedback')
-      .insertOne(document);
-    return res.status(201).json({ id: result.insertedId });
+    const result = await callConvex('feedback.create', body);
+    return res.status(201).json(result);
   },
 });

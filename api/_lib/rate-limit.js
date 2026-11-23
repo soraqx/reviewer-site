@@ -1,6 +1,6 @@
 import { createHmac } from 'node:crypto';
 import { isIP } from 'node:net';
-import { getDatabase } from './mongo.js';
+import { callConvex } from './convex.js';
 
 const WINDOW_MS = 60_000;
 
@@ -16,23 +16,6 @@ function requestIp(req) {
   return isIP(candidate) ? candidate : 'unknown';
 }
 
-async function incrementBucket(collection, key, expiresAt) {
-  try {
-    return await collection.findOneAndUpdate(
-      { _id: key },
-      { $inc: { count: 1 }, $setOnInsert: { expiresAt } },
-      { upsert: true, returnDocument: 'after', projection: { count: 1 } },
-    );
-  } catch (error) {
-    if (error.code !== 11000) throw error;
-    return collection.findOneAndUpdate(
-      { _id: key },
-      { $inc: { count: 1 } },
-      { returnDocument: 'after', projection: { count: 1 } },
-    );
-  }
-}
-
 export async function enforceRateLimit(req, { route, limit }) {
   const secret = process.env.RATE_LIMIT_SECRET;
   if (!secret || Buffer.byteLength(secret) < 32) {
@@ -46,22 +29,11 @@ export async function enforceRateLimit(req, { route, limit }) {
   const ipHash = createHmac('sha256', secret)
     .update(requestIp(req))
     .digest('hex');
-  const key = `${route}:${ipHash}:${windowStart}`;
-  const expiresAt = new Date(windowStart + 2 * WINDOW_MS);
-  const database = await getDatabase();
-  const bucket = await incrementBucket(
-    database.collection('rateLimits'),
-    key,
-    expiresAt,
-  );
-  const count = bucket?.count;
-
-  if (!Number.isInteger(count)) {
-    throw new Error('Rate-limit counter could not be read.');
-  }
-
-  return {
-    allowed: count <= limit,
-    retryAfterSeconds: Math.max(1, Math.ceil((windowStart + WINDOW_MS - now) / 1000)),
-  };
+  return callConvex('rateLimit.check', {
+    route,
+    ipHash,
+    windowStart,
+    now,
+    limit,
+  });
 }

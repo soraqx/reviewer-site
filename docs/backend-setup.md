@@ -1,72 +1,169 @@
-# Progress API setup
+# Convex backend setup
 
-The Vercel functions store only student-created progress, bookmarks, and feedback in the Atlas database `reviewerv1`. Formula, lesson, and problem content remains in the repository and does not depend on the API.
+The app stores student-created progress, bookmarks, feedback, and rate-limit
+buckets in Convex. Formula, lesson, and problem content remains in repository
+JSON and does not depend on the backend. Vercel `/api` functions call a
+private Convex HTTP action over HTTPS, so Vercel does not need a static egress
+IP or direct database credentials.
 
-## Local environment
+## 1. Create a Convex project
 
-Copy `.env.example` to `.env` and replace each placeholder locally. Do not commit `.env`, paste its values into chat, or prefix server variables with `VITE_`.
-
-Required variables:
-
-| Variable | Purpose |
-| --- | --- |
-| `MONGODB_URI` | Atlas connection URI for the server-only MongoDB driver |
-| `PRODUCTION_ORIGIN` | Exact public site origin, such as `https://study.example.com` (no path or trailing slash) |
-| `RATE_LIMIT_SECRET` | Random secret used to hash client IPs before storing rate-limit buckets |
-
-Generate a rate-limit secret locally with `node -e "console.log(require('node:crypto').randomBytes(32).toString('base64url'))"`. Never use the MongoDB URI in a client-side variable.
-
-Install the Vercel CLI once if it is not already available, then log in and link the repository to the Vercel project:
+From the repository root, install the project dependencies and start the
+Convex development deployment:
 
 ```powershell
-npm.cmd install --global vercel
-vercel.cmd login
-vercel.cmd link
+npm.cmd install
+npm.cmd run dev:convex
 ```
 
-Run the app and its `/api` functions together with `npm.cmd run dev:vercel`. Vercel CLI uses local environment files for development; alternatively, use `vercel.cmd env pull .env.local` after linking. Both `.env` and `.env.local` are ignored by Git.
+The first run opens browser login and asks you to create or select a Convex
+project. The CLI creates a development deployment, writes its local
+`CONVEX_DEPLOYMENT` setting to `.env.local`, and generates
+`convex/_generated/` files. Commit the generated files, but never commit
+`.env.local`.
 
-## Atlas database user and network access
+Leave `npm.cmd run dev:convex` running in one terminal. It watches the
+`convex/` directory and deploys backend changes to the development deployment.
 
-1. In Atlas, select the project that contains the existing cluster and open **Security → Database Access**.
-2. Add a database user with password/SCRAM authentication. Use a unique generated password.
-3. Assign only the built-in `readWrite` role scoped to the `reviewerv1` database using **Specific Privileges**. If the interface requires a custom role, create one with only `readWrite` on `reviewerv1` and assign it to this user. Do not grant `readWriteAnyDatabase`, `Atlas admin`, or project-management roles.
-4. In the cluster's **Connect → Drivers** flow, copy the Node.js connection URI and select `reviewerv1` as the database. Put it in local `.env` as `MONGODB_URI`; URL-encode reserved characters in the password.
-5. In Atlas, open **Security → Network Access → IP Access List**. Atlas rejects connections not on this list. Vercel functions normally use dynamic outbound IPs, so a developer's home IP is not enough for production.
+## 2. Configure the private gateway secret
 
-For production, prefer either:
+Generate a random secret locally:
 
-- The MongoDB Atlas integration in the Vercel Marketplace, if it is available for your accounts; follow its connection and network prompts, then verify the resulting URI is stored as the server-side `MONGODB_URI`.
-- Vercel static outbound IPs (or dedicated Secure Compute, if your plan provides it). Enable the feature for the project, copy its egress IP/CIDR entries from Vercel, and add every required entry to the Atlas IP Access List. Check Vercel's current plan and pricing before enabling it.
+```powershell
+node -e "console.log(require('node:crypto').randomBytes(32).toString('base64url'))"
+```
 
-Allowing `0.0.0.0/0` is a less secure fallback sometimes used when the hosting provider cannot supply stable egress IPs. It permits network connections from anywhere; Atlas credentials and TLS still apply, but the network layer no longer limits the source. Use it only if necessary, with the database-scoped user and a strong password, and replace it with a narrower list when stable Vercel egress is available.
+Set this value as `CONVEX_API_SECRET` in the Convex development deployment.
+When prompted, enter the value without including it in the command:
 
-## Vercel environment variables
+```powershell
+npx.cmd convex env set CONVEX_API_SECRET
+```
 
-In the Vercel project, open **Settings → Environment Variables** and add all three values for the environments you use:
+In the Convex dashboard, open the development deployment's **Settings** and
+copy its **HTTP Actions URL**, which ends in `.convex.site`. Add these values
+to the existing local `.env.local` file created by the Convex CLI:
 
-- `MONGODB_URI`: the Atlas URI, kept server-side only.
-- `PRODUCTION_ORIGIN`: the exact production origin, for example `https://study.example.com`.
-- `RATE_LIMIT_SECRET`: the locally generated random value.
+```dotenv
+CONVEX_SITE_URL=https://<your-dev-deployment>.convex.site
+CONVEX_API_SECRET=<the-same-development-secret>
+PRODUCTION_ORIGIN=https://<your-production-domain>.vercel.app
+RATE_LIMIT_SECRET=<a-different-random-32-byte-secret>
+```
 
-Keep `PRODUCTION_ORIGIN` set to the production domain in Production. The API permits localhost origins during local development and only the configured origin in production; preview deployments are intentionally not allowed unless separately configured.
+Keep the Convex CLI's existing `CONVEX_DEPLOYMENT` entry in `.env.local`.
+`CONVEX_API_SECRET` authenticates Vercel's server-to-server gateway calls;
+`RATE_LIMIT_SECRET` HMAC-hashes IP addresses before rate-limit records are
+stored. Never use a `VITE_` prefix for either secret.
 
-## Collections and API behavior
+## 3. Test locally
 
-The API creates these indexes when a function first connects:
+In a second terminal, start Vercel's local frontend and `/api` functions:
 
-- `progress`: unique `{ clientId, problemId }`, plus `{ clientId, updatedAt }`.
-- `bookmarks`: unique `{ clientId, formulaId }`, plus `{ clientId, createdAt }`.
-- `feedback`: `{ createdAt }`.
-- `rateLimits`: TTL index on `expiresAt`.
+```powershell
+npm.cmd run dev:vercel
+```
 
-The API validates every query/body with Zod, caps feedback messages at 1,000 characters, and limits POSTs per source IP to 30 per minute for progress/bookmarks and 8 per minute for feedback. IPs are HMAC-hashed before being used as rate-limit keys. CORS is not authentication: the anonymous `clientId` is a browser-generated UUID and can be copied or spoofed. Do not store sensitive or identifying information in these collections. `getClientId()` in `src/lib/api-client.js` is the single client identity seam to replace if authentication is added later.
+Open the URL Vercel CLI prints. Test progress recording, bookmark add/remove,
+and feedback submission. Verify the documents appear in the Convex
+development deployment's **Data** view. If the Convex service is unavailable,
+formula and problem content remains usable; progress and bookmarks fall back
+to local storage, and feedback reports that it was not sent.
 
-When the API is unavailable, formula and problem content remains usable. Progress and bookmarks are saved locally and queued for synchronization when the API returns; feedback is not queued, and the form reports clearly when a message was not sent.
+## 4. Configure production deployment
 
-## Password rotation
+### Convex
 
-1. Create a second Atlas database user with the same least-privilege `readWrite` access to `reviewerv1`, using a new unique password.
-2. Update `MONGODB_URI` in Vercel's required environments and in local `.env`/`.env.local`. Do not send the URI to anyone or commit it.
-3. Redeploy, then verify the formula page can load, a bookmark can be added/removed, a practice attempt is recorded, and feedback receives a success response.
-4. After the new credential is verified, delete the old database user in Atlas. If verification fails, keep the old user temporarily and correct the new URI/access configuration before retiring it.
+1. In the Convex dashboard, create or select the production deployment.
+2. Set a production-only `CONVEX_API_SECRET` in that deployment. Use a new
+   random value; do not reuse the development secret.
+3. Copy the production deployment's **HTTP Actions URL** ending in
+   `.convex.site`.
+4. Generate a **Production Deploy Key** with the `deployment:deploy`
+   permission. Keep it private.
+
+### Vercel
+
+In **Project → Settings → Environment Variables**, set the following for
+Production:
+
+| Variable | Value |
+| --- | --- |
+| `CONVEX_SITE_URL` | Production Convex HTTP Actions URL |
+| `CONVEX_API_SECRET` | The matching production Convex secret |
+| `PRODUCTION_ORIGIN` | Exact public production origin, with no trailing slash |
+| `RATE_LIMIT_SECRET` | A random 32-byte secret, different from `CONVEX_API_SECRET` |
+| `CONVEX_DEPLOY_KEY` | Production Deploy Key from Convex |
+
+Set Vercel's **Build Command** to:
+
+```sh
+if [ "$VERCEL_ENV" = "production" ]; then npx convex deploy --cmd 'npm run build'; else npm run build; fi
+```
+
+This deploys Convex functions together with production builds. Preview builds
+still build the site, but the API is intentionally unavailable there unless
+you separately configure a Convex preview deployment and matching Preview
+environment variables. The API only allows the configured production origin;
+CORS is not authentication.
+
+Redeploy after adding environment variables. Verify progress, bookmarks, and
+feedback on the deployed production URL, and verify records in the production
+Convex dashboard. Do not put `CONVEX_DEPLOY_KEY` or `CONVEX_API_SECRET` in
+client-side variables, source files, screenshots, or chat.
+
+## Data model and API behavior
+
+Convex schema and indexes are defined in `convex/schema.js`:
+
+- `progress`: one record per `{ clientId, problemId }`, indexed for client
+  lookups and recent updates.
+- `bookmarks`: one record per `{ clientId, formulaId }`, indexed for client
+  lookups and recent additions.
+- `feedback`: problem or lesson target, message, and creation time.
+- `rateLimits`: HMAC-hashed source IP, route, time-window count, and expiry.
+  Expired buckets are cleaned hourly.
+
+Vercel validates API inputs with Zod, checks the request origin, and limits
+progress/bookmark writes to 30 per IP per minute and feedback to 8 per IP per
+minute. Only Vercel's server-side functions can use the Convex gateway because
+it requires `CONVEX_API_SECRET`. Anonymous `clientId` values are still
+browser-generated UUIDs and can be copied or spoofed; do not store sensitive
+or identifying information in these collections.
+
+## Remove MongoDB and Atlas from this app
+
+MongoDB has been removed from the application dependencies and source code.
+After Convex production is verified:
+
+1. In Vercel, remove `MONGODB_URI` from Development, Preview, and Production
+   environment variables, if it was added.
+2. Remove any Atlas network access list entries that were added only for this
+   app.
+3. Delete the Atlas database user created only for this app. Keep the
+   `reviewerv1` database or other Atlas users if another project uses them.
+4. If the app has records in Atlas that must be kept, export and migrate them
+   before deleting the Atlas user or database. If no student data was stored,
+   there is nothing to migrate.
+5. In this repository, verify there are no `mongodb` dependencies or
+   `MONGODB_URI` references:
+
+   ```powershell
+   npm.cmd ls mongodb
+   git grep -n -E "mongodb|MONGODB_URI|MongoClient" -- "*.js" "*.json"
+   ```
+
+The package listing should be empty, and `git grep` should return no
+application source/config matches. `.env.example` contains placeholders only;
+local `.env` and `.env.local` remain ignored by Git.
+
+## Rotate gateway secrets
+
+Rotate development and production secrets independently:
+
+1. Generate a new random value locally.
+2. Set `CONVEX_API_SECRET` in the matching Convex deployment.
+3. Update the same deployment's Vercel `CONVEX_API_SECRET` value.
+4. Redeploy and verify API reads and writes.
+5. If verification fails, correct the values and redeploy. Do not disclose
+   either value.
