@@ -80,13 +80,15 @@ to local storage, and feedback reports that it was not sent.
    random value; do not reuse the development secret.
 3. Copy the production deployment's **HTTP Actions URL** ending in
    `.convex.site`.
-4. Generate a **Production Deploy Key** with the `deployment:deploy`
-   permission. Keep it private.
+4. Open that production deployment's **Deployment Settings → General** tab
+   and select **Generate Production Deploy Key**. In the permission selector,
+   enable `deployment:deploy` (not `development:deploy`), generate the key,
+   and copy it. Treat it as a secret; Convex may only show it once.
 
 ### Vercel
 
-In **Project → Settings → Environment Variables**, set the following for
-Production:
+In **Project → Settings → Environment Variables**, add the following and set
+the **Environment** to **Production only**:
 
 | Variable | Value |
 | --- | --- |
@@ -101,6 +103,15 @@ Set Vercel's **Build Command** to:
 ```sh
 if [ "$VERCEL_ENV" = "production" ]; then npx convex deploy --cmd 'npm run build'; else npm run build; fi
 ```
+
+Vercel may warn that this custom command differs from the detected Vite
+framework default; that is expected. Keep **Framework Preset** set to **Vite**
+and override only the **Build Command**. Leave the output directory as Vite's
+default `dist`.
+
+You can change this in **Project → Settings → Build and Deployment**; no
+Vercel CLI command is needed. Push to the connected Git repository or use
+Vercel's dashboard to deploy after saving the settings.
 
 This deploys Convex functions together with production builds. Preview builds
 still build the site, but the API is intentionally unavailable there unless
