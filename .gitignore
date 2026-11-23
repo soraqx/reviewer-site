@@ -7,3 +7,12 @@ dist/
 .hallmark/
 .agents/skills/hallmark/
 skills-lock.json
+
+# Convex CLI AI guidance and type-checking helpers are not deployed.
+/AGENTS.md
+/CLAUDE.md
+/.agents/skills/convex*/
+/.claude/skills/convex*/
+/convex/_generated/ai/
+/convex/_generated/*.d.ts
+/convex/tsconfig.json

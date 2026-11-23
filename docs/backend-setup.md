@@ -19,8 +19,10 @@ npm.cmd run dev:convex
 The first run opens browser login and asks you to create or select a Convex
 project. The CLI creates a development deployment, writes its local
 `CONVEX_DEPLOYMENT` setting to `.env.local`, and generates
-`convex/_generated/` files. Commit the generated files, but never commit
-`.env.local`.
+`convex/_generated/` files. Keep the generated `api.js` and `server.js` runtime
+helpers in Git because the backend imports them. Convex's AI guidance and
+type-checking helper files are ignored because they are not deployed. Never
+commit `.env.local`.
 
 Leave `npm.cmd run dev:convex` running in one terminal. It watches the
 `convex/` directory and deploys backend changes to the development deployment.
@@ -33,16 +35,15 @@ Generate a random secret locally:
 node -e "console.log(require('node:crypto').randomBytes(32).toString('base64url'))"
 ```
 
-Set this value as `CONVEX_API_SECRET` in the Convex development deployment.
-When prompted, enter the value without including it in the command:
+In the Convex dashboard, select your **development deployment**, then open
+**Settings → Environment Variables** (Deployment Settings). Add
+`CONVEX_API_SECRET` and paste the generated value as its value. Environment
+variables are deployment-specific, so confirm the development deployment is
+selected.
 
-```powershell
-npx.cmd convex env set CONVEX_API_SECRET
-```
-
-In the Convex dashboard, open the development deployment's **Settings** and
-copy its **HTTP Actions URL**, which ends in `.convex.site`. Add these values
-to the existing local `.env.local` file created by the Convex CLI:
+Copy that deployment's **HTTP Actions URL**, which ends in `.convex.site`.
+Add these values to the existing local `.env.local` file created by the
+Convex CLI:
 
 ```dotenv
 CONVEX_SITE_URL=https://<your-dev-deployment>.convex.site
