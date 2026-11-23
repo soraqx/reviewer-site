@@ -1,11 +1,11 @@
 ---
 title: "Engineering Mathematics 2: Geometry Website Content Pack"
-version: "1.0"
+version: "1.1"
 language: "en"
 audience: "Introductory college geometry and engineering mathematics students"
 format: "Framework-independent Markdown with LaTeX mathematics"
-source_documents: 7
-source_pages: 209
+source_documents: 13
+source_pages: 335
 content_policy: "Adapted instruction; corrected mathematics; source-linked examples; explicitly marked additions"
 ---
 
@@ -18,7 +18,7 @@ Use this file as the content specification for an educational website. It contai
 ### How to use this pack
 
 1. Read this section and the correction log before implementing lessons or calculators.
-2. Create the seven modules in the navigation order below. Use stable IDs for routes, search, examples, and progress records.
+2. Create the fifteen modules in the navigation order below. Use stable IDs for routes, search, examples, and progress records.
 3. Treat module explanations and worked examples as student-facing content. Treat implementation notes, provenance, and the correction log as editorial/developer information.
 4. Preserve LaTeX expressions. Render inline math with `$...$` and display math with `$$...$$`, or convert consistently to the project's math renderer.
 5. Keep answer keys hidden until requested by the learner. Do not put editorial review items into automatically graded quizzes.
@@ -28,9 +28,15 @@ Use this file as the content specification for an educational website. It contai
 
 ### Scope and editorial status
 
-This is an adapted content pack, not a verbatim transcription. It retains the instructional topics and identifiable mathematical problems from all seven PDFs; combines repeated slides; turns image-based formulas into text; supplies independently derived answers; and flags incomplete or conflicting prompts. Institutional title slides, decorative images, historical digressions, and repeated bibliography slides are not lessons. The course sources identify the MPS Department, FEU Institute of Technology; retain source attribution in an About/Sources area without implying institutional endorsement.
+This is an adapted content pack, not a verbatim transcription. It retains the instructional topics and identifiable mathematical problems from all thirteen PDFs; combines repeated slides; turns image-based formulas into text; supplies independently derived answers; and flags incomplete or conflicting prompts. Institutional title slides, decorative images, historical digressions, and repeated bibliography slides are not lessons. The course sources identify the MPS Department, FEU Institute of Technology; retain source attribution in an About/Sources area without implying institutional endorsement.
 
 All page citations below are **1-based PDF page numbers**, not printed labels. `P01`, `C01`, etc. are pack identifiers, not IDs from the original PDFs. Suggested interactions, accessibility requirements, additional explanations, and computational safeguards are implementation additions. Answer keys were derived for this pack unless an example already contains a valid source solution. No external websites or listed source bibliographies were consulted.
+
+### Version 1.1 additions
+
+This revision adds six PDFs and eight modules (26 lessons) to the original seven-module pack. All original module slugs, lesson IDs, formula IDs, and exercise IDs are preserved. Section numbers and navigation order have changed so triangles and quadrilaterals precede the coordinate lessons, and solid geometry follows the conics. Use stable IDs rather than section numbers for stored progress and application links.
+
+The updated pack is still a single, self-contained Markdown file. The PDFs are editorial references, not required runtime assets. New diagrams and image-only problem statements have been described in text so the IDE assistant can reconstruct them without the PDF files. Source examples that require clarification are explicitly flagged; revised variants do not pretend to recover an unambiguous original intention.
 
 ### Source manifest
 
@@ -43,20 +49,34 @@ All page citations below are **1-based PDF page numbers**, not printed labels. `
 | SRC-PARA | STPDF2 Parabola.pdf | 33 | Parabolas and their equations |
 | SRC-ELLI | STPDF3 ELLIPSE.pdf | 34 | Ellipses and their equations |
 | SRC-HYP | STPDF4 HYPERBOLA.pdf | 33 | Hyperbolas and their equations |
+| SRC-TRI | STPDF2_Triangles(1).pdf | 17 | Triangle classification, special segments, perimeter and area |
+| SRC-QUAD | STPDF3_Quadrilaterals.pdf | 20 | Quadrilateral classification, diagonals and area |
+| SRC-PRISM | MTPDF10 Prisms (1).pdf | 22 | Prism parts, nets, surface area and volume |
+| SRC-BOX | STPPT2 Parallelepiped and Cubes (1).pdf | 21 | Cubes, parallelepipeds, diagonals, packing and material quantities |
+| SRC-CYL | STPPT3 Cylinders (1).pdf | 14 | Circular, hollow and elliptic cylinders |
+| SRC-PYCS | MTPDF11 Pyramid and Non-polyhedron (1).pdf | 32 | Pyramids, cones, spheres, zones and spherical segments |
 
 ### Navigation and prerequisites
 
 | Order | Module ID / route slug | Title | Prerequisites | Lesson IDs |
 |---:|---|---|---|---|
 | 1 | plane-figures-polygons | Plane Figures and Polygons | Basic algebra and right-triangle trigonometry | POLY-01 through POLY-04 |
-| 2 | cartesian-coordinates | Cartesian Coordinates | Basic algebra and the Pythagorean theorem | CART-01 through CART-04 |
-| 3 | lines | Lines | CART-01, CART-02 | LINE-01 through LINE-03 |
-| 4 | circles | Conics and Circles | CART-02, LINE-03, completing the square | CIRC-01 through CIRC-03 |
-| 5 | parabolas | Parabolas | CIRC-01, completing the square | PARA-01 through PARA-03 |
-| 6 | ellipses | Ellipses | CIRC-01, completing the square | ELLI-01 through ELLI-03 |
-| 7 | hyperbolas | Hyperbolas | CIRC-01, ELLI-01, completing the square | HYP-01 through HYP-03 |
+| 2 | triangles | Triangles | POLY-01, basic algebra and trigonometry | TRI-01 through TRI-04 |
+| 3 | quadrilaterals | Quadrilaterals | TRI-03, POLY-01 | QUAD-01 through QUAD-04 |
+| 4 | cartesian-coordinates | Cartesian Coordinates | Basic algebra and Pythagorean theorem | CART-01 through CART-04 |
+| 5 | lines | Lines | CART-01, CART-02 | LINE-01 through LINE-03 |
+| 6 | circles | Conics and Circles | CART-02, LINE-03, completing the square | CIRC-01 through CIRC-03 |
+| 7 | parabolas | Parabolas | CIRC-01, completing the square | PARA-01 through PARA-03 |
+| 8 | ellipses | Ellipses | CIRC-01, completing the square | ELLI-01 through ELLI-03 |
+| 9 | hyperbolas | Hyperbolas | CIRC-01, ELLI-01, completing the square | HYP-01 through HYP-03 |
+| 10 | prisms | Prisms | TRI-03, QUAD-02, POLY-04 | PRISM-01 through PRISM-03 |
+| 11 | parallelepipeds-cubes | Parallelepipeds and Cubes | PRISM-01, PRISM-02, QUAD-02 | BOX-01 through BOX-03 |
+| 12 | cylinders | Cylinders | PRISM-02, circle area; ELLI-01 for elliptic bases | CYL-01 through CYL-03 |
+| 13 | pyramids | Pyramids | TRI-03, POLY-04, PRISM-01 | PYR-01 through PYR-03 |
+| 14 | cones | Cones | PYR-02, CYL-01, Pythagorean theorem | CONE-01 through CONE-03 |
+| 15 | spheres-segments | Spheres and Spherical Segments | Circle area, volume units, Pythagorean theorem | SPH-01 through SPH-03 |
 
-This yields **23 lessons**. A module page should expose its overview, outcomes, lessons, worked examples, practice, and summary formulas. Global search should match lesson titles, glossary terms, formula names, and example IDs.
+This yields **49 lessons across 15 modules**. A module page should expose its overview, outcomes, lessons, worked examples, practice, and summary formulas. Global search should match lesson titles, glossary terms, formula names, and example IDs.
 
 ### Suggested content record contract
 
@@ -92,6 +112,10 @@ Recommended `editorialStatus`: `adapted`, `corrected`, `supplemental`, or `needs
 | $a,b,c$ | Semiaxis parameters and center-to-focus distance | Ellipses and hyperbolas |
 | $e$ | Eccentricity | Conics |
 | $m$ | Slope | Lines |
+
+**Plane and solid geometry notation:** Triangle area may be written $K$ to avoid confusion with vertex/angle $A$. Triangle semiperimeter is $s_p$ so it is not confused with polygon side $s$. In solids, $B$ is the area of one base, $P_b$ is base perimeter, $A_L$ is lateral/curved area as defined, $A_T$ is total included boundary area, and $V$ is volume. Use $m=\rho V$ for mass from density. Use $R_b$ for polygon circumradius, $r_a$ for apothem, $\ell$ for slant height, and $E$ for a pyramid's lateral edge. Reusing letters is acceptable within a lesson only when their meanings are defined there.
+
+**Area distinctions:** A zone is a curved surface; a segment is a solid portion. Total surface area depends on which flat faces close the solid. Wetted container area includes only container surfaces touching liquid. The exposed liquid surface is not wetted container wall. Volume units are cubic; area units are square. Convert all linear measurements before multiplying, and cube the conversion factor for volumes.
 
 Keep exact fractions and radicals in explanations. Round displayed measurement results at the end, usually to two decimals; do not round intermediate values. Angles are in degrees unless explicitly stated otherwise. Trigonometric programming functions commonly expect radians: convert degrees using $\theta_{rad}=\theta_{deg}\pi/180$. A count is dimensionless, lengths have linear units, and areas have square units.
 
@@ -241,7 +265,247 @@ The first area form sums the $n$ triangle areas $\tfrac12sr_a$. Use these formul
 
 ---
 
-## 2. Cartesian Coordinates
+## 2. Triangles
+
+**Module ID:** `triangles`  
+**Source:** SRC-TRI, STPDF2_Triangles(1).pdf, pp. 2–15.
+
+**Overview:** Classify triangles, distinguish their special segments and centers, and calculate perimeter, area, altitude, median, and internal angle-bisector lengths.
+
+**Learning outcomes:** Classify by sides and angles; identify incenter, orthocenter, and centroid; select an area formula from the given data; calculate all three kinds of special segment.
+
+### TRI-01 — Classification and parts
+
+**Sources:** SRC-TRI pp. 4–5.
+
+A triangle is a three-sided polygon. Its interior angles sum to $180^\circ$. Use vertices $A,B,C$, with opposite side lengths $a=BC$, $b=CA$, $c=AB$. Side symbols represent lengths, while capital letters may denote angles at the corresponding vertices.
+
+| Classification | Definition |
+|---|---|
+| Scalene | Three unequal side lengths; three unequal angles |
+| Isosceles | At least two equal sides, with equal opposite angles |
+| Equilateral | Three equal sides; all angles $60^\circ$ |
+| Right | One $90^\circ$ angle |
+| Acute | All angles less than $90^\circ$ |
+| Obtuse | One angle greater than $90^\circ$ |
+| Oblique | No right angle; includes acute and obtuse triangles |
+| Equiangular | Three equal angles; equivalent to equilateral for triangles |
+
+**Convention:** Use the inclusive definition of isosceles (“at least two”). Thus an equilateral triangle is also isosceles. If a quiz requires one exclusive label, ask for the most specific side classification.
+
+In an isosceles triangle, the **vertex angle** is between the two equal sides, and the **base angles** adjoin the remaining side, the base. Any side of a general triangle may be chosen as the base when paired with its corresponding altitude.
+
+A valid nondegenerate triangle with three positive sides satisfies all triangle inequalities; equivalently, the longest side is shorter than the sum of the other two. A sum equal to the longest side gives a straight, degenerate configuration.
+
+**Supplemental classification check:** If $c$ is the longest side, compare $c^2$ with $a^2+b^2$: equal means right, smaller means acute, and larger means obtuse. Apply this only after checking the triangle inequalities.
+
+### TRI-02 — Altitudes, medians, angle bisectors, and centers
+
+**Sources:** SRC-TRI pp. 5–7; notation standardized and geometric details clarified.
+
+| Object | Definition | Concurrency point |
+|---|---|---|
+| Altitude | Perpendicular segment from a vertex to the opposite side's supporting line | Orthocenter |
+| Median | Segment from a vertex to the midpoint of the opposite side | Centroid |
+| Internal angle bisector | Segment dividing a vertex angle into equal angles and ending on the opposite side | Incenter |
+
+An altitude may end outside the side segment for an obtuse triangle. The incenter is the center of the inscribed circle. The centroid divides every median in a $2:1$ ratio, measured from vertex toward side midpoint; this ratio is a supplemental explanatory fact. A median, altitude, and angle bisector from the same vertex are generally different segments.
+
+Let $K$ be triangle area and $s_p=(a+b+c)/2$ its semiperimeter. From vertex $C$ to side $c$:
+
+$$h_c=\frac{2K}{c}=\frac{2\sqrt{s_p(s_p-a)(s_p-b)(s_p-c)}}{c}.\tag{F-T01}$$
+
+$$m_c=\frac12\sqrt{2a^2+2b^2-c^2}.\tag{F-T02}$$
+
+$$\ell_c=\frac{\sqrt{ab[(a+b)^2-c^2]}}{a+b}.\tag{F-T03}$$
+
+Cycle the labels to calculate the corresponding quantities from $A$ or $B$. The lengths $a,b$ in the angle-bisector formula are the two sides adjacent to the bisected angle. F-T02 agrees with the source's displayed median formula and worked example on pp. 6–7. The leading factor $1/2$ is outside the square root.
+
+#### Worked example T01 — All special segments of a 5–12–13 triangle
+
+**Source:** SRC-TRI p. 7. Set $a=5$, $b=12$, $c=13$, in centimeters.
+
+1. $s_p=15$ and $K=\sqrt{15(10)(3)(2)}=30\text{ cm}^2$.
+2. Use $h_i=2K/i$ for the altitudes.
+3. Substitute the side lengths in F-T02 and F-T03 for medians and internal bisectors.
+
+| Vertex | Altitude | Median | Internal angle bisector |
+|---|---|---|---|
+| $A$ | $12\text{ cm}$ | $\sqrt{601}/2\text{ cm}$ | $12\sqrt{26}/5\text{ cm}$ |
+| $B$ | $5\text{ cm}$ | $\sqrt{61}\text{ cm}$ | $5\sqrt{13}/3\text{ cm}$ |
+| $C$ | $60/13\text{ cm}$ | $13/2\text{ cm}$ | $60\sqrt2/17\text{ cm}$ |
+
+### TRI-03 — Perimeter and area
+
+**Sources:** SRC-TRI pp. 8–13.
+
+| Formula ID | Given information | Formula |
+|---|---|---|
+| F-T04 | Three sides | $P=a+b+c$ |
+| F-T05 | Base $b_0$ and perpendicular height $h$ | $K=b_0h/2$ |
+| F-T06 | Two sides and their included angle $\theta$ | $K=ab\sin\theta/2$ |
+| F-T07 | Three valid side lengths | $K=\sqrt{s_p(s_p-a)(s_p-b)(s_p-c)}$ |
+| F-T08 | Equilateral side $q$ | $h=q\sqrt3/2$, $K=q^2\sqrt3/4$, $P=3q$ |
+
+F-T07 is **Heron's formula**. The included angle in F-T06 lies between the two given sides. Do not use an unrelated triangle angle. In a right triangle, the two legs can serve as base and perpendicular height.
+
+#### Worked example T02 — Perimeter and area
+
+**Source:** SRC-TRI p. 12. Sides $5,12,13\text{ cm}$ give $P=30\text{ cm}$ and $K=30\text{ cm}^2$, either by Heron's formula or $(5)(12)/2$.
+
+#### Worked example T03 — Equilateral triangle from its perimeter
+
+**Source:** SRC-TRI p. 13. A perimeter of $18\text{ cm}$ gives side $q=6\text{ cm}$, so $K=\sqrt3(6)^2/4=9\sqrt3\text{ cm}^2$.
+
+### TRI-04 — Alternative configurations and angle ambiguity
+
+**Sources:** SRC-TRI pp. 14–15.
+
+#### Worked example T04 — Maximum among two isosceles configurations
+
+**Source:** SRC-TRI p. 14. An isosceles triangle has perimeter $72\text{ cm}$ and one side $20\text{ cm}$. Find the maximum possible area.
+
+1. If 20 is the base, the equal sides are 26. The altitude is $\sqrt{26^2-10^2}=24$, and area is $240\text{ cm}^2$.
+2. If 20 is one of the equal sides, the sides are $20,20,32$. The altitude to side 32 is $\sqrt{20^2-16^2}=12$, and area is $192\text{ cm}^2$.
+3. Both satisfy the conditions. The larger area is $\boxed{240\text{ cm}^2}$.
+
+This compares the configurations allowed by the specific conditions; it is not an unconstrained optimization over every triangle of perimeter 72.
+
+#### Worked example T05 — Two possible included angles
+
+**Source:** SRC-TRI p. 15. Area $72\text{ in}^2$ with sides 12 in and 24 in gives
+
+$$72=\tfrac12(12)(24)\sin\theta,\qquad\sin\theta=\tfrac12.$$
+
+Since an interior angle lies between $0^\circ$ and $180^\circ$, the answers are $\boxed{30^\circ\text{ and }150^\circ}$. An inverse-sine button returns only one principal value, so check the supplementary angle as well.
+
+**Interaction INT-TRIANGLE:** Enter three sides or drag three vertices. Validate noncollinearity and triangle inequalities, then display classifications, perimeter, and area. Toggle all altitudes, medians, and internal bisectors with their centers. Extend opposite sides when an altitude falls outside. Include T01 and T04 presets. A separate SAS mode should show how supplementary included angles produce equal areas.
+
+**Practice:** Reuse T01–T05 with solutions initially hidden. **Supplemental T-P01:** For sides $13,14,15\text{ cm}$, find area and altitude to side 14. **Answer:** $84\text{ cm}^2$ and $12\text{ cm}$. **Supplemental T-P02:** Can $2,3,5$ be nondegenerate triangle sides? **Answer:** No; $2+3=5$.
+
+---
+
+## 3. Quadrilaterals
+
+**Module ID:** `quadrilaterals`  
+**Source:** SRC-QUAD, STPDF3_Quadrilaterals.pdf, pp. 2–18.
+
+**Overview:** Classify quadrilaterals and calculate their perimeters, diagonals, and areas from suitable measurements.
+
+**Learning outcomes:** Classify by parallel sides and special properties; use parallelogram and rhombus diagonal relations; solve rectangle, square, and trapezoid problems; use the general convex-quadrilateral area formula when sufficient angular data are supplied.
+
+### QUAD-01 — Classification and parallelograms
+
+**Sources:** SRC-QUAD pp. 4–7.
+
+A quadrilateral is a four-sided polygon. For this pack, use the source's convention: a **trapezoid** has exactly one pair of parallel opposite sides, a **trapezium** has no parallel sides, and a **parallelogram** has two pairs. These names have other regional conventions, so state this convention in the lesson and quiz instructions.
+
+Rectangles, rhombi, and squares are special parallelograms. A square is both a rectangle and a rhombus. In a parallelogram, opposite sides are parallel and equal, opposite angles are equal, consecutive angles are supplementary, and diagonals bisect one another. Use labels $A,B,C,D$ consecutively around the boundary; the source diagram uses a different vertex order on some pages.
+
+For adjacent side lengths $a,b$ and their included angle $\theta$:
+
+$$P=2(a+b),\qquad K=ab\sin\theta=b h.\tag{F-QD01}$$
+
+The corresponding diagonal lengths form the unordered pair
+
+$$\left\{\sqrt{a^2+b^2-2ab\cos\theta},\sqrt{a^2+b^2+2ab\cos\theta}\right\}.\tag{F-QD02}$$
+
+With diagonal lengths $d_1,d_2$ and angle $\phi$ between them,
+
+$$K=\tfrac12d_1d_2\sin\phi.\tag{F-QD03}$$
+
+The angle between diagonals is not generally the angle between sides.
+
+#### Worked example QD01 — Parallelogram diagonals and area
+
+**Source:** SRC-QUAD p. 7. Sides $10,15\text{ cm}$ with included angle $135^\circ$:
+
+1. The diagonal squares are $325\pm150\sqrt2$.
+2. The diagonals are approximately $23.18\text{ cm}$ and $10.62\text{ cm}$.
+3. $K=(10)(15)\sin135^\circ=75\sqrt2\approx106.07\text{ cm}^2$.
+
+### QUAD-02 — Rectangles and squares
+
+**Sources:** SRC-QUAD pp. 8–11.
+
+| Shape | Perimeter | Area | Diagonal |
+|---|---|---|---|
+| Rectangle of length $L$, width $W$ | $2(L+W)$ | $LW$ | $\sqrt{L^2+W^2}$ |
+| Square of side $q$ | $4q$ | $q^2$ | $q\sqrt2$ |
+
+Formula IDs: **F-QD04** rectangle measurements; **F-QD05** square measurements.
+
+#### Worked example QD02 — Rectangle from perimeter and ratio
+
+**Source:** SRC-QUAD p. 9, intermediate arithmetic corrected. If $P=24\text{ cm}$ and $L=3W$, then $L+W=12$, $W=3$, and $L=9$. Area is $27\text{ cm}^2$. The diagonal is $\sqrt{9^2+3^2}=\sqrt{90}=3\sqrt{10}\text{ cm}$, not the intermediate $\sqrt{50}$ printed in the source.
+
+#### Worked example QD03 — Square from its area
+
+**Source:** SRC-QUAD p. 11. Area $25\text{ cm}^2$ gives side 5 cm, perimeter 20 cm, and diagonal $\sqrt{50}=5\sqrt2\text{ cm}$.
+
+### QUAD-03 — Rhombi
+
+**Sources:** SRC-QUAD pp. 12–14.
+
+A **rhombus** is an equilateral parallelogram. Its diagonals bisect each other at right angles. For side length $q$:
+
+$$P=4q,\quad K=bh=q^2\sin\theta=\frac{d_1d_2}{2},\quad q=\frac12\sqrt{d_1^2+d_2^2}.\tag{F-QD06}$$
+
+The diagonal squares are $2q^2(1-\cos\theta)$ and $2q^2(1+\cos\theta)$, in an order depending on labels. They are not both $2q^2(1-\cos\theta)$, as printed on p. 12.
+
+#### Worked example QD04 — Equilateral triangle inside a rhombus
+
+**Source:** SRC-QUAD p. 14, corrected. Consecutive vertices are $A,B,C,D$, diagonal $BD=8\text{ cm}$, and triangle $ADC$ is equilateral.
+
+1. If the rhombus side is $q$, equilateral triangle $ADC$ implies diagonal $AC=q$.
+2. The rhombus identity gives $AC^2+BD^2=4q^2$.
+3. Thus $q^2+64=4q^2$, so $q=8/\sqrt3$.
+4. $K=AC\cdot BD/2=\boxed{32/\sqrt3=32\sqrt3/3\text{ cm}^2}$.
+
+The source answer $32\sqrt3$ assumes the given 8 cm is the side of an equilateral constituent triangle. It is not: the printed label identifies the other diagonal $BD$. Keep the stated geometry and the corrected answer together.
+
+### QUAD-04 — Trapezoids and general convex quadrilaterals
+
+**Sources:** SRC-QUAD pp. 15–18.
+
+A trapezoid's parallel sides are its bases. With lengths $b_1,b_2$ and perpendicular separation $h$:
+
+$$K=\tfrac12(b_1+b_2)h.\tag{F-QD07}$$
+
+Its perimeter is the sum of all four sides. The nonparallel sloping side is not generally the height.
+
+#### Worked example QD05 — Right trapezoid
+
+**Source:** SRC-QUAD p. 16; diagram measurements transcribed. Bases 5 cm and 9 cm, left side perpendicular to the bases, lower-right interior angle $45^\circ$:
+
+1. Horizontal offset is $9-5=4\text{ cm}$.
+2. $h=4\tan45^\circ=4\text{ cm}$; sloping side $4\sqrt2\text{ cm}$.
+3. $K=(5+9)(4)/2=28\text{ cm}^2$.
+4. $P=5+9+4+4\sqrt2=18+4\sqrt2\approx23.66\text{ cm}$.
+
+**Diagram coordinates:** $(0,0),(9,0),(5,4),(0,4)$ in boundary order reproduce the geometry exactly.
+
+For a convex quadrilateral with side lengths $a,b,c,d$ in order, semiperimeter $s_p=(a+b+c+d)/2$, and opposite interior angles $\alpha,\gamma$, **Bretschneider's formula** is
+
+$$K=\sqrt{(s_p-a)(s_p-b)(s_p-c)(s_p-d)-abcd\cos^2\!\left(\frac{\alpha+\gamma}{2}\right)}.\tag{F-QD08}$$
+
+This formula is not limited to the no-parallel-sides subclass. Four side lengths alone generally do not determine the area. Check geometric consistency of user input; a nonnegative radicand alone is not a complete construction test.
+
+#### Worked example QD06 — Vacant lot
+
+**Source:** SRC-QUAD p. 18. Sides $14,4,12,20\text{ m}$ with an opposite-angle sum of $240^\circ$:
+
+1. $s_p=25\text{ m}$.
+2. $K^2=(11)(21)(13)(5)-(14)(4)(12)(20)\cos^2120^\circ=11655$.
+3. $K=\sqrt{11655}\approx107.96\text{ m}^2$.
+
+**Interaction INT-QUADRILATERAL:** Offer constrained modes for parallelogram, rectangle, square, rhombus, and right trapezoid. Display side and diagonal measurements, angle properties, and area. Constrain dragging to preserve the selected class. Show a diagonal-based right-triangle construction for QD04. For a freely drawn quadrilateral, use ordered-coordinate area and identify self-intersection rather than applying a special-shape formula indiscriminately.
+
+**Practice:** Reuse QD01–QD06 with solutions hidden. **Supplemental QD-P01:** Rhombus diagonals 6 and 8 cm. **Answer:** side 5 cm, perimeter 20 cm, area $24\text{ cm}^2$.
+
+---
+
+## 4. Cartesian Coordinates
 
 **Module ID:** `cartesian-coordinates`  
 **Sources:** SRC-CART pp. 2–31.
@@ -399,7 +663,7 @@ The following tables adapt the source exercise sets. Entries marked review are e
 
 ---
 
-## 3. Lines
+## 5. Lines
 
 **Module ID:** `lines`  
 **Sources:** SRC-LINE pp. 2–21.
@@ -526,7 +790,7 @@ For SRC-LINE p. 13, explicitly ask for the **smaller angle between supporting li
 
 ---
 
-## 4. Conics and Circles
+## 6. Conics and Circles
 
 **Module ID:** `circles`  
 **Sources:** SRC-CIRC pp. 2–33.
@@ -708,7 +972,7 @@ $$\boxed{r=\frac{|Ah+Bk+C|}{\sqrt{A^2+B^2}}}.\tag{F-O04}$$
 
 ---
 
-## 5. Parabolas
+## 7. Parabolas
 
 **Module ID:** `parabolas`  
 **Sources:** SRC-PARA pp. 2–32.
@@ -837,7 +1101,7 @@ The nonzero linear coefficient of the other variable prevents degeneracy. A lone
 
 ---
 
-## 6. Ellipses
+## 8. Ellipses
 
 **Module ID:** `ellipses`  
 **Sources:** SRC-ELLI pp. 2–33.
@@ -968,7 +1232,7 @@ Axis-parallel equations have form $Ax^2+By^2+Dx+Ey+F=0$ with $A,B$ nonzero and t
 
 ---
 
-## 7. Hyperbolas
+## 9. Hyperbolas
 
 **Module ID:** `hyperbolas`  
 **Sources:** SRC-HYP pp. 2–32.
@@ -1091,7 +1355,606 @@ The source's final plus sign would produce an ellipse and would not satisfy the 
 
 ---
 
-## 8. Cross-module reference
+## 10. Prisms
+
+**Module ID:** `prisms`  
+**Source:** SRC-PRISM, MTPDF10 Prisms (1).pdf, pp. 2–21.
+
+**Overview:** Relate base area, perpendicular height, lateral faces, and nets to prism surface area and volume.
+
+**Learning outcomes:** Identify right and oblique prisms and their parts; distinguish height from lateral-edge length; calculate lateral area, total area, volume, and simple density-based mass; evaluate whether a problem's dimensions are consistent.
+
+### PRISM-01 — Parts, types, and nets
+
+**Sources:** SRC-PRISM pp. 3–6, 8–10.
+
+A **prism** is a polyhedron with two congruent polygonal bases in parallel planes, joined by parallelogram lateral faces. Corresponding points of the bases differ by the same translation. A **polyhedron** is a solid bounded by polygonal faces. A **net** lays a solid's faces flat while preserving their sizes and adjacency.
+
+| Term | Definition |
+|---|---|
+| Base | Either of the congruent parallel polygonal faces |
+| Lateral face | A face joining corresponding base edges |
+| Lateral edge | Segment joining corresponding vertices of the bases |
+| Altitude / perpendicular height $h$ | Perpendicular distance between the base planes |
+| Axis segment | Segment joining the base centroids; parallel and equal in length to lateral edges |
+| Right prism | Lateral edges are perpendicular to the bases; lateral faces are rectangles |
+| Oblique prism | Lateral edges are not perpendicular to the bases |
+| Right section | A section made by a plane perpendicular to the lateral-edge direction |
+
+The source statement that a right prism's axis is “parallel” to its base is incorrect: it is perpendicular. The length of the axis segment equals a lateral edge; only for a right prism does that length equal the perpendicular height.
+
+Name the prism by the base shape: triangular, rectangular, pentagonal, hexagonal, and so on. “Right regular pentagonal prism” specifies both a regular pentagon base and right lateral edges. A parallelogram-base prism is a parallelepiped.
+
+For an $n$-gonal prism: faces $n+2$, edges $3n$, vertices $2n$. Thus a triangular prism has 5 faces, 9 edges, and 6 vertices; a rectangular prism has 6, 12, and 8, respectively.
+
+**Diagram brief:** Draw paired right and oblique prisms with equal base area and perpendicular height. Show the altitude with a right-angle marker, distinct from a sloping lateral edge. Include an unfoldable right triangular-prism net with two congruent triangles and three rectangles.
+
+### PRISM-02 — Area, volume, and applicability
+
+**Sources:** SRC-PRISM pp. 7–10; formula labels and restrictions corrected.
+
+Let $B$ be the area of **one** base, $P_b$ its perimeter, and $h$ the perpendicular distance between base planes.
+
+| Formula ID | Quantity | Formula and condition |
+|---|---|---|
+| F-PR01 | Volume | $V=Bh$, right or oblique prism |
+| F-PR02 | Lateral surface area | $A_L=P_bh$, right prism |
+| F-PR03 | Total surface area | $A_T=A_L+2B$, closed prism |
+| F-PR04 | General oblique lateral area | Sum the actual areas of the lateral parallelogram faces |
+| F-PR05 | Right triangular prism | $V=(b_0h_t/2)L$, $A_T=b_0h_t+(u+v+w)L$ |
+| F-PR06 | Rectangular prism | $V=LWH$, $A_T=2(LW+LH+WH)$ |
+
+In F-PR05, $b_0,h_t$ are a matched base/altitude pair of the triangular end, $u,v,w$ are its actual side lengths, and $L$ is the prism length perpendicular to that end. These are different measurements.
+
+For an oblique prism, $P_bh$ is generally not the lateral area. An alternative construction uses right-section perimeter times lateral-edge length when a complete right section crossing the lateral edges is available; the general implementation should instead sum the lateral-face areas.
+
+**Open surfaces:** A missing end removes one $B$; two missing ends remove $2B$. State explicitly which faces are included. Volume refers to enclosed capacity or occupied space according to the problem; area concerns exposed surfaces.
+
+#### Worked example PR01 — Rectangular-prism net
+
+**Source:** SRC-PRISM p. 8. Dimensions $2,3,6\text{ cm}$:
+
+$$A_T=2(2\cdot3+2\cdot6+3\cdot6)=72\text{ cm}^2.$$
+
+The net has two $2\times3$, two $2\times6$, and two $3\times6$ rectangles. Its volume is $36\text{ cm}^3$ (additional derived output).
+
+#### Worked example PR02 — Dimensions shown in a diagram
+
+**Source:** SRC-PRISM p. 11. Rectangular prism edges 6, 5, and 3 cm:
+
+$$A_T=2(6\cdot5+6\cdot3+5\cdot3)=126\text{ cm}^2.$$
+
+Its volume is $90\text{ cm}^3$ (additional derived output). The order assigned to length, width, and height does not change these results.
+
+#### Worked example PR03 — Valid triangular prism from a net
+
+**Source:** SRC-PRISM p. 21; diagram dimensions transcribed. The triangular ends are right triangles with legs 9 and 12 cm, hypotenuse 15 cm, and prism length 10 cm.
+
+1. $B=9(12)/2=54\text{ cm}^2$; $P_b=9+12+15=36\text{ cm}$.
+2. $A_L=36(10)=360\text{ cm}^2$.
+3. $A_T=360+2(54)=\boxed{468\text{ cm}^2}$.
+4. $V=54(10)=\boxed{540\text{ cm}^3}$.
+
+**Reconstructable diagram:** Use triangle vertices $(0,0),(12,0),(0,9)$ in the base plane and translate by 10 units perpendicularly. The net's three rectangles have widths 9, 12, and 15 and common length 10.
+
+### PRISM-03 — Applications and inconsistent source prompts
+
+**Sources:** SRC-PRISM pp. 12–20.
+
+#### Worked example PR04 — Wooden block
+
+**Source:** SRC-PRISM p. 18. A block measures $7.5\times8.7\times12\text{ cm}$, and its material has mass $0.7\text{ g}$ per cubic centimeter.
+
+1. $V=7.5(8.7)(12)=783\text{ cm}^3$.
+2. $A_T=2(7.5\cdot8.7+7.5\cdot12+8.7\cdot12)=519.3\text{ cm}^2$.
+3. Space diagonal $D=\sqrt{7.5^2+8.7^2+12^2}\approx16.61\text{ cm}$.
+4. Mass $m=\rho V=0.7(783)=548.1\text{ g}$.
+
+The source calls this quantity “weight.” Grams measure mass. A force weight would require a specified gravitational acceleration and force units.
+
+#### Worked example PR05 — Cube from its volume
+
+**Source:** SRC-PRISM p. 19. For $V=95\text{ cm}^3$, the edge is $q=\sqrt[3]{95}\approx4.56\text{ cm}$, and total surface area is $6(95)^{2/3}\approx124.92\text{ cm}^2$. Retain the unrounded cube root when computing area.
+
+#### Worked example PR06 — Regular hexagonal prism recast as a cube
+
+**Source:** SRC-PRISM p. 20; clarified adaptation. The source says “base inscribed about a circle,” which mixes two different constructions. For the live version, state: **the regular hexagonal base is circumscribed about a circle of radius 2 cm** and prism height is 10 cm. Assume no material is lost on recasting.
+
+1. Apothem $r_a=2$; side $s=2r_a\tan30^\circ=4/\sqrt3$.
+2. $B=(6s)r_a/2=8\sqrt3\text{ cm}^2$.
+3. Cube volume $V=80\sqrt3\text{ cm}^3$.
+4. Cube edge $q=\sqrt[3]{80\sqrt3}\approx5.17\text{ cm}$.
+
+If instead the regular hexagon is **inscribed in** a circle of radius 2, then side 2 gives $B=6\sqrt3$, and the cube edge is $\sqrt[3]{60\sqrt3}\approx4.70\text{ cm}$. Do not choose between these interpretations silently. PR06 is the explicitly clarified first interpretation.
+
+**Review-only original triangular-prism examples:** These cannot represent the triangles implied by their stated side lengths and altitudes. Do not grade their printed numerical answers as correct geometry.
+
+| Review ID | Source | Conflict | Printed calculation / status |
+|---|---|---|---|
+| PR-R01 | pp. 12–13 | Triangular base 3, altitude 4, other sides interpreted as 6 and 6; length 8 | $12+(3+6+6)8=132$, but a 3–6–6 triangle does not have altitude 4 to side 3 |
+| PR-R02 | pp. 14–15 | Base 5, altitude 4, other sides 6 and 6 from solution; length 8 | $20+(5+6+6)8=156$, but a 5–6–6 triangle does not have altitude 4 to side 5 |
+| PR-R03 | pp. 16–17 | Base 12, altitude 9, other sides 9 and 9 from text/solution; length 14 | Source also uses perimeter $9+9+9$, omitting the stated side 12; printed 486 is invalid |
+
+**Explicitly revised variants (new adaptations, not inferred original intentions):** Retain each side triple and prism length, and derive a consistent triangle altitude. These can become practice items if their revised prompts replace the originals completely.
+
+| ID | Revised triangular end and prism length | Derived altitude to first listed side | Correct total surface area |
+|---|---|---|---|
+| PR-V01 | Sides $3,6,6\text{ cm}$; length 8 cm | $3\sqrt{15}/2\text{ cm}$ | $120+9\sqrt{15}/2\approx137.43\text{ cm}^2$ |
+| PR-V02 | Sides $5,6,6\text{ in}$; length 8 in | $\sqrt{119}/2\text{ in}$ | $136+5\sqrt{119}/2\approx163.27\text{ in}^2$ |
+| PR-V03 | Sides $12,9,9\text{ in}$; length 14 in | $3\sqrt5\text{ in}$ | $420+36\sqrt5\approx500.50\text{ in}^2$ |
+
+**Interaction INT-PRISM:** Choose a triangle or regular polygon base, right/oblique mode, and height. For right mode, unfold the lateral faces and show perimeter times height. In oblique mode, show perpendicular height and lateral-edge length separately; use face areas for surface area. Validate triangle side/altitude consistency. Include PR03 as a fully specified net preset.
+
+---
+
+## 11. Parallelepipeds and Cubes
+
+**Module ID:** `parallelepipeds-cubes`  
+**Source:** SRC-BOX, STPPT2 Parallelepiped and Cubes (1).pdf, pp. 2–20.
+
+**Overview:** Recognize parallelepipeds and cubes as prisms and solve area, volume, diagonal, packing, and material-quantity problems.
+
+**Learning outcomes:** Identify solid properties; distinguish face and space diagonals; calculate box and cube measurements; distinguish general oblique formulas from right-prism shortcuts; convert units before comparing volumes.
+
+### BOX-01 — Cubes and rectangular parallelepipeds
+
+**Sources:** SRC-BOX pp. 3–11, 16.
+
+A **parallelepiped** has six parallelogram faces, with opposite faces congruent and parallel, 12 edges, and 8 vertices. A **rectangular parallelepiped**, or cuboid, has six rectangular faces. A **cube** has six congruent square faces and all edges equal; it is a right square prism and a regular hexahedron.
+
+Each cube face shares edges with four other faces, and three faces and three edges meet at each vertex. A square is two-dimensional; a cube is three-dimensional. A cube is a prism because it has congruent parallel square bases and parallelogram lateral faces, not simply because it is a Platonic solid.
+
+| Formula ID | Quantity | Cube, edge $q$ | Cuboid, edges $L,W,H$ |
+|---|---|---|---|
+| F-BX01 | Volume | $q^3$ | $LWH$ |
+| F-BX02 | Total surface area | $6q^2$ | $2(LW+LH+WH)$ |
+| F-BX03 | Face diagonal | $q\sqrt2$ | Example: $\sqrt{L^2+W^2}$ for the $L\times W$ face |
+| F-BX04 | Space diagonal | $q\sqrt3$ | $\sqrt{L^2+W^2+H^2}$ |
+
+A face diagonal lies in a face; a space diagonal joins opposite vertices through the interior. Label which is requested. When the source asks for “the diagonal of a cube” without a face qualifier, this pack uses the space diagonal and says so in the prompt.
+
+#### Worked example BX01 — Cube edge 10 cm
+
+**Source:** SRC-BOX p. 8. $A_T=6(10)^2=600\text{ cm}^2$; $V=10^3=1000\text{ cm}^3$.
+
+#### Worked example BX02 — Recover a cube's edge
+
+**Source:** SRC-BOX p. 9. $V=512\text{ cm}^3$ gives $q=\sqrt[3]{512}=8\text{ cm}$. The source's intermediate “512 cm²” is a unit typo.
+
+### BOX-02 — General parallelepipeds and painting
+
+**Sources:** SRC-BOX pp. 12–17, 20; general surface-area claims corrected.
+
+The volume of any parallelepiped is $V=Bh$, where $B$ is **base area**, not total surface area, and $h$ is the perpendicular base-plane separation. Total area is always the sum of all six face areas. The shortcut $A_L=P_bh$ assumes a right prism.
+
+**Optional implementation extension:** For edge vectors $u,v,w$ meeting at a vertex,
+
+$$V=|u\cdot(v\times w)|,\qquad A_T=2\bigl(\|u\times v\|+\|u\times w\|+\|v\times w\|\bigr).\tag{F-BX05}$$
+
+This vector formula is added for a reliable oblique-solid renderer; it is not a prerequisite lesson. Reject coplanar edge vectors as a zero-volume solid. In an oblique parallelepiped, different space diagonals need not have equal lengths, so do not reuse the cuboid diagonal formula.
+
+The source mentions **zonohedra**: a parallelepiped belongs to this class because each face has central symmetry (a $180^\circ$ rotation maps it onto itself). This is optional vocabulary, not a visibility or mirror-image rule.
+
+#### Worked example BX03 — Paint four outside walls
+
+**Source:** SRC-BOX p. 17, corrected with explicit right-prism assumption. A right parallelepiped has base side lengths 5 in and 10 in, height 4 in, and painting cost INR 1.5 per square inch. Paint lateral walls only.
+
+1. $P_b=2(5+10)=30\text{ in}$.
+2. $A_L=30(4)=120\text{ in}^2$.
+3. Cost $=120(1.5)=\boxed{\text{INR }180}$.
+
+The source substitutes height 6 and obtains INR 270. The stated height is 4. Without the right-prism condition or sufficient slant geometry, lateral wall area would be underdetermined. The currency amount here is a supplied classroom rate, not a current market price.
+
+### BOX-03 — Packing, unit conversion, and shell subtraction
+
+**Sources:** SRC-BOX pp. 18–19.
+
+#### Worked example BX04 — Stacked bricks
+
+**Source:** SRC-BOX p. 18. A tightly packed rectangular pile is 7 ft high, 36 ft long, and 12 ft wide. Each brick measures $2\times4\times9\text{ in}$.
+
+1. Pile volume $=7(36)(12)=3024\text{ ft}^3$.
+2. Brick volume $=72\text{ in}^3=72/1728=1/24\text{ ft}^3$.
+3. Count $=3024/(1/24)=\boxed{72576}$ bricks, assuming no gaps.
+
+A compatible orientation exists: use 2 in vertically, 9 in along the 36 ft length, and 4 in along the 12 ft width. The counts are $42\times48\times36=72576$; the answer is not merely an unverified volume ratio.
+
+#### Worked example BX05 — Rectangular barn foundation
+
+**Source:** SRC-BOX p. 19; dimension convention made explicit. The **outside** rectangle measures 40 ft by 80 ft. Foundation walls are uniformly 2 ft thick and 12 ft high; exclude a floor slab.
+
+1. Inner rectangle is $(40-4)\times(80-4)=36\times76\text{ ft}$.
+2. Material volume $=[40(80)-36(76)]12=5568\text{ ft}^3$.
+3. $1\text{ yd}^3=27\text{ ft}^3$, so $V=5568/27=\boxed{206.22\text{ yd}^3}$, rounded.
+
+If the 40 by 80 measurements instead referred to inside or wall-centerline dimensions, the answer would change. Keep the outside-dimension condition in the website prompt.
+
+### Cube practice bank
+
+**Source:** SRC-BOX p. 11.
+
+| ID | Prompt | Answer |
+|---|---|---|
+| BX-P01 | Cube edge 6 cm: total surface area? | $216\text{ cm}^2$ |
+| BX-P02 | Cube edge 4 cm: volume? | $64\text{ cm}^3$ |
+| BX-P03 | Cube total area $24\text{ cm}^2$: volume? | Edge 2 cm; volume $8\text{ cm}^3$ |
+| BX-P04 | Cube edge 9 cm: space diagonal? | $9\sqrt3\text{ cm}$; a face diagonal would be $9\sqrt2\text{ cm}$ |
+
+**Interaction INT-BOX:** Let learners change box edge lengths and unfold a net. Toggle face versus space diagonals. In a separate oblique mode, show vector or face-based area computation. Include a hollow rectangular-wall preset for BX05 with inside and outside dimensions labeled.
+
+---
+
+## 12. Cylinders
+
+**Module ID:** `cylinders`  
+**Source:** SRC-CYL, STPPT3 Cylinders (1).pdf, pp. 2–13.
+
+**Overview:** Calculate capacities and exposed areas of circular cylinders, pipes, and elliptic cylinders, with careful radius/diameter and unit handling.
+
+**Learning outcomes:** Identify right and oblique cylinders; calculate volume and circular-cylinder areas; solve hollow-cylinder and excavation problems; use ellipse semiaxes correctly; distinguish exact formulas from approximations.
+
+### CYL-01 — Circular cylinders
+
+**Sources:** SRC-CYL pp. 3–6; diameter formula and example arithmetic corrected.
+
+A cylinder has parallel congruent bases connected by parallel generating line segments. The line joining the base centers is its axis. In a right cylinder, generators and axis are perpendicular to the bases; in an oblique cylinder they are inclined. The perpendicular separation of the base planes is the height $h$.
+
+For a **right circular cylinder**, let radius $r>0$, diameter $d=2r$, and height $h>0$:
+
+$$V=\pi r^2h=\frac{\pi d^2h}{4}.\tag{F-CY01}$$
+
+$$A_L=2\pi rh=\pi dh,\qquad A_T=2\pi rh+2\pi r^2=2\pi r(h+r).\tag{F-CY02}$$
+
+The lateral surface unfolds to a rectangle of width $2\pi r$ and height $h$. A closed cylinder adds two disks. An open-top container adds one disk; an ideal tube with no end disks adds none. An oblique cylinder still has $V=Bh$ but generally does not have $A_L=2\pi rh$.
+
+#### Worked example CY01 — Height and volume from lateral area
+
+**Source:** SRC-CYL p. 5; embedded image transcribed. Lateral area $1000\text{ m}^2$, diameter 20 m:
+
+1. $r=10\text{ m}$ and $1000=2\pi(10)h$.
+2. $h=50/\pi\approx15.92\text{ m}$.
+3. $V=\pi(10)^2(50/\pi)=\boxed{5000\text{ m}^3}$ exactly.
+
+#### Worked example CY02 — Radius 25 cm, height 15 cm
+
+**Source:** SRC-CYL p. 6, corrected. The requested measurements are
+
+- $V=\pi(25)^2(15)=9375\pi\approx29452.43\text{ cm}^3$.
+- $A_L=2\pi(25)(15)=750\pi\approx2356.19\text{ cm}^2$.
+- $A_T=750\pi+2\pi(25)^2=2000\pi\approx6283.19\text{ cm}^2$.
+
+The source mixes centimeter and meter labels, has inconsistent intermediate values, and misprints its final total area. Keep all measurements in centimeters here.
+
+### CYL-02 — Hollow cylinders and material quantities
+
+**Sources:** SRC-CYL pp. 7–9.
+
+For a right pipe with outside radius $R$, inside radius $r$, length $h$, and $R>r>0$:
+
+$$V_{material}=\pi(R^2-r^2)h.\tag{F-CY03}$$
+
+$$A_{curved}=2\pi Rh+2\pi rh=2\pi(R+r)h.\tag{F-CY04}$$
+
+$$A_{all}=2\pi(R+r)h+2\pi(R^2-r^2).\tag{F-CY05}$$
+
+Here $A_{all}$ includes the outer curved surface, inner curved surface, and **two annular end faces**. It does not add full disks across the pipe's opening. Interior capacity is $\pi r^2h$; material volume is the outer volume minus the hollow bore.
+
+#### Worked example CY03 — Iron pipe
+
+**Source:** SRC-CYL p. 8; embedded example recalculated. Inside diameter 15 cm, outside diameter 17 cm, length 10 m, and supplied mass density $0.8\text{ g/cm}^3$.
+
+1. $r=7.5\text{ cm}$, $R=8.5\text{ cm}$, $h=1000\text{ cm}$.
+2. $R^2-r^2=72.25-56.25=16\text{ cm}^2$.
+3. Material volume $16000\pi\approx50265.48\text{ cm}^3$.
+4. Mass $m=0.8V=12800\pi\text{ g}\approx40.21\text{ kg}$.
+5. Combined inner and outer curved area $32000\pi\approx100530.96\text{ cm}^2$.
+6. Total area including both annular ends $32032\pi\approx100631.50\text{ cm}^2$.
+
+The source contains arithmetic and transcription errors. The density above is retained as a **given exercise parameter**; do not silently substitute a different material density or present it as independently verified iron data.
+
+#### Worked example CY04 — Lined well
+
+**Source:** SRC-CYL p. 9. Finished inside diameter 5 m, depth 36 m, lining thickness 25 cm, uniform and cylindrical; neglect a bottom slab and construction clearance.
+
+1. Inner radius $r=2.5\text{ m}$; outer radius $R=2.75\text{ m}$.
+2. Excavation volume $\pi(2.75)^2(36)=272.25\pi\approx855.30\text{ m}^3$.
+3. Brickwork volume $\pi[(2.75)^2-(2.5)^2](36)=47.25\pi\approx148.44\text{ m}^3$.
+
+Excavate to the outside of the lining. Use consistent units before adding the thickness to a radius.
+
+### CYL-03 — Elliptic cylinders and practice
+
+**Sources:** SRC-CYL pp. 10–13; ellipse-perimeter formula corrected.
+
+For a right elliptic cylinder with ellipse **semiaxes** $a,b>0$ and perpendicular height $h$:
+
+$$B=\pi ab,\qquad V=\pi abh.\tag{F-CY06}$$
+
+$$A_L=C_eh,\qquad A_T=C_eh+2\pi ab,\tag{F-CY07}$$
+
+where $C_e$ is the ellipse perimeter. It is **not generally $\pi(a+b)$**. If $a\ge b$, an exact expression suitable for numerical integration is
+
+$$C_e=4\int_0^{\pi/2}\sqrt{a^2\sin^2t+b^2\cos^2t}\,dt.\tag{F-CY08}$$
+
+An optional approximation, added for implementation, is
+
+$$C_e\approx\pi\left[3(a+b)-\sqrt{(3a+b)(a+3b)}\right].\tag{F-CY09}$$
+
+Label approximate surface areas accordingly. Both expressions reduce to $2\pi a$ when $a=b$. Full axis lengths must be halved before using $\pi ab$.
+
+**Review-only CY-R01 (SRC-CYL p. 11):** The embedded problem asks for a container holding “9 quarter,” with ellipse axes 20 and 15 cm. Its solution converts a mass unit to cubic centimeters without a stated density and uses full axes as semiaxes. Capacity is not determined from that prompt as written. Do not use the printed height $119.36\text{ cm}$ as a verified answer. The instructor must specify a volume or a material mass and density, and identify full axes versus semiaxes.
+
+**Supplemental replacement CY05:** A right elliptic cylinder holds $9\text{ L}=9000\text{ cm}^3$ and has full base axes 20 cm and 15 cm. Then $a=10,b=7.5\text{ cm}$ and $h=9000/(75\pi)=120/\pi\approx38.20\text{ cm}$. This is newly authored; it does not assume “quarter” meant liters.
+
+**Practice from embedded images on SRC-CYL pp. 12–13:** Preserve the mathematical answers rather than relying on option letters.
+
+| ID | Prompt | Answer |
+|---|---|---|
+| CY-P01 | Volume of a circular cylinder, radius $r$, height $h$ | $\pi r^2h$ |
+| CY-P02 | Lateral area of a right circular cylinder | $2\pi rh$ |
+| CY-P03 | Material volume of a hollow circular cylinder, radii $R,r$ | $\pi(R^2-r^2)h$ |
+| CY-P04 | Volume of an elliptic cylinder, semiaxes $a,b$ | $\pi abh$ |
+| CY-P05 | Elliptic cylinder full axes 20 m and 10 m, height 5 m | $a=10,b=5$; volume $250\pi\text{ m}^3$. Axis units are made explicit here. |
+| CY-P06 | Circular cylinder height 10 cm, diameter 4 cm | Volume $40\pi\text{ cm}^3$ |
+
+**Interaction INT-CYLINDER:** Choose solid circular, hollow circular, or elliptic base. Expose radius versus diameter inputs explicitly. Toggle each actual surface and display its contribution to the requested total. Show a circular-cylinder net and a longitudinal pipe section. In elliptic mode, label full axes and semiaxes separately and identify the perimeter method as numerical or approximate. Include the exact circle special case.
+
+---
+
+## 13. Pyramids
+
+**Module ID:** `pyramids`  
+**Source:** SRC-PYCS, MTPDF11 Pyramid and Non-polyhedron (1).pdf, pp. 3–13.
+
+**Overview:** Distinguish a pyramid's vertical height, face slant height, and lateral edge, then calculate area, volume, and liquid-contact area.
+
+**Learning outcomes:** Identify pyramid parts; calculate regular-pyramid measurements; distinguish general volume from regular-pyramid lateral-area formulas; use similarity for partial filling.
+
+### PYR-01 — Parts and measurements
+
+**Sources:** SRC-PYCS pp. 5–10; two Pythagorean relations corrected.
+
+A **pyramid** has a polygonal base and triangular lateral faces meeting at one **apex**. A **regular pyramid** has a regular polygon base and its apex directly above the base center. For a general pyramid, lateral faces may have different altitudes.
+
+| Symbol | Measurement |
+|---|---|
+| $s$ | A regular base edge |
+| $B,P_b$ | Area and perimeter of the base |
+| $h$ | Perpendicular altitude from apex to base plane |
+| $\ell$ | Face slant height: apex to midpoint of a base edge, along a lateral face |
+| $E$ | Lateral edge: apex to a base vertex |
+| $r_a$ | Base apothem: base center to side midpoint |
+| $R_b$ | Base circumradius: base center to a vertex |
+
+For a regular pyramid:
+
+$$\ell^2=h^2+r_a^2,\quad E^2=\ell^2+(s/2)^2=h^2+R_b^2,\quad R_b^2=r_a^2+(s/2)^2.\tag{F-PY01}$$
+
+The slant height is the hypotenuse of the altitude/apothem right triangle. Half a base edge, not the whole edge, is the leg used in a half-lateral-face triangle. All these lengths represent different segments and must receive distinct diagram labels.
+
+### PYR-02 — Surface area and volume
+
+**Sources:** SRC-PYCS pp. 6, 11–12.
+
+$$V=\frac13Bh\quad\text{for any pyramid}.\tag{F-PY02}$$
+
+$$A_L=\frac12P_b\ell,\qquad A_T=A_L+B\quad\text{for a regular pyramid}.\tag{F-PY03}$$
+
+For a nonregular pyramid, sum the triangular lateral-face areas individually. A common slant height must be justified before factoring it out of that sum. If the base is a regular $n$-gon, use POLY-04 for its apothem and area.
+
+#### Worked example PY01 — Regular pentagonal pyramid
+
+**Source:** SRC-PYCS pp. 11–12; precision improved. Base edge 10 cm; lateral edge 13 cm.
+
+1. $\ell=\sqrt{13^2-5^2}=12\text{ cm}$.
+2. $R_b=10/[2\sin36^\circ]\approx8.50650808\text{ cm}$.
+3. $r_a=10/[2\tan36^\circ]\approx6.88190960\text{ cm}$.
+4. $h=\sqrt{13^2-R_b^2}\approx9.83053001\text{ cm}$.
+5. $B=5(10)r_a/2\approx172.04774006\text{ cm}^2$.
+6. $V=Bh/3\approx\boxed{563.77\text{ cm}^3}$.
+7. $A_L=(50)(12)/2=300\text{ cm}^2$; $A_T\approx\boxed{472.05\text{ cm}^2}$.
+
+The source's volume 563.74 comes from rounded intermediate height. Use the full-precision height. The source's generic formulas on pp. 7–8 are incorrect even though its worked example uses the appropriate right triangles.
+
+### PYR-03 — Water in an inverted pyramid
+
+**Source:** SRC-PYCS p. 13.
+
+#### Worked example PY02 — Partial fill and wetted area
+
+An inverted regular square pyramid has full height 8 m and top side 12 m. Water reaches a depth of 6 m measured from the apex.
+
+1. Similar cross-sections give water-surface side $x=12(6/8)=9\text{ m}$.
+2. The water occupies a smaller square pyramid: $V=(1/3)(9^2)(6)=\boxed{162\text{ m}^3}$.
+3. The submerged slant height is $\sqrt{6^2+(9/2)^2}=7.5\text{ m}$.
+4. The wetted container area is the submerged lateral area: $A_{wet}=(1/2)(4\cdot9)(7.5)=\boxed{135\text{ m}^2}$.
+
+Do not add the water's exposed horizontal surface: it is not container wall in contact with water. The apex has no finite flat bottom area.
+
+**Interaction INT-PYRAMID:** Controls for regular base side count, side length, and either height or lateral edge. Link all derived lengths through F-PY01. Reject a supplied lateral edge $E\le R_b$ for a positive-height regular pyramid. Toggle a half-lateral-face triangle, center/apothem triangle, and center/vertex triangle. Add an inverted-square-pyramid fill slider; show volume and wetted area separately.
+
+**Supplemental PY-P01:** Regular square pyramid base side 6 cm and height 4 cm. **Answer:** slant height 5 cm, lateral area $60\text{ cm}^2$, total area $96\text{ cm}^2$, volume $48\text{ cm}^3$.
+
+---
+
+## 14. Cones
+
+**Module ID:** `cones`  
+**Source:** SRC-PYCS pp. 15–20.
+
+**Overview:** Calculate right circular cone measurements and interpret a cone inscribed in a cube using its specified placement.
+
+**Learning outcomes:** Identify radius, vertical height, slant height, base, and apex; calculate lateral area, total area, and volume; recover missing dimensions from area or volume; model the cube-inscribed configuration.
+
+### CONE-01 — Right circular cone geometry
+
+**Sources:** SRC-PYCS pp. 15–16.
+
+A cone tapers from a base to an apex. For a **right circular cone**, the base is a disk and the apex is directly above its center. The radius $r$, perpendicular height $h$, and slant height $\ell$ satisfy
+
+$$\ell^2=r^2+h^2.\tag{F-CO01}$$
+
+The lateral surface is curved. When unfolded, it is a circular sector of radius $\ell$ whose arc length is the base circumference $2\pi r$. Consequently,
+
+$$A_L=\pi r\ell,\quad A_T=\pi r\ell+\pi r^2=\pi r(\ell+r),\quad V=\frac13\pi r^2h.\tag{F-CO02}$$
+
+The total area here is for a cone **including its base disk**. If a problem describes a conical cover or open shell, identify whether that disk is included. The common right-cone slant-height and area formulas do not directly describe every oblique cone.
+
+### CONE-02 — Recovering dimensions and solving examples
+
+**Sources:** SRC-PYCS pp. 17–19.
+
+#### Worked example CO01 — Height and radius given
+
+**Source:** SRC-PYCS p. 17. $h=8\text{ cm}$, $r=6\text{ cm}$:
+
+1. $\ell=\sqrt{8^2+6^2}=10\text{ cm}$.
+2. $A_L=60\pi\text{ cm}^2$; $A_T=96\pi\text{ cm}^2$.
+3. $V=(1/3)\pi(6^2)(8)=96\pi\text{ cm}^3$.
+
+#### Worked example CO02 — Height and volume given
+
+**Source:** SRC-PYCS p. 18. $h=12\text{ cm}$ and $V=324\pi\text{ cm}^3$:
+
+1. $324\pi=(1/3)\pi r^2(12)$ implies $r=9\text{ cm}$.
+2. $\ell=\sqrt{9^2+12^2}=15\text{ cm}$.
+3. $A_L=135\pi\text{ cm}^2$; $A_T=216\pi\text{ cm}^2$.
+
+#### Worked example CO03 — Total and base areas given
+
+**Source:** SRC-PYCS p. 19. $A_T=360\pi\text{ cm}^2$ and $B=100\pi\text{ cm}^2$:
+
+1. $r=10\text{ cm}$ from $\pi r^2=100\pi$.
+2. $A_L=360\pi-100\pi=260\pi$ gives $\ell=26\text{ cm}$.
+3. $h=\sqrt{26^2-10^2}=24\text{ cm}$.
+4. $V=(1/3)(100\pi)(24)=\boxed{800\pi\text{ cm}^3}$.
+
+### CONE-03 — Cone inscribed in a cube
+
+**Source:** SRC-PYCS p. 20; rounding improved and placement stated explicitly.
+
+#### Worked example CO04 — Cube edge 6 cm
+
+The cone's base circle is inscribed in one square cube face, and its apex is at the center of the opposite face. This is the specific right-cone placement intended by the source.
+
+1. Cube edge $q=6\text{ cm}$, cone height $h=q=6\text{ cm}$, radius $r=q/2=3\text{ cm}$.
+2. $\ell=\sqrt{3^2+6^2}=3\sqrt5\text{ cm}$.
+3. $V=(1/3)\pi(3^2)(6)=\boxed{18\pi\text{ cm}^3}$.
+4. $A_T=\pi(3)(3\sqrt5)+9\pi=\boxed{9\pi(1+\sqrt5)\text{ cm}^2}$.
+
+The exact coefficient is $9+9\sqrt5\approx29.1246$, so the total area is approximately $29.12\pi\text{ cm}^2$ if rounding only that coefficient to two decimals. The source's $29.13\pi$ comes from rounding the slant height first. Prefer the exact expression or a final numerical area rounded after evaluating $\pi$.
+
+**General preset rule:** For this placement with cube edge $q$, $h=q$, $r=q/2$, $\ell=q\sqrt5/2$, $V=\pi q^3/12$, and $A_T=\pi q^2(1+\sqrt5)/4$.
+
+**Interaction INT-CONE:** Switch between a standalone cone, sector net, and cube-inscribed preset. In the cube preset, make $r,h,\ell$ derived from the cube edge, rather than independently draggable dimensions that could violate inscription. Toggle the axial right triangle and base disk. Identify included surfaces in the area readout. A caption should explicitly identify the base face and opposite-face-center apex.
+
+**Supplemental CO-P01:** $r=5\text{ cm}$ and $h=12\text{ cm}$. **Answer:** $\ell=13\text{ cm}$, total area $90\pi\text{ cm}^2$, volume $100\pi\text{ cm}^3$.
+
+---
+
+## 15. Spheres and Spherical Segments
+
+**Module ID:** `spheres-segments`  
+**Source:** SRC-PYCS pp. 22–30.
+
+**Overview:** Calculate sphere and hemisphere measurements, distinguish spherical zones from solid segments, and calculate liquid volume and wetted bowl area.
+
+**Learning outcomes:** Use radius/diameter correctly; calculate full-sphere and shell volumes; distinguish curved and total segment areas; calculate one-base and two-base segment volumes; interpret wetted area as a contact surface.
+
+### SPH-01 — Sphere, hemisphere, and shell
+
+**Sources:** SRC-PYCS pp. 24–25, 27–28.
+
+A **sphere** is a surface whose points are all distance $R$ from a center. In elementary solid mensuration, “volume of a sphere” means the volume enclosed by that surface. A **great circle** is formed by a plane through the center and has radius $R$; a **small circle** is formed by a noncentral intersecting plane and has smaller radius. A **hemisphere** is half of the spherical solid, cut by a plane through the center.
+
+| Formula ID | Quantity | Formula |
+|---|---|---|
+| F-SP01 | Full sphere surface area | $4\pi R^2=\pi D^2$ |
+| F-SP02 | Full sphere volume | $4\pi R^3/3$ |
+| F-SP03 | Hemisphere curved area | $2\pi R^2$ |
+| F-SP04 | Hemisphere total area including base disk | $3\pi R^2$ |
+| F-SP05 | Hemisphere volume | $2\pi R^3/3$ |
+| F-SP06 | Hemispherical shell material volume | $2\pi(R_o^3-R_i^3)/3$ |
+
+For a hemispherical shell with an open mouth, “inner surface area” and “outer surface area” in the example below mean curved surfaces only. A full total material-surface area would additionally include the annular rim.
+
+#### Worked example SP01 — Surface area from volume
+
+**Source:** SRC-PYCS p. 27. $V=288\pi\text{ ft}^3$ gives $R^3=216$, $R=6\text{ ft}$, and $A=144\pi\text{ ft}^2$.
+
+#### Worked example SP02 — Hemispherical shell
+
+**Source:** SRC-PYCS p. 28. Outer curved area $162\pi\text{ in}^2$, inner curved area $72\pi\text{ in}^2$:
+
+1. $2\pi R_o^2=162\pi$ gives $R_o=9\text{ in}$.
+2. $2\pi R_i^2=72\pi$ gives $R_i=6\text{ in}$.
+3. Material volume $(2/3)\pi(9^3-6^3)=\boxed{342\pi\text{ in}^3}$.
+
+### SPH-02 — Zones and spherical segments
+
+**Source:** SRC-PYCS p. 26.
+
+A **spherical zone** is the curved portion of a spherical surface between two parallel cutting planes. A cap's curved surface is the limiting one-base case. A **spherical segment** is the three-dimensional portion of the spherical solid cut off by one plane or lying between two parallel planes. The flat cut faces belong to the segment boundary, but not to its curved zone.
+
+For sphere radius $R$ and perpendicular zone height $h$:
+
+$$\boxed{A_{zone}=2\pi Rh}.\tag{F-SP07}$$
+
+The height is a straight perpendicular separation of planes, not an arc length or slant length. These segment formulas describe the selected portion, not automatically the full sphere.
+
+**One-base segment (spherical cap):** Let cap height $h$, sphere radius $R$, and circular base radius $r$. For $0<h<2R$,
+
+$$r^2=2Rh-h^2,\tag{F-SP08}$$
+
+$$V_{cap}=\frac{\pi h^2}{3}(3R-h)=\frac{\pi h}{6}(3r^2+h^2),\tag{F-SP09}$$
+
+$$A_{curved}=2\pi Rh,\qquad A_{total}=2\pi Rh+\pi r^2.\tag{F-SP10}$$
+
+**Two-base segment:** Let the parallel circular cut faces have radii $r_1,r_2$, with plane separation $h$:
+
+$$V=\frac{\pi h}{6}(3r_1^2+3r_2^2+h^2),\tag{F-SP11}$$
+
+$$A_{curved}=2\pi Rh,\qquad A_{total}=2\pi Rh+\pi r_1^2+\pi r_2^2.\tag{F-SP12}$$
+
+The dimensions must come from cuts of the same sphere. Do not accept arbitrary independently chosen $R,r_1,r_2,h$ as automatically consistent.
+
+**Diagram brief:** Show a sphere with two parallel planes, shade only the curved band for “zone,” and then shade the enclosed solid between planes for “segment.” Show the one-base cap in a separate view. Use distinct toggles for curved surface and each flat disk so “total” has an explicit geometric meaning.
+
+### SPH-03 — Bowl liquid, wetted area, and complementary zones
+
+**Sources:** SRC-PYCS pp. 29–30.
+
+#### Worked example SP03 — Liquid in a hemispherical bowl
+
+**Source:** SRC-PYCS p. 29; wetted-area result corrected. Bowl inner radius $R=5\text{ in}$. Liquid depth is $h=2\text{ in}$ measured upward from the lowest point. The diagram's 3 in is the water plane's distance below the center, not the liquid depth.
+
+1. Water-surface radius $r=\sqrt{2Rh-h^2}=\sqrt{20-4}=4\text{ in}$.
+2. Liquid volume $V=(\pi/3)(2^2)[3(5)-2]=\boxed{52\pi/3\text{ in}^3}$.
+3. **Wetted bowl area:** $A_{wet}=2\pi Rh=\boxed{20\pi\text{ in}^2}$.
+4. Free liquid-surface area: $\pi r^2=16\pi\text{ in}^2$.
+5. Total boundary area of the liquid segment, counting its exposed top disk, is $20\pi+16\pi=36\pi\text{ in}^2$.
+
+The source labels $36\pi$ as wet area. That is the total segment boundary area. Only the curved $20\pi$ is bowl wall in contact with the liquid.
+
+#### Worked example SP04 — Two zones from one cutting plane
+
+**Source:** SRC-PYCS p. 30. Sphere radius $R=12\text{ cm}$, plane 4 cm from the center:
+
+1. The two cap heights are $12-4=8\text{ cm}$ and $12+4=16\text{ cm}$.
+2. Curved areas are $2\pi(12)(8)=192\pi\text{ cm}^2$ and $2\pi(12)(16)=384\pi\text{ cm}^2$.
+3. Sum $\boxed{576\pi\text{ cm}^2}$, equal to the original sphere area $4\pi(12)^2$.
+
+The flat cutting disks are not included in the requested zone-area sum. Adding them would calculate a different quantity.
+
+**Interaction INT-SPHERE:** Use separate full-sphere, shell, one-base cap, two-base segment, and hemispherical-bowl modes. For the bowl, constrain depth to $0\le h\le R$; for a generic cap, allow $0\le h\le2R$. Always show separate readouts for volume, curved area, cut-disk areas, total segment boundary area, and wetted area where applicable. At empty/full limits, use a clear limiting-state description.
+
+**Implementation geometry:** Center the sphere at $(0,0,0)$ and use vertical coordinate $z$. A horizontal cut has radius $\sqrt{R^2-z^2}$. For two cuts $-R\le z_1<z_2\le R$, set $h=z_2-z_1$, $r_i=\sqrt{R^2-z_i^2}$. A cross-check on volume is $V=\pi[R^2z-z^3/3]_{z_1}^{z_2}$. Derive all radii from these cut positions, rather than treating radii and separation as unrelated controls.
+
+**Supplemental SP-P01:** Hemisphere radius 3 cm. **Answer:** volume $18\pi\text{ cm}^3$, curved area $18\pi\text{ cm}^2$, closed total area $27\pi\text{ cm}^2$. **Supplemental SP-P02:** Sphere radius 5, cuts at $z=-1$ and $z=2$. **Answer:** $h=3$, base-radius squares 24 and 21, zone area $30\pi$, segment volume $72\pi$, total segment area $75\pi$ in corresponding units.
+
+---
+
+## 16. Cross-module reference
 
 ### Compare the conics
 
@@ -1106,6 +1969,27 @@ The source's final plus sign would produce an ellipse and would not satisfy the 
 | Bounded curve | Yes | No | Yes | No |
 | Parameter relation | Radius $r>0$ | Signed $p\ne0$ | $c^2=a^2-b^2$ | $c^2=a^2+b^2$ |
 | Latus rectum length | Not used here | $4\vert p\vert $ | $2b^2/a$ | $2b^2/a$ |
+
+### Plane and solid mensuration reference
+
+| Shape / condition | Area / surface area | Volume / other relation |
+|---|---|---|
+| Triangle | $K=bh/2=ab\sin\theta/2$ | Heron: $K^2=s_p(s_p-a)(s_p-b)(s_p-c)$ |
+| Rectangle | $K=LW$ | Diagonal $\sqrt{L^2+W^2}$ |
+| Parallelogram | $K=bh=ab\sin\theta$ | $P=2(a+b)$ |
+| Rhombus | $K=d_1d_2/2$ | Side $\sqrt{d_1^2+d_2^2}/2$ |
+| Trapezoid | $K=(b_1+b_2)h/2$ | Use perpendicular height |
+| Right prism | $A_L=P_bh$, $A_T=A_L+2B$ | $V=Bh$ |
+| General oblique prism | Sum lateral-face areas; add $2B$ if closed | $V=Bh$ with perpendicular $h$ |
+| Cube | $A_T=6q^2$ | $V=q^3$; space diagonal $q\sqrt3$ |
+| Right circular cylinder | $A_T=2\pi rh+2\pi r^2$ | $V=\pi r^2h$ |
+| Right pipe | $A_{all}=2\pi(R+r)h+2\pi(R^2-r^2)$ | Material $V=\pi(R^2-r^2)h$ |
+| Right elliptic cylinder | $A_T=C_eh+2\pi ab$ | $V=\pi abh$; $a,b$ are semiaxes |
+| Regular pyramid | $A_T=P_b\ell/2+B$ | $V=Bh/3$ |
+| Right circular cone | $A_T=\pi r(\ell+r)$ | $V=\pi r^2h/3$; $\ell^2=r^2+h^2$ |
+| Sphere | $A=4\pi R^2$ | $V=4\pi R^3/3$ |
+| Spherical cap | Curved $2\pi Rh$; closed adds $\pi r^2$ | $V=\pi h^2(3R-h)/3$ |
+| Two-base spherical segment | Curved $2\pi Rh$; closed adds both cut disks | $V=\pi h(3r_1^2+3r_2^2+h^2)/6$ |
 
 ### Completing the square: shared method
 
@@ -1150,10 +2034,33 @@ The core lessons treat axis-parallel conics with no $xy$ term. For a broader inp
 | Tangent | For a circle, a line meeting it at exactly one point |
 | Apothem | Regular polygon center-to-side perpendicular segment |
 | Shoelace formula | Coordinate formula for area of an ordered simple polygon |
+| Semiperimeter | Half of a polygon's perimeter; $s_p$ in triangle/quadrilateral formulas |
+| Altitude | Perpendicular height to an opposite side line or base plane |
+| Median | Triangle vertex-to-opposite-side-midpoint segment |
+| Internal angle bisector | Segment splitting a vertex angle into two equal angles |
+| Incenter | Intersection of a triangle's internal angle bisectors |
+| Orthocenter | Intersection of a triangle's altitude lines |
+| Centroid | Intersection of a triangle's medians; also a lamina's area-balance point |
+| Trapezoid | In this pack, quadrilateral with exactly one pair of parallel opposite sides |
+| Trapezium | In this pack, quadrilateral with no parallel opposite sides |
+| Polyhedron | Solid bounded by polygonal faces |
+| Prism | Two congruent parallel polygonal bases joined by parallelogram faces |
+| Parallelepiped | Prism with parallelogram base; six parallelogram faces |
+| Cuboid | Rectangular parallelepiped |
+| Lateral area | Sum of designated side-surface areas, excluding bases |
+| Net | Flat arrangement of a solid's unfolded boundary faces |
+| Slant height | Cone or regular pyramid surface distance from apex to base rim or side midpoint |
+| Space diagonal | Segment joining opposite vertices through a solid's interior |
+| Annulus | Planar region between two concentric circles |
+| Great circle | Sphere section through its center |
+| Spherical zone | Curved sphere surface between parallel planes |
+| Spherical segment | Solid portion cut from a sphere by one plane or between two parallel planes |
+| Spherical cap | One-base spherical segment; specify whether referring to solid or curved boundary |
+| Wetted area | Container surface area in direct contact with liquid |
 
 ---
 
-## 9. Editorial correction and ambiguity log
+## 17. Editorial correction and ambiguity log
 
 Keep this section available to maintainers. The student-facing lessons above already apply the corrections. “Clarification” entries improve precision; “review” entries require a prompt decision and should not become live graded items automatically.
 
@@ -1199,6 +2106,45 @@ Keep this section available to maintainers. The student-facing lessons above alr
 | ERR-26 | SRC-HYP p. 28 | Intermediate expansion drops grouping around a subtracted square | Expand the entire negative square; final H04 equation remains valid |
 | ERR-27 | SRC-HYP p. 31 | Final equation incorrectly changes minus to plus | Preserve the negative $y$-term in H05 |
 
+
+### Corrections and clarifications for the six added PDFs
+
+| ID | Source / page(s) | Issue | Treatment in this pack |
+|---|---|---|---|
+| TRI-CLA01 | SRC-TRI pp. 4–5 | Isosceles convention and altitude endpoints need precision | Use inclusive isosceles definition; altitudes may meet side extensions |
+| TRI-CLA02 | SRC-TRI pp. 6–7 | Formula layout must be preserved during transcription | $m_c=\tfrac12\sqrt{2a^2+2b^2-c^2}$ has its factor $1/2$ outside the square root; the source formula is correct |
+| QD-CLA01 | SRC-QUAD pp. 4–5 | Trapezoid/trapezium names vary; parallelogram definition omits “parallel”; source vertex order differs | State the source naming convention and use consecutive boundary labels |
+| QD-ERR01 | SRC-QUAD p. 7 | Intermediate diagonal expression refers to $45^\circ-\theta$ | Use the supplement $180^\circ-\theta$ or the equivalent plus-cosine form |
+| QD-ERR02 | SRC-QUAD p. 9 | Rectangle diagonal intermediate radical is 50 instead of 90 | $\sqrt{90}=3\sqrt{10}$; final source radical is retained |
+| QD-ERR03 | SRC-QUAD p. 12 | Both rhombus diagonal squares use the same minus sign | Use $2q^2(1-\cos\theta)$ and $2q^2(1+\cos\theta)$ |
+| QD-ERR04 | SRC-QUAD p. 14 | Given diagonal $BD=8$ is used as an equilateral triangle side | Keep triangle $ADC$ equilateral and $BD=8$; area is $32\sqrt3/3$, not $32\sqrt3$ |
+| PR-ERR01 | SRC-PRISM p. 3 | Right prism described as having axis parallel to base | Axis/lateral edges are perpendicular to the bases |
+| PR-ERR02 | SRC-PRISM p. 7 | Total-area expression labeled lateral area, with no right-prism restriction on $P_bh$ | Separate $A_L=P_bh$ for right prisms and $A_T=A_L+2B$ |
+| PR-REV01 | SRC-PRISM pp. 12–17 | Three triangular-prism examples contain incompatible triangle dimensions; p. 17 also omits the 12-inch side from its perimeter | Quarantine PR-R01–PR-R03; supply explicitly revised, internally consistent PR-V01–PR-V03 |
+| PR-CLA01 | SRC-PRISM p. 18 | “Weight” requested from grams per cubic centimeter | Report mass; do not confuse grams with force units |
+| PR-REV02 | SRC-PRISM p. 20 | “Inscribed about” does not distinguish circumcircle from incircle | PR06 explicitly uses a regular hexagon circumscribed about the circle; show alternate interpretation separately |
+| BX-ERR01 | SRC-BOX p. 9 | Volume 512 assigned square-centimeter units in solution | $512\text{ cm}^3$ |
+| BX-ERR02 | SRC-BOX p. 10 | Cube said to be a prism because it is a Platonic solid | Justify by the prism definition |
+| BX-ERR03 | SRC-BOX pp. 15, 20 | $P_bh$ stated as general parallelepiped lateral area | Restrict to right prisms; sum actual face areas in oblique mode |
+| BX-ERR04 | SRC-BOX pp. 16, 20 | Volume stated as surface area times height | Use base area times perpendicular height |
+| BX-ERR05 | SRC-BOX p. 17 | Height 4 in in problem becomes 6 in in solution; rightness unspecified | State right-prism assumption, keep height 4; cost INR 180 |
+| BX-CLA01 | SRC-BOX pp. 13–14 | Symmetry/visibility descriptions are misleading | Define central symmetry by a half-turn; omit viewpoint-dependent visibility claims |
+| BX-CLA02 | SRC-BOX p. 19 | Foundation measurement convention unstated in prompt | Preserve solution's outside dimensions; exclude floor slab |
+| CY-ERR01 | SRC-CYL p. 4 | Diameter-based volume term lacks $d^2$ | $V=\pi d^2h/4$ |
+| CY-ERR02 | SRC-CYL p. 6 | Example mixes unit labels and arithmetic, including incorrect total area | Recalculate with $r=25,h=15$ cm: $V=9375\pi$, $A_L=750\pi$, $A_T=2000\pi$ in appropriate units |
+| CY-ERR03 | SRC-CYL p. 8 | Pipe example has incorrect inner-radius square, intermediate volume/mass, and end-face addition | Use $R^2-r^2=16$ and CY03 results |
+| CY-ERR04 | SRC-CYL p. 10 | Elliptic cylinder volume mislabeled hollow; ellipse perimeter replaced by $\pi(a+b)$ | Solid volume $\pi abh$; use exact numerical perimeter or a labeled approximation |
+| CY-REV01 | SRC-CYL p. 11 | Ambiguous “quarter,” mass-to-volume conversion without density, full axes used as semiaxes | Quarantine original; CY05 is a separately authored 9-liter replacement |
+| CY-CLA01 | SRC-CYL p. 12 item 5 | Axis units not explicit | Add meter units to the adapted prompt; halve full axes |
+| PY-ERR01 | SRC-PYCS p. 7 | Lateral-edge triangle uses full base edge rather than half | $E^2=\ell^2+(s/2)^2$ |
+| PY-ERR02 | SRC-PYCS p. 8 | Slant-height/altitude Pythagorean relation reversed | $\ell^2=h^2+r_a^2$ |
+| PY-CLA01 | SRC-PYCS p. 6 | Common-slant-height lateral-area formula presented without qualification | Use for regular pyramids; general pyramid volume remains $Bh/3$ |
+| PY-NUM01 | SRC-PYCS pp. 11–12 | Premature height rounding changes volume | Full precision gives $563.77\text{ cm}^3$ |
+| CO-NUM01 | SRC-PYCS p. 20 | Rounded slant height changes total-area coefficient | Keep exact $9\pi(1+\sqrt5)$ for cube edge 6 |
+| SP-CLA01 | SRC-PYCS p. 26 | Zone area and segment total area can be conflated | Zone is curved surface only; total segment boundary adds its cut disks |
+| SP-ERR01 | SRC-PYCS p. 29 | Wet bowl area includes exposed liquid disk | Wet area $20\pi$; total liquid-segment boundary $36\pi$ |
+| EXT-02 | SRC-CYL pp. 5–6, 8–9, 11–13; SRC-PRISM pp. 11, 13, 15, 17, 21 | Problems and solutions are embedded as images and absent from ordinary text extraction | Recover prompt dimensions and formulas from visual inspection rather than treating these as empty pages |
+
 ### Boundaries on source reconstruction
 
 - No single intended circle equation is invented for SRC-CIRC p. 19.
@@ -1209,7 +2155,7 @@ Keep this section available to maintainers. The student-facing lessons above alr
 
 ---
 
-## 10. Implementation and quality requirements
+## 18. Implementation and quality requirements
 
 These requirements are new website implementation guidance, not claims that the PDFs contain interactive features.
 
@@ -1231,6 +2177,19 @@ These requirements are new website implementation guidance, not claims that the 
 - Distinguish infinite reference lines, finite axis segments, and highlighted chords in labels or line style.
 - Recompute directrices, foci, endpoints, and equations from one parameter state so displayed text cannot disagree with the drawing.
 - Explain invalid inputs inline: zero-length segment, $p=0$, nonpositive radius or semiaxis, invalid polygon side count, or degenerate equation.
+
+### Solid-geometry implementation requirements
+
+- A 3D perspective drawing may distort lengths visually; compute from the mathematical model, not screen distances. Supply orthographic sections when explaining right triangles.
+- Give separate labels to perpendicular height, lateral-edge length, slant height, apothem, and circumradius. Show right-angle markers on the relevant sections.
+- A selected “right” prism or cone must remain right as parameters change. Oblique modes must not reuse right-solid area shortcuts.
+- Expose exactly which surfaces are included: curved wall, inner wall, outer wall, base disk, annular rim, flat cut face, or wetted wall. Show an additive surface breakdown.
+- Validate base dimensions against their implied altitude/area. Three side lengths and an independently supplied altitude may conflict even if all are positive.
+- Uniform scaling by factor $k>0$ multiplies all lengths by $k$, areas by $k^2$, and volumes by $k^3$. Use this as a cross-check for every solid.
+- Separate volume/capacity, material volume, mass, and force weight. A mass problem needs density; an area alone is not a capacity.
+- For partial-fill visualizations, define the level's zero point and whether it is depth from the bottom or distance from the center.
+- Numerical integration or approximate formulas must be identified in displayed outputs, particularly elliptic-cylinder surface area. Exact $\pi$ forms should remain available.
+- Preserve triangle/quadrilateral constraints during dragging. Never draw an impossible preset merely to match an incorrect slide answer.
 
 ### Recommended curve parameterizations
 
@@ -1276,19 +2235,39 @@ The checks below specify expected behavior. They are not a claim that a website 
 | Hyperbola final sign | H05 | Given point $(7,1)$ satisfies the equation with a minus sign |
 | Interior angle | L-A01 at $U$ | About $150.26^\circ$, not its acute supplement |
 | Vertical hyperbola | H-P01 | Asymptote slopes $\pm4/3$, not $\pm3/4$ |
+| Triangle segments | T01 | Altitudes $12,5,60/13$; medians $\sqrt{601}/2,\sqrt{61},13/2$ |
+| Invalid triangle | Sides 2, 3, 5 | Degenerate; exclude from nondegenerate triangle calculators |
+| Rectangle correction | QD02 | Diagonal $3\sqrt{10}$ |
+| Rhombus correction | QD04 | Area $32\sqrt3/3$ |
+| Prism net | PR03 | Total area 468; volume 540 |
+| Inconsistent prism data | Original PR-R01–PR-R03 | Excluded from live graded practice |
+| Wooden block | PR04 | Volume 783; surface area 519.3; mass 548.1 g |
+| Cube dimensional scaling | Double any cube edge | Area multiplies by 4; volume by 8 |
+| Paint height | BX03 | Area 120 in²; cost INR 180 |
+| Brick fit | BX04 | Integer packing $42\times48\times36=72576$ |
+| Cylinder diameter form | $d=4,h=10$ | Volume $40\pi$, agreeing with $r=2$ |
+| Pipe | CY03 | Material volume $16000\pi$; all-surface area $32032\pi$ |
+| Elliptic circle limit | $a=b=r$ | Perimeter $2\pi r$; cylinder formulas agree with circular case |
+| Full versus semi axes | CY-P05 | Volume $250\pi$, not $1000\pi$ |
+| Pyramid slant triangle | PY-P01 | Height 4, apothem 3, slant height 5 |
+| Water in pyramid | PY02 | Volume 162; wetted area 135 |
+| Cube-inscribed cone | CO04 | $r=3,h=6,\ell=3\sqrt5$; exact area $9\pi(1+\sqrt5)$ |
+| Bowl surface distinction | SP03 | Volume $52\pi/3$; wet area $20\pi$; total segment boundary $36\pi$ |
+| Complementary zones | SP04 | Sum equals full sphere area $576\pi$ |
+| Two-base segment | SP-P02 | Volume $72\pi$, curved area $30\pi$, total area $75\pi$ |
 
 ### Suggested first implementation order
 
 1. Build a reusable lesson renderer, math rendering, module navigation, and source-reference display.
-2. Import all 23 lessons, examples, and eligible practice rows.
+2. Import all 49 lessons, examples, and eligible practice rows.
 3. Add a coordinate plot component and reuse it across lines and conics.
-4. Add the polygon explorer and conic parameter controls.
+4. Add polygon, triangle, quadrilateral, conic, and solid parameter controls with reusable labeled diagrams, sections, and nets.
 5. Add revealable solutions and answer checking, keeping review-only items excluded.
 6. Validate the mathematical acceptance checks and accessibility behavior.
 
 ---
 
-## 11. Source coverage map and attribution
+## 19. Source coverage map and attribution
 
 | Source | Pages | Disposition |
 |---|---|---|
@@ -1325,7 +2304,46 @@ The checks below specify expected behavior. They are not a claim that a website 
 | SRC-HYP | 9–21 | H01–H02, graphing method, and asymptotes |
 | SRC-HYP | 22–32 | HYP-03, H03–H06; p. 22 divider omitted |
 | SRC-HYP | 33 | Original reference list; not independently consulted |
+| SRC-TRI | 1–3 | Module metadata; title/divider material omitted |
+| SRC-TRI | 4–7 | TRI-01, TRI-02, T01 and corrected median template |
+| SRC-TRI | 8–11 | TRI-03 perimeter and area formulas, including equilateral derivation |
+| SRC-TRI | 12–15 | T02–T05; source numbering skips from 3 to 5 and is normalized by stable pack IDs |
+| SRC-TRI | 16–17 | Original references; not independently consulted |
+| SRC-QUAD | 1–4 | Module metadata and classification convention |
+| SRC-QUAD | 5–7 | QUAD-01, QD01, image-based area table transcribed |
+| SRC-QUAD | 8–11 | QUAD-02, QD02–QD03 |
+| SRC-QUAD | 12–14 | QUAD-03, corrected QD04 |
+| SRC-QUAD | 15–18 | QUAD-04, QD05–QD06 |
+| SRC-QUAD | 19–20 | Original references; not independently consulted |
+| SRC-PRISM | 1–6 | Module metadata, PRISM-01 parts, types and counts |
+| SRC-PRISM | 7–10 | PRISM-02 formulas and PR01; lateral/total and right/oblique restrictions corrected |
+| SRC-PRISM | 11 | PR02, image dimensions transcribed |
+| SRC-PRISM | 12–17 | Review originals PR-R01–PR-R03; explicit revised variants PR-V01–PR-V03 |
+| SRC-PRISM | 18–20 | PR04–PR06 applications, circle/base interpretation clarified |
+| SRC-PRISM | 21 | PR03 from diagram and net |
+| SRC-PRISM | 22 | Original references; not independently consulted |
+| SRC-BOX | 1–7 | Module metadata, BOX-01 definitions and image formulas |
+| SRC-BOX | 8–11 | BX01–BX02 and BX-P01–BX-P04 |
+| SRC-BOX | 12–16 | BOX-02 general geometry and corrected volume/area restrictions |
+| SRC-BOX | 17–19 | BX03–BX05, painting and dimension conventions clarified |
+| SRC-BOX | 20 | FAQ concepts incorporated with corrected formulas |
+| SRC-BOX | 21 | Original references; not independently consulted |
+| SRC-CYL | 1–4 | Module metadata and CYL-01 definitions/formulas |
+| SRC-CYL | 5–6 | CY01–CY02, embedded image examples recovered and recalculated |
+| SRC-CYL | 7–9 | CYL-02, CY03–CY04; pipe solution corrected |
+| SRC-CYL | 10–11 | CYL-03 formulas, CY-R01 quarantined; CY05 is a separate replacement |
+| SRC-CYL | 12–13 | CY-P01–CY-P06 and answer key, embedded images transcribed |
+| SRC-CYL | 14 | Original references; not independently consulted |
+| SRC-PYCS | 1–4 | Module title/outcomes; divider material omitted |
+| SRC-PYCS | 5–10 | PYR-01–PYR-02 formulas and corrected right-triangle relations |
+| SRC-PYCS | 11–13 | PY01–PY02 |
+| SRC-PYCS | 14–16 | Cone divider omitted; CONE-01 definitions and formulas |
+| SRC-PYCS | 17–20 | CONE-02–CONE-03, CO01–CO04 |
+| SRC-PYCS | 21–25 | Sphere module metadata and SPH-01 definitions/formulas |
+| SRC-PYCS | 26 | SPH-02 zones, one-base and two-base segments |
+| SRC-PYCS | 27–30 | SP01–SP04, wetted-area interpretation corrected |
+| SRC-PYCS | 31–32 | Original references; not independently consulted |
 
-**Suggested website source credit:** “Adapted from Engineering Mathematics 2 instructional materials on plane geometry, Cartesian coordinates, lines, circles, parabolas, ellipses, and hyperbolas, MPS Department, FEU Institute of Technology. Explanations have been reorganized and selected mathematical errors corrected. Interactive activities and supplemental practice were added for this website.”
+**Suggested website source credit:** “Adapted from Engineering Mathematics 2 instructional materials on plane geometry, triangles, quadrilaterals, Cartesian coordinates, lines, conics, prisms, parallelepipeds, cubes, cylinders, pyramids, cones, spheres, and spherical segments, MPS Department, FEU Institute of Technology. Explanations have been reorganized and selected mathematical errors corrected. Interactive activities and supplemental practice were added for this website.”
 
 The PDFs cite works by Swokowski and Cole, Stewart, Comandante, Ymas, Burdette, Sprague, and others, as well as several web resources. Those are references reported by the PDFs, not independently verified sources for this pack. Retain the original PDFs as the source record. This Markdown pack is self-contained for lesson text and equation-driven diagrams; access to the PDFs is useful for editorial comparison but is not a runtime website dependency.
