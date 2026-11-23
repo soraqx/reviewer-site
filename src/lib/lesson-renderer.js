@@ -7,7 +7,7 @@ function appendRichText(container, text) {
 export function renderLesson(lesson) {
   document.title = `${lesson.title}: Fieldnotes`;
   document.querySelector('#lesson-kicker').textContent =
-    `MODULE ${String(lesson.moduleOrder).padStart(2, '0')} / LESSON ${String(lesson.lessonOrder).padStart(2, '0')} · ${lesson.moduleTitle}`;
+    `Module ${lesson.moduleOrder}, lesson ${lesson.lessonOrder}: ${lesson.moduleTitle}`;
   document.querySelector('#lesson-title').textContent = lesson.title;
   document.querySelector('#lesson-lede').textContent = lesson.lead;
 

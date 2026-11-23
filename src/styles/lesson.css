@@ -1,21 +1,25 @@
+/* Hallmark · shape: lesson screen · genre: editorial · theme: Newsprint · redesign: full
+ * nav: kept · signature: first-screen simulation · states: ranges, toggles, tabs
+ * axes: light/slab-serif/warm · contrast: rendered · v2.0.0 */
+/* Hallmark · critique: the interactive figure leads; notes and reference follow. */
 .lesson-page {
   display: grid;
   grid-template-columns: minmax(12rem, 0.3fr) minmax(0, 1fr);
   align-items: start;
   gap: clamp(2rem, 5vw, 5rem);
-  padding-block: clamp(2rem, 5vw, 4.5rem) 6rem;
+  padding-block: clamp(2rem, 5vw, 4.5rem) var(--space-3xl);
 }
 
 .module-nav {
   position: sticky;
   top: 1.5rem;
   padding: 1.15rem 0;
-  border-top: 1px solid var(--ink);
+  border-top: 3px double var(--color-rule-2);
 }
 
-.module-nav > .eyebrow {
+.module-title {
   margin-bottom: 0.8rem;
-  font-size: 0.6rem;
+  font-size: 1.2rem;
 }
 
 .module-nav ol {
@@ -31,7 +35,7 @@
   min-height: 2.7rem;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: var(--space-xs);
   padding: 0.45rem 0;
   border-bottom: 1px solid var(--line);
   color: var(--muted);
@@ -39,7 +43,7 @@
 }
 
 .module-nav li[aria-current="step"] {
-  color: var(--accent);
+  color: var(--color-accent);
   font-weight: 700;
 }
 
@@ -53,15 +57,14 @@
 
 .module-nav a > span,
 .module-nav li > span > span {
-  color: var(--ink);
+  color: var(--color-ink);
 }
 
 .module-nav small {
   flex: 0 0 auto;
-  color: var(--muted);
-  font-size: 0.53rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  font-weight: 400;
 }
 
 .lesson-content {
@@ -71,16 +74,17 @@
 
 .lesson-heading {
   margin-bottom: 2.25rem;
-  animation: arrive 420ms ease-out both;
 }
 
-.lesson-heading .eyebrow {
-  margin-bottom: 1rem;
+.lesson-dateline {
+  margin-bottom: var(--space-sm);
+  color: var(--color-muted);
+  font-size: 0.95rem;
 }
 
 .lesson-heading h1 {
   max-width: 52rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   font-size: clamp(3rem, 6vw, 5.6rem);
   line-height: 0.98;
 }
@@ -88,16 +92,16 @@
 .lesson-lede {
   max-width: 43rem;
   margin-bottom: 0;
-  color: var(--muted);
-  font-family: var(--serif);
+  color: var(--color-ink-2);
+  font-family: var(--font-body);
   font-size: clamp(1.25rem, 2vw, 1.65rem);
   line-height: 1.45;
 }
 
 .lesson-simulation {
-  margin-bottom: clamp(3.5rem, 7vw, 6rem);
+  margin-bottom: clamp(3.5rem, 7vw, var(--space-3xl));
   padding-block: 1.3rem 1.15rem;
-  border-top: 1px solid var(--ink);
+  border-top: 3px double var(--color-rule-2);
   border-bottom: 1px solid var(--line);
 }
 
@@ -105,12 +109,8 @@
   display: flex;
   align-items: end;
   justify-content: space-between;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.simulation-heading .eyebrow {
-  margin-bottom: 0.45rem;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-md);
 }
 
 .simulation-heading h2 {
@@ -121,15 +121,15 @@
   max-width: 15rem;
   margin-bottom: 0.2rem;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.95rem;
 }
 
 .explorer-controls {
   display: grid;
   grid-template-columns: minmax(12rem, 0.8fr) minmax(16rem, 1.2fr);
-  gap: 1.5rem 2rem;
-  padding-block: 1rem;
-  border-top: 1px solid var(--line);
+  gap: var(--space-lg) 2rem;
+  padding-block: var(--space-md);
+  border-top: 1px solid var(--color-rule);
 }
 
 .side-count-control > label:first-child,
@@ -137,24 +137,25 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 1rem;
+  gap: var(--space-md);
   margin-bottom: 0.4rem;
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 0.95rem;
+  font-weight: 500;
 }
 
 .side-count-control output,
 .side-length-control output {
-  color: var(--teal);
-  font-family: var(--serif);
-  font-size: 1.2rem;
+  color: var(--color-ink);
+  font-family: var(--font-outlier);
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .side-count-control input[type="range"],
 .side-length-control input[type="range"] {
   width: 100%;
   margin: 0;
-  accent-color: var(--teal);
+  accent-color: var(--color-accent);
 }
 
 .range-ends {
@@ -162,26 +163,26 @@
   justify-content: space-between;
   margin-top: -0.15rem;
   color: var(--muted);
-  font-size: 0.63rem;
+  font-size: 0.85rem;
 }
 
 .number-entry {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: var(--space-sm);
   margin-top: 0.65rem;
   color: var(--muted);
-  font-size: 0.71rem;
+  font-size: 0.9rem;
 }
 
 .number-entry input {
   width: 5.25rem;
   min-height: 2.25rem;
   padding: 0.3rem 0.45rem;
-  border: 1px solid var(--line);
+  border: 1px solid var(--color-rule-2);
   border-radius: 0;
-  background: var(--surface);
+  background: var(--color-paper-2);
   color: var(--ink);
   font: inherit;
 }
@@ -194,7 +195,7 @@
   display: flex;
   flex-wrap: wrap;
   align-content: start;
-  gap: 0.45rem 1rem;
+  gap: 0.45rem var(--space-md);
   margin: 0;
   padding: 0;
   border: 0;
@@ -203,8 +204,8 @@
 .diagram-toggles legend {
   margin-bottom: 0.55rem;
   color: var(--muted);
-  font-size: 0.71rem;
-  font-weight: 700;
+  font-size: 0.95rem;
+  font-weight: 500;
 }
 
 .diagram-toggles label {
@@ -212,21 +213,21 @@
   align-items: center;
   gap: 0.35rem;
   color: var(--ink);
-  font-size: 0.73rem;
+  font-size: 0.9rem;
 }
 
 .diagram-toggles input {
   width: 1rem;
   height: 1rem;
   margin: 0;
-  accent-color: var(--teal);
+  accent-color: var(--color-accent);
 }
 
 .control-error {
   min-height: 1.15em;
   margin: 0.2rem 0 0;
-  color: var(--accent-strong);
-  font-size: 0.69rem;
+  color: var(--color-error);
+  font-size: 0.9rem;
 }
 
 .polygon-figure-wrap {
@@ -264,7 +265,7 @@
 }
 
 .polygon-apothem {
-  stroke: #b78327;
+  stroke: var(--color-apothem);
   stroke-dasharray: 4 4;
 }
 
@@ -280,10 +281,10 @@
 }
 
 .diagram-label {
-  fill: var(--ink);
-  font-family: var(--sans);
+  fill: var(--color-ink);
+  font-family: var(--font-body);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   paint-order: stroke;
   stroke: var(--page);
   stroke-linejoin: round;
@@ -299,11 +300,7 @@
 }
 
 .label-apothem {
-  fill: #8a641c;
-}
-
-:root[data-theme="dark"] .label-apothem {
-  fill: #e0bd72;
+  fill: var(--color-apothem);
 }
 
 .label-angle {
@@ -314,17 +311,20 @@
 .simulation-readout {
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  gap: 1rem 2rem;
-  padding-top: 0.5rem;
+  gap: var(--space-md) 2rem;
+  padding: 0.8rem 0;
   border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .simulation-readout p {
   margin: 0;
-  font-size: 0.78rem;
+  font-size: 0.95rem;
 }
 
 #polygon-summary {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
@@ -338,7 +338,7 @@
   gap: 0.6rem 1.2rem;
   margin: 0.8rem 0 0;
   color: var(--muted);
-  font-size: 0.67rem;
+  font-size: 0.9rem;
 }
 
 .diagram-key span {
@@ -363,16 +363,14 @@
 }
 
 .key-apothem {
-  border-color: #b78327;
+  border-color: var(--color-apothem);
   border-top-style: dashed;
 }
 
 .lesson-section {
-  margin-block: 3.5rem;
-}
-
-.lesson-section > .eyebrow {
-  margin-bottom: 0.6rem;
+  margin-block: 3rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--color-rule);
 }
 
 .lesson-section > h2,
@@ -395,9 +393,15 @@
 
 .lesson-prose {
   max-width: 48rem;
+  columns: 2 20rem;
+  column-gap: var(--space-xl);
+  column-rule: 1px solid var(--color-rule);
+  text-align: justify;
+  hyphens: auto;
 }
 
 .lesson-prose section {
+  break-inside: avoid;
   padding-block: 1.15rem;
   border-top: 1px solid var(--line);
 }
@@ -410,7 +414,7 @@
 .lesson-prose p {
   max-width: 45rem;
   margin-bottom: 0.8rem;
-  color: var(--muted);
+  color: var(--color-ink-2);
 }
 
 .lesson-prose p:last-child {
@@ -421,7 +425,7 @@
   display: grid;
   grid-template-columns: minmax(9rem, 0.35fr) minmax(0, 1fr);
   margin: 0;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--color-rule-2);
 }
 
 .vocabulary-list dt,
@@ -440,8 +444,8 @@
 }
 
 .shape-tabs {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--color-rule-2);
+  border-bottom: 1px solid var(--color-rule-2);
 }
 
 .shape-tab-list {
@@ -454,17 +458,17 @@
 .shape-tab-list button {
   flex: 0 0 auto;
   min-height: 2.8rem;
-  padding: 0.45rem 0.75rem;
+  padding: 0.45rem var(--space-sm);
   border: 0;
   border-bottom: 2px solid transparent;
   background: transparent;
-  color: var(--muted);
-  font-size: 0.73rem;
+  color: var(--color-ink-2);
+  font-size: 0.95rem;
   cursor: pointer;
 }
 
 .shape-tab-list button[aria-selected="true"] {
-  border-bottom-color: var(--accent);
+  border-bottom-color: var(--color-accent);
   color: var(--ink);
   font-weight: 700;
 }
@@ -473,7 +477,7 @@
   display: grid;
   grid-template-columns: minmax(12rem, 0.8fr) minmax(0, 1.2fr);
   align-items: center;
-  gap: 1.5rem;
+  gap: var(--space-lg);
   padding: 1.25rem 0;
 }
 
@@ -490,20 +494,20 @@
 
 .shape-example svg path {
   fill: var(--plot-fill);
-  stroke: var(--teal);
+  stroke: var(--color-ink-2);
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 3;
 }
 
 .shape-example svg circle {
-  fill: var(--accent);
+  fill: var(--color-accent);
 }
 
 .shape-example p {
   margin: 0;
-  color: var(--muted);
-  font-size: 0.9rem;
+  color: var(--color-ink-2);
+  font-size: 1rem;
 }
 
 .shape-example strong {
@@ -512,40 +516,36 @@
 
 .lesson-note {
   margin-block: 3.5rem;
-  padding: 1.4rem 0;
-  border-top: 1px solid var(--accent);
-  border-bottom: 1px solid var(--line);
-}
-
-.lesson-note .eyebrow {
-  margin-bottom: 0.5rem;
+  padding: 1.4rem;
+  border-block: 1px solid var(--color-rule);
+  background: var(--color-paper-2);
 }
 
 .lesson-note h2 {
   margin-bottom: 0.7rem;
-  font-family: var(--serif);
   font-size: clamp(1.7rem, 3vw, 2.4rem);
 }
 
 .lesson-note > p:last-child {
   max-width: 48rem;
   margin-bottom: 0;
-  color: var(--muted);
+  color: var(--color-ink-2);
 }
 
 .lesson-sources {
   padding-top: 1.1rem;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 0.78rem;
+  border-top: 3px double var(--color-rule-2);
+  color: var(--color-ink-2);
+  font-size: 0.95rem;
 }
 
-.lesson-sources .eyebrow {
-  margin-bottom: 0.5rem;
+.sources-title {
+  margin-bottom: var(--space-sm);
+  font-size: 1.3rem;
 }
 
 .lesson-sources p {
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-xs);
 }
 
 .lesson-sources details {
@@ -554,7 +554,7 @@
 
 .lesson-sources summary {
   width: fit-content;
-  color: var(--accent);
+  color: var(--color-accent);
   cursor: pointer;
   text-underline-offset: 0.2em;
 }
@@ -573,13 +573,13 @@
   .module-nav {
     position: static;
     overflow: hidden;
-    padding-block: 0.75rem 0;
+    padding-block: var(--space-sm) 0;
   }
 
   .module-nav ol {
     display: flex;
     overflow-x: auto;
-    gap: 0.5rem;
+    gap: var(--space-xs);
     padding-bottom: 0.55rem;
     scrollbar-width: thin;
   }
@@ -588,15 +588,12 @@
     flex: 0 0 auto;
     min-height: 2.45rem;
     padding: 0.35rem 0.6rem;
-    border: 1px solid var(--line);
+    border: 0;
+    border-bottom: 1px solid var(--color-rule);
   }
 
   .module-nav li[aria-current="step"] {
-    border-color: var(--accent);
-  }
-
-  .module-nav small {
-    display: none;
+    border-bottom: 2px solid var(--color-accent);
   }
 
   .lesson-content {
@@ -620,7 +617,7 @@
   .simulation-heading {
     align-items: flex-start;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--space-xs);
   }
 
   .simulation-heading > p {
@@ -629,7 +626,7 @@
 
   .explorer-controls {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: var(--space-md);
   }
 
   .simulation-readout {
@@ -644,11 +641,5 @@
 
   .shape-example svg {
     max-width: 15rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .lesson-heading {
-    animation: none;
   }
 }

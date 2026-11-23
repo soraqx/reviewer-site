@@ -1,8 +1,7 @@
 const headerMarkup = `
   <div class="site-header page-width">
     <a class="wordmark" href="/" aria-label="Fieldnotes home">
-      <span class="wordmark-symbol" aria-hidden="true">f.</span>
-      <span>fieldnotes<span class="wordmark-period">.</span></span>
+      Fieldnotes<span class="wordmark-period">.</span>
     </a>
     <nav class="site-nav" aria-label="Main navigation">
       <a href="/formulas/">Formulas</a>
@@ -10,7 +9,6 @@ const headerMarkup = `
       <a href="/problems/coordinate-distance.html">Practice</a>
     </nav>
     <button class="theme-toggle" type="button" aria-pressed="false">
-      <span class="theme-indicator" aria-hidden="true"></span>
       <span class="theme-toggle-label">Dark mode</span>
     </button>
   </div>
@@ -45,7 +43,7 @@ function saveTheme(theme) {
 function setTheme(theme, button, status) {
   const isDark = theme === 'dark';
   document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
-  document.querySelector('meta[name="theme-color"]').content = isDark ? '#17231f' : '#f4f1e8';
+  document.querySelector('meta[name="theme-color"]').content = isDark ? '#20201c' : '#f1eee3';
   button.setAttribute('aria-pressed', String(isDark));
   button.querySelector('.theme-toggle-label').textContent = isDark ? 'Light mode' : 'Dark mode';
 
@@ -67,7 +65,7 @@ export function mountSharedLayout() {
   if (savedTheme === 'light' || savedTheme === 'dark') {
     document.documentElement.dataset.theme = savedTheme;
     document.querySelector('meta[name="theme-color"]').content =
-      savedTheme === 'dark' ? '#17231f' : '#f4f1e8';
+      savedTheme === 'dark' ? '#20201c' : '#f1eee3';
     toggle.setAttribute('aria-pressed', String(savedTheme === 'dark'));
     toggle.querySelector('.theme-toggle-label').textContent =
       savedTheme === 'dark' ? 'Light mode' : 'Dark mode';

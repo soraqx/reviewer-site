@@ -1,0 +1,90 @@
+/* Hallmark · theme: Newsprint · shared app tokens · light/slab-serif/warm */
+/* Hallmark · critique: the paper and ink roles remain consistent across themes. */
+:root {
+  color-scheme: light;
+
+  --space-3xs: 2px;
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.2rem;
+  --text-xl: 1.44rem;
+  --text-2xl: 1.728rem;
+  --text-3xl: 2.074rem;
+  --text-display-s: clamp(2.4rem, 4vw, 4rem);
+  --text-display: clamp(3.2rem, 7vw, 6.7rem);
+  --text-section: clamp(1.9rem, 3.8vw, 3rem);
+  --text-title: clamp(1.35rem, 2.1vw, 2rem);
+  --text-lead: clamp(1.15rem, 1.5vw, 1.3rem);
+
+  --color-paper: oklch(94% 0.011 92);
+  --color-paper-2: oklch(90.5% 0.015 88);
+  --color-paper-3: oklch(87% 0.017 86);
+  --color-ink: oklch(17% 0.012 60);
+  --color-ink-2: oklch(27% 0.012 58);
+  --color-muted: oklch(43% 0.014 60);
+  --color-rule: oklch(68% 0.016 75);
+  --color-rule-2: oklch(34% 0.012 60);
+  --color-accent: oklch(44% 0.13 32);
+  --color-accent-ink: oklch(95% 0.012 90);
+  --color-focus: oklch(42% 0.15 32);
+  --color-diagonal: oklch(38% 0.045 230);
+  --color-apothem: oklch(38% 0.06 70);
+  --color-success: oklch(42% 0.09 145);
+  --color-error: var(--color-accent);
+
+  --font-display: "Zilla Slab", Georgia, serif;
+  --font-body: "Spectral", Georgia, serif;
+  --font-outlier: "Libre Franklin", Arial, sans-serif;
+
+  --radius-card: 0;
+  --radius-pill: 0;
+  --rule-hair: 1px;
+  --shadow-card: none;
+  --tracking-display: -0.02em;
+  --display-weight: 700;
+  --container: 1440px;
+  --gutter: clamp(1.15rem, 4.5vw, 5rem);
+
+  --page: var(--color-paper);
+  --surface: var(--color-paper-2);
+  --ink: var(--color-ink);
+  --muted: var(--color-muted);
+  --line: var(--color-rule);
+  --accent: var(--color-accent);
+  --accent-strong: var(--color-accent);
+  --teal: var(--color-diagonal);
+  --plot-fill: color-mix(in oklab, var(--color-accent) 12%, transparent);
+  --plot-label: var(--color-muted);
+  --focus: var(--color-focus);
+  --serif: var(--font-display);
+  --sans: var(--font-body);
+  --page-gutter: var(--gutter);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-paper: oklch(20% 0.012 60);
+  --color-paper-2: oklch(25% 0.014 58);
+  --color-paper-3: oklch(29% 0.015 58);
+  --color-ink: oklch(93% 0.011 92);
+  --color-ink-2: oklch(82% 0.01 80);
+  --color-muted: oklch(72% 0.014 65);
+  --color-rule: oklch(45% 0.012 65);
+  --color-rule-2: oklch(78% 0.01 80);
+  --color-accent: oklch(72% 0.12 32);
+  --color-accent-ink: oklch(17% 0.012 60);
+  --color-focus: oklch(76% 0.14 32);
+  --color-diagonal: oklch(76% 0.035 225);
+  --color-apothem: oklch(76% 0.07 80);
+  --color-success: oklch(72% 0.09 145);
+}

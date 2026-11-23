@@ -1,22 +1,18 @@
-/* Hallmark · checked: 2026-11-24 · genre: editorial (inferred)
- * floor: 1 unresolved checker false-positive (73: nested KaTeX spans) · reflex: 0
- * critique: Focused workspace; feedback and progress report their offline state.
- * fixed: contrast, mobile width, and keyboard-scrollable equations */
+/* Hallmark · shape: workspace · genre: editorial · theme: Newsprint · redesign: full
+ * nav: kept · signature: ordered solution steps · states: answer, progress, feedback
+ * axes: light/slab-serif/warm · contrast: rendered · v2.0.0 */
+/* Hallmark · critique: practice remains a two-column work area, not nested cards. */
 .problem-page {
-  padding-block: clamp(3rem, 7vw, 6rem) 5rem;
+  padding-block: clamp(3rem, 7vw, var(--space-3xl)) 5rem;
 }
 
 .problem-heading {
   max-width: 55rem;
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
-}
-
-.problem-heading .eyebrow {
-  margin-bottom: 1.1rem;
+  margin-bottom: clamp(var(--space-xl), 5vw, var(--space-2xl));
 }
 
 .problem-heading h1 {
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-md);
   font-size: clamp(3.2rem, 7vw, 6.4rem);
 }
 
@@ -40,36 +36,29 @@
 
 .problem-statement {
   padding: 1.15rem 0 1.4rem;
-  border-top: 1px solid var(--ink);
+  border-top: 3px double var(--color-rule-2);
   border-bottom: 1px solid var(--line);
-}
-
-.problem-statement .eyebrow {
-  margin-bottom: 0.7rem;
 }
 
 .problem-statement > p:last-child {
   margin-bottom: 0;
-  font-family: var(--serif);
-  font-size: clamp(1.2rem, 2.3vw, 1.7rem);
-  line-height: 1.45;
+  color: var(--color-ink-2);
+  font-family: var(--font-body);
+  font-size: clamp(1.1rem, 1.65vw, 1.35rem);
+  line-height: 1.5;
 }
 
 .step-section,
 .hint-section {
-  margin-top: 2.5rem;
+  margin-top: var(--space-xl);
 }
 
 .section-title-row {
   display: flex;
   align-items: end;
   justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.section-title-row .eyebrow {
-  margin-bottom: 0.4rem;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
 }
 
 .section-title-row h2,
@@ -99,16 +88,16 @@
 
 .solution-step h3 {
   margin-bottom: 0.35rem;
-  font-family: var(--sans);
-  font-size: 0.83rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
   font-weight: 700;
-  letter-spacing: 0.01em;
+  letter-spacing: var(--tracking-display);
 }
 
 .solution-step > p {
   margin-bottom: 0.55rem;
-  color: var(--muted);
-  font-size: 0.83rem;
+  color: var(--color-ink-2);
+  font-size: 0.98rem;
 }
 
 .step-equation {
@@ -132,9 +121,9 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-md);
   padding-top: 0.85rem;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--color-rule);
 }
 
 .text-button,
@@ -144,30 +133,24 @@
   padding: 0.35rem 0;
   border: 0;
   background: transparent;
-  font: inherit;
-  font-size: 0.79rem;
-  font-weight: 700;
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
   cursor: pointer;
-}
-
-.text-button {
-  color: var(--accent);
 }
 
 .text-button:hover,
 .new-problem:hover {
-  color: var(--accent-strong);
   text-decoration: underline;
   text-underline-offset: 0.22em;
 }
 
 .quiet-button {
-  color: var(--muted);
-  font-weight: 500;
+  color: var(--color-ink-2);
 }
 
 .quiet-button:hover {
-  color: var(--ink);
   text-decoration: underline;
   text-underline-offset: 0.22em;
 }
@@ -183,6 +166,11 @@
 
 .hint-section .section-title-row {
   align-items: center;
+}
+
+.hint-section .section-title-row > .quiet-button {
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .hint-list {
@@ -201,10 +189,12 @@
 .hint-list li::before {
   position: absolute;
   left: 0;
-  color: var(--teal);
+  color: var(--color-ink-2);
   content: counter(hint, decimal-leading-zero);
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-family: var(--font-outlier);
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
 }
 
 .answer-column {
@@ -214,12 +204,8 @@
 
 .answer-panel {
   padding: 1.25rem 0;
-  border-top: 1px solid var(--ink);
+  border-top: 3px double var(--color-rule-2);
   border-bottom: 1px solid var(--line);
-}
-
-.answer-panel > .eyebrow {
-  margin-bottom: 0.45rem;
 }
 
 .answer-panel h2 {
@@ -230,8 +216,8 @@
 #answer-form > label {
   display: block;
   margin-bottom: 0.45rem;
-  font-size: 0.76rem;
-  font-weight: 700;
+  font-size: 0.95rem;
+  font-weight: 500;
 }
 
 .answer-input-row {
@@ -245,8 +231,8 @@
 .unit-label input {
   width: 100%;
   min-height: 2.8rem;
-  padding: 0.5rem 0.6rem;
-  border: 1px solid var(--line);
+  padding: var(--space-xs) 0.6rem;
+  border: 1px solid var(--color-rule-2);
   border-radius: 0;
   background: var(--surface);
   color: var(--ink);
@@ -257,31 +243,33 @@
   display: grid;
   gap: 0.22rem;
   color: var(--muted);
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .answer-help {
   margin: 0.45rem 0 0.8rem;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
 }
 
 .check-answer {
   width: 100%;
   min-height: 2.8rem;
-  border: 1px solid var(--ink);
-  background: var(--ink);
-  color: var(--page);
-  font: inherit;
-  font-size: 0.82rem;
+  padding: 0.55rem 0.8rem;
+  border: 0;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-display);
+  font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
 }
 
 .check-answer:hover {
-  border-color: var(--accent);
-  background: var(--accent);
+  background: var(--color-ink-2);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 
 .check-answer:disabled,
@@ -299,7 +287,7 @@
 }
 
 .answer-feedback[data-state="correct"] {
-  color: var(--teal);
+  color: var(--color-success);
   font-weight: 700;
 }
 
@@ -327,8 +315,8 @@
 }
 
 .problem-progress {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
   border-top: 1px solid var(--line);
 }
 
@@ -340,13 +328,13 @@
 .problem-progress p {
   margin-bottom: 0.35rem;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.92rem;
 }
 
 .problem-feedback {
-  margin-top: 1rem;
+  margin-top: var(--space-md);
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.92rem;
 }
 
 .problem-feedback summary {
@@ -365,7 +353,7 @@
 
 .problem-feedback label {
   color: var(--ink);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .problem-feedback textarea {
@@ -374,7 +362,7 @@
   min-height: 7rem;
   padding: 0.65rem;
   box-sizing: border-box;
-  border: 1px solid var(--line);
+  border: 1px solid var(--color-rule-2);
   border-radius: 0;
   background: var(--surface);
   color: var(--ink);
@@ -398,7 +386,7 @@
 .problem-source {
   margin-top: 1.1rem;
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 0.92rem;
 }
 
 .problem-source summary {
