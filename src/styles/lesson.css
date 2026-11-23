@@ -4,7 +4,7 @@
 /* Hallmark · critique: the interactive figure leads; notes and reference follow. */
 .lesson-page {
   display: grid;
-  grid-template-columns: minmax(12rem, 0.3fr) minmax(0, 1fr);
+  grid-template-columns: minmax(20rem, 0.55fr) minmax(0, 1fr);
   align-items: start;
   gap: clamp(2rem, 5vw, 5rem);
   padding-block: clamp(2rem, 5vw, 4.5rem) var(--space-3xl);
@@ -20,51 +20,6 @@
 .module-title {
   margin-bottom: 0.8rem;
   font-size: 1.2rem;
-}
-
-.module-nav ol {
-  display: grid;
-  gap: 0.15rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.module-nav li {
-  display: flex;
-  min-height: 2.7rem;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-xs);
-  padding: 0.45rem 0;
-  border-bottom: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 0.78rem;
-}
-
-.module-nav li[aria-current="step"] {
-  color: var(--color-accent);
-  font-weight: 700;
-}
-
-.module-nav a,
-.module-nav li > span {
-  display: flex;
-  align-items: baseline;
-  gap: 0.55rem;
-  text-decoration: none;
-}
-
-.module-nav a > span,
-.module-nav li > span > span {
-  color: var(--color-ink);
-}
-
-.module-nav small {
-  flex: 0 0 auto;
-  color: var(--color-muted);
-  font-size: 0.85rem;
-  font-weight: 400;
 }
 
 .lesson-content {
@@ -572,28 +527,11 @@
 
   .module-nav {
     position: static;
-    overflow: hidden;
     padding-block: var(--space-sm) 0;
   }
 
-  .module-nav ol {
-    display: flex;
-    overflow-x: auto;
-    gap: var(--space-xs);
-    padding-bottom: 0.55rem;
-    scrollbar-width: thin;
-  }
-
-  .module-nav li {
-    flex: 0 0 auto;
-    min-height: 2.45rem;
-    padding: 0.35rem 0.6rem;
-    border: 0;
-    border-bottom: 1px solid var(--color-rule);
-  }
-
-  .module-nav li[aria-current="step"] {
-    border-bottom: 2px solid var(--color-accent);
+  .lesson-module-list ol {
+    display: none;
   }
 
   .lesson-content {
@@ -602,6 +540,12 @@
 
   .lesson-heading {
     margin-bottom: 1.7rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .lesson-module-list ol {
+    display: none;
   }
 }
 

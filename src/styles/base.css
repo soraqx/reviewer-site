@@ -37,6 +37,10 @@ body {
   outline-offset: 3px;
 }
 
+.katex .katex-mathml {
+  left: -9999px;
+}
+
 a:active,
 button:active:not(:disabled) {
   color: var(--color-ink);

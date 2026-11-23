@@ -16,3 +16,5 @@ skills-lock.json
 /convex/_generated/ai/
 /convex/_generated/*.d.ts
 /convex/tsconfig.json
+/src/data/course.generated.json
+/public/generated/

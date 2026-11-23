@@ -1,11 +1,13 @@
 import katex from 'katex';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import { z } from 'zod';
 import { resolveUnit } from '../src/lib/units.js';
 
 const formulasPath = new URL('../src/data/formulas.json', import.meta.url);
-const lessonPath = new URL('../src/data/lessons/polygon-vocabulary.json', import.meta.url);
+const coursePath = new URL('../src/data/course.generated.json', import.meta.url);
 const problemsPath = new URL('../src/data/problems/geometry.json', import.meta.url);
+const generatedLessonsPath = new URL('../public/generated/lessons/', import.meta.url);
+const generatedPracticePath = new URL('../public/generated/practice.json', import.meta.url);
 const slugSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
 const sourceIdSchema = z.string().regex(/^[A-Z0-9]+(?:-[A-Z0-9]+)*$/);
 const variableSchema = z.object({
@@ -59,8 +61,9 @@ const formulasSchema = z.array(formulaSchema).min(1).superRefine((formulas, cont
   }
 });
 
-const lessonSchema = z.object({
+const courseLessonMetadataSchema = z.object({
   id: slugSchema,
+  code: sourceIdSchema,
   moduleId: slugSchema,
   moduleTitle: z.string().trim().min(1),
   moduleOrder: z.number().int().positive(),
@@ -68,49 +71,91 @@ const lessonSchema = z.object({
   title: z.string().trim().min(1),
   lead: z.string().trim().min(1),
   outcomes: z.array(z.string().trim().min(1)).min(1),
-  concepts: z.array(z.object({
-    heading: z.string().trim().min(1),
-    paragraphs: z.array(z.string().trim().min(1)).min(1),
-  }).strict()).min(1),
-  vocabulary: z.array(z.object({
-    term: z.string().trim().min(1),
-    definition: z.string().trim().min(1),
-  }).strict()).min(1),
-  source: z.object({
-    id: sourceIdSchema,
-    pages: z.string().trim().min(1),
-    citation: z.string().trim().min(1),
-  }).strict(),
-  attribution: z.string().trim().min(1),
-}).strict().superRefine((lesson, context) => {
-  const richText = [
-    ...lesson.outcomes.map((text, index) => ({ path: ['outcomes', index], text })),
-    ...lesson.concepts.flatMap((concept, conceptIndex) =>
-      concept.paragraphs.map((text, paragraphIndex) => ({
-        path: ['concepts', conceptIndex, 'paragraphs', paragraphIndex],
-        text,
-      })),
-    ),
-    ...lesson.vocabulary.map(({ definition }, index) => ({
-      path: ['vocabulary', index, 'definition'],
-      text: definition,
-    })),
-  ];
+  source: z.string().trim().min(1),
+}).strict();
 
-  for (const { path, text } of richText) {
-    for (const match of text.matchAll(/\$([^$]+)\$/g)) {
-      try {
-        katex.renderToString(match[1], { throwOnError: true });
-      } catch (error) {
+const courseLessonSchema = courseLessonMetadataSchema.extend({
+  contentHtml: z.string(),
+  practiceNotesHtml: z.array(z.string()),
+  examples: z.array(z.object({
+    title: z.string().trim().min(1),
+    solutionHtml: z.string(),
+  }).strict()),
+}).strict().refine(
+  (lesson) => lesson.contentHtml.trim() || lesson.examples.length > 0,
+  { message: 'A lesson needs explanatory content or a worked example.' },
+);
+
+const coursePracticeSchema = z.object({
+  id: sourceIdSchema,
+  moduleId: slugSchema,
+  lessonId: slugSchema.nullable(),
+  promptHtml: z.string().trim().min(1),
+  answerHtml: z.string().trim().min(1),
+  source: z.string(),
+}).strict();
+
+const courseModuleSchema = z.object({
+  id: slugSchema,
+  title: z.string().trim().min(1),
+  order: z.number().int().positive(),
+  summary: z.string().trim().min(1),
+  prerequisites: z.string(),
+  outcomes: z.array(z.string().trim().min(1)).min(1),
+  lessonIds: z.array(slugSchema).min(1),
+  lessons: z.array(courseLessonMetadataSchema).min(1),
+}).strict();
+
+const courseSchema = z.object({
+  modules: z.array(courseModuleSchema).length(15),
+  lessons: z.array(courseLessonMetadataSchema).length(49),
+}).strict().superRefine((course, context) => {
+  const moduleIds = new Set(course.modules.map(({ id }) => id));
+  const lessonIds = new Set(course.lessons.map(({ id }) => id));
+  if (moduleIds.size !== course.modules.length) {
+    context.addIssue({ code: z.ZodIssueCode.custom, message: 'Duplicate module IDs.' });
+  }
+  if (lessonIds.size !== course.lessons.length) {
+    context.addIssue({ code: z.ZodIssueCode.custom, message: 'Duplicate lesson IDs.' });
+  }
+  for (const [moduleIndex, module] of course.modules.entries()) {
+    for (const lessonId of module.lessonIds) {
+      if (!lessonIds.has(lessonId)) {
         context.addIssue({
           code: z.ZodIssueCode.custom,
-          message: `Invalid inline LaTeX: ${error.message}`,
-          path,
+          message: `Module "${module.id}" references missing lesson "${lessonId}".`,
+          path: ['modules', moduleIndex, 'lessonIds'],
+        });
+      }
+    }
+    for (const [lessonIndex, lesson] of module.lessons.entries()) {
+      if (
+        lesson.moduleId !== module.id
+        || !module.lessonIds.includes(lesson.id)
+        || lesson.moduleTitle !== module.title
+        || lesson.moduleOrder !== module.order
+      ) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `Lesson "${lesson.id}" is not consistently linked to module "${module.id}".`,
+          path: ['modules', moduleIndex, 'lessons', lessonIndex],
         });
       }
     }
   }
+  for (const [index, lesson] of course.lessons.entries()) {
+    if (!moduleIds.has(lesson.moduleId)) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: `Lesson "${lesson.id}" references missing module "${lesson.moduleId}".`,
+        path: ['lessons', index, 'moduleId'],
+      });
+    }
+  }
 });
+
+const courseLessonsSchema = z.array(courseLessonSchema).length(49);
+const coursePracticeSchemaArray = z.array(coursePracticeSchema).min(1);
 
 const rangeSchema = z.object({
   min: z.number().finite(),
@@ -281,28 +326,136 @@ const problemsSchema = z.array(problemSchema).min(1).superRefine((problems, cont
   }
 });
 
-const [formulaSource, lessonSource, problemsSource] = await Promise.all([
+const [formulaSource, courseSource, practiceSource, problemsSource, lessonFiles] = await Promise.all([
   readFile(formulasPath, 'utf8'),
-  readFile(lessonPath, 'utf8'),
+  readFile(coursePath, 'utf8'),
+  readFile(generatedPracticePath, 'utf8'),
   readFile(problemsPath, 'utf8'),
+  readdir(generatedLessonsPath),
 ]);
+const lessonSources = await Promise.all(
+  lessonFiles
+    .filter((file) => file.endsWith('.json'))
+    .map(async (file) => ({
+      file,
+      source: await readFile(new URL(file, generatedLessonsPath), 'utf8'),
+    })),
+);
 const parsedFormulas = formulasSchema.safeParse(JSON.parse(formulaSource));
-const parsedLesson = lessonSchema.safeParse(JSON.parse(lessonSource));
+const parsedCourse = courseSchema.safeParse(JSON.parse(courseSource));
+const parsedCourseLessons = courseLessonsSchema.safeParse(
+  lessonSources.map(({ source }) => JSON.parse(source)),
+);
+const parsedCoursePractice = coursePracticeSchemaArray.safeParse(JSON.parse(practiceSource));
 const parsedProblems = problemsSchema.safeParse(JSON.parse(problemsSource));
 
-if (!parsedFormulas.success || !parsedLesson.success || !parsedProblems.success) {
+const validationErrors = [];
+if (parsedCourse.success && parsedCourseLessons.success) {
+  const metadataById = new Map(parsedCourse.data.lessons.map((lesson) => [lesson.id, lesson]));
+  const detailsById = new Map(parsedCourseLessons.data.map((lesson) => [lesson.id, lesson]));
+  const expectedFiles = [...metadataById.keys()].map((id) => `${id}.json`).sort();
+  const actualFiles = lessonSources.map(({ file }) => file).sort();
+  if (JSON.stringify(expectedFiles) !== JSON.stringify(actualFiles)) {
+    validationErrors.push('Generated lesson files do not match the course index.');
+  }
+  for (const [moduleIndex, module] of parsedCourse.data.modules.entries()) {
+    const childIds = module.lessons.map(({ id }) => id);
+    const childIdSet = new Set(childIds);
+    if (
+      module.lessonIds.length !== childIds.length
+      || childIdSet.size !== childIds.length
+      || module.lessonIds.some((id, index) => id !== childIds[index])
+    ) {
+      validationErrors.push(`Module "${module.id}" lesson IDs do not match its lesson list.`);
+    }
+    for (const lesson of module.lessons) {
+      if (!metadataById.has(lesson.id)) {
+        validationErrors.push(`Module "${module.id}" contains lesson "${lesson.id}" missing from the course index.`);
+      }
+    }
+    if (moduleIndex !== module.order - 1) {
+      validationErrors.push(`Module "${module.id}" is not in curriculum order.`);
+    }
+  }
+  for (const [index, lesson] of parsedCourseLessons.data.entries()) {
+    const metadata = metadataById.get(lesson.id);
+    if (!metadata) {
+      validationErrors.push(`Generated lesson file "${lesson.id}" is absent from the course index.`);
+      continue;
+    }
+    for (const key of [
+      'code', 'moduleId', 'moduleTitle', 'moduleOrder', 'lessonOrder',
+      'title', 'lead', 'source',
+    ]) {
+      if (lesson[key] !== metadata[key]) {
+        validationErrors.push(`Generated lesson "${lesson.id}" has mismatched "${key}" metadata.`);
+      }
+    }
+    if (JSON.stringify(lesson.outcomes) !== JSON.stringify(metadata.outcomes)) {
+      validationErrors.push(`Generated lesson "${lesson.id}" has mismatched outcomes.`);
+    }
+    if (lessonFiles[index] !== `${lesson.id}.json`) {
+      validationErrors.push(`Generated lesson file "${lesson.id}.json" is not named consistently.`);
+    }
+  }
+  const moduleLessonIds = new Set(
+    parsedCourse.data.modules.flatMap((module) => module.lessonIds),
+  );
+  for (const lessonId of metadataById.keys()) {
+    if (!moduleLessonIds.has(lessonId)) {
+      validationErrors.push(`Lesson "${lessonId}" is missing from its module lesson list.`);
+    }
+  }
+  if (parsedCoursePractice.success) {
+    const moduleIds = new Set(parsedCourse.data.modules.map(({ id }) => id));
+    const practiceIds = new Set();
+    for (const item of parsedCoursePractice.data) {
+      if (practiceIds.has(item.id)) {
+        validationErrors.push(`Duplicate practice ID "${item.id}".`);
+      }
+      practiceIds.add(item.id);
+      if (!moduleIds.has(item.moduleId)) {
+        validationErrors.push(`Practice "${item.id}" references missing module "${item.moduleId}".`);
+      }
+      if (item.lessonId) {
+        const lesson = metadataById.get(item.lessonId);
+        if (!lesson) {
+          validationErrors.push(`Practice "${item.id}" references missing lesson "${item.lessonId}".`);
+        } else if (lesson.moduleId !== item.moduleId) {
+          validationErrors.push(`Practice "${item.id}" is linked to the wrong lesson module.`);
+        }
+      }
+    }
+  }
+}
+
+if (
+  !parsedFormulas.success
+  || !parsedCourse.success
+  || !parsedCourseLessons.success
+  || !parsedCoursePractice.success
+  || !parsedProblems.success
+  || validationErrors.length
+) {
   if (!parsedFormulas.success) {
     console.error(`Formula data validation failed:\n${parsedFormulas.error.message}`);
   }
-  if (!parsedLesson.success) {
-    console.error(`Lesson data validation failed:\n${parsedLesson.error.message}`);
+  if (!parsedCourse.success) {
+    console.error(`Course data validation failed:\n${parsedCourse.error.message}`);
   }
+  if (!parsedCourseLessons.success) {
+    console.error(`Generated lesson validation failed:\n${parsedCourseLessons.error.message}`);
+  }
+  if (!parsedCoursePractice.success) {
+    console.error(`Generated practice validation failed:\n${parsedCoursePractice.error.message}`);
+  }
+  for (const error of validationErrors) console.error(error);
   if (!parsedProblems.success) {
     console.error(`Problem data validation failed:\n${parsedProblems.error.message}`);
   }
   process.exitCode = 1;
 } else {
   console.log(
-    `Validated ${parsedFormulas.data.length} formulas, lesson ${parsedLesson.data.id}, and ${parsedProblems.data.length} problem templates.`,
+    `Validated ${parsedFormulas.data.length} formulas, ${parsedCourse.data.modules.length} modules, ${parsedCourse.data.lessons.length} lessons, ${parsedCoursePractice.data.length} practice items, and ${parsedProblems.data.length} randomized problem templates.`,
   );
 }

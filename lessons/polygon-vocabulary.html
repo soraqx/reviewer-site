@@ -21,29 +21,29 @@
     <header id="site-header"></header>
 
     <main id="main" class="lesson-page page-width">
+      <noscript id="lesson-noscript"></noscript>
       <nav class="module-nav" aria-label="Geometry course modules">
         <h2 class="module-title">Engineering mathematics 2</h2>
-        <ol>
-          <li aria-current="step">
-            <a href="#lesson-title">01 <span>Plane figures &amp; polygons</span></a>
-          </li>
-          <li><span>02 <span>Cartesian coordinates</span></span><small>Up next</small></li>
-          <li><span>03 <span>Lines</span></span><small>Planned</small></li>
-          <li><span>04 <span>Conics &amp; circles</span></span><small>Planned</small></li>
-          <li><span>05 <span>Parabolas</span></span><small>Planned</small></li>
-          <li><span>06 <span>Ellipses</span></span><small>Planned</small></li>
-          <li><span>07 <span>Hyperbolas</span></span><small>Planned</small></li>
-        </ol>
+        <ol id="module-list" class="lesson-module-list"></ol>
       </nav>
 
       <article class="lesson-content">
+        <nav class="lesson-path" aria-label="Lesson navigation">
+          <a href="/lessons/">All modules</a>
+          <span id="lesson-position"></span>
+          <span>
+            <a id="previous-lesson" href="">Previous</a>
+            <span aria-hidden="true"> / </span>
+            <a id="next-lesson" href="">Next</a>
+          </span>
+        </nav>
         <header class="lesson-heading">
           <p class="lesson-dateline" id="lesson-kicker"></p>
           <h1 id="lesson-title"></h1>
           <p class="lesson-lede" id="lesson-lede"></p>
         </header>
 
-        <section class="lesson-simulation" aria-labelledby="explorer-title">
+        <section class="lesson-simulation" id="polygon-simulation" aria-labelledby="explorer-title">
           <div class="simulation-heading">
             <div>
               <h2 id="explorer-title">A regular polygon, in parts.</h2>
@@ -107,99 +107,57 @@
           </p>
         </section>
 
+        <section class="lesson-simulation" id="course-simulation" aria-labelledby="course-explorer-title" hidden>
+          <div class="simulation-heading">
+            <div><h2 id="course-explorer-title">Explore the model.</h2></div>
+            <p id="course-explorer-instruction"></p>
+          </div>
+          <div class="course-explorer-controls">
+            <label for="course-explorer-range">
+              <span id="course-explorer-label"></span>
+              <output id="course-explorer-output" for="course-explorer-range"></output>
+            </label>
+            <input id="course-explorer-range" type="range" />
+          </div>
+          <svg
+            id="course-explorer-diagram"
+            class="course-explorer-svg"
+            viewBox="0 0 560 300"
+            role="img"
+            aria-labelledby="course-explorer-svg-title course-explorer-svg-description"
+          >
+            <title id="course-explorer-svg-title">Interactive geometry model</title>
+            <desc id="course-explorer-svg-description"></desc>
+          </svg>
+          <p id="course-explorer-readout" class="course-explorer-readout" aria-live="polite"></p>
+        </section>
+
         <section class="lesson-section" aria-labelledby="outcomes-title">
           <h2 id="outcomes-title">What you’ll be able to do.</h2>
           <ul class="outcome-list" id="lesson-outcomes"></ul>
         </section>
 
         <section class="lesson-section" id="lesson-explanation" aria-labelledby="ideas-title">
-          <h2 id="ideas-title">Name the parts before measuring them.</h2>
+          <h2 id="ideas-title">The idea.</h2>
           <div class="lesson-prose" id="lesson-concepts"></div>
         </section>
 
-        <section class="lesson-section" aria-labelledby="vocabulary-title">
-          <h2 id="vocabulary-title">Polygon vocabulary.</h2>
-          <dl class="vocabulary-list" id="lesson-vocabulary"></dl>
+        <section class="lesson-section" id="lesson-examples" aria-labelledby="examples-title">
+          <h2 id="examples-title">Worked examples</h2>
+          <div class="example-list" id="lesson-examples-list"></div>
         </section>
 
-        <section class="lesson-section classification-section" aria-labelledby="classification-title">
-          <h2 id="classification-title">Not every closed-looking shape is a polygon.</h2>
-          <div class="shape-tabs" id="shape-tabs">
-            <div class="shape-tab-list" role="tablist" aria-label="Shape examples">
-              <button type="button" role="tab" id="tab-triangle" aria-controls="panel-triangle" aria-selected="true">Triangle</button>
-              <button type="button" role="tab" id="tab-convex" aria-controls="panel-convex" aria-selected="false" tabindex="-1">Convex</button>
-              <button type="button" role="tab" id="tab-concave" aria-controls="panel-concave" aria-selected="false" tabindex="-1">Concave</button>
-              <button type="button" role="tab" id="tab-open" aria-controls="panel-open" aria-selected="false" tabindex="-1">Open chain</button>
-              <button type="button" role="tab" id="tab-curved" aria-controls="panel-curved" aria-selected="false" tabindex="-1">Curved edge</button>
-              <button type="button" role="tab" id="tab-crossed" aria-controls="panel-crossed" aria-selected="false" tabindex="-1">Self-crossing</button>
-            </div>
-            <div class="shape-example" id="panel-triangle" role="tabpanel" aria-labelledby="tab-triangle" tabindex="0">
-              <svg viewBox="0 0 260 170" role="img" aria-labelledby="triangle-title triangle-desc">
-                <title id="triangle-title">Triangle</title>
-                <desc id="triangle-desc">A closed figure made from three straight segments.</desc>
-                <path d="M130 24 226 146 34 146Z" />
-              </svg>
-              <p><strong>A triangle is a simple polygon.</strong> It is closed, has three straight sides, and no sides cross.</p>
-            </div>
-            <div class="shape-example" id="panel-convex" role="tabpanel" aria-labelledby="tab-convex" tabindex="0" hidden>
-              <svg viewBox="0 0 260 170" role="img" aria-labelledby="convex-title convex-desc">
-                <title id="convex-title">Convex pentagon</title>
-                <desc id="convex-desc">A closed five-sided polygon with all vertices pointing outward.</desc>
-                <path d="M130 20 231 92 192 154 68 154 29 92Z" />
-              </svg>
-              <p><strong>A convex pentagon is a simple polygon.</strong> Each interior angle is less than 180 degrees.</p>
-            </div>
-            <div class="shape-example" id="panel-concave" role="tabpanel" aria-labelledby="tab-concave" tabindex="0" hidden>
-              <svg viewBox="0 0 260 170" role="img" aria-labelledby="concave-title concave-desc">
-                <title id="concave-title">Concave pentagon</title>
-                <desc id="concave-desc">A closed five-sided polygon with one vertex pointing inward.</desc>
-                <path d="M130 20 231 92 154 88 192 154 68 154Z" />
-              </svg>
-              <p><strong>A concave pentagon is still a simple polygon.</strong> At least one interior angle is greater than 180 degrees.</p>
-            </div>
-            <div class="shape-example" id="panel-open" role="tabpanel" aria-labelledby="tab-open" tabindex="0" hidden>
-              <svg viewBox="0 0 260 170" role="img" aria-labelledby="open-title open-desc">
-                <title id="open-title">Open chain</title>
-                <desc id="open-desc">Three straight segments that do not join to form a closed boundary.</desc>
-                <path d="M30 142 84 44 156 112 226 34" />
-                <circle cx="30" cy="142" r="5" /><circle cx="226" cy="34" r="5" />
-              </svg>
-              <p><strong>An open chain is not a polygon.</strong> Its segments do not form a closed boundary.</p>
-            </div>
-            <div class="shape-example" id="panel-curved" role="tabpanel" aria-labelledby="tab-curved" tabindex="0" hidden>
-              <svg viewBox="0 0 260 170" role="img" aria-labelledby="curved-title curved-desc">
-                <title id="curved-title">Curved boundary</title>
-                <desc id="curved-desc">A closed rounded shape whose boundary contains a curve rather than only straight segments.</desc>
-                <path d="M130 26 C184 28 224 66 222 100 C219 137 177 149 130 145 C77 149 38 132 38 92 C38 53 78 27 130 26Z" />
-              </svg>
-              <p><strong>A curved boundary is not a polygon.</strong> A polygon is made only from straight segments.</p>
-            </div>
-            <div class="shape-example" id="panel-crossed" role="tabpanel" aria-labelledby="tab-crossed" tabindex="0" hidden>
-              <svg viewBox="0 0 260 170" role="img" aria-labelledby="crossed-title crossed-desc">
-                <title id="crossed-title">Self-crossing figure</title>
-                <desc id="crossed-desc">A closed five-segment star-like chain whose nonadjacent sides cross.</desc>
-                <path d="M130 18 158 143 36 66 224 66 102 143Z" />
-              </svg>
-              <p><strong>This self-crossing figure is not a simple polygon.</strong> Nonadjacent sides cross.</p>
-            </div>
-          </div>
+        <section class="lesson-section" id="lesson-practice-notes" aria-labelledby="practice-notes-title" hidden>
+          <h2 id="practice-notes-title">Practice from this lesson</h2>
+          <div id="lesson-practice-notes-list"></div>
         </section>
-
-        <aside class="lesson-note" aria-labelledby="remember-title">
-          <h2 id="remember-title">Equal sides are not the whole story.</h2>
-          <p>
-            A rhombus has equal side lengths but need not have equal angles. A rectangle has equal
-            angles but need not have equal side lengths. A polygon is <strong>regular</strong> only
-            when it is both equilateral and equiangular.
-          </p>
-        </aside>
 
         <footer class="lesson-sources">
           <h2 class="sources-title">Sources and attribution</h2>
           <p id="lesson-source"></p>
           <details>
             <summary>About this adaptation</summary>
-            <p id="lesson-attribution"></p>
+            <p>Adapted from the cited Engineering Mathematics 2 course materials. The institution is credited as the source of instructional materials; this website does not imply institutional endorsement.</p>
           </details>
         </footer>
       </article>

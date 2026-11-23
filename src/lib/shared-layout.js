@@ -5,8 +5,8 @@ const headerMarkup = `
     </a>
     <nav class="site-nav" aria-label="Main navigation">
       <a href="/formulas/">Formulas</a>
-      <a href="/lessons/polygon-vocabulary.html">Lessons</a>
-      <a href="/problems/coordinate-distance.html">Practice</a>
+      <a href="/lessons/">Lessons</a>
+      <a href="/practice/">Practice</a>
     </nav>
     <button class="theme-toggle" type="button" aria-pressed="false">
       <span class="theme-toggle-label">Dark mode</span>
