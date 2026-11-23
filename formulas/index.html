@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Search engineering mathematics formulas by topic, tag, or variable. Find each symbol's meaning, units, and conditions of use."
+    />
+    <meta name="theme-color" content="#f4f1e8" />
+    <title>Formula index — Fieldnotes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header id="site-header"></header>
+
+    <main id="main" class="formula-page page-width">
+      <section class="formula-intro" aria-labelledby="page-title">
+        <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"></span> THE REFERENCE</p>
+        <h1 id="page-title">Formula <em>index.</em></h1>
+        <p>
+          Look up a relationship by name, topic, tag, or variable. Each entry includes
+          units and the conditions that matter.
+        </p>
+      </section>
+
+      <section class="formula-directory" aria-label="Searchable engineering mathematics formulas">
+        <div class="formula-filters" role="search" aria-label="Filter formulas">
+          <label class="formula-search">
+            <span>Search formulas</span>
+            <input
+              id="formula-search"
+              type="search"
+              placeholder="Try derivative, eigenvalue, Laplace…"
+              autocomplete="off"
+            />
+          </label>
+          <label class="filter-field">
+            <span>Topic</span>
+            <select id="topic-filter">
+              <option value="">All topics</option>
+            </select>
+          </label>
+          <label class="filter-field">
+            <span>Tag</span>
+            <select id="tag-filter">
+              <option value="">All tags</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="directory-meta">
+          <p id="result-count" aria-live="polite"></p>
+          <a class="reset-filters" id="reset-filters" href="/formulas/">Clear filters</a>
+        </div>
+        <div class="formula-list" id="formula-results"></div>
+        <p class="empty-state" id="empty-state" hidden>
+          No formulas match those filters. Try another term or clear your filters.
+        </p>
+      </section>
+    </main>
+
+    <footer id="site-footer"></footer>
+    <p class="visually-hidden" id="theme-status" aria-live="polite"></p>
+    <p class="visually-hidden" id="copy-status" aria-live="polite"></p>
+    <script type="module" src="/src/formulas.js"></script>
+  </body>
+</html>

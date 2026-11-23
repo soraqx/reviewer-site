@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Learn polygon vocabulary and explore how side count, vertices, diagonals, and apothems describe regular polygons."
+    />
+    <meta name="theme-color" content="#f4f1e8" />
+    <title>Plane figures and polygon vocabulary — Fieldnotes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header id="site-header"></header>
+
+    <main id="main" class="lesson-page page-width">
+      <nav class="module-nav" aria-label="Geometry course modules">
+        <p class="eyebrow">ENGINEERING MATHEMATICS 2</p>
+        <ol>
+          <li aria-current="step">
+            <a href="#lesson-title">01 <span>Plane figures &amp; polygons</span></a>
+          </li>
+          <li><span>02 <span>Cartesian coordinates</span></span><small>UP NEXT</small></li>
+          <li><span>03 <span>Lines</span></span><small>PLANNED</small></li>
+          <li><span>04 <span>Conics &amp; circles</span></span><small>PLANNED</small></li>
+          <li><span>05 <span>Parabolas</span></span><small>PLANNED</small></li>
+          <li><span>06 <span>Ellipses</span></span><small>PLANNED</small></li>
+          <li><span>07 <span>Hyperbolas</span></span><small>PLANNED</small></li>
+        </ol>
+      </nav>
+
+      <article class="lesson-content">
+        <header class="lesson-heading">
+          <p class="eyebrow" id="lesson-kicker"></p>
+          <h1 id="lesson-title"></h1>
+          <p class="lesson-lede" id="lesson-lede"></p>
+        </header>
+
+        <section class="lesson-simulation" aria-labelledby="explorer-title">
+          <div class="simulation-heading">
+            <div>
+              <p class="eyebrow">INTERACTIVE EXPLORER</p>
+              <h2 id="explorer-title">A regular polygon, in parts.</h2>
+            </div>
+            <p>Change the side count, then reveal the construction lines.</p>
+          </div>
+
+          <div class="explorer-controls">
+            <div class="side-count-control">
+              <label for="side-count-range">Number of sides <output id="side-count-output" for="side-count-range side-count-number">6</output></label>
+              <input id="side-count-range" type="range" min="3" max="32" step="1" value="6" />
+              <div class="range-ends" aria-hidden="true"><span>3</span><span>32</span></div>
+              <label class="number-entry" for="side-count-number">
+                Enter a side count
+                <input id="side-count-number" type="number" min="3" max="32" step="1" value="6" inputmode="numeric" />
+              </label>
+              <p class="control-error" id="side-count-error" role="status"></p>
+            </div>
+            <div class="side-length-control">
+              <label for="side-length-range">
+                Side length <output id="side-length-output" for="side-length-range side-length-number">4</output>
+              </label>
+              <input id="side-length-range" type="range" min="1" max="12" step="0.5" value="4" />
+              <div class="range-ends" aria-hidden="true"><span>1</span><span>12 units</span></div>
+              <label class="number-entry" for="side-length-number">
+                Enter a side length
+                <input id="side-length-number" type="number" min="1" max="12" step="0.5" value="4" inputmode="decimal" />
+              </label>
+              <p class="control-error" id="side-length-error" role="status"></p>
+            </div>
+            <fieldset class="diagram-toggles">
+              <legend>Show on the diagram</legend>
+              <label><input type="checkbox" data-show="side" checked /> Side</label>
+              <label><input type="checkbox" data-show="diagonal" checked /> Diagonal</label>
+              <label><input type="checkbox" data-show="apothem" checked /> Apothem</label>
+              <label><input type="checkbox" data-show="angles" /> Angles</label>
+            </fieldset>
+          </div>
+
+          <div class="polygon-figure-wrap">
+            <svg
+              id="polygon-diagram"
+              class="polygon-diagram"
+              viewBox="0 0 560 390"
+              role="img"
+              aria-labelledby="polygon-diagram-title polygon-diagram-description"
+            >
+              <title id="polygon-diagram-title">Interactive regular polygon</title>
+              <desc id="polygon-diagram-description">A regular hexagon with one highlighted side, a diagonal, an apothem, and labeled geometric parts.</desc>
+            </svg>
+          </div>
+
+          <div class="simulation-readout" aria-live="polite">
+            <p id="polygon-summary"></p>
+            <p id="polygon-detail"></p>
+          </div>
+          <p class="diagram-key">
+            <span><i class="key-side" aria-hidden="true"></i>Highlighted side</span>
+            <span><i class="key-diagonal" aria-hidden="true"></i>Diagonal</span>
+            <span><i class="key-apothem" aria-hidden="true"></i>Apothem</span>
+          </p>
+        </section>
+
+        <section class="lesson-section" aria-labelledby="outcomes-title">
+          <p class="eyebrow">BY THE END</p>
+          <h2 id="outcomes-title">What you’ll be able to do.</h2>
+          <ul class="outcome-list" id="lesson-outcomes"></ul>
+        </section>
+
+        <section class="lesson-section" id="lesson-explanation" aria-labelledby="ideas-title">
+          <p class="eyebrow">THE IDEA</p>
+          <h2 id="ideas-title">Name the parts before measuring them.</h2>
+          <div class="lesson-prose" id="lesson-concepts"></div>
+        </section>
+
+        <section class="lesson-section" aria-labelledby="vocabulary-title">
+          <p class="eyebrow">QUICK REFERENCE</p>
+          <h2 id="vocabulary-title">Polygon vocabulary.</h2>
+          <dl class="vocabulary-list" id="lesson-vocabulary"></dl>
+        </section>
+
+        <section class="lesson-section classification-section" aria-labelledby="classification-title">
+          <p class="eyebrow">COMPARE THE BOUNDARIES</p>
+          <h2 id="classification-title">Not every closed-looking shape is a polygon.</h2>
+          <div class="shape-tabs" id="shape-tabs">
+            <div class="shape-tab-list" role="tablist" aria-label="Shape examples">
+              <button type="button" role="tab" id="tab-triangle" aria-controls="panel-triangle" aria-selected="true">Triangle</button>
+              <button type="button" role="tab" id="tab-convex" aria-controls="panel-convex" aria-selected="false" tabindex="-1">Convex</button>
+              <button type="button" role="tab" id="tab-concave" aria-controls="panel-concave" aria-selected="false" tabindex="-1">Concave</button>
+              <button type="button" role="tab" id="tab-open" aria-controls="panel-open" aria-selected="false" tabindex="-1">Open chain</button>
+              <button type="button" role="tab" id="tab-curved" aria-controls="panel-curved" aria-selected="false" tabindex="-1">Curved edge</button>
+              <button type="button" role="tab" id="tab-crossed" aria-controls="panel-crossed" aria-selected="false" tabindex="-1">Self-crossing</button>
+            </div>
+            <div class="shape-example" id="panel-triangle" role="tabpanel" aria-labelledby="tab-triangle" tabindex="0">
+              <svg viewBox="0 0 260 170" role="img" aria-labelledby="triangle-title triangle-desc">
+                <title id="triangle-title">Triangle</title>
+                <desc id="triangle-desc">A closed figure made from three straight segments.</desc>
+                <path d="M130 24 226 146 34 146Z" />
+              </svg>
+              <p><strong>A triangle is a simple polygon.</strong> It is closed, has three straight sides, and no sides cross.</p>
+            </div>
+            <div class="shape-example" id="panel-convex" role="tabpanel" aria-labelledby="tab-convex" tabindex="0" hidden>
+              <svg viewBox="0 0 260 170" role="img" aria-labelledby="convex-title convex-desc">
+                <title id="convex-title">Convex pentagon</title>
+                <desc id="convex-desc">A closed five-sided polygon with all vertices pointing outward.</desc>
+                <path d="M130 20 231 92 192 154 68 154 29 92Z" />
+              </svg>
+              <p><strong>A convex pentagon is a simple polygon.</strong> Each interior angle is less than 180 degrees.</p>
+            </div>
+            <div class="shape-example" id="panel-concave" role="tabpanel" aria-labelledby="tab-concave" tabindex="0" hidden>
+              <svg viewBox="0 0 260 170" role="img" aria-labelledby="concave-title concave-desc">
+                <title id="concave-title">Concave pentagon</title>
+                <desc id="concave-desc">A closed five-sided polygon with one vertex pointing inward.</desc>
+                <path d="M130 20 231 92 154 88 192 154 68 154Z" />
+              </svg>
+              <p><strong>A concave pentagon is still a simple polygon.</strong> At least one interior angle is greater than 180 degrees.</p>
+            </div>
+            <div class="shape-example" id="panel-open" role="tabpanel" aria-labelledby="tab-open" tabindex="0" hidden>
+              <svg viewBox="0 0 260 170" role="img" aria-labelledby="open-title open-desc">
+                <title id="open-title">Open chain</title>
+                <desc id="open-desc">Three straight segments that do not join to form a closed boundary.</desc>
+                <path d="M30 142 84 44 156 112 226 34" />
+                <circle cx="30" cy="142" r="5" /><circle cx="226" cy="34" r="5" />
+              </svg>
+              <p><strong>An open chain is not a polygon.</strong> Its segments do not form a closed boundary.</p>
+            </div>
+            <div class="shape-example" id="panel-curved" role="tabpanel" aria-labelledby="tab-curved" tabindex="0" hidden>
+              <svg viewBox="0 0 260 170" role="img" aria-labelledby="curved-title curved-desc">
+                <title id="curved-title">Curved boundary</title>
+                <desc id="curved-desc">A closed rounded shape whose boundary contains a curve rather than only straight segments.</desc>
+                <path d="M130 26 C184 28 224 66 222 100 C219 137 177 149 130 145 C77 149 38 132 38 92 C38 53 78 27 130 26Z" />
+              </svg>
+              <p><strong>A curved boundary is not a polygon.</strong> A polygon is made only from straight segments.</p>
+            </div>
+            <div class="shape-example" id="panel-crossed" role="tabpanel" aria-labelledby="tab-crossed" tabindex="0" hidden>
+              <svg viewBox="0 0 260 170" role="img" aria-labelledby="crossed-title crossed-desc">
+                <title id="crossed-title">Self-crossing figure</title>
+                <desc id="crossed-desc">A closed five-segment star-like chain whose nonadjacent sides cross.</desc>
+                <path d="M130 18 158 143 36 66 224 66 102 143Z" />
+              </svg>
+              <p><strong>This self-crossing figure is not a simple polygon.</strong> Nonadjacent sides cross.</p>
+            </div>
+          </div>
+        </section>
+
+        <aside class="lesson-note" aria-labelledby="remember-title">
+          <p class="eyebrow">A USEFUL DISTINCTION</p>
+          <h2 id="remember-title">Equal sides are not the whole story.</h2>
+          <p>
+            A rhombus has equal side lengths but need not have equal angles. A rectangle has equal
+            angles but need not have equal side lengths. A polygon is <strong>regular</strong> only
+            when it is both equilateral and equiangular.
+          </p>
+        </aside>
+
+        <footer class="lesson-sources">
+          <p class="eyebrow">SOURCE &amp; EDITORIAL NOTE</p>
+          <p id="lesson-source"></p>
+          <details>
+            <summary>About this adaptation</summary>
+            <p id="lesson-attribution"></p>
+          </details>
+        </footer>
+      </article>
+    </main>
+
+    <footer id="site-footer"></footer>
+    <p class="visually-hidden" id="theme-status" aria-live="polite"></p>
+    <script type="module" src="/src/lesson.js"></script>
+  </body>
+</html>

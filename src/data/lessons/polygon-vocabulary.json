@@ -1,0 +1,54 @@
+{
+  "id": "poly-01",
+  "moduleId": "plane-figures-polygons",
+  "moduleTitle": "Plane Figures and Polygons",
+  "moduleOrder": 1,
+  "lessonOrder": 1,
+  "title": "Plane figures and polygon vocabulary",
+  "lead": "Before measuring a shape, be precise about its boundary. Learn which figures count as polygons and how to name their parts.",
+  "outcomes": [
+    "Identify the sides, vertices, and diagonals of a simple polygon.",
+    "Distinguish a convex polygon from a concave polygon.",
+    "Explain why a regular polygon must be both equilateral and equiangular."
+  ],
+  "concepts": [
+    {
+      "heading": "A polygon is a closed chain of straight segments.",
+      "paragraphs": [
+        "A plane figure lies in a flat, two-dimensional plane. A simple polygon is a closed figure made from at least three straight line segments. Adjacent sides meet at vertices; nonadjacent sides do not cross.",
+        "An open chain is not closed. A curved boundary is not made only of straight segments. A self-crossing chain is not a simple polygon."
+      ]
+    },
+    {
+      "heading": "Convexity describes where the vertices point.",
+      "paragraphs": [
+        "A convex polygon has every interior angle less than $180^\\circ$. A concave polygon has at least one interior angle greater than $180^\\circ$. Both can be simple polygons.",
+        "A diagonal joins two nonadjacent vertices. In a triangle every pair of vertices is adjacent, so it has no diagonals."
+      ]
+    },
+    {
+      "heading": "Regular means equal sides and equal angles.",
+      "paragraphs": [
+        "An equilateral polygon has all sides equal; an equiangular polygon has all interior angles equal. A regular polygon has both properties.",
+        "A rhombus need not be regular because its angles can differ. A rectangle need not be regular because its side lengths can differ. A square is both."
+      ]
+    }
+  ],
+  "vocabulary": [
+    { "term": "Side", "definition": "A straight segment forming part of a polygon's boundary." },
+    { "term": "Vertex", "definition": "A point where two adjacent sides meet." },
+    { "term": "Diagonal", "definition": "A segment joining two nonadjacent vertices." },
+    { "term": "Convex", "definition": "A simple polygon whose interior angles are all less than $180^\\circ$." },
+    { "term": "Concave", "definition": "A simple polygon with at least one interior angle greater than $180^\\circ$." },
+    { "term": "Equilateral", "definition": "Having all side lengths equal." },
+    { "term": "Equiangular", "definition": "Having all interior angles equal." },
+    { "term": "Regular", "definition": "Both equilateral and equiangular." },
+    { "term": "Apothem", "definition": "For a regular polygon, the perpendicular segment from its center to a side; it meets the side at its midpoint." }
+  ],
+  "source": {
+    "id": "SRC-POLY",
+    "pages": "3–10",
+    "citation": "Adapted from Plane Figures and Polygons, SRC-POLY, PDF pages 3–10."
+  },
+  "attribution": "Adapted from Engineering Mathematics 2 instructional materials on plane geometry, MPS Department, FEU Institute of Technology. Explanations have been reorganized for this lesson. The institution is credited as the source of the instructional materials; this website does not imply institutional endorsement."
+}

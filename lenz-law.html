@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lenz’s Law – interactive</title>
+<style>
+:root{--bg:#f3f7f1;--panel:#ffffff;--ink:#1d2b22;--mut:#5b6b60;--line:#c9d6cb;--blue:#2f5cff;--red:#e5254b;--green:#1f7a3f;--coil:#d8dcd9;--coil2:#aeb6b1;--accent:#1f7a3f;--nmag:#e8743b;--smag:#2a9d8f;--glow:#ffc83d;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101a14;--panel:#17251c;--ink:#e6efe8;--mut:#9fb2a5;--line:#2c4034;--blue:#7d9bff;--red:#ff5a7a;--green:#5fd18a;--coil:#3a4540;--coil2:#6b7a72;--accent:#5fd18a;--glow:#ffd96b}}
+:root[data-theme="dark"]{--bg:#101a14;--panel:#17251c;--ink:#e6efe8;--mut:#9fb2a5;--line:#2c4034;--blue:#7d9bff;--red:#ff5a7a;--green:#5fd18a;--coil:#3a4540;--coil2:#6b7a72;--accent:#5fd18a;--glow:#ffd96b}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Trebuchet MS","Segoe UI",Verdana,sans-serif}
+main{max-width:980px;margin:0 auto;padding:16px 14px 28px}
+h1{font-family:Georgia,"Palatino Linotype",serif;font-size:clamp(28px,6vw,46px);margin:0 0 4px;color:var(--green);letter-spacing:.5px}
+.lede{font-size:clamp(15px,2.4vw,19px);font-weight:700;margin:0 0 12px;line-height:1.35;max-width:70ch}
+.stage{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:6px}
+svg{width:100%;height:auto;display:block;touch-action:none}
+svg text{font-family:"Trebuchet MS","Segoe UI",Verdana,sans-serif}
+.hot{cursor:help}.hot:hover{filter:drop-shadow(0 0 5px var(--accent))}
+#mag{cursor:grab}#mag:active{cursor:grabbing}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+button{font:inherit;font-size:14px;padding:8px 13px;border-radius:8px;border:1.5px solid var(--green);background:transparent;color:var(--ink);cursor:pointer}
+button:hover{background:var(--green);color:#fff}
+button.on{background:var(--green);color:#fff}
+button:focus-visible,input:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.sl{display:flex;align-items:center;gap:8px;flex:1 1 260px;font-size:14px;color:var(--mut)}
+.sl input{flex:1;accent-color:var(--green)}
+.chain{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px;margin:6px 0 10px}
+.chip{border-left:5px solid var(--line);background:var(--panel);padding:8px 10px;border-radius:6px;font-size:14px;line-height:1.35}
+.chip b{display:block;font-size:13px;color:var(--mut);font-weight:600}
+.chip span{font-size:17px;font-weight:700}
+#c1{border-color:var(--blue)}#c2{border-color:var(--blue)}#c3{border-color:var(--red)}#c4{border-color:var(--red)}
+#call{padding:10px 12px;border-radius:8px;background:var(--panel);border:1px solid var(--line);font-size:15px;line-height:1.45;min-height:2.9em}
+#info{margin-top:10px;padding:10px 12px;border-radius:8px;border:1.5px dashed var(--green);font-size:14.5px;line-height:1.5;color:var(--ink);min-height:4.4em}
+.hint{font-size:13px;color:var(--mut);margin:8px 0 0}
+.tabs{display:flex;gap:6px;margin:0 0 14px;border-bottom:2px solid var(--line)}
+.tabs button{border:none;border-radius:8px 8px 0 0;padding:10px 16px;font-weight:700;color:var(--mut)}
+.tabs button.on{background:var(--green);color:#fff}
+.pgrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:14px;margin-bottom:12px}
+@media(max-width:760px){.pgrid{grid-template-columns:1fr}}
+.st{border-left:5px solid var(--line);background:var(--panel);padding:9px 12px;margin-bottom:8px;border-radius:6px;font-size:15px;line-height:1.45}
+.st h3{margin:0 0 3px;font-size:14px;color:var(--mut);font-weight:600}
+.st.now{border-color:var(--green)}.st.now h3{color:var(--green)}
+.st.lock{opacity:.4}
+.ans{padding:10px 12px;border-radius:8px;background:var(--green);color:#fff;font-size:17px;margin-bottom:8px}
+.seg{display:inline-flex}.seg button{border-radius:0}.seg button:first-child{border-radius:8px 0 0 8px}.seg button:last-child{border-radius:0 8px 8px 0;border-left:none}
+button:disabled{opacity:.4;cursor:default;background:transparent;color:var(--ink)}
+:root{--purple:#7a3fb5;--cyan:#1790c8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--purple:#b98cff;--cyan:#5fd0ff}}
+:root[data-theme="dark"]{--purple:#b98cff;--cyan:#5fd0ff}
+.rgrid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:14px;margin-bottom:10px}
+@media(max-width:820px){.rgrid{grid-template-columns:1fr}}
+output{min-width:4.4em;color:var(--ink);font-weight:700;font-size:14px}
+#rinfo{margin-top:10px;padding:10px 12px;border-radius:8px;border:1.5px dashed var(--green);font-size:14.5px;line-height:1.5;min-height:4.4em}
+#tabC .chip{border-left-color:var(--green)}
+</style>
+</head>
+<body>
+<main>
+<h1>Lenz’s Law</h1>
+<div class="tabs" role="tablist"><button id="tbA" role="tab" class="on">Magnet and coil</button><button id="tbB" role="tab">Sample problems</button><button id="tbC" role="tab">RL circuits</button></div>
+<section id="tabA">
+<p class="lede">Magnetic field of induced current opposes the change in external flux, not necessarily the external field.</p>
+
+<div class="stage">
+<svg id="svg" viewBox="0 0 900 380" role="img" aria-label="Magnet moving toward and away from a coil with induced current">
+<defs><clipPath id="cl"><rect x="0" y="0" width="900" height="380"/></clipPath></defs>
+
+<!-- arrow panel -->
+<g font-size="17" font-weight="700">
+<text x="14" y="95" fill="var(--blue)" class="hot" data-k="B">B</text>
+<text x="14" y="170" fill="var(--blue)" class="hot" data-k="dB">ΔB</text>
+<text x="14" y="245" fill="var(--red)" class="hot" data-k="Bi">B induced</text>
+</g>
+<g id="aB" class="hot" data-k="B" data-y="90" fill="var(--blue)" stroke="var(--blue)"><line stroke-width="4"/><polygon stroke="none"/></g>
+<g id="aD" class="hot" data-k="dB" data-y="165" fill="var(--blue)" stroke="var(--blue)"><line stroke-width="4"/><polygon stroke="none"/></g>
+<g id="aI" class="hot" data-k="Bi" data-y="240" fill="var(--red)" stroke="var(--red)"><line stroke-width="4"/><polygon stroke="none"/></g>
+<text id="dz" x="155" y="170" text-anchor="middle" font-size="14" fill="var(--mut)">ΔB = 0</text>
+<text id="iz" x="155" y="245" text-anchor="middle" font-size="14" fill="var(--mut)">none</text>
+
+<!-- bulb glow + resistor -->
+<circle id="glow" cx="337" cy="318" r="30" fill="var(--glow)" opacity="0"/>
+<g class="hot" data-k="res">
+<path id="wire" d="M278 268 V318 H300 l8 -13 l12 26 l12 -26 l12 26 l12 -26 l8 13 H398 V268" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+<rect x="270" y="290" width="136" height="50" fill="transparent"/>
+</g>
+<text id="tl" x="262" y="352" font-size="26" font-weight="800" text-anchor="middle" fill="var(--ink)"></text>
+<text id="tr" x="414" y="352" font-size="26" font-weight="800" text-anchor="middle" fill="var(--ink)"></text>
+
+<!-- coil -->
+<g class="hot" data-k="coil">
+<rect x="262" y="130" width="140" height="140" fill="var(--coil)"/>
+<ellipse cx="262" cy="200" rx="24" ry="70" fill="var(--coil)" stroke="var(--coil2)" stroke-width="2"/>
+<g fill="none" stroke="var(--ink)" stroke-width="2.5" opacity=".8">
+<ellipse cx="284" cy="200" rx="24" ry="70" stroke-dasharray="0"/>
+<ellipse cx="312" cy="200" rx="24" ry="70"/><ellipse cx="340" cy="200" rx="24" ry="70"/><ellipse cx="368" cy="200" rx="24" ry="70"/>
+</g>
+<ellipse cx="402" cy="200" rx="24" ry="70" fill="var(--coil2)" stroke="var(--ink)" stroke-width="2.5"/>
+</g>
+
+<!-- field lines -->
+<g id="lines" class="hot" data-k="lines" fill="none"></g>
+
+<!-- current arrow -->
+<g class="hot" data-k="cur"><g id="cur" transform="translate(330,200)"><path id="curP" d="M-10,-55 H10 V10 H26 L0,58 L-26,10 H-10 Z" fill="var(--red)" stroke="var(--red)" stroke-width="2" opacity="0"/></g></g>
+
+<!-- magnet -->
+<g id="mag" data-k="mag" class="hot" tabindex="0" role="slider" aria-label="Magnet position">
+<rect id="mA" x="0" y="165" width="75" height="70" stroke="var(--ink)" stroke-width="3"/>
+<rect id="mB" x="75" y="165" width="75" height="70" stroke="var(--ink)" stroke-width="3"/>
+<text id="tA" x="37" y="214" text-anchor="middle" font-size="34" font-weight="800" fill="#fff"></text>
+<text id="tB" x="112" y="214" text-anchor="middle" font-size="34" font-weight="800" fill="#fff"></text>
+<text id="vl" x="75" y="150" text-anchor="middle" font-size="22" font-weight="700" fill="var(--ink)"></text>
+<text x="75" y="262" text-anchor="middle" font-size="12" fill="var(--mut)">drag me</text>
+</g>
+</svg>
+</div>
+
+<div class="controls">
+<button id="bin">Push magnet in</button>
+<button id="bout">Pull magnet out</button>
+<button id="bosc">Oscillate</button>
+<button id="bstop">Hold still</button>
+<button id="bflip">Flip magnet</button>
+<button id="bfl">Field lines: on</button>
+</div>
+<div class="controls" style="margin-top:0"><label class="sl">near<input id="sld" type="range" min="440" max="720" value="600" aria-label="Magnet position"> far</label></div>
+
+<div class="chain" aria-live="polite">
+<div class="chip" id="c1"><b>External field B at coil</b><span id="t1"></span></div>
+<div class="chip" id="c2"><b>Change in flux ΔB</b><span id="t2"></span></div>
+<div class="chip" id="c3"><b>Induced field B induced</b><span id="t3"></span></div>
+<div class="chip" id="c4"><b>Induced current</b><span id="t4"></span></div>
+</div>
+<div id="call"></div>
+<div id="info"></div>
+<p class="hint">Hover or tap any part (magnet, coil, arrows, field lines, current, resistor) to learn what it shows.</p>
+</section>
+
+<section id="tabB" hidden>
+<p class="lede">What is the direction of the induced current in the circular loop due to the current shown in the figure?</p>
+<div class="controls" id="pbtn"><button data-p="0" class="on">Problem 1</button><button data-p="1">Problem 2</button><button data-p="2">Problem 3</button><button data-p="3">Problem 4</button></div>
+<div class="pgrid">
+<div><div class="stage"><svg id="ps" viewBox="0 0 520 385" role="img" aria-label="Loop and straight wire with changing current"></svg></div><p class="hint" id="hcap"></p></div>
+<div>
+<div id="steps" aria-live="polite"></div>
+<div class="controls"><button id="bBack">Back</button><button id="bNext">Start solving</button><button id="bAns">Show answer</button><button id="bHand" class="on">Hand: on</button></div>
+</div>
+</div>
+<p class="hint" style="margin-bottom:4px">What if…? Change the setup and solve it again.</p>
+<div class="controls">
+<span class="seg"><button id="wp1">Wire below loop</button><button id="wp2">Wire left of loop</button></span>
+<span class="seg"><button id="wd1"></button><button id="wd2"></button></span>
+<span class="seg"><button id="wt1">I increasing</button><button id="wt2">I decreasing</button></span>
+<button id="wreset">Back to slide problem</button>
+</div>
+<p class="hint" id="pnote"></p>
+</section>
+
+<section id="tabC" hidden>
+<p class="lede">An inductor opposes changes in current (Lenz’s Law), so in an RL circuit the current rises or decays exponentially with time constant τ = L/R.</p>
+<div class="rgrid">
+<div class="stage"><svg id="rc" viewBox="0 0 420 330" role="img" aria-label="RL circuit with battery, switch, resistor and inductor">
+<g fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M60 150 V60 H105"/><path d="M150 60 H195"/><path d="M265 60 H360 V100"/><path d="M360 212 V270 H60 V166"/><path d="M150 105 V270"/></g>
+<g class="hot" data-k2="R"><path d="M195 60 l7 -14 l14 28 l14 -28 l14 28 l14 -28 l7 14" fill="none" stroke="var(--red)" stroke-width="4" stroke-linejoin="round"/><text x="230" y="30" text-anchor="middle" font-size="20" font-weight="800" fill="var(--red)">R</text><rect x="190" y="35" width="80" height="50" fill="transparent"/></g>
+<g class="hot" data-k2="L"><g id="fld" fill="none" stroke="var(--blue)" stroke-width="2" stroke-dasharray="5 4"><ellipse cx="360" cy="156" rx="34" ry="76"/><ellipse cx="360" cy="156" rx="54" ry="94"/></g><path id="coil" d="M360 100 a14 14 0 0 1 0 28 a14 14 0 0 1 0 28 a14 14 0 0 1 0 28 a14 14 0 0 1 0 28" fill="none" stroke="var(--green)" stroke-width="5"/><text x="328" y="162" text-anchor="end" font-size="22" font-weight="800" fill="var(--green)">L</text><rect x="325" y="95" width="70" height="122" fill="transparent"/></g>
+<g class="hot" data-k2="bat" id="bat"><line x1="40" y1="150" x2="80" y2="150" stroke="var(--purple)" stroke-width="5"/><line x1="48" y1="166" x2="72" y2="166" stroke="var(--purple)" stroke-width="5"/><text x="88" y="150" font-size="16" font-weight="800" fill="var(--purple)">+</text><text x="88" y="182" font-size="18" font-weight="800" fill="var(--purple)">−</text><text x="12" y="165" font-size="22" font-weight="800" fill="var(--purple)">V</text><rect x="8" y="135" width="90" height="48" fill="transparent"/></g>
+<g class="hot" data-k2="sw" id="swg" style="cursor:pointer"><circle cx="105" cy="60" r="5" fill="var(--cyan)"/><circle cx="150" cy="105" r="5" fill="var(--cyan)"/><line id="lev" x1="150" y1="60" x2="105" y2="60" stroke="var(--cyan)" stroke-width="5" stroke-linecap="round"/><circle cx="150" cy="60" r="6" fill="var(--cyan)"/><text x="128" y="30" text-anchor="middle" font-size="17" font-weight="800" fill="var(--cyan)">Switch</text><text x="96" y="84" text-anchor="middle" font-size="11" fill="var(--mut)">with emf</text><text x="162" y="122" font-size="11" fill="var(--mut)">no emf</text><rect x="90" y="40" width="85" height="85" fill="transparent"/></g>
+<g id="dots" pointer-events="none"></g>
+<text id="rf" x="210" y="312" text-anchor="middle" font-size="15" font-weight="700" fill="var(--green)"></text>
+</svg></div>
+<div class="stage"><svg id="rg" viewBox="0 0 560 340" role="img" aria-label="Current and inductor voltage versus time"></svg></div>
+</div>
+<div class="controls">
+<button id="rPlay">Pause</button><button id="rRest">Restart</button>
+<span class="seg"><button id="rs1" class="on">Switch to battery (with emf)</button><button id="rs2">Switch to bypass (without emf)</button></span>
+<button id="rmk" class="on">τ markers: on</button>
+</div>
+<div class="controls">
+<label class="sl">V <input id="sV" type="range" min="1" max="24" step="1" value="12" aria-label="Battery voltage"><output id="oV"></output></label>
+<label class="sl">R <input id="sR" type="range" min="1" max="50" step="1" value="10" aria-label="Resistance"><output id="oR"></output></label>
+<label class="sl">L <input id="sL" type="range" min="0.1" max="10" step="0.1" value="1" aria-label="Inductance"><output id="oL"></output></label>
+<label class="sl">Speed <input id="sS" type="range" min="0.1" max="2" step="0.1" value="0.6" aria-label="Animation speed"><output id="oS"></output></label>
+</div>
+<div class="chain">
+<div class="chip"><b>Time constant τ = L/R</b><span id="r1"></span></div>
+<div class="chip"><b>Imax = V/R</b><span id="r2"></span></div>
+<div class="chip"><b>Time t</b><span id="r3"></span></div>
+<div class="chip"><b>Current I</b><span id="r4"></span></div>
+<div class="chip"><b>Inductor voltage V<sub>L</sub></b><span id="r5"></span></div>
+<div class="chip"><b>Resistor voltage V<sub>R</sub> = IR</b><span id="r6"></span></div>
+</div>
+<div id="rinfo"></div>
+<p class="hint">The time constant τ is the time for the current to fall to 37% of its starting value (or rise to 63% of Imax). τ is inversely proportional to R. Drag on the graph to scrub through time.</p>
+</section>
+
+</main>
+
+<script>
+(function(){
+var NS="http://www.w3.org/2000/svg",$=function(i){return document.getElementById(i)};
+var svg=$("svg"),mx=600,prev=600,v=0,mode="osc",t=0,pol="N",showLines=true;
+var MIN=440,MAX=720;
+var INFO={
+def:"Move the magnet and watch the chain: external field B → change in flux ΔB → induced field → induced current. The induced field always fights the change in flux.",
+mag:"Magnet: drag it (or use the buttons/slider). The pole facing the coil decides the direction of the external field B at the coil. Flip it to swap poles.",
+coil:"Coil: a changing magnetic flux through the coil induces a current in it. The induced current makes its own magnetic field (B induced).",
+lines:"Field lines: they get denser and stronger near the magnet, so moving the magnet closer increases the flux through the coil and moving it away decreases it.",
+B:"B: the external field from the magnet at the coil. N facing the coil: B points toward the coil (left). S facing the coil: B points toward the magnet (right). Longer arrow = stronger field.",
+dB:"ΔB: the change in the external flux. Magnet moving in → flux grows, so ΔB points the same way as B. Moving out → flux shrinks, so ΔB points opposite to B. No motion → ΔB = 0.",
+Bi:"B induced: always points opposite to ΔB. If flux is increasing, it opposes B. If flux is decreasing, it points the same way as B – it opposes the change, not the field.",
+cur:"Induced current: direction follows from the right-hand rule so that its field is B induced. Faster motion gives a bigger current.",
+res:"Resistor: the current flows through it and heats it (it glows brighter with a bigger current). The terminals show the polarity of the induced voltage."
+};
+var infoEl=$("info");function say(k){infoEl.textContent=INFO[k||"def"]}
+say();
+document.querySelectorAll("[data-k]").forEach(function(e){
+ e.addEventListener("pointerenter",function(){say(e.getAttribute("data-k"))});
+ e.addEventListener("pointerleave",function(){say()});
+ e.addEventListener("click",function(){say(e.getAttribute("data-k"))});
+});
+
+function mk(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e}
+var LG=$("lines"),paths=[];
+for(var k=-4;k<=4;k++){var p=mk("path",{"stroke-width":"2","stroke-linecap":"round"});LG.appendChild(p);paths.push({el:p,k:k})}
+var defs=document.querySelector("defs");
+["mkB"].forEach(function(){});
+var tri=mk("marker",{id:"ah",markerWidth:"8",markerHeight:"8",refX:"6",refY:"4",orient:"auto",markerUnits:"userSpaceOnUse"});
+tri.appendChild(mk("path",{d:"M0,0 L8,4 L0,8 Z",fill:"#4d7cff"}));defs.appendChild(tri);
+
+function setArr(id,cx,dir,len,show){
+ var g=$(id),y=+g.getAttribute("data-y"),l=g.firstChild,p=g.lastChild;
+ if(!show){g.style.display="none";return}
+ g.style.display="";
+ var x1=cx-dir*len/2,x2=cx+dir*len/2;
+ l.setAttribute("x1",x1);l.setAttribute("x2",x2-dir*4);l.setAttribute("y1",y);l.setAttribute("y2",y);
+ p.setAttribute("points",x2+","+y+" "+(x2-dir*14)+","+(y-8)+" "+(x2-dir*14)+","+(y+8));
+}
+function clamp(a,lo,hi){return Math.max(lo,Math.min(hi,a))}
+
+function render(){
+ var d=mx-402,str=Math.exp(-(mx-440)/150); // 1 near, small far
+ str=clamp(str,0.08,1);
+ $("mag").setAttribute("transform","translate("+mx+",0)");
+ var colA=pol==="N"?"var(--nmag)":"var(--smag)",colB=pol==="N"?"var(--smag)":"var(--nmag)";
+ $("mA").setAttribute("fill",colA);$("mB").setAttribute("fill",colB);
+ $("tA").textContent=pol;$("tB").textContent=pol==="N"?"S":"N";
+ var bDir=pol==="N"?-1:1;
+ var th=18,dF=v<-th?1:(v>th?-1:0);
+ var dDir=dF*bDir,iDir=-dDir;
+ var m=clamp(Math.abs(v)/260,0,1)*(0.35+0.65*str);
+ $("vl").textContent=dF>0?"v ← In":(dF<0?"v → Out":"");
+ // field lines
+ paths.forEach(function(o){
+  var k=o.k,y0=200+k*9,x0=mx,x1=290,y1=200+k*22;
+  var dd="M"+x0+" "+y0+" C"+(x0-40)+" "+(200+k*12)+" "+(x1+60)+" "+y1+" "+x1+" "+y1;
+  if(pol==="S"){dd="M"+x1+" "+y1+" C"+(x1+60)+" "+y1+" "+(x0-40)+" "+(200+k*12)+" "+x0+" "+y0}
+  o.el.setAttribute("d",dd);
+  o.el.setAttribute("stroke","#4d7cff");
+  o.el.setAttribute("stroke-opacity",(0.2+0.8*str).toFixed(2));
+  o.el.setAttribute("stroke-width",(1+2*str).toFixed(1));
+  o.el.setAttribute("marker-end","url(#ah)");
+ });
+ LG.style.display=showLines?"":"none";
+ // arrows
+ setArr("aB",155,bDir,30+85*str,true);
+ setArr("aD",155,dDir,22+80*m,dF!==0);
+ setArr("aI",155,iDir,22+80*m,dF!==0);
+ $("dz").style.display=dF===0?"":"none";$("iz").style.display=dF===0?"":"none";
+ // current
+ var cp=$("curP");
+ if(dF===0){cp.setAttribute("opacity","0")}else{
+  cp.setAttribute("opacity",(0.35+0.65*m).toFixed(2));
+  $("cur").setAttribute("transform","translate(332,200) scale(1,"+(iDir>0?1:-1)+")");
+ }
+ // resistor + terminals
+ $("glow").setAttribute("opacity",(dF===0?0:m*0.85).toFixed(2));
+ $("tl").textContent=dF===0?"":(iDir>0?"+":"−");
+ $("tr").textContent=dF===0?"":(iDir>0?"−":"+");
+ // chips
+ var A=function(x){return x>0?"→ right":"← left"};
+ $("t1").textContent=A(bDir)+" ("+pol+" faces coil)";
+ $("t2").textContent=dF===0?"none (no motion)":A(dDir)+(dF>0?" · flux ↑":" · flux ↓");
+ $("t3").textContent=dF===0?"none":A(iDir);
+ $("t4").textContent=dF===0?"none":(iDir>0?"↓ down":"↑ up")+" on front";
+ var c=$("call");
+ if(dF===0)c.textContent="The magnet isn’t moving, so the flux isn’t changing – no induced current. Lenz’s Law only reacts to change.";
+ else if(iDir===bDir)c.textContent="Flux is decreasing, so the induced field points the same way as the external field B. It opposes the change in flux – not the field itself.";
+ else c.textContent="Flux is increasing, so the induced field points opposite to the external field B, resisting the growth of flux.";
+ $("sld").value=mx;
+ ["bin","bout","bosc","bstop"].forEach(function(i){$(i).classList.remove("on")});
+ var mb={in:"bin",out:"bout",osc:"bosc",hold:"bstop"}[mode];if(mb)$(mb).classList.add("on");
+}
+
+var last=performance.now();
+function loop(now){
+ var dt=Math.min(0.05,(now-last)/1000);last=now;
+ if(mode==="osc"){t+=dt;mx=580+130*Math.sin(t*1.5)}
+ else if(mode==="in"){mx-=170*dt;if(mx<=MIN){mx=MIN;mode="hold"}}
+ else if(mode==="out"){mx+=170*dt;if(mx>=MAX){mx=MAX;mode="hold"}}
+ mx=clamp(mx,MIN,MAX);
+ var inst=dt>0?(mx-prev)/dt:0;prev=mx;
+ v=v*0.82+inst*0.18;
+ if(Math.abs(inst)<1)v*=0.8;
+ render();
+ requestAnimationFrame(loop);
+}
+// drag
+var drag=false,off=0;
+function svgX(e){var pt=svg.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;return pt.matrixTransform(svg.getScreenCTM().inverse()).x}
+$("mag").addEventListener("pointerdown",function(e){drag=true;mode="hold";off=svgX(e)-mx;$("mag").setPointerCapture(e.pointerId);e.preventDefault()});
+$("mag").addEventListener("pointermove",function(e){if(drag)mx=clamp(svgX(e)-off,MIN,MAX)});
+$("mag").addEventListener("pointerup",function(){drag=false});
+$("mag").addEventListener("keydown",function(e){if(e.key==="ArrowLeft"){mode="hold";mx=clamp(mx-12,MIN,MAX)}if(e.key==="ArrowRight"){mode="hold";mx=clamp(mx+12,MIN,MAX)}});
+$("sld").addEventListener("input",function(e){mode="hold";mx=+e.target.value});
+$("bin").onclick=function(){mode="in"};
+$("bout").onclick=function(){mode="out"};
+$("bosc").onclick=function(){mode="osc";t=Math.asin(clamp((mx-580)/130,-1,1))/1.5};
+$("bstop").onclick=function(){mode="hold"};
+$("bflip").onclick=function(){pol=pol==="N"?"S":"N"};
+$("bfl").onclick=function(){showLines=!showLines;this.textContent="Field lines: "+(showLines?"on":"off")};
+requestAnimationFrame(loop);
+})();
+</script>
+<script>
+(function(){
+function $(i){return document.getElementById(i)}
+var P=[{pos:"below",dir:-1,tr:1},{pos:"below",dir:1,tr:-1},{pos:"left",dir:1,tr:-1},{pos:"left",dir:1,tr:-1}];
+var NOTES=["","The Problem 2 slide wasn’t in the files you sent, so this is a matching variant: current to the right and decreasing.","","Same physical setup as Problem 3."];
+var cur=0,c=null,step=0,done=false,pick=null,wire,flow,tr=1,ccw=false,showHand=true;
+function calc(){var b=c.pos==="below",d=b?[c.dir,0]:[0,c.dir],r=b?[0,1]:[1,0];var bo=(d[0]*r[1]-d[1]*r[0])>0,io=c.tr>0?!bo:bo;
+ return{below:b,bo:bo,io:io,word:b?(c.dir>0?"to the right":"to the left"):(c.dir>0?"upward":"downward")}}
+function symb(x,y,r,out,col,cls,op){var s='<g transform="translate('+x+','+y+')" opacity="'+op+'"><g class="'+cls+'"><circle r="'+r+'" fill="var(--panel)" stroke="'+col+'" stroke-width="2.5"/>';
+ s+=out?'<circle r="'+(r*.3)+'" fill="'+col+'"/>':'<path d="M'+(-r*.6)+','+(-r*.6)+'L'+(r*.6)+','+(r*.6)+'M'+(r*.6)+','+(-r*.6)+'L'+(-r*.6)+','+(r*.6)+'" stroke="'+col+'" stroke-width="2.5"/>';
+ return s+'</g></g>'}
+function build(){
+ var k=calc(),C=k.below?[290,150]:[340,190],R=76,W=k.below?[40,320,480,320]:[90,24,90,356],sb="",i,j;
+ for(i=-6;i<=6;i++)for(j=-5;j<=5;j++){var x=C[0]+70*i,y=C[1]+60*j;if(x<30||x>490||y<28||y>352)continue;
+  var dw=k.below?Math.abs(y-320):Math.abs(x-90);if(dw<45||Math.hypot(x-C[0],y-C[1])<R+22)continue;
+  sb+=symb(x,y,11,k.bo,"var(--blue)","pb",Math.max(.25,.8-dw/450).toFixed(2))}
+ sb+=symb(C[0],C[1]-26,17,k.bo,"var(--blue)","pb",1)+'<text x="'+(C[0]+28)+'" y="'+(C[1]-30)+'" font-size="20" font-weight="700" fill="var(--blue)">B</text>';
+ var rd=symb(C[0],C[1]+30,17,k.io,"var(--red)","pr",1)+'<text x="'+(C[0]+28)+'" y="'+(C[1]+36)+'" font-size="20" font-weight="700" fill="var(--red)">B<tspan font-size="13" dy="4">ind</tspan></text>';
+ var ang=Math.atan2(-(k.below?0:c.dir),k.below?c.dir:0)*180/Math.PI,ch="";
+ [.25,.5,.75].forEach(function(f){ch+='<path transform="translate('+(W[0]+(W[2]-W[0])*f)+','+(W[1]+(W[3]-W[1])*f)+') rotate('+ang+')" d="M-9,-9 L6,0 L-9,9" fill="none" stroke="var(--panel)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>'});
+ var lx=k.below?190:90,ly=k.below?360:376; ccw=k.io;
+ var tx=k.below?c.dir:0,ty=k.below?0:c.dir,ph=Math.atan2(tx,ty),hc=k.below?[340,320]:[90,c.dir>0?255:135],sn=Math.sin(ph),cs=Math.cos(ph);
+ var HD='<g stroke="#a8764b" stroke-width="2" fill="#f1c7a0"><rect x="-10" y="-74" width="20" height="52" rx="10"/><rect x="-36" y="-28" width="72" height="14" rx="7"/><rect x="-36" y="-14" width="72" height="14" rx="7"/><rect x="-36" y="0" width="72" height="14" rx="7"/><rect x="-36" y="14" width="72" height="14" rx="7"/><rect x="-42" y="-30" width="20" height="60" rx="10"/></g><ellipse cx="0" cy="-65" rx="4.5" ry="6" fill="#fff" opacity=".6"/>';
+ for(var q=0;q<4;q++)HD+='<circle cx="29" cy="'+(-21+14*q)+'" r="4" fill="#fff" opacity=".7"/>';
+ HD+='<polygon points="40,-9 58,0 40,9" fill="var(--red)"/>';
+ var px=hc[0]+88*sn,py=hc[1]-88*cs,an=sn>.5?"start":(sn<-.5?"end":"middle");
+ var hw='<g id="hW" style="display:none"><g transform="translate('+hc[0]+','+hc[1]+') rotate('+(ph*180/Math.PI)+') scale(.95)">'+HD+'</g><text x="'+px+'" y="'+(py+(cs<-.5?14:(Math.abs(cs)<.5?5:0)))+'" text-anchor="'+an+'" font-size="14" font-weight="700" fill="var(--green)">thumb = I</text></g>';
+ var hl='<g id="hL" style="display:none">',aa;
+ for(q=0;q<4;q++){var a0=(q*90+20)*Math.PI/180,a1=a0+1.08,p0=[C[0]+R*Math.cos(a0),C[1]+R*Math.sin(a0)],p1=[C[0]+R*Math.cos(a1),C[1]+R*Math.sin(a1)];
+  aa='M'+p0[0].toFixed(1)+' '+p0[1].toFixed(1)+' A'+R+' '+R+' 0 0 1 '+p1[0].toFixed(1)+' '+p1[1].toFixed(1);
+  hl+='<path d="'+aa+'" fill="none" stroke="#a8764b" stroke-width="24" stroke-linecap="round"/><path d="'+aa+'" fill="none" stroke="#f1c7a0" stroke-width="20" stroke-linecap="round"/>';
+  var tp=ccw?p0:p1;hl+='<circle class="lcue" cx="'+tp[0].toFixed(1)+'" cy="'+tp[1].toFixed(1)+'" r="6" fill="#fff" opacity=".8"/>'}
+ hl+='<circle cx="'+C[0]+'" cy="'+C[1]+'" r="27" fill="#f1c7a0" fill-opacity="'+(k.io?1:.45)+'" stroke="#a8764b" stroke-width="2.5"'+(k.io?'':' stroke-dasharray="5 4"')+'/></g>';
+ var tip=ccw?-22:22,bs=ccw?-2:2,ahp=(C[0]+tip)+','+(C[1]-R)+' '+(C[0]+bs)+','+(C[1]-R-13)+' '+(C[0]+bs)+','+(C[1]-R+13);
+ $("ps").innerHTML='<line id="wire" x1="'+W[0]+'" y1="'+W[1]+'" x2="'+W[2]+'" y2="'+W[3]+'" stroke="var(--ink)" stroke-width="7" stroke-linecap="round"/>'+ch+
+  '<text x="'+lx+'" y="'+ly+'" text-anchor="middle" font-size="19" font-weight="700" fill="var(--green)">I '+(c.tr>0?"increasing":"decreasing")+'</text>'+
+  '<g id="gB">'+sb+'</g>'+hw+'<circle cx="'+C[0]+'" cy="'+C[1]+'" r="'+R+'" fill="none" stroke="var(--coil2)" stroke-width="10"/>'+
+  '<circle id="flow" cx="'+C[0]+'" cy="'+C[1]+'" r="'+R+'" fill="none" stroke="var(--red)" stroke-width="10" stroke-linecap="round" stroke-dasharray="0.1 26" style="display:none"/>'+
+  '<polygon id="ah" points="'+ahp+'" fill="var(--red)" style="display:none"/>'+hl+'<g id="gR">'+rd+'</g>'+
+  '<text id="fx" x="505" y="32" text-anchor="end" font-size="18" font-weight="700" fill="var(--blue)"></text>';
+ wire=$("wire");flow=$("flow");tr=c.tr}
+function panel(){
+ var k=calc(),inc=c.tr>0,B=k.bo?"OUTWARD (toward you)":"INWARD (into the page)",Bi=k.io?"OUTWARD":"INWARD",Cw=k.io?"COUNTERCLOCKWISE":"CLOCKWISE";
+ var T=[["1. Field of the wire at the loop","Right-hand rule: thumb along the current I ("+k.word+"), fingers curl through the loop. So B is <b>"+B+"</b>."],
+ ["2. What happens to the flux","I is "+(inc?"increasing":"decreasing")+", so B and the flux are also "+(inc?"increasing":"decreasing")+". Rule: flux increasing → B<sub>ind</sub> opposite to B. Flux decreasing → B<sub>ind</sub> same as B."],
+ ["3. Induced magnetic field","B<sub>ind</sub> is <b>"+Bi+"</b>, "+(k.io===k.bo?"the same direction as B.":"opposite to B.")],
+ ["4. Induced current",done?(pick===null?"":(pick===k.io?"Correct! ":"Not quite. "))+"Thumb along B<sub>ind</sub> ("+Bi+"), fingers curl <b>"+Cw+"</b>. So I<sub>ind</sub> is "+Cw+".":"Thumb along B<sub>ind</sub> ("+Bi+"). Which way do your fingers curl?<div class=\"controls\"><button data-g=\"cw\">Clockwise</button><button data-g=\"ccw\">Counterclockwise</button></div>"]];
+ var h="";for(var i=1;i<=4;i++){h+='<div class="st'+(step===i?' now':'')+(step<i?' lock':'')+'"><h3>'+T[i-1][0]+'</h3>'+(step>=i?T[i-1][1]:'Not solved yet.')+'</div>'}
+ if(done)h='<div class="ans">Answer: I<sub>ind</sub> is <b>'+Cw+'</b></div>'+h;
+ $("steps").innerHTML=h}
+function ui(){
+ var k=calc();$("gB").style.display=step>=1?"":"none";$("gR").style.display=step>=3?"":"none";
+ $("fx").textContent=step>=2?"Flux "+(c.tr>0?"↑ increasing":"↓ decreasing"):"";
+ flow.style.display=$("ah").style.display=done?"":"none";
+ var on=showHand,h4=on&&step>=4;
+ $("hW").style.display=on&&step===1?"":"none";$("hL").style.display=h4?"":"none";
+ $("gB").setAttribute("opacity",h4?.25:1);$("gR").setAttribute("transform",h4?"translate(0,-30)":"");
+ var lc=document.querySelectorAll("#ps .lcue");for(var q=0;q<lc.length;q++)lc[q].style.display=done?"":"none";
+ $("hcap").textContent=!on?"":(step===0?"Use your right hand for both rules.":(step===1?"Right hand: thumb along the current I, fingertips show how the field B curls around the wire.":(h4?"Right hand: thumb along B_ind ("+(k.io?"out of the page, toward you":"into the page, away from you")+"). "+(done?"Fingertips show the direction of I_ind.":"Which way do the fingertips curl?"):"")));
+ panel();
+ $("bBack").disabled=step===0;$("bNext").disabled=step>=4;$("bNext").textContent=step===0?"Start solving":"Next step";
+ $("wp1").classList.toggle("on",k.below);$("wp2").classList.toggle("on",!k.below);
+ var a=k.below?[-1,"← Left",1,"→ Right"]:[1,"↑ Up",-1,"↓ Down"];
+ $("wd1").textContent=a[1];$("wd2").textContent=a[3];$("wd1").dv=a[0];$("wd2").dv=a[2];
+ $("wd1").classList.toggle("on",c.dir===a[0]);$("wd2").classList.toggle("on",c.dir===a[2]);
+ $("wt1").classList.toggle("on",c.tr>0);$("wt2").classList.toggle("on",c.tr<0);
+ var m=c.pos!==P[cur].pos||c.dir!==P[cur].dir||c.tr!==P[cur].tr;
+ $("pnote").textContent=m?"This is changed from the slide’s setup.":NOTES[cur];
+ var pb=$("pbtn").children;for(var i=0;i<4;i++)pb[i].classList.toggle("on",i===cur)}
+function reset(){step=0;done=false;pick=null;build();ui()}
+function load(i){cur=i;c={pos:P[i].pos,dir:P[i].dir,tr:P[i].tr};reset()}
+$("pbtn").addEventListener("click",function(e){var p=e.target.getAttribute("data-p");if(p!==null)load(+p)});
+$("steps").addEventListener("click",function(e){var g=e.target.getAttribute("data-g");if(g){pick=g==="ccw";done=true;ui()}});
+$("bBack").onclick=function(){if(step>0){step--;done=false;pick=null;ui()}};
+$("bNext").onclick=function(){if(step<4){step++;ui()}};
+$("bAns").onclick=function(){step=4;done=true;pick=null;ui()};
+$("wp1").onclick=function(){c.pos="below";c.dir=-1;reset()};
+$("wp2").onclick=function(){c.pos="left";c.dir=1;reset()};
+$("wd1").onclick=function(){c.dir=this.dv;reset()};
+$("wd2").onclick=function(){c.dir=this.dv;reset()};
+$("wt1").onclick=function(){c.tr=1;reset()};
+$("wt2").onclick=function(){c.tr=-1;reset()};
+$("bHand").onclick=function(){showHand=!showHand;this.textContent="Hand: "+(showHand?"on":"off");this.classList.toggle("on",showHand);ui()};
+$("wreset").onclick=function(){load(cur)};
+function tab(b){$("tabA").hidden=b;$("tabB").hidden=!b;$("tbA").classList.toggle("on",!b);$("tbB").classList.toggle("on",b);$("tbA").setAttribute("aria-selected",!b);$("tbB").setAttribute("aria-selected",b)}
+$("tbA").onclick=function(){tab(false);try{location.hash="magnet"}catch(e){}};
+$("tbB").onclick=function(){tab(true);try{location.hash="problems"}catch(e){}};
+window.addEventListener("hashchange",function(){tab(location.hash==="#problems")});
+var off=0;
+function tick(ts){
+ if(!$("tabB").hidden&&wire){var f=((ts/1000)%1.6)/1.6,inc=tr>0;
+  wire.setAttribute("stroke-width",(inc?4+7*f:11-7*f).toFixed(1));
+  var s=(inc?.75+.4*f:1.15-.4*f).toFixed(3),els=document.querySelectorAll("#ps .pb");
+  for(var i=0;i<els.length;i++)els[i].setAttribute("transform","scale("+s+")");
+  if(done){off+=ccw?.6:-.6;flow.setAttribute("stroke-dashoffset",off)}}
+ requestAnimationFrame(tick)}
+load(0);tab(location.hash==="#problems");requestAnimationFrame(tick);
+})();
+</script>
+<script>
+(function(){
+function $(i){return document.getElementById(i)}
+var NS="http://www.w3.org/2000/svg";
+var V=12,R=10,L=1,mode="c",u=0,play=true,spd=.6,mk=true,UM=5.5,th=Math.PI,ph=0;
+var X0=100,X1=530,Y0=290,Y1=40,drag=false,gI,gV,gc,dI,dV;
+var INFO={
+def:"Click the switch (or use the buttons), drag on the graph to scrub through time, and change V, R and L. Hover or tap any part for an explanation.",
+sw:"Switch (two positions). On the battery side the circuit has an emf: the current rises from 0 toward Imax = V/R. On the bypass side the battery is out of the loop (no emf): the coil’s collapsing field keeps the current going and it decays from Imax. Click the lever to flip it.",
+bat:"Battery V: the emf that drives the current. It sets the final (steady-state) current Imax = V/R and the starting voltage across the inductor. In the no-emf case it is out of the loop.",
+R:"Resistor R: sets the steady current Imax = V/R and, with L, the time constant τ = L/R. Since τ is inversely proportional to R, doubling R halves τ. Try the R slider.",
+L:"Inductor L: it opposes any change in current (Lenz’s Law), so the current can’t jump instantly. The voltage across it is V_L = L·dI/dt: largest right after switching and zero at steady state. The dashed blue loops are its magnetic field, which grows with I.",
+cI:"Blue curve, the current. With emf: I = (V/R)(1 − e^(−t/τ)), reaching 63% of Imax after one τ and about 99% by 5τ. Without emf: I = Imax e^(−t/τ), falling to 37% after one τ.",
+cV:"Purple curve, the voltage across the inductor: V_L = V e^(−t/τ). It starts at the full battery voltage and falls to 37% after one τ. (Without emf its sign is reversed; the graph shows its size.)"
+};
+function rsay(k){$("rinfo").textContent=INFO[k||"def"]}rsay();
+function hook(){document.querySelectorAll("#tabC [data-k2]").forEach(function(e){if(e._h)return;e._h=1;var k=e.getAttribute("data-k2");
+ e.addEventListener("pointerenter",function(){rsay(k)});e.addEventListener("pointerleave",function(){rsay()});e.addEventListener("click",function(){rsay(k)})})}
+function clamp(a,b,c){return Math.max(b,Math.min(c,a))}
+function tau(){return L/R}
+function fI(x){return mode==="c"?1-Math.exp(-x):Math.exp(-x)}
+function fV(x){return Math.exp(-x)}
+function px(x){return X0+x/UM*(X1-X0)}
+function py(f){return Y0-f*(Y0-Y1)}
+function ft(s){return s>=1?s.toFixed(2)+" s":(s*1000).toFixed(0)+" ms"}
+function cv(fn,u1){var n=Math.max(2,Math.ceil(u1/.05)),d="";for(var i=0;i<=n;i++){var x=u1*i/n;d+=(i?"L":"M")+px(x).toFixed(1)+" "+py(fn(x)).toFixed(1)}return d}
+function ln(x1,y1,x2,y2,st){return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" '+st+'/>'}
+function buildG(){
+ var ch=mode==="c",tp=ch?.632:.368,s="",k,dash='stroke="var(--mut)" stroke-dasharray="6 5"';
+ s+='<rect x="'+X0+'" y="'+py(tp).toFixed(1)+'" width="'+(px(1)-X0).toFixed(1)+'" height="'+(Y0-py(tp)).toFixed(1)+'" fill="var(--green)" opacity="'+(mk?.2:0)+'"/>';
+ s+=ln(X0,Y1,X1,Y1,dash);
+ if(mk){s+=ln(px(1),py(tp),px(1),Y0,dash)+ln(X0,py(tp),px(1),py(tp),dash);if(ch)s+=ln(X0,py(.368),px(1),py(.368),dash)}
+ s+='<path d="M'+X0+' '+(Y1-12)+' V'+Y0+' H'+(X1+12)+'" fill="none" stroke="var(--ink)" stroke-width="3"/>';
+ for(k=1;k<=5;k++){s+=ln(px(k),Y0,px(k),Y0+6,'stroke="var(--ink)" stroke-width="2"')+'<text x="'+px(k)+'" y="'+(Y0+21)+'" text-anchor="middle" font-size="14" fill="var(--ink)">'+(k===1?"τ":k+"τ")+'</text><text x="'+px(k)+'" y="'+(Y0+36)+'" text-anchor="middle" font-size="11" fill="var(--mut)">'+ft(k*tau())+'</text>'}
+ s+='<path d="'+cv(fI,UM)+'" fill="none" stroke="var(--blue)" stroke-width="3" opacity=".25"/><path d="'+cv(fV,UM)+'" fill="none" stroke="var(--purple)" stroke-width="3" opacity=".25"/>';
+ s+='<rect id="gh" x="'+X0+'" y="'+(Y1-10)+'" width="'+(X1-X0)+'" height="'+(Y0-Y1+10)+'" fill="transparent" style="cursor:ew-resize"/>';
+ s+='<text x="'+(X0-8)+'" y="'+(Y1+4)+'" text-anchor="end" font-size="13" font-weight="700" fill="var(--blue)">Imax</text><text x="'+(X0-8)+'" y="'+(Y1+18)+'" text-anchor="end" font-size="11" fill="var(--mut)">'+(V/R).toFixed(2)+' A</text>';
+ if(mk){if(ch)s+='<text x="'+(X0-8)+'" y="'+(py(.632)+4)+'" text-anchor="end" font-size="12" font-weight="700" fill="var(--blue)">63% Imax</text><text x="'+(X0-8)+'" y="'+(py(.368)+4)+'" text-anchor="end" font-size="12" font-weight="700" fill="var(--purple)">37% V<tspan dy="3" font-size="9">L</tspan></text>';
+  else s+='<text x="'+(X0-8)+'" y="'+(py(.368)+4)+'" text-anchor="end" font-size="12" font-weight="700" fill="var(--purple)">37%</text>'}
+ s+='<text x="'+(X0+8)+'" y="'+(Y1-18)+'" font-size="14" fill="var(--ink)">I, V<tspan dy="4" font-size="10">L</tspan></text><text x="546" y="'+(Y0+5)+'" font-size="15" fill="var(--ink)">t</text>';
+ s+='<text x="'+X1+'" y="'+(Y1-8)+'" text-anchor="end" font-size="12" fill="var(--mut)">'+(ch?"Steady state value":"Starts at Imax")+'</text>';
+ var fi=ch?'I = (V/R)(1 − e<tspan dy="-6" font-size="11">−t/τ</tspan><tspan dy="6">)</tspan>':'I = Imax e<tspan dy="-6" font-size="11">−t/τ</tspan>';
+ var fv=ch?'V<tspan dy="4" font-size="11">L</tspan><tspan dy="-4"> = V e</tspan><tspan dy="-6" font-size="11">−t/τ</tspan>':'|V<tspan dy="4" font-size="11">L</tspan><tspan dy="-4">| = V e</tspan><tspan dy="-6" font-size="11">−t/τ</tspan>';
+ s+='<text class="hot" data-k2="cI" x="'+px(ch?2.3:1.5)+'" y="'+py(ch?.7:.62)+'" font-size="15" font-weight="700" fill="var(--blue)">'+fi+'</text>';
+ s+='<text class="hot" data-k2="cV" x="'+px(ch?1.5:2.2)+'" y="'+py(ch?.3:.25)+'" font-size="15" font-weight="700" fill="var(--purple)">'+fv+'</text>';
+ s+='<path id="gI" fill="none" stroke="var(--blue)" stroke-width="5" stroke-linecap="round" pointer-events="none"/><path id="gV" fill="none" stroke="var(--purple)" stroke-width="5" stroke-linecap="round" pointer-events="none"'+(ch?'':' stroke-dasharray="9 7"')+'/>';
+ if(mk){s+='<circle cx="'+px(1)+'" cy="'+py(fI(1))+'" r="6" fill="var(--blue)" stroke="var(--panel)" stroke-width="2" pointer-events="none"/><circle cx="'+px(1)+'" cy="'+py(fV(1))+'" r="6" fill="var(--purple)" stroke="var(--panel)" stroke-width="2" pointer-events="none"/>'}
+ s+='<line id="gc" y1="'+(Y1-6)+'" y2="'+Y0+'" stroke="var(--ink)" stroke-dasharray="3 4" pointer-events="none"/><circle id="dI" r="7" fill="var(--blue)" stroke="var(--panel)" stroke-width="2" pointer-events="none"/><circle id="dV" r="7" fill="var(--purple)" stroke="var(--panel)" stroke-width="2" pointer-events="none"/>';
+ $("rg").innerHTML=s;gI=$("gI");gV=$("gV");gc=$("gc");dI=$("dI");dV=$("dV");
+ var gh=$("gh");
+ gh.addEventListener("pointerdown",function(e){drag=true;gh.setPointerCapture(e.pointerId);sc(e)});
+ gh.addEventListener("pointermove",function(e){if(drag)sc(e)});
+ gh.addEventListener("pointerup",function(){drag=false});
+ hook()}
+function sc(e){var sv=$("rg"),pt=sv.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;var x=pt.matrixTransform(sv.getScreenCTM().inverse()).x;u=clamp((x-X0)/(X1-X0)*UM,0,UM);play=false;$("rPlay").textContent="Play"}
+var PA=[[60,150],[60,60],[360,60],[360,270],[60,270],[60,166],[60,150]],PB=[[150,60],[360,60],[360,270],[150,270],[150,60]],dp=[],dseg=[],dtot=0,dEl=[];
+function bd(){dp=mode==="c"?PA:PB;dseg=[];dtot=0;for(var i=1;i<dp.length;i++){var l=Math.hypot(dp[i][0]-dp[i-1][0],dp[i][1]-dp[i-1][1]);dseg.push(l);dtot+=l}
+ var n=Math.floor(dtot/24),g=$("dots");g.innerHTML="";dEl=[];
+ for(i=0;i<n;i++){var e=document.createElementNS(NS,"circle");e.setAttribute("r",4.5);e.setAttribute("fill","var(--glow)");e.setAttribute("stroke","var(--ink)");e.setAttribute("stroke-width",1);g.appendChild(e);dEl.push(e)}}
+function dpos(s){var i=0;while(i<dseg.length-1&&s>dseg[i]){s-=dseg[i];i++}var a=dp[i],b=dp[i+1],f=s/dseg[i];return[a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f]}
+function frame(dt){
+ var ch=mode==="c",Im=V/R,i=Im*fI(u),vl=V*fV(u)*(ch?1:-1),x=px(u),t=u*tau();
+ $("lev").setAttribute("x2",150+45*Math.cos(th));$("lev").setAttribute("y2",60+45*Math.sin(th));
+ $("bat").setAttribute("opacity",ch?1:.3);
+ $("coil").setAttribute("stroke-width",(4+6*Math.abs(vl)/V).toFixed(1));
+ $("fld").setAttribute("opacity",(.1+.9*i/Im).toFixed(2));
+ ph=(ph+(i/Im)*dt*.35)%1;
+ for(var q=0;q<dEl.length;q++){var p=dpos(((q/dEl.length+ph)%1)*dtot);dEl[q].setAttribute("cx",p[0].toFixed(1));dEl[q].setAttribute("cy",p[1].toFixed(1))}
+ $("dots").setAttribute("opacity",(.2+.8*i/Im).toFixed(2));
+ gI.setAttribute("d",cv(fI,u));gV.setAttribute("d",cv(fV,u));
+ gc.setAttribute("x1",x);gc.setAttribute("x2",x);dI.setAttribute("cx",x);dI.setAttribute("cy",py(fI(u)));dV.setAttribute("cx",x);dV.setAttribute("cy",py(fV(u)));
+ $("r1").textContent=ft(tau());$("r2").textContent=Im.toFixed(2)+" A";
+ $("r3").textContent=ft(t)+" ("+u.toFixed(2)+" τ)";
+ $("r4").textContent=i.toFixed(2)+" A · "+(100*fI(u)).toFixed(0)+"% of Imax";
+ $("r5").textContent=(vl<0?"−":"")+Math.abs(vl).toFixed(2)+" V";
+ $("r6").textContent=(i*R).toFixed(2)+" V"}
+function outs(){$("oV").textContent=V+" V";$("oR").textContent=R+" Ω";$("oL").textContent=L.toFixed(1)+" H";$("oS").textContent=spd.toFixed(1)+" τ/s"}
+function ui(){var ch=mode==="c";$("rs1").classList.toggle("on",ch);$("rs2").classList.toggle("on",!ch);
+ $("rf").textContent=ch?"With emf:  I = (V/R)(1 − e^(−t/τ))":"Without emf:  I = Imax e^(−t/τ)";
+ $("rmk").textContent="τ markers: "+(mk?"on":"off");$("rmk").classList.toggle("on",mk);outs()}
+function setMode(m){mode=m;u=0;play=true;$("rPlay").textContent="Pause";bd();buildG();ui()}
+function sl(id,fn){$(id).addEventListener("input",function(){fn(+this.value);outs();buildG()})}
+sl("sV",function(v){V=v});sl("sR",function(v){R=v});sl("sL",function(v){L=v});
+$("sS").addEventListener("input",function(){spd=+this.value;outs()});
+$("rPlay").onclick=function(){if(u>=UM){u=0;play=true}else play=!play;this.textContent=play?"Pause":"Play"};
+$("rRest").onclick=function(){u=0;play=true;$("rPlay").textContent="Pause"};
+$("rs1").onclick=function(){setMode("c")};$("rs2").onclick=function(){setMode("d")};
+$("swg").addEventListener("click",function(){setMode(mode==="c"?"d":"c")});
+$("rmk").onclick=function(){mk=!mk;buildG();ui()};
+$("rg").style.touchAction="none";
+var last=performance.now();
+function loop(now){var dt=Math.min(.05,(now-last)/1000);last=now;
+ if(!$("tabC").hidden){if(play){u+=spd*dt;if(u>=UM){u=UM;play=false;$("rPlay").textContent="Replay"}}
+  th+=((mode==="c"?Math.PI:Math.PI/2)-th)*Math.min(1,dt*9);frame(dt)}
+ requestAnimationFrame(loop)}
+function showC(on){$("tabC").hidden=!on;if(on){$("tabA").hidden=true;$("tabB").hidden=true;$("tbA").classList.remove("on");$("tbB").classList.remove("on")}$("tbC").classList.toggle("on",on);$("tbC").setAttribute("aria-selected",on)}
+$("tbC").onclick=function(){showC(true);try{location.hash="rl"}catch(e){}};
+$("tbA").addEventListener("click",function(){showC(false)});
+$("tbB").addEventListener("click",function(){showC(false)});
+window.addEventListener("hashchange",function(){showC(location.hash==="#rl")});
+bd();buildG();ui();hook();
+if(location.hash==="#rl")showC(true);
+requestAnimationFrame(loop);
+})();
+</script>
+
+</body>
+</html>

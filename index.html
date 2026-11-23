@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A clear, visual guide to engineering mathematics: find a relationship, follow the method, and see the idea take shape."
+    />
+    <meta name="theme-color" content="#f4f1e8" />
+    <title>Fieldnotes — Engineering mathematics, made clear</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header id="site-header"></header>
+
+    <main id="main">
+      <section class="hero page-width" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"></span> A STUDENT'S GUIDE TO ENGINEERING MATHEMATICS</p>
+          <h1 id="hero-title">Engineering math,<br /><em>made legible.</em></h1>
+          <p class="hero-intro">
+            Find the right relationship, follow the reasoning, and see what the symbols are
+            actually describing.
+          </p>
+          <a class="text-link hero-link" href="#explore">
+            Find your starting point <span aria-hidden="true">→</span>
+          </a>
+          <p class="hero-note">Built for the moment when the textbook stops making sense.</p>
+        </div>
+
+        <figure class="motion-figure">
+          <svg
+            class="motion-plot"
+            viewBox="0 0 480 340"
+            role="img"
+            aria-labelledby="plot-title plot-description"
+          >
+            <title id="plot-title">The graph of y equals x squared</title>
+            <desc id="plot-description">
+              A parabola curves upward from the origin, showing how the function's output
+              changes as x increases.
+            </desc>
+            <defs>
+              <pattern id="plot-grid" width="36" height="36" patternUnits="userSpaceOnUse">
+                <path d="M 36 0 L 0 0 0 36" class="plot-gridline" fill="none" />
+              </pattern>
+            </defs>
+            <rect x="56" y="24" width="384" height="250" fill="url(#plot-grid)" />
+            <path d="M 56 274 H 440 M 56 274 V 24" class="plot-axis" />
+            <path d="M 56 274 Q 168 274 392 64" class="plot-line" />
+            <circle cx="392" cy="64" r="5" class="plot-point" />
+            <text x="424" y="294" class="plot-label">x</text>
+            <text x="24" y="42" class="plot-label" transform="rotate(-90 24 42)">y</text>
+            <text x="274" y="139" class="plot-annotation">y = x²</text>
+            <path d="M 298 145 L 280 169" class="plot-leader" />
+          </svg>
+          <figcaption>
+            <span class="caption-index">01 / FUNCTIONS</span>
+            <span>A quadratic function grows at an increasing rate.</span>
+          </figcaption>
+        </figure>
+
+        <span class="hero-coordinate" aria-hidden="true">FIELD NOTE No. 001</span>
+      </section>
+
+      <section class="explore page-width" id="explore" aria-labelledby="explore-title">
+        <div class="section-heading">
+          <p class="eyebrow">THE GUIDE</p>
+          <h2 id="explore-title">Three ways into an idea.</h2>
+        </div>
+
+        <div class="pathways">
+          <article class="pathway" id="formulas">
+            <p class="pathway-index">01 <span>REFERENCE</span></p>
+            <h3>Look up a relationship.</h3>
+            <p>
+              A formula is more than a line of symbols. Learn what each variable means,
+              when the relationship applies, and which units belong.
+            </p>
+            <a class="text-link" href="/formulas/">
+              Browse the formula index <span aria-hidden="true">→</span>
+            </a>
+          </article>
+
+          <article class="pathway" id="lessons">
+            <p class="pathway-index">02 <span>VISUAL LESSONS</span></p>
+            <h3>Watch the concept move.</h3>
+            <p>
+              Short, focused lessons pair mathematical ideas with visual models you can
+              manipulate and explore.
+            </p>
+            <a class="text-link" href="/lessons/polygon-vocabulary.html">
+              Explore polygon vocabulary <span aria-hidden="true">→</span>
+            </a>
+          </article>
+
+          <article class="pathway" id="practice">
+            <p class="pathway-index">03 <span>PRACTICE</span></p>
+            <h3>Work it through.</h3>
+            <p>
+              Build confidence with guided sample problems that reveal the reasoning one
+              step at a time.
+            </p>
+            <span class="availability">Guided practice in progress</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="closing page-width" aria-label="A note about learning">
+        <p>Good mathematics starts with a good question.</p>
+        <a class="text-link" href="#main">Back to the beginning <span aria-hidden="true">↑</span></a>
+      </section>
+    </main>
+
+    <footer id="site-footer"></footer>
+    <p class="visually-hidden" id="theme-status" aria-live="polite"></p>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

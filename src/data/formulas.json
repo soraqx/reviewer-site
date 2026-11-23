@@ -1,0 +1,231 @@
+[
+  {
+    "id": "quadratic-formula",
+    "topic": "Algebra",
+    "name": "Quadratic formula",
+    "latex": "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}",
+    "variables": [
+      { "symbol": "a", "meaning": "Nonzero coefficient of the squared term", "unit": "same units as b/x" },
+      { "symbol": "b", "meaning": "Coefficient of the linear term", "unit": "context-dependent" },
+      { "symbol": "c", "meaning": "Constant term", "unit": "same units as ax²" },
+      { "symbol": "x", "meaning": "Root of the quadratic equation ax² + bx + c = 0", "unit": "context-dependent" }
+    ],
+    "notes": "Solves a quadratic equation in one variable.",
+    "conditions": "The equation is ax² + bx + c = 0 with a ≠ 0; real roots exist when b² − 4ac ≥ 0.",
+    "relatedLessons": [],
+    "tags": ["algebra", "equations", "roots"]
+  },
+  {
+    "id": "binomial-theorem",
+    "topic": "Algebra",
+    "name": "Binomial theorem",
+    "latex": "(x+y)^n = \\sum_{k=0}^{n} {n \\choose k}x^{n-k}y^k",
+    "variables": [
+      { "symbol": "x, y", "meaning": "Terms in the binomial", "unit": "context-dependent" },
+      { "symbol": "n", "meaning": "Nonnegative integer exponent", "unit": "dimensionless" },
+      { "symbol": "k", "meaning": "Summation index from 0 to n", "unit": "dimensionless" },
+      { "symbol": "{n \\choose k}", "meaning": "Binomial coefficient n!/[k!(n−k)!]", "unit": "dimensionless" }
+    ],
+    "notes": "Expands an integer power of a sum into terms involving powers of x and y.",
+    "conditions": "n is a nonnegative integer; the expansion also applies to commuting algebraic quantities.",
+    "relatedLessons": [],
+    "tags": ["algebra", "expansion", "series"]
+  },
+  {
+    "id": "euler-formula",
+    "topic": "Complex numbers",
+    "name": "Euler's formula",
+    "latex": "e^{i\\theta} = \\cos\\theta + i\\sin\\theta",
+    "variables": [
+      { "symbol": "i", "meaning": "Imaginary unit satisfying i² = −1", "unit": "dimensionless" },
+      { "symbol": "\\theta", "meaning": "Real angle", "unit": "rad" },
+      { "symbol": "e", "meaning": "Base of the natural logarithm", "unit": "dimensionless" }
+    ],
+    "notes": "Connects complex exponentials with trigonometric functions.",
+    "conditions": "The angle is expressed in radians.",
+    "relatedLessons": [],
+    "tags": ["complex numbers", "exponentials", "trigonometry"]
+  },
+  {
+    "id": "determinant-two-by-two",
+    "topic": "Linear algebra",
+    "name": "Determinant of a 2 × 2 matrix",
+    "latex": "\\det(A) = ad - bc,\\quad A = \\begin{bmatrix}a & b \\\\ c & d\\end{bmatrix}",
+    "variables": [
+      { "symbol": "A", "meaning": "Two-by-two square matrix", "unit": "entries inherit their units" },
+      { "symbol": "a, b, c, d", "meaning": "Entries of the matrix A", "unit": "context-dependent" },
+      { "symbol": "\\det(A)", "meaning": "Determinant of A", "unit": "product of matrix-entry units" }
+    ],
+    "notes": "Computes the determinant, which indicates whether a square matrix is invertible.",
+    "conditions": "For a 2 × 2 matrix A is invertible exactly when ad − bc ≠ 0.",
+    "relatedLessons": [],
+    "tags": ["determinant", "linear algebra", "matrices"]
+  },
+  {
+    "id": "inverse-two-by-two",
+    "topic": "Linear algebra",
+    "name": "Inverse of a 2 × 2 matrix",
+    "latex": "A^{-1} = \\frac{1}{ad-bc}\\begin{bmatrix}d & -b \\\\ -c & a\\end{bmatrix}",
+    "variables": [
+      { "symbol": "A", "meaning": "Matrix with rows (a, b) and (c, d)", "unit": "context-dependent" },
+      { "symbol": "a, b, c, d", "meaning": "Entries of A", "unit": "context-dependent" },
+      { "symbol": "A^{-1}", "meaning": "Multiplicative inverse of A", "unit": "reciprocal matrix-entry units" }
+    ],
+    "notes": "Gives a closed-form inverse for a two-by-two matrix.",
+    "conditions": "The determinant ad − bc must be nonzero.",
+    "relatedLessons": [],
+    "tags": ["inverse", "linear algebra", "matrices"]
+  },
+  {
+    "id": "eigenvalue-characteristic-equation",
+    "topic": "Linear algebra",
+    "name": "Characteristic equation for eigenvalues",
+    "latex": "\\det(A - \\lambda I) = 0",
+    "variables": [
+      { "symbol": "A", "meaning": "Square matrix", "unit": "context-dependent" },
+      { "symbol": "\\lambda", "meaning": "Eigenvalue of A", "unit": "same units as A's entries" },
+      { "symbol": "I", "meaning": "Identity matrix with the same size as A", "unit": "dimensionless" }
+    ],
+    "notes": "Find eigenvalues by solving the characteristic polynomial det(A − λI) = 0.",
+    "conditions": "A is a square matrix and I has the same dimensions; eigenvalues may be complex.",
+    "relatedLessons": [],
+    "tags": ["eigenvalues", "linear algebra", "matrices"]
+  },
+  {
+    "id": "power-rule-derivative",
+    "topic": "Calculus",
+    "name": "Power rule for differentiation",
+    "latex": "\\frac{d}{dx}x^n = nx^{n-1}",
+    "variables": [
+      { "symbol": "x", "meaning": "Independent variable", "unit": "context-dependent" },
+      { "symbol": "n", "meaning": "Constant exponent", "unit": "dimensionless" }
+    ],
+    "notes": "Bring the exponent down as a coefficient and reduce the exponent by one.",
+    "conditions": "For real n, the rule applies where xⁿ is differentiable; for noninteger n, restrict the domain as needed.",
+    "relatedLessons": [],
+    "tags": ["calculus", "derivatives", "power rule"]
+  },
+  {
+    "id": "chain-rule",
+    "topic": "Calculus",
+    "name": "Chain rule",
+    "latex": "\\frac{d}{dx}f(g(x)) = f'(g(x))g'(x)",
+    "variables": [
+      { "symbol": "x", "meaning": "Independent variable", "unit": "context-dependent" },
+      { "symbol": "g(x)", "meaning": "Inner function", "unit": "context-dependent" },
+      { "symbol": "f(g(x))", "meaning": "Composite function", "unit": "context-dependent" }
+    ],
+    "notes": "Differentiate the outer function evaluated at the inner function, then multiply by the inner derivative.",
+    "conditions": "The relevant functions are differentiable at the points considered.",
+    "relatedLessons": [],
+    "tags": ["calculus", "composite functions", "derivatives"]
+  },
+  {
+    "id": "integration-by-parts",
+    "topic": "Calculus",
+    "name": "Integration by parts",
+    "latex": "\\int u\\,dv = uv - \\int v\\,du",
+    "variables": [
+      { "symbol": "u", "meaning": "Differentiable function selected as the first factor", "unit": "context-dependent" },
+      { "symbol": "dv", "meaning": "Differential of the remaining integrand", "unit": "context-dependent" },
+      { "symbol": "v", "meaning": "Antiderivative of dv", "unit": "context-dependent" },
+      { "symbol": "du", "meaning": "Differential of u", "unit": "context-dependent" }
+    ],
+    "notes": "Transforms an integral of a product into a related integral that may be easier to evaluate.",
+    "conditions": "u and v are sufficiently differentiable and the integrals exist on the interval.",
+    "relatedLessons": [],
+    "tags": ["calculus", "integration", "integration by parts"]
+  },
+  {
+    "id": "fundamental-theorem-calculus",
+    "topic": "Calculus",
+    "name": "Fundamental theorem of calculus",
+    "latex": "\\int_a^b f(x)\\,dx = F(b)-F(a),\\quad F'(x)=f(x)",
+    "variables": [
+      { "symbol": "f(x)", "meaning": "Integrable function on [a,b]", "unit": "context-dependent" },
+      { "symbol": "F(x)", "meaning": "An antiderivative of f", "unit": "f-units × x-units" },
+      { "symbol": "a, b", "meaning": "Lower and upper integration limits", "unit": "same as x" }
+    ],
+    "notes": "Evaluates a definite integral using any antiderivative of the integrand.",
+    "conditions": "f is continuous on [a,b] and F is an antiderivative of f on that interval.",
+    "relatedLessons": [],
+    "tags": ["calculus", "definite integrals", "integration"]
+  },
+  {
+    "id": "gradient-scalar-field",
+    "topic": "Vector calculus",
+    "name": "Gradient of a scalar field",
+    "latex": "\\nabla f = \\left(\\frac{\\partial f}{\\partial x},\\frac{\\partial f}{\\partial y},\\frac{\\partial f}{\\partial z}\\right)",
+    "variables": [
+      { "symbol": "f", "meaning": "Scalar-valued field of position", "unit": "context-dependent" },
+      { "symbol": "\\nabla f", "meaning": "Vector of the field's partial derivatives", "unit": "f-units per coordinate unit" },
+      { "symbol": "x, y, z", "meaning": "Independent spatial coordinates", "unit": "context-dependent" }
+    ],
+    "notes": "The gradient points in the direction of greatest local increase and its magnitude is the maximum directional derivative.",
+    "conditions": "The scalar field is differentiable at the point.",
+    "relatedLessons": [],
+    "tags": ["calculus", "gradient", "vector calculus"]
+  },
+  {
+    "id": "divergence-vector-field",
+    "topic": "Vector calculus",
+    "name": "Divergence of a vector field",
+    "latex": "\\nabla\\cdot\\vec{F} = \\frac{\\partial F_x}{\\partial x}+\\frac{\\partial F_y}{\\partial y}+\\frac{\\partial F_z}{\\partial z}",
+    "variables": [
+      { "symbol": "\\vec{F}", "meaning": "Differentiable vector field with components Fₓ, Fᵧ, F_z", "unit": "context-dependent" },
+      { "symbol": "\\nabla\\cdot\\vec{F}", "meaning": "Scalar divergence of the vector field", "unit": "field-units per coordinate unit" },
+      { "symbol": "x, y, z", "meaning": "Independent coordinates", "unit": "context-dependent" }
+    ],
+    "notes": "Measures the net outward flux density of a vector field at a point.",
+    "conditions": "The vector field has differentiable components in Cartesian coordinates.",
+    "relatedLessons": [],
+    "tags": ["calculus", "divergence", "vector calculus"]
+  },
+  {
+    "id": "first-order-linear-ode",
+    "topic": "Differential equations",
+    "name": "First-order linear differential equation",
+    "latex": "y(x)=e^{-\\int P(x)\\,dx}\\left(\\int Q(x)e^{\\int P(x)\\,dx}\\,dx+C\\right)",
+    "variables": [
+      { "symbol": "y(x)", "meaning": "Unknown function", "unit": "context-dependent" },
+      { "symbol": "P(x), Q(x)", "meaning": "Known coefficient and forcing functions in y′ + P(x)y = Q(x)", "unit": "depends on x and y units" },
+      { "symbol": "C", "meaning": "Integration constant determined by an initial condition", "unit": "same as y" }
+    ],
+    "notes": "Solves a first-order linear ODE using an integrating factor.",
+    "conditions": "The ODE is y′ + P(x)y = Q(x) on an interval where P and Q are continuous.",
+    "relatedLessons": [],
+    "tags": ["differential equations", "first-order", "integrating factor"]
+  },
+  {
+    "id": "laplace-transform-derivative",
+    "topic": "Transforms",
+    "name": "Laplace transform of a derivative",
+    "latex": "\\mathcal{L}\\{f'(t)\\}=sF(s)-f(0^+)",
+    "variables": [
+      { "symbol": "f(t)", "meaning": "Time-domain function", "unit": "context-dependent" },
+      { "symbol": "F(s)", "meaning": "Laplace transform of f(t)", "unit": "f-units × time" },
+      { "symbol": "s", "meaning": "Complex transform variable", "unit": "inverse time when t is time" },
+      { "symbol": "f(0⁺)", "meaning": "Right-hand initial value of f", "unit": "same as f" }
+    ],
+    "notes": "Converts differentiation in time into multiplication by s and an initial-value term.",
+    "conditions": "f is piecewise continuous and of exponential order so its one-sided Laplace transform exists.",
+    "relatedLessons": [],
+    "tags": ["differential equations", "initial conditions", "Laplace transform"]
+  },
+  {
+    "id": "newton-raphson-method",
+    "topic": "Numerical methods",
+    "name": "Newton–Raphson method",
+    "latex": "x_{n+1}=x_n-\\frac{f(x_n)}{f'(x_n)}",
+    "variables": [
+      { "symbol": "x_n", "meaning": "Current estimate of a root", "unit": "same as x" },
+      { "symbol": "x_{n+1}", "meaning": "Next estimate produced by the iteration", "unit": "same as x" },
+      { "symbol": "f(x)", "meaning": "Function whose root is sought", "unit": "context-dependent" },
+      { "symbol": "f'(x)", "meaning": "Derivative of f", "unit": "f-units per x-unit" }
+    ],
+    "notes": "Iteratively improves an estimate by intersecting the tangent at the current point with the x-axis.",
+    "conditions": "f′(xₙ) is nonzero and the initial estimate is sufficiently close to a root for convergence.",
+    "relatedLessons": [],
+    "tags": ["iteration", "numerical methods", "root finding"]
+  }
+]
