@@ -12,7 +12,7 @@
     "content:compile": "node scripts/compile-content-pack.js",
     "validate:data": "npm run content:compile && node scripts/validate-data.js",
     "test:problems": "node --test scripts/problem-engine.test.js",
-    "test": "node --test scripts/problem-engine.test.js scripts/api-client.test.js scripts/api-routes.test.js",
+    "test": "node --test scripts/problem-engine.test.js scripts/api-client.test.js scripts/api-routes.test.js scripts/course-navigation.test.js",
     "build": "npm run validate:data && vite build",
     "preview": "vite preview"
   },

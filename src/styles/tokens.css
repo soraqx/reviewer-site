@@ -52,8 +52,8 @@
   --shadow-card: none;
   --tracking-display: -0.02em;
   --display-weight: 700;
-  --container: 1440px;
-  --gutter: clamp(1.15rem, 4.5vw, 5rem);
+  --container: 1360px;
+  --gutter: clamp(1rem, 2.2vw, 2rem);
 
   --page: var(--color-paper);
   --surface: var(--color-paper-2);

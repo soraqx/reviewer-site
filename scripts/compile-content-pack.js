@@ -25,12 +25,32 @@ function splitTableRow(line) {
 }
 
 function markdownToHtml(markdown) {
+  const rhombusEquation = String.raw`$$P=4q,\quad K=bh=q^2\sin\theta=\frac{d_1d_2}{2},\quad q=\frac12\sqrt{d_1^2+d_2^2}.\tag{F-QD06}$$`;
+  const studentEquation = String.raw`$$P=4q$$
+
+$$K=bh=q^2\sin\theta$$
+
+$$K=\frac{d_1d_2}{2}$$
+
+$$q=\frac12\sqrt{d_1^2+d_2^2}$$`;
+  const lines = markdown.replace(rhombusEquation, studentEquation).split(/\r?\n/);
+  for (let index = 0; index < lines.length; index += 1) {
+    if (!lines[index].startsWith('|')) continue;
+    const header = splitTableRow(lines[index]);
+    if (header[0]?.toLowerCase() !== 'formula id') continue;
+    while (index < lines.length && lines[index].startsWith('|')) {
+      lines[index] = lines[index].replace(/^\|\s*[^|]*\|/, '|');
+      index += 1;
+    }
+    index -= 1;
+  }
+  const studentMarkdown = lines.join('\n');
   const math = [];
-  const protectedMarkdown = markdown.replace(
+  const protectedMarkdown = studentMarkdown.replace(
     /\$\$([\s\S]+?)\$\$|\$([^$\n]+)\$/g,
     (match, display, inline) => {
       const index = math.length;
-      const latex = display ?? inline;
+      const latex = (display ?? inline).replace(/\\tag\{F-[A-Z0-9-]+\}/g, '');
       math.push(katex.renderToString(latex.trim(), {
         displayMode: display !== undefined,
         output: 'htmlAndMathml',
@@ -52,7 +72,15 @@ function markdownToHtml(markdown) {
   for (const [index, rendered] of math.entries()) {
     html = html.replaceAll(`COURSEMATHPLACEHOLDER${index}END`, rendered);
   }
-  return html;
+  html = html.replace(/\s*\(F-[A-Z0-9-]+\)/g, '');
+  html = html.replace(
+    /<p>(For larger counts,[\s\S]*?Large names are reference material, not core assessment targets\.)<\/p>/,
+    '<details class="polygon-name-reference"><summary>Extended polygon names</summary><p>$1</p></details>',
+  );
+  return html.replace(
+    /(<table\b[\s\S]*?<\/table>)/gi,
+    '<div class="table-scroll" role="region" aria-label="Scrollable reference table" tabindex="0">$1</div>',
+  );
 }
 
 function stripEditorialBlocks(markdown) {
@@ -60,6 +88,7 @@ function stripEditorialBlocks(markdown) {
     .split(/\n\s*\n/)
     .filter((block) =>
       !/^\*\*(?:Sources?|Interaction|Diagram brief):/i.test(block.trim())
+      && !/^Formula IDs:/i.test(block.trim())
       && !/^\*\*Review-only/i.test(block.trim()))
     .join('\n\n')
     .trim();

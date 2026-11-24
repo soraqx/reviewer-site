@@ -6,11 +6,6 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  overflow-x: clip;
-}
-
 html {
   scrollbar-color: var(--color-muted) var(--color-paper);
   scroll-padding-top: var(--space-xl);
@@ -98,6 +93,12 @@ p {
 
 p:not([class]) {
   max-width: 65ch;
+}
+
+select,
+input,
+button {
+  min-width: 0;
 }
 
 img,

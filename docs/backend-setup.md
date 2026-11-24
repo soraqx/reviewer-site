@@ -162,7 +162,7 @@ After Convex production is verified:
 
    ```powershell
    npm.cmd ls mongodb
-   git grep -n -E "mongodb|MONGODB_URI|MongoClient" -- "*.js" "*.json"
+  x
    ```
 
 The package listing should be empty, and `git grep` should return no

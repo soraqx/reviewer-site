@@ -132,6 +132,17 @@ export function mountPolygonExplorer() {
       addSvgText(svg, first.x, first.y + 55, 'interior', 'diagram-label label-angle');
     }
 
+    if (selected('exterior')) {
+      const previous = points[sideCount - 1];
+      const incoming = unitFrom(previous, first);
+      const extension = {
+        x: first.x + incoming.x * 36,
+        y: first.y + incoming.y * 36,
+      };
+      addSvgLine(svg, first, extension, 'polygon-highlight polygon-exterior');
+      addSvgText(svg, extension.x, extension.y - 7, 'exterior', 'diagram-label label-angle');
+    }
+
     svg.append(
       createSvgElement('circle', {
         cx: first.x,
@@ -155,7 +166,7 @@ export function mountPolygonExplorer() {
     const apothem = sideLength / (2 * Math.tan(Math.PI / sideCount));
     summary.textContent = `A regular ${sideCount}-gon has ${sideCount} equal sides, ${sideCount} vertices, and ${diagonalCount} diagonals.`;
     detail.textContent =
-      `Side length s = ${formatNumber(sideLength)} units. Central angle = 360°/${sideCount} = ${formatNumber(centralAngle)}°; each interior angle = ${formatNumber(interiorAngle)}°. Apothem = s/[2 tan(180°/${sideCount})] ≈ ${formatNumber(apothem)} units. The drawing is rescaled to fit; use these values for measurements.`;
+      `Side length s = ${formatNumber(sideLength)} units. Central angle = 360°/${sideCount} = ${formatNumber(centralAngle)}°; each interior angle = ${formatNumber(interiorAngle)}°; exterior angle = ${formatNumber(180 - interiorAngle)}°. Apothem = s/[2 tan(180°/${sideCount})] ≈ ${formatNumber(apothem)} units. The drawing is rescaled to fit; use these values for measurements.`;
     countError.textContent =
       sideCount < 4 ? 'A triangle has no diagonal: every pair of its vertices is adjacent.' : '';
     document.querySelector('[data-show="diagonal"]').disabled = sideCount < 4;
@@ -193,4 +204,21 @@ export function mountPolygonExplorer() {
   for (const toggle of toggles) {
     toggle.addEventListener('change', draw);
   }
+
+  const preset = document.querySelector('#polygon-preset');
+  preset.addEventListener('change', () => {
+    countInput.value = preset.value;
+    countInput.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+  document.querySelector('#polygon-reset').addEventListener('click', () => {
+    countInput.value = '6';
+    lengthInput.value = '4';
+    preset.value = '6';
+    countInput.dispatchEvent(new Event('input', { bubbles: true }));
+    lengthInput.dispatchEvent(new Event('input', { bubbles: true }));
+    for (const toggle of toggles) {
+      toggle.checked = toggle.dataset.show !== 'angles' && toggle.dataset.show !== 'exterior';
+    }
+    draw();
+  });
 }

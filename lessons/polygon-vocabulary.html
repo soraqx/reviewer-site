@@ -23,11 +23,23 @@
     <main id="main" class="lesson-page page-width">
       <noscript id="lesson-noscript"></noscript>
       <nav class="module-nav" aria-label="Geometry course modules">
-        <h2 class="module-title">Engineering mathematics 2</h2>
-        <ol id="module-list" class="lesson-module-list"></ol>
+        <h2 class="module-title">Course navigation</h2>
+        <label class="module-select-label" for="desktop-module-select">Module</label>
+        <select id="desktop-module-select" class="module-select"></select>
+        <ol id="module-list" class="lesson-module-list" aria-label="Lessons in this module"></ol>
       </nav>
 
       <article class="lesson-content">
+        <nav class="lesson-mobile-nav" aria-label="Choose a module and lesson">
+          <label>
+            <span>Module</span>
+            <select id="mobile-module-select" class="module-select"></select>
+          </label>
+          <label>
+            <span>Lesson</span>
+            <select id="mobile-lesson-select" class="module-select"></select>
+          </label>
+        </nav>
         <nav class="lesson-path" aria-label="Lesson navigation">
           <a href="/lessons/">All modules</a>
           <span id="lesson-position"></span>
@@ -39,9 +51,78 @@
         </nav>
         <header class="lesson-heading">
           <p class="lesson-dateline" id="lesson-kicker"></p>
-          <h1 id="lesson-title"></h1>
+          <h1 id="lesson-title" tabindex="-1"></h1>
           <p class="lesson-lede" id="lesson-lede"></p>
         </header>
+
+        <section class="lesson-section" aria-labelledby="outcomes-title">
+          <h2 id="outcomes-title">What you’ll be able to do.</h2>
+          <ul class="outcome-list" id="lesson-outcomes"></ul>
+        </section>
+
+        <section class="lesson-section triangle-classification" id="triangle-classification" aria-labelledby="triangle-classification-title" hidden>
+          <h2 id="triangle-classification-title">Two ways to classify triangles</h2>
+          <div class="triangle-classification-groups">
+            <section aria-labelledby="triangle-sides-title">
+              <h3 id="triangle-sides-title">By side lengths</h3>
+              <div class="triangle-example-list">
+                <figure>
+                  <svg viewBox="0 0 120 100" role="img" aria-labelledby="scalene-title">
+                    <title id="scalene-title">Scalene triangle</title>
+                    <polygon points="10,84 48,18 110,84" />
+                  </svg>
+                  <figcaption>Scalene: no equal sides</figcaption>
+                </figure>
+                <figure>
+                  <svg viewBox="0 0 120 100" role="img" aria-labelledby="isosceles-title">
+                    <title id="isosceles-title">Isosceles triangle</title>
+                    <polygon points="20,84 60,18 100,84" />
+                  </svg>
+                  <figcaption>Isosceles: at least two equal sides</figcaption>
+                </figure>
+                <figure>
+                  <svg viewBox="0 0 120 100" role="img" aria-labelledby="equilateral-title">
+                    <title id="equilateral-title">Equilateral triangle</title>
+                    <polygon points="25,84 95,84 60,23" />
+                  </svg>
+                  <figcaption>Equilateral: three equal sides</figcaption>
+                </figure>
+              </div>
+            </section>
+            <section aria-labelledby="triangle-angles-title">
+              <h3 id="triangle-angles-title">By interior angles</h3>
+              <div class="triangle-example-list">
+                <figure>
+                  <svg viewBox="0 0 120 100" role="img" aria-labelledby="acute-title">
+                    <title id="acute-title">Acute triangle</title>
+                    <polygon points="20,84 100,84 56,27" />
+                  </svg>
+                  <figcaption>Acute: all angles below 90°</figcaption>
+                </figure>
+                <figure>
+                  <svg viewBox="0 0 120 100" role="img" aria-labelledby="right-title">
+                    <title id="right-title">Right triangle</title>
+                    <polygon points="24,84 24,24 100,84" />
+                  </svg>
+                  <figcaption>Right: one angle is 90°</figcaption>
+                </figure>
+                <figure>
+                  <svg viewBox="0 0 120 100" role="img" aria-labelledby="obtuse-title">
+                    <title id="obtuse-title">Obtuse triangle</title>
+                    <polygon points="8,84 55,75 108,22" />
+                  </svg>
+                  <figcaption>Obtuse: one angle is above 90°</figcaption>
+                </figure>
+              </div>
+            </section>
+          </div>
+          <p class="triangle-convention">In this course, an isosceles triangle has at least two equal sides; equilateral triangles are included.</p>
+        </section>
+
+        <section class="lesson-section" id="lesson-explanation" aria-labelledby="ideas-title">
+          <h2 id="ideas-title"></h2>
+          <div class="lesson-prose" id="lesson-concepts"></div>
+        </section>
 
         <section class="lesson-simulation" id="polygon-simulation" aria-labelledby="explorer-title">
           <div class="simulation-heading">
@@ -74,13 +155,25 @@
               </label>
               <p class="control-error" id="side-length-error" role="status"></p>
             </div>
+            <label class="polygon-preset-control">
+              <span>Polygon example</span>
+              <select id="polygon-preset">
+                <option value="3">Triangle</option>
+                <option value="4">Quadrilateral</option>
+                <option value="5">Pentagon</option>
+                <option value="6" selected>Hexagon</option>
+                <option value="12">Dodecagon</option>
+              </select>
+            </label>
             <fieldset class="diagram-toggles">
               <legend>Show on the diagram</legend>
               <label><input type="checkbox" data-show="side" checked /> Side</label>
               <label><input type="checkbox" data-show="diagonal" checked /> Diagonal</label>
               <label><input type="checkbox" data-show="apothem" checked /> Apothem</label>
               <label><input type="checkbox" data-show="angles" /> Angles</label>
+              <label><input type="checkbox" data-show="exterior" /> Exterior angle</label>
             </fieldset>
+            <button id="polygon-reset" class="polygon-reset" type="button">Reset model</button>
           </div>
 
           <div class="polygon-figure-wrap">
@@ -96,7 +189,7 @@
             </svg>
           </div>
 
-          <div class="simulation-readout" aria-live="polite">
+          <div class="simulation-readout">
             <p id="polygon-summary"></p>
             <p id="polygon-detail"></p>
           </div>
@@ -105,6 +198,59 @@
             <span><i class="key-diagonal" aria-hidden="true"></i>Diagonal</span>
             <span><i class="key-apothem" aria-hidden="true"></i>Apothem</span>
           </p>
+          <section class="lesson-section polygon-classification" aria-labelledby="polygon-classification-title">
+            <h2 id="polygon-classification-title">A boundary can be classified by its shape</h2>
+            <div class="polygon-classification-grid">
+              <figure>
+                <svg viewBox="0 0 120 90" role="img" aria-labelledby="triangle-title triangle-desc">
+                  <title id="triangle-title">Triangle</title>
+                  <desc id="triangle-desc">A closed polygon with three straight sides.</desc>
+                  <polygon points="60,10 108,78 12,78" />
+                </svg>
+                <figcaption><strong>Triangle</strong><span>A simple polygon with three straight sides.</span></figcaption>
+              </figure>
+              <figure>
+                <svg viewBox="0 0 120 90" role="img" aria-labelledby="convex-title convex-desc">
+                  <title id="convex-title">Convex polygon</title>
+                  <desc id="convex-desc">A pentagon with all vertices pointing outward.</desc>
+                  <polygon points="60,8 108,42 90,84 30,84 12,42" />
+                </svg>
+                <figcaption><strong>Convex</strong><span>Every interior angle is below 180°.</span></figcaption>
+              </figure>
+              <figure>
+                <svg viewBox="0 0 120 90" role="img" aria-labelledby="concave-title concave-desc">
+                  <title id="concave-title">Concave polygon</title>
+                  <desc id="concave-desc">A simple polygon with an inward vertex and one reflex angle.</desc>
+                  <polygon points="10,18 110,18 66,44 110,72 10,72" />
+                </svg>
+                <figcaption><strong>Concave</strong><span>At least one interior angle is above 180°.</span></figcaption>
+              </figure>
+              <figure>
+                <svg viewBox="0 0 120 90" role="img" aria-labelledby="nonsimple-title nonsimple-desc">
+                  <title id="nonsimple-title">Self-crossing chain</title>
+                  <desc id="nonsimple-desc">A closed chain whose nonadjacent sides cross.</desc>
+                  <path d="M 14 14 L 106 76 L 14 76 L 106 14 Z" />
+                </svg>
+                <figcaption><strong>Not a simple polygon</strong><span>Nonadjacent sides cross.</span></figcaption>
+              </figure>
+              <figure>
+                <svg viewBox="0 0 120 90" role="img" aria-labelledby="open-title open-desc">
+                  <title id="open-title">Open chain</title>
+                  <desc id="open-desc">Three straight segments that do not close.</desc>
+                  <path d="M 12 74 L 42 18 L 76 72 L 108 25" />
+                </svg>
+                <figcaption><strong>Open chain</strong><span>The boundary does not close.</span></figcaption>
+              </figure>
+              <figure>
+                <svg viewBox="0 0 120 90" role="img" aria-labelledby="curve-title curve-desc">
+                  <title id="curve-title">Curved boundary</title>
+                  <desc id="curve-desc">A circle has a curved edge rather than straight sides.</desc>
+                  <circle cx="60" cy="45" r="33" />
+                </svg>
+                <figcaption><strong>Curved boundary</strong><span>A circle is not a polygon.</span></figcaption>
+              </figure>
+            </div>
+          </section>
         </section>
 
         <section class="lesson-simulation" id="course-simulation" aria-labelledby="course-explorer-title" hidden>
@@ -112,34 +258,7 @@
             <div><h2 id="course-explorer-title">Explore the model.</h2></div>
             <p id="course-explorer-instruction"></p>
           </div>
-          <div class="course-explorer-controls">
-            <label for="course-explorer-range">
-              <span id="course-explorer-label"></span>
-              <output id="course-explorer-output" for="course-explorer-range"></output>
-            </label>
-            <input id="course-explorer-range" type="range" />
-          </div>
-          <svg
-            id="course-explorer-diagram"
-            class="course-explorer-svg"
-            viewBox="0 0 560 300"
-            role="img"
-            aria-labelledby="course-explorer-svg-title course-explorer-svg-description"
-          >
-            <title id="course-explorer-svg-title">Interactive geometry model</title>
-            <desc id="course-explorer-svg-description"></desc>
-          </svg>
-          <p id="course-explorer-readout" class="course-explorer-readout" aria-live="polite"></p>
-        </section>
-
-        <section class="lesson-section" aria-labelledby="outcomes-title">
-          <h2 id="outcomes-title">What you’ll be able to do.</h2>
-          <ul class="outcome-list" id="lesson-outcomes"></ul>
-        </section>
-
-        <section class="lesson-section" id="lesson-explanation" aria-labelledby="ideas-title">
-          <h2 id="ideas-title">The idea.</h2>
-          <div class="lesson-prose" id="lesson-concepts"></div>
+          <div class="course-explorer-layout" id="course-explorer-layout"></div>
         </section>
 
         <section class="lesson-section" id="lesson-examples" aria-labelledby="examples-title">
