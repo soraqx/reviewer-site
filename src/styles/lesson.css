@@ -19,6 +19,7 @@
   position: sticky;
   top: 1rem;
   min-width: 0;
+  max-width: 100%;
   padding: 0.9rem 0;
   border-top: 3px double var(--color-rule-2);
   border-bottom: 1px solid var(--color-rule);
@@ -38,7 +39,11 @@
 }
 
 .module-select {
+  box-sizing: border-box;
+  display: block;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   min-height: 2.75rem;
   padding: 0.4rem 0.55rem;
   border: 1px solid var(--color-rule-2);
@@ -49,6 +54,17 @@
 
 .lesson-mobile-nav {
   display: none;
+}
+
+.lesson-quiz-link {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  color: var(--color-accent);
+  text-underline-offset: 0.2em;
+}
+
+.lesson-mobile-nav .module-name-readout {
+  display: block;
 }
 
 .lesson-content {

@@ -1,0 +1,4769 @@
+{
+  "version": 1,
+  "moduleIds": [
+    "plane-figures-polygons",
+    "triangles",
+    "quadrilaterals",
+    "cartesian-coordinates",
+    "lines",
+    "circles",
+    "parabolas",
+    "ellipses",
+    "hyperbolas",
+    "prisms",
+    "parallelepipeds-cubes",
+    "cylinders",
+    "pyramids",
+    "cones",
+    "spheres-segments"
+  ],
+  "questions": [
+    {
+      "id": "q0-0",
+      "moduleId": "plane-figures-polygons",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A regular nonagon has how many diagonals?",
+      "options": [
+        {
+          "id": "q0-0-a",
+          "text": "27",
+          "accessibleLabel": "27"
+        },
+        {
+          "id": "q0-0-b",
+          "text": "18",
+          "accessibleLabel": "18"
+        },
+        {
+          "id": "q0-0-c",
+          "text": "36",
+          "accessibleLabel": "36"
+        },
+        {
+          "id": "q0-0-d",
+          "text": "9",
+          "accessibleLabel": "9"
+        }
+      ],
+      "correctOptionId": "q0-0-a",
+      "explanation": "n(n−3)/2 = 9×6/2 = 27.",
+      "sourceRefs": [
+        "SRC-POLY p.17"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q0-1",
+      "moduleId": "plane-figures-polygons",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is each interior angle of a regular nonagon?",
+      "options": [
+        {
+          "id": "q0-1-a",
+          "text": "140°",
+          "accessibleLabel": "140°"
+        },
+        {
+          "id": "q0-1-b",
+          "text": "40°",
+          "accessibleLabel": "40°"
+        },
+        {
+          "id": "q0-1-c",
+          "text": "160°",
+          "accessibleLabel": "160°"
+        },
+        {
+          "id": "q0-1-d",
+          "text": "1260°",
+          "accessibleLabel": "1260°"
+        }
+      ],
+      "correctOptionId": "q0-1-a",
+      "explanation": "The interior sum is 7×180° = 1260°; divide by 9.",
+      "sourceRefs": [
+        "SRC-POLY p.17"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q0-2",
+      "moduleId": "plane-figures-polygons",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A regular nonagon has side length 5 cm. Its perimeter is…",
+      "options": [
+        {
+          "id": "q0-2-a",
+          "text": "45 cm",
+          "accessibleLabel": "45 cm"
+        },
+        {
+          "id": "q0-2-b",
+          "text": "25 cm",
+          "accessibleLabel": "25 cm"
+        },
+        {
+          "id": "q0-2-c",
+          "text": "40 cm",
+          "accessibleLabel": "40 cm"
+        },
+        {
+          "id": "q0-2-d",
+          "text": "50 cm",
+          "accessibleLabel": "50 cm"
+        }
+      ],
+      "correctOptionId": "q0-2-a",
+      "explanation": "P = ns = 9×5.",
+      "sourceRefs": [
+        "SRC-POLY p.17"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q0-3",
+      "moduleId": "plane-figures-polygons",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A polygon has an interior-angle sum of 1800°. How many sides?",
+      "options": [
+        {
+          "id": "q0-3-a",
+          "text": "12",
+          "accessibleLabel": "12"
+        },
+        {
+          "id": "q0-3-b",
+          "text": "10",
+          "accessibleLabel": "10"
+        },
+        {
+          "id": "q0-3-c",
+          "text": "11",
+          "accessibleLabel": "11"
+        },
+        {
+          "id": "q0-3-d",
+          "text": "9",
+          "accessibleLabel": "9"
+        }
+      ],
+      "correctOptionId": "q0-3-a",
+      "explanation": "(n−2)180° = 1800° gives n = 12.",
+      "sourceRefs": [
+        "SRC-POLY p.18"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q0-4",
+      "moduleId": "plane-figures-polygons",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A regular polygon has 464 diagonals. How many sides?",
+      "options": [
+        {
+          "id": "q0-4-a",
+          "text": "32",
+          "accessibleLabel": "32"
+        },
+        {
+          "id": "q0-4-b",
+          "text": "29",
+          "accessibleLabel": "29"
+        },
+        {
+          "id": "q0-4-c",
+          "text": "31",
+          "accessibleLabel": "31"
+        },
+        {
+          "id": "q0-4-d",
+          "text": "34",
+          "accessibleLabel": "34"
+        }
+      ],
+      "correctOptionId": "q0-4-a",
+      "explanation": "n(n−3)/2 = 464 gives n = 32; reject the negative root.",
+      "sourceRefs": [
+        "SRC-POLY p.19"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q0-5",
+      "moduleId": "plane-figures-polygons",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Similar polygons have side ratio 2:3. Their area ratio is…",
+      "options": [
+        {
+          "id": "q0-5-a",
+          "text": "4:9",
+          "accessibleLabel": "4:9"
+        },
+        {
+          "id": "q0-5-b",
+          "text": "2:3",
+          "accessibleLabel": "2:3"
+        },
+        {
+          "id": "q0-5-c",
+          "text": "8:27",
+          "accessibleLabel": "8:27"
+        },
+        {
+          "id": "q0-5-d",
+          "text": "3:2",
+          "accessibleLabel": "3:2"
+        }
+      ],
+      "correctOptionId": "q0-5-a",
+      "explanation": "Areas scale as the square of the corresponding length ratio.",
+      "sourceRefs": [
+        "SRC-POLY p.11"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q0-6",
+      "moduleId": "plane-figures-polygons",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Which formula gives area using perimeter P and apothem a?",
+      "options": [
+        {
+          "id": "q0-6-a",
+          "text": "Pa/2",
+          "accessibleLabel": "Pa/2"
+        },
+        {
+          "id": "q0-6-b",
+          "text": "Pa",
+          "accessibleLabel": "Pa"
+        },
+        {
+          "id": "q0-6-c",
+          "text": "P²/2",
+          "accessibleLabel": "P²/2"
+        },
+        {
+          "id": "q0-6-d",
+          "text": "2Pa",
+          "accessibleLabel": "2Pa"
+        }
+      ],
+      "correctOptionId": "q0-6-a",
+      "explanation": "Sum the central triangles: area = one-half × perimeter × apothem.",
+      "sourceRefs": [
+        "SRC-POLY p.16"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q1-0",
+      "moduleId": "triangles",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A 5–12–13 cm triangle has area…",
+      "options": [
+        {
+          "id": "q1-0-a",
+          "text": "30 cm²",
+          "accessibleLabel": "30 cm²"
+        },
+        {
+          "id": "q1-0-b",
+          "text": "60 cm²",
+          "accessibleLabel": "60 cm²"
+        },
+        {
+          "id": "q1-0-c",
+          "text": "15 cm²",
+          "accessibleLabel": "15 cm²"
+        },
+        {
+          "id": "q1-0-d",
+          "text": "78 cm²",
+          "accessibleLabel": "78 cm²"
+        }
+      ],
+      "correctOptionId": "q1-0-a",
+      "explanation": "It is right-angled: 5×12/2 = 30.",
+      "sourceRefs": [
+        "SRC-TRI p.12"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q1-1",
+      "moduleId": "triangles",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "An equilateral triangle has perimeter 18 cm. Its area is…",
+      "options": [
+        {
+          "id": "q1-1-a",
+          "text": "9√3 cm²",
+          "accessibleLabel": "9√3 cm²"
+        },
+        {
+          "id": "q1-1-b",
+          "text": "18√3 cm²",
+          "accessibleLabel": "18√3 cm²"
+        },
+        {
+          "id": "q1-1-c",
+          "text": "36√3 cm²",
+          "accessibleLabel": "36√3 cm²"
+        },
+        {
+          "id": "q1-1-d",
+          "text": "9 cm²",
+          "accessibleLabel": "9 cm²"
+        }
+      ],
+      "correctOptionId": "q1-1-a",
+      "explanation": "Side = 6; area = √3×6²/4 = 9√3.",
+      "sourceRefs": [
+        "SRC-TRI p.13"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q1-2",
+      "moduleId": "triangles",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Which point is the intersection of a triangle’s medians?",
+      "options": [
+        {
+          "id": "q1-2-a",
+          "text": "Centroid",
+          "accessibleLabel": "Centroid"
+        },
+        {
+          "id": "q1-2-b",
+          "text": "Incenter",
+          "accessibleLabel": "Incenter"
+        },
+        {
+          "id": "q1-2-c",
+          "text": "Orthocenter",
+          "accessibleLabel": "Orthocenter"
+        },
+        {
+          "id": "q1-2-d",
+          "text": "Circumcenter",
+          "accessibleLabel": "Circumcenter"
+        }
+      ],
+      "correctOptionId": "q1-2-a",
+      "explanation": "A median joins a vertex to the opposite side’s midpoint; the medians meet at the centroid.",
+      "sourceRefs": [
+        "SRC-TRI p.5"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q1-3",
+      "moduleId": "triangles",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "The altitude to the 13 cm side of a 5–12–13 triangle is…",
+      "options": [
+        {
+          "id": "q1-3-a",
+          "text": "60/13 cm",
+          "accessibleLabel": "60/13 cm"
+        },
+        {
+          "id": "q1-3-b",
+          "text": "13/2 cm",
+          "accessibleLabel": "13/2 cm"
+        },
+        {
+          "id": "q1-3-c",
+          "text": "5 cm",
+          "accessibleLabel": "5 cm"
+        },
+        {
+          "id": "q1-3-d",
+          "text": "12 cm",
+          "accessibleLabel": "12 cm"
+        }
+      ],
+      "correctOptionId": "q1-3-a",
+      "explanation": "h = 2A/base = 60/13.",
+      "sourceRefs": [
+        "SRC-TRI p.7"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q1-4",
+      "moduleId": "triangles",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "The median to the hypotenuse of a 5–12–13 triangle is…",
+      "options": [
+        {
+          "id": "q1-4-a",
+          "text": "6.5 cm",
+          "accessibleLabel": "6.5 cm"
+        },
+        {
+          "id": "q1-4-b",
+          "text": "13 cm",
+          "accessibleLabel": "13 cm"
+        },
+        {
+          "id": "q1-4-c",
+          "text": "5 cm",
+          "accessibleLabel": "5 cm"
+        },
+        {
+          "id": "q1-4-d",
+          "text": "12 cm",
+          "accessibleLabel": "12 cm"
+        }
+      ],
+      "correctOptionId": "q1-4-a",
+      "explanation": "The median from the right-angle vertex has half the hypotenuse’s length.",
+      "sourceRefs": [
+        "SRC-TRI p.7"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q1-5",
+      "moduleId": "triangles",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Sides 12 in and 24 in enclose a triangle of area 72 in². Which included angles work?",
+      "options": [
+        {
+          "id": "q1-5-a",
+          "text": "30° and 150°",
+          "accessibleLabel": "30° and 150°"
+        },
+        {
+          "id": "q1-5-b",
+          "text": "30° only",
+          "accessibleLabel": "30° only"
+        },
+        {
+          "id": "q1-5-c",
+          "text": "60° and 120°",
+          "accessibleLabel": "60° and 120°"
+        },
+        {
+          "id": "q1-5-d",
+          "text": "45° and 135°",
+          "accessibleLabel": "45° and 135°"
+        }
+      ],
+      "correctOptionId": "q1-5-a",
+      "explanation": "72 = ½(12)(24)sin θ gives sin θ = ½.",
+      "sourceRefs": [
+        "SRC-TRI p.15"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q1-6",
+      "moduleId": "triangles",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "An isosceles triangle has perimeter 72 cm and one side 20 cm. Its maximum possible area is…",
+      "options": [
+        {
+          "id": "q1-6-a",
+          "text": "240 cm²",
+          "accessibleLabel": "240 cm²"
+        },
+        {
+          "id": "q1-6-b",
+          "text": "192 cm²",
+          "accessibleLabel": "192 cm²"
+        },
+        {
+          "id": "q1-6-c",
+          "text": "360 cm²",
+          "accessibleLabel": "360 cm²"
+        },
+        {
+          "id": "q1-6-d",
+          "text": "144 cm²",
+          "accessibleLabel": "144 cm²"
+        }
+      ],
+      "correctOptionId": "q1-6-a",
+      "explanation": "Sides 26,26,20 give area 240; sides 20,20,32 give 192.",
+      "sourceRefs": [
+        "SRC-TRI p.14"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q2-0",
+      "moduleId": "quadrilaterals",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A rectangle has perimeter 24 cm and length three times its width. Its area is…",
+      "options": [
+        {
+          "id": "q2-0-a",
+          "text": "27 cm²",
+          "accessibleLabel": "27 cm²"
+        },
+        {
+          "id": "q2-0-b",
+          "text": "36 cm²",
+          "accessibleLabel": "36 cm²"
+        },
+        {
+          "id": "q2-0-c",
+          "text": "18 cm²",
+          "accessibleLabel": "18 cm²"
+        },
+        {
+          "id": "q2-0-d",
+          "text": "48 cm²",
+          "accessibleLabel": "48 cm²"
+        }
+      ],
+      "correctOptionId": "q2-0-a",
+      "explanation": "L+W = 12 and L = 3W, so W = 3 and L = 9.",
+      "sourceRefs": [
+        "SRC-QUAD p.9"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q2-1",
+      "moduleId": "quadrilaterals",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "That 9 cm × 3 cm rectangle has diagonal…",
+      "options": [
+        {
+          "id": "q2-1-a",
+          "text": "3√10 cm",
+          "accessibleLabel": "3√10 cm"
+        },
+        {
+          "id": "q2-1-b",
+          "text": "√50 cm",
+          "accessibleLabel": "√50 cm"
+        },
+        {
+          "id": "q2-1-c",
+          "text": "12 cm",
+          "accessibleLabel": "12 cm"
+        },
+        {
+          "id": "q2-1-d",
+          "text": "6√3 cm",
+          "accessibleLabel": "6√3 cm"
+        }
+      ],
+      "correctOptionId": "q2-1-a",
+      "explanation": "The diagonal is √(9²+3²) = √90 = 3√10.",
+      "sourceRefs": [
+        "SRC-QUAD p.9, corrected"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "corrected"
+    },
+    {
+      "id": "q2-2",
+      "moduleId": "quadrilaterals",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A square has area 25 cm². Its perimeter is…",
+      "options": [
+        {
+          "id": "q2-2-a",
+          "text": "20 cm",
+          "accessibleLabel": "20 cm"
+        },
+        {
+          "id": "q2-2-b",
+          "text": "25 cm",
+          "accessibleLabel": "25 cm"
+        },
+        {
+          "id": "q2-2-c",
+          "text": "10 cm",
+          "accessibleLabel": "10 cm"
+        },
+        {
+          "id": "q2-2-d",
+          "text": "100 cm",
+          "accessibleLabel": "100 cm"
+        }
+      ],
+      "correctOptionId": "q2-2-a",
+      "explanation": "Side = 5 cm; perimeter = 4×5.",
+      "sourceRefs": [
+        "SRC-QUAD p.11"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q2-3",
+      "moduleId": "quadrilaterals",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A right trapezoid has bases 5 and 9 cm, and height 4 cm. Its area is…",
+      "options": [
+        {
+          "id": "q2-3-a",
+          "text": "28 cm²",
+          "accessibleLabel": "28 cm²"
+        },
+        {
+          "id": "q2-3-b",
+          "text": "56 cm²",
+          "accessibleLabel": "56 cm²"
+        },
+        {
+          "id": "q2-3-c",
+          "text": "36 cm²",
+          "accessibleLabel": "36 cm²"
+        },
+        {
+          "id": "q2-3-d",
+          "text": "20 cm²",
+          "accessibleLabel": "20 cm²"
+        }
+      ],
+      "correctOptionId": "q2-3-a",
+      "explanation": "Area = ½(5+9)×4 = 28.",
+      "sourceRefs": [
+        "SRC-QUAD p.16"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q2-4",
+      "moduleId": "quadrilaterals",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A parallelogram has sides 10 and 15 cm with included angle 135°. Its area is…",
+      "options": [
+        {
+          "id": "q2-4-a",
+          "text": "75√2 cm²",
+          "accessibleLabel": "75√2 cm²"
+        },
+        {
+          "id": "q2-4-b",
+          "text": "150 cm²",
+          "accessibleLabel": "150 cm²"
+        },
+        {
+          "id": "q2-4-c",
+          "text": "150√2 cm²",
+          "accessibleLabel": "150√2 cm²"
+        },
+        {
+          "id": "q2-4-d",
+          "text": "75 cm²",
+          "accessibleLabel": "75 cm²"
+        }
+      ],
+      "correctOptionId": "q2-4-a",
+      "explanation": "Area = ab sin θ = 150×√2/2.",
+      "sourceRefs": [
+        "SRC-QUAD p.7"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q2-5",
+      "moduleId": "quadrilaterals",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A rhombus has diagonals 6 and 8 cm. Its area is…",
+      "options": [
+        {
+          "id": "q2-5-a",
+          "text": "24 cm²",
+          "accessibleLabel": "24 cm²"
+        },
+        {
+          "id": "q2-5-b",
+          "text": "48 cm²",
+          "accessibleLabel": "48 cm²"
+        },
+        {
+          "id": "q2-5-c",
+          "text": "20 cm²",
+          "accessibleLabel": "20 cm²"
+        },
+        {
+          "id": "q2-5-d",
+          "text": "30 cm²",
+          "accessibleLabel": "30 cm²"
+        }
+      ],
+      "correctOptionId": "q2-5-a",
+      "explanation": "Area = d₁d₂/2 = 24.",
+      "sourceRefs": [
+        "Content pack QD-P01, supplemental"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q2-6",
+      "moduleId": "quadrilaterals",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "In rhombus ABCD, triangle ADC is equilateral and diagonal BD = 8 cm. Its area is…",
+      "options": [
+        {
+          "id": "q2-6-a",
+          "text": "32√3/3 cm²",
+          "accessibleLabel": "32√3/3 cm²"
+        },
+        {
+          "id": "q2-6-b",
+          "text": "32√3 cm²",
+          "accessibleLabel": "32√3 cm²"
+        },
+        {
+          "id": "q2-6-c",
+          "text": "64 cm²",
+          "accessibleLabel": "64 cm²"
+        },
+        {
+          "id": "q2-6-d",
+          "text": "16√3 cm²",
+          "accessibleLabel": "16√3 cm²"
+        }
+      ],
+      "correctOptionId": "q2-6-a",
+      "explanation": "AC equals side q, so q²+8² = 4q². Then area = AC×BD/2 = 32/√3.",
+      "sourceRefs": [
+        "SRC-QUAD p.14, corrected"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "corrected"
+    },
+    {
+      "id": "q3-0",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is the directed distance from 6 to −4 on a number line?",
+      "options": [
+        {
+          "id": "q3-0-a",
+          "text": "−10",
+          "accessibleLabel": "−10"
+        },
+        {
+          "id": "q3-0-b",
+          "text": "10",
+          "accessibleLabel": "10"
+        },
+        {
+          "id": "q3-0-c",
+          "text": "−2",
+          "accessibleLabel": "−2"
+        },
+        {
+          "id": "q3-0-d",
+          "text": "2",
+          "accessibleLabel": "2"
+        }
+      ],
+      "correctOptionId": "q3-0-a",
+      "explanation": "Directed displacement is final coordinate minus initial coordinate: −4−6.",
+      "sourceRefs": [
+        "SRC-CART p.12"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q3-1",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "The distance between (−6,8) and (14,8) is…",
+      "options": [
+        {
+          "id": "q3-1-a",
+          "text": "20",
+          "accessibleLabel": "20"
+        },
+        {
+          "id": "q3-1-b",
+          "text": "8",
+          "accessibleLabel": "8"
+        },
+        {
+          "id": "q3-1-c",
+          "text": "14",
+          "accessibleLabel": "14"
+        },
+        {
+          "id": "q3-1-d",
+          "text": "√20",
+          "accessibleLabel": "√20"
+        }
+      ],
+      "correctOptionId": "q3-1-a",
+      "explanation": "Equal y-coordinates: distance = |14−(−6)| = 20.",
+      "sourceRefs": [
+        "SRC-CART p.16"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q3-2",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "The distance between (0,12) and (0,28) is…",
+      "options": [
+        {
+          "id": "q3-2-a",
+          "text": "16",
+          "accessibleLabel": "16"
+        },
+        {
+          "id": "q3-2-b",
+          "text": "40",
+          "accessibleLabel": "40"
+        },
+        {
+          "id": "q3-2-c",
+          "text": "28",
+          "accessibleLabel": "28"
+        },
+        {
+          "id": "q3-2-d",
+          "text": "12",
+          "accessibleLabel": "12"
+        }
+      ],
+      "correctOptionId": "q3-2-a",
+      "explanation": "The segment is vertical: |28−12| = 16.",
+      "sourceRefs": [
+        "SRC-CART p.16"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q3-3",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A = (9,5), C = (−7,1), and AB:BC = 3:1 internally. Find B.",
+      "options": [
+        {
+          "id": "q3-3-a",
+          "text": "(−3,2)",
+          "accessibleLabel": "(−3,2)"
+        },
+        {
+          "id": "q3-3-b",
+          "text": "(5,4)",
+          "accessibleLabel": "(5,4)"
+        },
+        {
+          "id": "q3-3-c",
+          "text": "(1,3)",
+          "accessibleLabel": "(1,3)"
+        },
+        {
+          "id": "q3-3-d",
+          "text": "(−5,1)",
+          "accessibleLabel": "(−5,1)"
+        }
+      ],
+      "correctOptionId": "q3-3-a",
+      "explanation": "B = A + ¾(C−A) = (9,5)+¾(−16,−4).",
+      "sourceRefs": [
+        "SRC-CART p.25"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q3-4",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A = (8,−8), C = (−7,−3). B is one fifth of the way from A to C. Find B.",
+      "options": [
+        {
+          "id": "q3-4-a",
+          "text": "(5,−7)",
+          "accessibleLabel": "(5,−7)"
+        },
+        {
+          "id": "q3-4-b",
+          "text": "(−4,−4)",
+          "accessibleLabel": "(−4,−4)"
+        },
+        {
+          "id": "q3-4-c",
+          "text": "(1,−5)",
+          "accessibleLabel": "(1,−5)"
+        },
+        {
+          "id": "q3-4-d",
+          "text": "(8,−3)",
+          "accessibleLabel": "(8,−3)"
+        }
+      ],
+      "correctOptionId": "q3-4-a",
+      "explanation": "Add one fifth of (−15,5) to (8,−8).",
+      "sourceRefs": [
+        "SRC-CART p.25"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q3-5",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "The area of the triangle (1,2), (−2,1), (3,0) is…",
+      "options": [
+        {
+          "id": "q3-5-a",
+          "text": "4 square units",
+          "accessibleLabel": "4 square units"
+        },
+        {
+          "id": "q3-5-b",
+          "text": "8 square units",
+          "accessibleLabel": "8 square units"
+        },
+        {
+          "id": "q3-5-c",
+          "text": "2 square units",
+          "accessibleLabel": "2 square units"
+        },
+        {
+          "id": "q3-5-d",
+          "text": "6 square units",
+          "accessibleLabel": "6 square units"
+        }
+      ],
+      "correctOptionId": "q3-5-a",
+      "explanation": "Shoelace: ½|7−(−1)| = 4.",
+      "sourceRefs": [
+        "SRC-CART p.29"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q3-6",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Which point on the y-axis is equidistant from (6,1) and (−2,3)?",
+      "options": [
+        {
+          "id": "q3-6-a",
+          "text": "(0,−6)",
+          "accessibleLabel": "(0,−6)"
+        },
+        {
+          "id": "q3-6-b",
+          "text": "(0,6)",
+          "accessibleLabel": "(0,6)"
+        },
+        {
+          "id": "q3-6-c",
+          "text": "(0,2)",
+          "accessibleLabel": "(0,2)"
+        },
+        {
+          "id": "q3-6-d",
+          "text": "(0,−2)",
+          "accessibleLabel": "(0,−2)"
+        }
+      ],
+      "correctOptionId": "q3-6-a",
+      "explanation": "Set 36+(y−1)² = 4+(y−3)²; solve y = −6.",
+      "sourceRefs": [
+        "SRC-CART p.17"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q4-0",
+      "moduleId": "lines",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is the slope of a vertical line?",
+      "options": [
+        {
+          "id": "q4-0-a",
+          "text": "Undefined",
+          "accessibleLabel": "Undefined"
+        },
+        {
+          "id": "q4-0-b",
+          "text": "0",
+          "accessibleLabel": "0"
+        },
+        {
+          "id": "q4-0-c",
+          "text": "1",
+          "accessibleLabel": "1"
+        },
+        {
+          "id": "q4-0-d",
+          "text": "−1",
+          "accessibleLabel": "−1"
+        }
+      ],
+      "correctOptionId": "q4-0-a",
+      "explanation": "The slope denominator Δx is zero; do not treat a vertical slope as zero.",
+      "sourceRefs": [
+        "SRC-LINE p.19"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q4-1",
+      "moduleId": "lines",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A line has slope 2/3. Rotate its inclination 45° counterclockwise. New slope?",
+      "options": [
+        {
+          "id": "q4-1-a",
+          "text": "5",
+          "accessibleLabel": "5"
+        },
+        {
+          "id": "q4-1-b",
+          "text": "−5",
+          "accessibleLabel": "−5"
+        },
+        {
+          "id": "q4-1-c",
+          "text": "1/5",
+          "accessibleLabel": "1/5"
+        },
+        {
+          "id": "q4-1-d",
+          "text": "3/2",
+          "accessibleLabel": "3/2"
+        }
+      ],
+      "correctOptionId": "q4-1-a",
+      "explanation": "1 = (m−2/3)/(1+2m/3), giving m = 5.",
+      "sourceRefs": [
+        "SRC-LINE p.10"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q4-2",
+      "moduleId": "lines",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Which equation passes through (4,0) and (0,−3)?",
+      "options": [
+        {
+          "id": "q4-2-a",
+          "text": "3x−4y = 12",
+          "accessibleLabel": "3x−4y = 12"
+        },
+        {
+          "id": "q4-2-b",
+          "text": "3x+4y = 12",
+          "accessibleLabel": "3x+4y = 12"
+        },
+        {
+          "id": "q4-2-c",
+          "text": "4x−3y = 12",
+          "accessibleLabel": "4x−3y = 12"
+        },
+        {
+          "id": "q4-2-d",
+          "text": "3x−4y = −12",
+          "accessibleLabel": "3x−4y = −12"
+        }
+      ],
+      "correctOptionId": "q4-2-a",
+      "explanation": "Substitute both points, or use y = ¾x−3.",
+      "sourceRefs": [
+        "SRC-LINE p.21"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q4-3",
+      "moduleId": "lines",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Which is the correct point-slope form?",
+      "options": [
+        {
+          "id": "q4-3-a",
+          "text": "y−y₁ = m(x−x₁)",
+          "accessibleLabel": "y−y₁ = m(x−x₁)"
+        },
+        {
+          "id": "q4-3-b",
+          "text": "y−y₁ = x−x₁",
+          "accessibleLabel": "y−y₁ = x−x₁"
+        },
+        {
+          "id": "q4-3-c",
+          "text": "y = m+x",
+          "accessibleLabel": "y = m+x"
+        },
+        {
+          "id": "q4-3-d",
+          "text": "x−x₁ = m(y−y₁)",
+          "accessibleLabel": "x−x₁ = m(y−y₁)"
+        }
+      ],
+      "correctOptionId": "q4-3-a",
+      "explanation": "The factor m multiplies the horizontal displacement.",
+      "sourceRefs": [
+        "SRC-LINE p.15, corrected"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "corrected"
+    },
+    {
+      "id": "q4-4",
+      "moduleId": "lines",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "The line through (1/6,10/21) and (1/7,y) has slope −1. Find y.",
+      "options": [
+        {
+          "id": "q4-4-a",
+          "text": "1/2",
+          "accessibleLabel": "1/2"
+        },
+        {
+          "id": "q4-4-b",
+          "text": "1/3",
+          "accessibleLabel": "1/3"
+        },
+        {
+          "id": "q4-4-c",
+          "text": "10/21",
+          "accessibleLabel": "10/21"
+        },
+        {
+          "id": "q4-4-d",
+          "text": "1",
+          "accessibleLabel": "1"
+        }
+      ],
+      "correctOptionId": "q4-4-a",
+      "explanation": "Δy = −Δx = 1/42; y = 20/42+1/42 = 1/2.",
+      "sourceRefs": [
+        "SRC-LINE p.5"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q4-5",
+      "moduleId": "lines",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "An isosceles right triangle has hypotenuse slope 3. The equal-side slopes are…",
+      "options": [
+        {
+          "id": "q4-5-a",
+          "text": "1/2 and −2",
+          "accessibleLabel": "1/2 and −2"
+        },
+        {
+          "id": "q4-5-b",
+          "text": "3 and −1/3",
+          "accessibleLabel": "3 and −1/3"
+        },
+        {
+          "id": "q4-5-c",
+          "text": "2 and −1/2",
+          "accessibleLabel": "2 and −1/2"
+        },
+        {
+          "id": "q4-5-d",
+          "text": "1 and −1",
+          "accessibleLabel": "1 and −1"
+        }
+      ],
+      "correctOptionId": "q4-5-a",
+      "explanation": "The legs make angles of 45° with the hypotenuse and are perpendicular.",
+      "sourceRefs": [
+        "SRC-LINE p.11"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q4-6",
+      "moduleId": "lines",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "The perpendicular bisector of (−1,2) and (5,−2) is…",
+      "options": [
+        {
+          "id": "q4-6-a",
+          "text": "y = (3/2)(x−2)",
+          "accessibleLabel": "y = (3/2)(x−2)"
+        },
+        {
+          "id": "q4-6-b",
+          "text": "y = (−2/3)(x−2)",
+          "accessibleLabel": "y = (−2/3)(x−2)"
+        },
+        {
+          "id": "q4-6-c",
+          "text": "x = 2",
+          "accessibleLabel": "x = 2"
+        },
+        {
+          "id": "q4-6-d",
+          "text": "y = (3/2)x",
+          "accessibleLabel": "y = (3/2)x"
+        }
+      ],
+      "correctOptionId": "q4-6-a",
+      "explanation": "Midpoint = (2,0); original slope = −2/3, so perpendicular slope = 3/2.",
+      "sourceRefs": [
+        "SRC-LINE p.6"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q5-0",
+      "moduleId": "circles",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Find the center of x²+y²−8x+15 = 0.",
+      "options": [
+        {
+          "id": "q5-0-a",
+          "text": "(4,0)",
+          "accessibleLabel": "(4,0)"
+        },
+        {
+          "id": "q5-0-b",
+          "text": "(−4,0)",
+          "accessibleLabel": "(−4,0)"
+        },
+        {
+          "id": "q5-0-c",
+          "text": "(0,4)",
+          "accessibleLabel": "(0,4)"
+        },
+        {
+          "id": "q5-0-d",
+          "text": "(8,0)",
+          "accessibleLabel": "(8,0)"
+        }
+      ],
+      "correctOptionId": "q5-0-a",
+      "explanation": "Completing the square gives (x−4)²+y² = 1.",
+      "sourceRefs": [
+        "SRC-CIRC p.17"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q5-1",
+      "moduleId": "circles",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Find the radius of 3x²+3y²−6x+12y−15 = 0.",
+      "options": [
+        {
+          "id": "q5-1-a",
+          "text": "√10",
+          "accessibleLabel": "√10"
+        },
+        {
+          "id": "q5-1-b",
+          "text": "10",
+          "accessibleLabel": "10"
+        },
+        {
+          "id": "q5-1-c",
+          "text": "√5",
+          "accessibleLabel": "√5"
+        },
+        {
+          "id": "q5-1-d",
+          "text": "5",
+          "accessibleLabel": "5"
+        }
+      ],
+      "correctOptionId": "q5-1-a",
+      "explanation": "Divide by 3 and complete squares: (x−1)²+(y+2)² = 10.",
+      "sourceRefs": [
+        "SRC-CIRC p.18"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q5-2",
+      "moduleId": "circles",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A circle has diameter endpoints (−3,4) and (5,8). Its center is…",
+      "options": [
+        {
+          "id": "q5-2-a",
+          "text": "(1,6)",
+          "accessibleLabel": "(1,6)"
+        },
+        {
+          "id": "q5-2-b",
+          "text": "(2,4)",
+          "accessibleLabel": "(2,4)"
+        },
+        {
+          "id": "q5-2-c",
+          "text": "(4,2)",
+          "accessibleLabel": "(4,2)"
+        },
+        {
+          "id": "q5-2-d",
+          "text": "(−1,6)",
+          "accessibleLabel": "(−1,6)"
+        }
+      ],
+      "correctOptionId": "q5-2-a",
+      "explanation": "The center is the midpoint of the diameter.",
+      "sourceRefs": [
+        "SRC-CIRC pp.21–23"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q5-3",
+      "moduleId": "circles",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A circle has center (2,2), radius 3. What is its tangent at (5,2)?",
+      "options": [
+        {
+          "id": "q5-3-a",
+          "text": "x = 5",
+          "accessibleLabel": "x = 5"
+        },
+        {
+          "id": "q5-3-b",
+          "text": "x = 2",
+          "accessibleLabel": "x = 2"
+        },
+        {
+          "id": "q5-3-c",
+          "text": "y = 2",
+          "accessibleLabel": "y = 2"
+        },
+        {
+          "id": "q5-3-d",
+          "text": "y = 5",
+          "accessibleLabel": "y = 5"
+        }
+      ],
+      "correctOptionId": "q5-3-a",
+      "explanation": "The radius is horizontal; the tangent is vertical through (5,2).",
+      "sourceRefs": [
+        "SRC-CIRC p.32, corrected"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "corrected"
+    },
+    {
+      "id": "q5-4",
+      "moduleId": "circles",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A circle centered at (1,1) is tangent to 4x−3y−26 = 0. Its radius is…",
+      "options": [
+        {
+          "id": "q5-4-a",
+          "text": "5",
+          "accessibleLabel": "5"
+        },
+        {
+          "id": "q5-4-b",
+          "text": "2",
+          "accessibleLabel": "2"
+        },
+        {
+          "id": "q5-4-c",
+          "text": "25",
+          "accessibleLabel": "25"
+        },
+        {
+          "id": "q5-4-d",
+          "text": "√5",
+          "accessibleLabel": "√5"
+        }
+      ],
+      "correctOptionId": "q5-4-a",
+      "explanation": "Distance = |4−3−26|/√(16+9) = 25/5 = 5.",
+      "sourceRefs": [
+        "SRC-CIRC p.33, corrected"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "corrected"
+    },
+    {
+      "id": "q5-5",
+      "moduleId": "circles",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "The real locus of x²+y²−2x−4y+5 = 0 is…",
+      "options": [
+        {
+          "id": "q5-5-a",
+          "text": "A single point",
+          "accessibleLabel": "A single point"
+        },
+        {
+          "id": "q5-5-b",
+          "text": "A positive-radius circle",
+          "accessibleLabel": "A positive-radius circle"
+        },
+        {
+          "id": "q5-5-c",
+          "text": "An empty set",
+          "accessibleLabel": "An empty set"
+        },
+        {
+          "id": "q5-5-d",
+          "text": "A pair of lines",
+          "accessibleLabel": "A pair of lines"
+        }
+      ],
+      "correctOptionId": "q5-5-a",
+      "explanation": "(x−1)²+(y−2)² = 0 has only the point (1,2).",
+      "sourceRefs": [
+        "SRC-CIRC p.29"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q5-6",
+      "moduleId": "circles",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "The real locus of x²+y²+4x−6y+15 = 0 is…",
+      "options": [
+        {
+          "id": "q5-6-a",
+          "text": "Empty",
+          "accessibleLabel": "Empty"
+        },
+        {
+          "id": "q5-6-b",
+          "text": "A circle of radius √2",
+          "accessibleLabel": "A circle of radius √2"
+        },
+        {
+          "id": "q5-6-c",
+          "text": "A single point",
+          "accessibleLabel": "A single point"
+        },
+        {
+          "id": "q5-6-d",
+          "text": "A parabola",
+          "accessibleLabel": "A parabola"
+        }
+      ],
+      "correctOptionId": "q5-6-a",
+      "explanation": "Completing the square gives (x+2)²+(y−3)² = −2.",
+      "sourceRefs": [
+        "SRC-CIRC p.27"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q6-0",
+      "moduleId": "parabolas",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is the focus of x² = 20y?",
+      "options": [
+        {
+          "id": "q6-0-a",
+          "text": "(0,5)",
+          "accessibleLabel": "(0,5)"
+        },
+        {
+          "id": "q6-0-b",
+          "text": "(0,20)",
+          "accessibleLabel": "(0,20)"
+        },
+        {
+          "id": "q6-0-c",
+          "text": "(5,0)",
+          "accessibleLabel": "(5,0)"
+        },
+        {
+          "id": "q6-0-d",
+          "text": "(0,−5)",
+          "accessibleLabel": "(0,−5)"
+        }
+      ],
+      "correctOptionId": "q6-0-a",
+      "explanation": "Compare x² = 4py: p = 5.",
+      "sourceRefs": [
+        "SRC-PARA pp.16–17"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q6-1",
+      "moduleId": "parabolas",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is the directrix of x² = 20y?",
+      "options": [
+        {
+          "id": "q6-1-a",
+          "text": "y = −5",
+          "accessibleLabel": "y = −5"
+        },
+        {
+          "id": "q6-1-b",
+          "text": "x = −5",
+          "accessibleLabel": "x = −5"
+        },
+        {
+          "id": "q6-1-c",
+          "text": "y = 5",
+          "accessibleLabel": "y = 5"
+        },
+        {
+          "id": "q6-1-d",
+          "text": "y = −20",
+          "accessibleLabel": "y = −20"
+        }
+      ],
+      "correctOptionId": "q6-1-a",
+      "explanation": "The focus is (0,5), so the directrix is y = −5.",
+      "sourceRefs": [
+        "SRC-PARA p.17, corrected"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "corrected"
+    },
+    {
+      "id": "q6-2",
+      "moduleId": "parabolas",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "For y²−8x−4y+20 = 0, the vertex is…",
+      "options": [
+        {
+          "id": "q6-2-a",
+          "text": "(2,2)",
+          "accessibleLabel": "(2,2)"
+        },
+        {
+          "id": "q6-2-b",
+          "text": "(4,2)",
+          "accessibleLabel": "(4,2)"
+        },
+        {
+          "id": "q6-2-c",
+          "text": "(2,4)",
+          "accessibleLabel": "(2,4)"
+        },
+        {
+          "id": "q6-2-d",
+          "text": "(0,2)",
+          "accessibleLabel": "(0,2)"
+        }
+      ],
+      "correctOptionId": "q6-2-a",
+      "explanation": "Complete the square: (y−2)² = 8(x−2).",
+      "sourceRefs": [
+        "SRC-PARA pp.18–21"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q6-3",
+      "moduleId": "parabolas",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is the latus rectum length of (y−2)² = 8(x−2)?",
+      "options": [
+        {
+          "id": "q6-3-a",
+          "text": "8",
+          "accessibleLabel": "8"
+        },
+        {
+          "id": "q6-3-b",
+          "text": "2",
+          "accessibleLabel": "2"
+        },
+        {
+          "id": "q6-3-c",
+          "text": "4",
+          "accessibleLabel": "4"
+        },
+        {
+          "id": "q6-3-d",
+          "text": "16",
+          "accessibleLabel": "16"
+        }
+      ],
+      "correctOptionId": "q6-3-a",
+      "explanation": "4p = 8, and latus rectum length is 4|p|.",
+      "sourceRefs": [
+        "SRC-PARA p.21"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q6-4",
+      "moduleId": "parabolas",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Vertex (3,1), focus (3,−5): which equation is correct?",
+      "options": [
+        {
+          "id": "q6-4-a",
+          "text": "(x−3)² = −24(y−1)",
+          "accessibleLabel": "(x−3)² = −24(y−1)"
+        },
+        {
+          "id": "q6-4-b",
+          "text": "(x−3)² = 24(y−1)",
+          "accessibleLabel": "(x−3)² = 24(y−1)"
+        },
+        {
+          "id": "q6-4-c",
+          "text": "(y−1)² = −24(x−3)",
+          "accessibleLabel": "(y−1)² = −24(x−3)"
+        },
+        {
+          "id": "q6-4-d",
+          "text": "(x−3)² = −6(y−1)",
+          "accessibleLabel": "(x−3)² = −6(y−1)"
+        }
+      ],
+      "correctOptionId": "q6-4-a",
+      "explanation": "p = −6 along the vertical axis, so 4p = −24.",
+      "sourceRefs": [
+        "SRC-PARA pp.27–28"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q6-5",
+      "moduleId": "parabolas",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A right-opening parabola has focus (−3,4). Its axis is…",
+      "options": [
+        {
+          "id": "q6-5-a",
+          "text": "y = 4",
+          "accessibleLabel": "y = 4"
+        },
+        {
+          "id": "q6-5-b",
+          "text": "y = −3",
+          "accessibleLabel": "y = −3"
+        },
+        {
+          "id": "q6-5-c",
+          "text": "x = −3",
+          "accessibleLabel": "x = −3"
+        },
+        {
+          "id": "q6-5-d",
+          "text": "x = 4",
+          "accessibleLabel": "x = 4"
+        }
+      ],
+      "correctOptionId": "q6-5-a",
+      "explanation": "A horizontal axis passes through the focus.",
+      "sourceRefs": [
+        "SRC-PARA p.32, corrected"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "corrected"
+    },
+    {
+      "id": "q6-6",
+      "moduleId": "parabolas",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "An upward parabola has latus endpoints (−4,2) and (16,2). Its vertex is…",
+      "options": [
+        {
+          "id": "q6-6-a",
+          "text": "(6,−3)",
+          "accessibleLabel": "(6,−3)"
+        },
+        {
+          "id": "q6-6-b",
+          "text": "(6,2)",
+          "accessibleLabel": "(6,2)"
+        },
+        {
+          "id": "q6-6-c",
+          "text": "(−4,−3)",
+          "accessibleLabel": "(−4,−3)"
+        },
+        {
+          "id": "q6-6-d",
+          "text": "(6,7)",
+          "accessibleLabel": "(6,7)"
+        }
+      ],
+      "correctOptionId": "q6-6-a",
+      "explanation": "Focus is midpoint (6,2); 4p = 20, so vertex is 5 units below it.",
+      "sourceRefs": [
+        "SRC-PARA pp.30–31"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q7-0",
+      "moduleId": "ellipses",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Which relation holds for a noncircular ellipse?",
+      "options": [
+        {
+          "id": "q7-0-a",
+          "text": "c² = a²−b²",
+          "accessibleLabel": "c² = a²−b²"
+        },
+        {
+          "id": "q7-0-b",
+          "text": "c² = a²+b²",
+          "accessibleLabel": "c² = a²+b²"
+        },
+        {
+          "id": "q7-0-c",
+          "text": "a² = b²−c²",
+          "accessibleLabel": "a² = b²−c²"
+        },
+        {
+          "id": "q7-0-d",
+          "text": "c = a+b",
+          "accessibleLabel": "c = a+b"
+        }
+      ],
+      "correctOptionId": "q7-0-a",
+      "explanation": "a is semimajor, b is semiminor, and c is center-to-focus distance.",
+      "sourceRefs": [
+        "SRC-ELLI p.7"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q7-1",
+      "moduleId": "ellipses",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "For 4x²+y² = 64, the major axis is…",
+      "options": [
+        {
+          "id": "q7-1-a",
+          "text": "Vertical",
+          "accessibleLabel": "Vertical"
+        },
+        {
+          "id": "q7-1-b",
+          "text": "Horizontal",
+          "accessibleLabel": "Horizontal"
+        },
+        {
+          "id": "q7-1-c",
+          "text": "At 45°",
+          "accessibleLabel": "At 45°"
+        },
+        {
+          "id": "q7-1-d",
+          "text": "Undefined",
+          "accessibleLabel": "Undefined"
+        }
+      ],
+      "correctOptionId": "q7-1-a",
+      "explanation": "Standard form is x²/16+y²/64 = 1; the larger denominator is under y².",
+      "sourceRefs": [
+        "SRC-ELLI p.12"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q7-2",
+      "moduleId": "ellipses",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "For x²/16+y²/64 = 1, the major-axis length is…",
+      "options": [
+        {
+          "id": "q7-2-a",
+          "text": "16",
+          "accessibleLabel": "16"
+        },
+        {
+          "id": "q7-2-b",
+          "text": "8",
+          "accessibleLabel": "8"
+        },
+        {
+          "id": "q7-2-c",
+          "text": "64",
+          "accessibleLabel": "64"
+        },
+        {
+          "id": "q7-2-d",
+          "text": "4",
+          "accessibleLabel": "4"
+        }
+      ],
+      "correctOptionId": "q7-2-a",
+      "explanation": "a = 8, so the full major axis has length 2a = 16.",
+      "sourceRefs": [
+        "SRC-ELLI pp.12–14"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q7-3",
+      "moduleId": "ellipses",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "An ellipse has a = 6 and c = 4. What is b²?",
+      "options": [
+        {
+          "id": "q7-3-a",
+          "text": "20",
+          "accessibleLabel": "20"
+        },
+        {
+          "id": "q7-3-b",
+          "text": "52",
+          "accessibleLabel": "52"
+        },
+        {
+          "id": "q7-3-c",
+          "text": "2",
+          "accessibleLabel": "2"
+        },
+        {
+          "id": "q7-3-d",
+          "text": "10",
+          "accessibleLabel": "10"
+        }
+      ],
+      "correctOptionId": "q7-3-a",
+      "explanation": "b² = a²−c² = 36−16 = 20.",
+      "sourceRefs": [
+        "SRC-ELLI pp.25–26"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q7-4",
+      "moduleId": "ellipses",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "For (x+3)²/4+(y−1)² = 1, the directrices are…",
+      "options": [
+        {
+          "id": "q7-4-a",
+          "text": "x = −3 ± 4/√3",
+          "accessibleLabel": "x = −3 ± 4/√3"
+        },
+        {
+          "id": "q7-4-b",
+          "text": "y = 1 ± 4/√3",
+          "accessibleLabel": "y = 1 ± 4/√3"
+        },
+        {
+          "id": "q7-4-c",
+          "text": "x = −3 ± √3",
+          "accessibleLabel": "x = −3 ± √3"
+        },
+        {
+          "id": "q7-4-d",
+          "text": "y = 1 ± √3",
+          "accessibleLabel": "y = 1 ± √3"
+        }
+      ],
+      "correctOptionId": "q7-4-a",
+      "explanation": "The major axis is horizontal. Distance to each directrix is a²/c = 4/√3.",
+      "sourceRefs": [
+        "SRC-ELLI p.17, corrected"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "corrected"
+    },
+    {
+      "id": "q7-5",
+      "moduleId": "ellipses",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "An ellipse has a = 3, b = 2. Each latus rectum has length…",
+      "options": [
+        {
+          "id": "q7-5-a",
+          "text": "8/3",
+          "accessibleLabel": "8/3"
+        },
+        {
+          "id": "q7-5-b",
+          "text": "4/3",
+          "accessibleLabel": "4/3"
+        },
+        {
+          "id": "q7-5-c",
+          "text": "3/2",
+          "accessibleLabel": "3/2"
+        },
+        {
+          "id": "q7-5-d",
+          "text": "6",
+          "accessibleLabel": "6"
+        }
+      ],
+      "correctOptionId": "q7-5-a",
+      "explanation": "Latus rectum length = 2b²/a = 8/3.",
+      "sourceRefs": [
+        "SRC-ELLI p.21"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q7-6",
+      "moduleId": "ellipses",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Vertices (3,1), (3,9), covertex (4,5): the foci are…",
+      "options": [
+        {
+          "id": "q7-6-a",
+          "text": "(3,5 ± √15)",
+          "accessibleLabel": "(3,5 ± √15)"
+        },
+        {
+          "id": "q7-6-b",
+          "text": "(3 ± √15,5)",
+          "accessibleLabel": "(3 ± √15,5)"
+        },
+        {
+          "id": "q7-6-c",
+          "text": "(3,5 ± √17)",
+          "accessibleLabel": "(3,5 ± √17)"
+        },
+        {
+          "id": "q7-6-d",
+          "text": "(3,1) and (3,9)",
+          "accessibleLabel": "(3,1) and (3,9)"
+        }
+      ],
+      "correctOptionId": "q7-6-a",
+      "explanation": "Center (3,5), a = 4, b = 1, c = √(16−1) = √15.",
+      "sourceRefs": [
+        "SRC-ELLI p.33"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q8-0",
+      "moduleId": "hyperbolas",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Which relation holds for a hyperbola?",
+      "options": [
+        {
+          "id": "q8-0-a",
+          "text": "c² = a²+b²",
+          "accessibleLabel": "c² = a²+b²"
+        },
+        {
+          "id": "q8-0-b",
+          "text": "c² = a²−b²",
+          "accessibleLabel": "c² = a²−b²"
+        },
+        {
+          "id": "q8-0-c",
+          "text": "c = a−b",
+          "accessibleLabel": "c = a−b"
+        },
+        {
+          "id": "q8-0-d",
+          "text": "a = b+c",
+          "accessibleLabel": "a = b+c"
+        }
+      ],
+      "correctOptionId": "q8-0-a",
+      "explanation": "The center-to-focus distance exceeds the center-to-vertex distance.",
+      "sourceRefs": [
+        "SRC-HYP p.7"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q8-1",
+      "moduleId": "hyperbolas",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "For x²/9−y²/4 = 1, the asymptotes are…",
+      "options": [
+        {
+          "id": "q8-1-a",
+          "text": "y = ±(2/3)x",
+          "accessibleLabel": "y = ±(2/3)x"
+        },
+        {
+          "id": "q8-1-b",
+          "text": "y = ±(3/2)x",
+          "accessibleLabel": "y = ±(3/2)x"
+        },
+        {
+          "id": "q8-1-c",
+          "text": "y = ±(4/9)x",
+          "accessibleLabel": "y = ±(4/9)x"
+        },
+        {
+          "id": "q8-1-d",
+          "text": "x = ±3",
+          "accessibleLabel": "x = ±3"
+        }
+      ],
+      "correctOptionId": "q8-1-a",
+      "explanation": "Horizontal transverse axis: slopes ±b/a = ±2/3.",
+      "sourceRefs": [
+        "SRC-HYP pp.9–15"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q8-2",
+      "moduleId": "hyperbolas",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "For x²/9−y²/4 = 1, the foci are…",
+      "options": [
+        {
+          "id": "q8-2-a",
+          "text": "(±√13,0)",
+          "accessibleLabel": "(±√13,0)"
+        },
+        {
+          "id": "q8-2-b",
+          "text": "(±√5,0)",
+          "accessibleLabel": "(±√5,0)"
+        },
+        {
+          "id": "q8-2-c",
+          "text": "(0,±√13)",
+          "accessibleLabel": "(0,±√13)"
+        },
+        {
+          "id": "q8-2-d",
+          "text": "(±3,0)",
+          "accessibleLabel": "(±3,0)"
+        }
+      ],
+      "correctOptionId": "q8-2-a",
+      "explanation": "c = √(9+4) = √13; the transverse axis is horizontal.",
+      "sourceRefs": [
+        "SRC-HYP p.13"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q8-3",
+      "moduleId": "hyperbolas",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "The hyperbola (y−1)²/25−(x−4)² = 1 has center…",
+      "options": [
+        {
+          "id": "q8-3-a",
+          "text": "(4,1)",
+          "accessibleLabel": "(4,1)"
+        },
+        {
+          "id": "q8-3-b",
+          "text": "(1,4)",
+          "accessibleLabel": "(1,4)"
+        },
+        {
+          "id": "q8-3-c",
+          "text": "(−4,−1)",
+          "accessibleLabel": "(−4,−1)"
+        },
+        {
+          "id": "q8-3-d",
+          "text": "(4,−1)",
+          "accessibleLabel": "(4,−1)"
+        }
+      ],
+      "correctOptionId": "q8-3-a",
+      "explanation": "Read the translations carefully even when the y term comes first.",
+      "sourceRefs": [
+        "SRC-HYP pp.26–28"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q8-4",
+      "moduleId": "hyperbolas",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Center (0,0), vertex (4,0), focus (6,0): b² equals…",
+      "options": [
+        {
+          "id": "q8-4-a",
+          "text": "20",
+          "accessibleLabel": "20"
+        },
+        {
+          "id": "q8-4-b",
+          "text": "52",
+          "accessibleLabel": "52"
+        },
+        {
+          "id": "q8-4-c",
+          "text": "16",
+          "accessibleLabel": "16"
+        },
+        {
+          "id": "q8-4-d",
+          "text": "36",
+          "accessibleLabel": "36"
+        }
+      ],
+      "correctOptionId": "q8-4-a",
+      "explanation": "b² = c²−a² = 36−16.",
+      "sourceRefs": [
+        "SRC-HYP pp.24–25"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q8-5",
+      "moduleId": "hyperbolas",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "For (x−1)²−(y+3)²/(1/4) = 1, asymptote slopes are…",
+      "options": [
+        {
+          "id": "q8-5-a",
+          "text": "±1/2",
+          "accessibleLabel": "±1/2"
+        },
+        {
+          "id": "q8-5-b",
+          "text": "±2",
+          "accessibleLabel": "±2"
+        },
+        {
+          "id": "q8-5-c",
+          "text": "±1/4",
+          "accessibleLabel": "±1/4"
+        },
+        {
+          "id": "q8-5-d",
+          "text": "±4",
+          "accessibleLabel": "±4"
+        }
+      ],
+      "correctOptionId": "q8-5-a",
+      "explanation": "a = 1, b = 1/2; use ±b/a.",
+      "sourceRefs": [
+        "SRC-HYP pp.16–21"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q8-6",
+      "moduleId": "hyperbolas",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "For y²/16−x²/9 = 1, the foci are…",
+      "options": [
+        {
+          "id": "q8-6-a",
+          "text": "(0,±5)",
+          "accessibleLabel": "(0,±5)"
+        },
+        {
+          "id": "q8-6-b",
+          "text": "(±5,0)",
+          "accessibleLabel": "(±5,0)"
+        },
+        {
+          "id": "q8-6-c",
+          "text": "(0,±√7)",
+          "accessibleLabel": "(0,±√7)"
+        },
+        {
+          "id": "q8-6-d",
+          "text": "(0,±4)",
+          "accessibleLabel": "(0,±4)"
+        }
+      ],
+      "correctOptionId": "q8-6-a",
+      "explanation": "The transverse axis is vertical, with c = √(16+9) = 5.",
+      "sourceRefs": [
+        "Content pack H-P01, supplemental"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q9-0",
+      "moduleId": "prisms",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A right triangular prism has end sides 9,12,15 cm and length 10 cm. Its volume is…",
+      "options": [
+        {
+          "id": "q9-0-a",
+          "text": "540 cm³",
+          "accessibleLabel": "540 cm³"
+        },
+        {
+          "id": "q9-0-b",
+          "text": "1080 cm³",
+          "accessibleLabel": "1080 cm³"
+        },
+        {
+          "id": "q9-0-c",
+          "text": "468 cm³",
+          "accessibleLabel": "468 cm³"
+        },
+        {
+          "id": "q9-0-d",
+          "text": "360 cm³",
+          "accessibleLabel": "360 cm³"
+        }
+      ],
+      "correctOptionId": "q9-0-a",
+      "explanation": "The end is right-angled: B = ½×9×12 = 54; V = 54×10.",
+      "sourceRefs": [
+        "SRC-PRISM p.21"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q9-1",
+      "moduleId": "prisms",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "That 9–12–15 prism of length 10 cm has total surface area…",
+      "options": [
+        {
+          "id": "q9-1-a",
+          "text": "468 cm²",
+          "accessibleLabel": "468 cm²"
+        },
+        {
+          "id": "q9-1-b",
+          "text": "360 cm²",
+          "accessibleLabel": "360 cm²"
+        },
+        {
+          "id": "q9-1-c",
+          "text": "540 cm²",
+          "accessibleLabel": "540 cm²"
+        },
+        {
+          "id": "q9-1-d",
+          "text": "414 cm²",
+          "accessibleLabel": "414 cm²"
+        }
+      ],
+      "correctOptionId": "q9-1-a",
+      "explanation": "2B+P₍base₎L = 108+36×10 = 468.",
+      "sourceRefs": [
+        "SRC-PRISM p.21"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q9-2",
+      "moduleId": "prisms",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A rectangular prism measures 6×5×3 cm. Its total area is…",
+      "options": [
+        {
+          "id": "q9-2-a",
+          "text": "126 cm²",
+          "accessibleLabel": "126 cm²"
+        },
+        {
+          "id": "q9-2-b",
+          "text": "90 cm²",
+          "accessibleLabel": "90 cm²"
+        },
+        {
+          "id": "q9-2-c",
+          "text": "63 cm²",
+          "accessibleLabel": "63 cm²"
+        },
+        {
+          "id": "q9-2-d",
+          "text": "180 cm²",
+          "accessibleLabel": "180 cm²"
+        }
+      ],
+      "correctOptionId": "q9-2-a",
+      "explanation": "2(6×5+6×3+5×3) = 126.",
+      "sourceRefs": [
+        "SRC-PRISM p.11"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q9-3",
+      "moduleId": "prisms",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "How many faces does a triangular prism have?",
+      "options": [
+        {
+          "id": "q9-3-a",
+          "text": "5",
+          "accessibleLabel": "5"
+        },
+        {
+          "id": "q9-3-b",
+          "text": "3",
+          "accessibleLabel": "3"
+        },
+        {
+          "id": "q9-3-c",
+          "text": "6",
+          "accessibleLabel": "6"
+        },
+        {
+          "id": "q9-3-d",
+          "text": "8",
+          "accessibleLabel": "8"
+        }
+      ],
+      "correctOptionId": "q9-3-a",
+      "explanation": "Two triangular ends and three lateral faces.",
+      "sourceRefs": [
+        "SRC-PRISM p.9"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q9-4",
+      "moduleId": "prisms",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "For any prism, volume equals…",
+      "options": [
+        {
+          "id": "q9-4-a",
+          "text": "Base area × perpendicular height",
+          "accessibleLabel": "Base area × perpendicular height"
+        },
+        {
+          "id": "q9-4-b",
+          "text": "Total surface area × height",
+          "accessibleLabel": "Total surface area × height"
+        },
+        {
+          "id": "q9-4-c",
+          "text": "Base perimeter × height",
+          "accessibleLabel": "Base perimeter × height"
+        },
+        {
+          "id": "q9-4-d",
+          "text": "Base area × lateral edge in every case",
+          "accessibleLabel": "Base area × lateral edge in every case"
+        }
+      ],
+      "correctOptionId": "q9-4-a",
+      "explanation": "Use perpendicular base-plane separation, including in oblique prisms.",
+      "sourceRefs": [
+        "SRC-PRISM, corrected pack PRISM-02"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "corrected"
+    },
+    {
+      "id": "q9-5",
+      "moduleId": "prisms",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A wooden block is 7.5×8.7×12 cm. Its volume is…",
+      "options": [
+        {
+          "id": "q9-5-a",
+          "text": "783 cm³",
+          "accessibleLabel": "783 cm³"
+        },
+        {
+          "id": "q9-5-b",
+          "text": "519.3 cm³",
+          "accessibleLabel": "519.3 cm³"
+        },
+        {
+          "id": "q9-5-c",
+          "text": "548.1 cm³",
+          "accessibleLabel": "548.1 cm³"
+        },
+        {
+          "id": "q9-5-d",
+          "text": "390 cm³",
+          "accessibleLabel": "390 cm³"
+        }
+      ],
+      "correctOptionId": "q9-5-a",
+      "explanation": "Multiply the three perpendicular dimensions.",
+      "sourceRefs": [
+        "SRC-PRISM p.18"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q9-6",
+      "moduleId": "prisms",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A block has volume 783 cm³ and density 0.7 g/cm³. Its mass is…",
+      "options": [
+        {
+          "id": "q9-6-a",
+          "text": "548.1 g",
+          "accessibleLabel": "548.1 g"
+        },
+        {
+          "id": "q9-6-b",
+          "text": "1118.57 g",
+          "accessibleLabel": "1118.57 g"
+        },
+        {
+          "id": "q9-6-c",
+          "text": "783.7 g",
+          "accessibleLabel": "783.7 g"
+        },
+        {
+          "id": "q9-6-d",
+          "text": "519.3 g",
+          "accessibleLabel": "519.3 g"
+        }
+      ],
+      "correctOptionId": "q9-6-a",
+      "explanation": "Mass = density × volume = 0.7×783.",
+      "sourceRefs": [
+        "SRC-PRISM p.18"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q10-0",
+      "moduleId": "parallelepipeds-cubes",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A cube has edge 10 cm. Its total surface area is…",
+      "options": [
+        {
+          "id": "q10-0-a",
+          "text": "600 cm²",
+          "accessibleLabel": "600 cm²"
+        },
+        {
+          "id": "q10-0-b",
+          "text": "1000 cm²",
+          "accessibleLabel": "1000 cm²"
+        },
+        {
+          "id": "q10-0-c",
+          "text": "100 cm²",
+          "accessibleLabel": "100 cm²"
+        },
+        {
+          "id": "q10-0-d",
+          "text": "400 cm²",
+          "accessibleLabel": "400 cm²"
+        }
+      ],
+      "correctOptionId": "q10-0-a",
+      "explanation": "Six square faces: 6×10².",
+      "sourceRefs": [
+        "SRC-BOX p.8"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q10-1",
+      "moduleId": "parallelepipeds-cubes",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A cube has volume 512 cm³. Its edge is…",
+      "options": [
+        {
+          "id": "q10-1-a",
+          "text": "8 cm",
+          "accessibleLabel": "8 cm"
+        },
+        {
+          "id": "q10-1-b",
+          "text": "16 cm",
+          "accessibleLabel": "16 cm"
+        },
+        {
+          "id": "q10-1-c",
+          "text": "64 cm",
+          "accessibleLabel": "64 cm"
+        },
+        {
+          "id": "q10-1-d",
+          "text": "4 cm",
+          "accessibleLabel": "4 cm"
+        }
+      ],
+      "correctOptionId": "q10-1-a",
+      "explanation": "The cube root of 512 is 8.",
+      "sourceRefs": [
+        "SRC-BOX p.9"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q10-2",
+      "moduleId": "parallelepipeds-cubes",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A cube has edge 9 cm. Its space diagonal is…",
+      "options": [
+        {
+          "id": "q10-2-a",
+          "text": "9√3 cm",
+          "accessibleLabel": "9√3 cm"
+        },
+        {
+          "id": "q10-2-b",
+          "text": "9√2 cm",
+          "accessibleLabel": "9√2 cm"
+        },
+        {
+          "id": "q10-2-c",
+          "text": "27 cm",
+          "accessibleLabel": "27 cm"
+        },
+        {
+          "id": "q10-2-d",
+          "text": "18 cm",
+          "accessibleLabel": "18 cm"
+        }
+      ],
+      "correctOptionId": "q10-2-a",
+      "explanation": "A space diagonal uses three perpendicular edges: √(9²+9²+9²).",
+      "sourceRefs": [
+        "SRC-BOX p.11"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q10-3",
+      "moduleId": "parallelepipeds-cubes",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A cube has total area 24 cm². Its volume is…",
+      "options": [
+        {
+          "id": "q10-3-a",
+          "text": "8 cm³",
+          "accessibleLabel": "8 cm³"
+        },
+        {
+          "id": "q10-3-b",
+          "text": "24 cm³",
+          "accessibleLabel": "24 cm³"
+        },
+        {
+          "id": "q10-3-c",
+          "text": "4 cm³",
+          "accessibleLabel": "4 cm³"
+        },
+        {
+          "id": "q10-3-d",
+          "text": "64 cm³",
+          "accessibleLabel": "64 cm³"
+        }
+      ],
+      "correctOptionId": "q10-3-a",
+      "explanation": "6q² = 24 gives q = 2, so V = 8.",
+      "sourceRefs": [
+        "SRC-BOX p.11"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q10-4",
+      "moduleId": "parallelepipeds-cubes",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Right-prism walls: base sides 5 and 10 in, height 4 in. Wall painting at INR 1.5/in² costs…",
+      "options": [
+        {
+          "id": "q10-4-a",
+          "text": "INR 180",
+          "accessibleLabel": "INR 180"
+        },
+        {
+          "id": "q10-4-b",
+          "text": "INR 270",
+          "accessibleLabel": "INR 270"
+        },
+        {
+          "id": "q10-4-c",
+          "text": "INR 120",
+          "accessibleLabel": "INR 120"
+        },
+        {
+          "id": "q10-4-d",
+          "text": "INR 360",
+          "accessibleLabel": "INR 360"
+        }
+      ],
+      "correctOptionId": "q10-4-a",
+      "explanation": "Lateral area = 2(5+10)×4 = 120; cost = 120×1.5.",
+      "sourceRefs": [
+        "SRC-BOX p.17, corrected"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "corrected"
+    },
+    {
+      "id": "q10-5",
+      "moduleId": "parallelepipeds-cubes",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A 7×36×12 ft pile contains tightly packed 2×4×9 in bricks. How many?",
+      "options": [
+        {
+          "id": "q10-5-a",
+          "text": "72,576",
+          "accessibleLabel": "72,576"
+        },
+        {
+          "id": "q10-5-b",
+          "text": "3,024",
+          "accessibleLabel": "3,024"
+        },
+        {
+          "id": "q10-5-c",
+          "text": "4,032",
+          "accessibleLabel": "4,032"
+        },
+        {
+          "id": "q10-5-d",
+          "text": "36,288",
+          "accessibleLabel": "36,288"
+        }
+      ],
+      "correctOptionId": "q10-5-a",
+      "explanation": "Pile volume 3024 ft³; brick volume 1/24 ft³; divide. A fitting orientation exists.",
+      "sourceRefs": [
+        "SRC-BOX p.18"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q10-6",
+      "moduleId": "parallelepipeds-cubes",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Which expression gives any parallelepiped’s volume?",
+      "options": [
+        {
+          "id": "q10-6-a",
+          "text": "Base area × perpendicular height",
+          "accessibleLabel": "Base area × perpendicular height"
+        },
+        {
+          "id": "q10-6-b",
+          "text": "Total surface area × height",
+          "accessibleLabel": "Total surface area × height"
+        },
+        {
+          "id": "q10-6-c",
+          "text": "Base perimeter × height",
+          "accessibleLabel": "Base perimeter × height"
+        },
+        {
+          "id": "q10-6-d",
+          "text": "Edge length cubed in every case",
+          "accessibleLabel": "Edge length cubed in every case"
+        }
+      ],
+      "correctOptionId": "q10-6-a",
+      "explanation": "The source confuses total surface area with base area.",
+      "sourceRefs": [
+        "SRC-BOX pp.16,20, corrected"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "corrected"
+    },
+    {
+      "id": "q11-0",
+      "moduleId": "cylinders",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A circular cylinder has radius 25 cm and height 15 cm. Its volume is…",
+      "options": [
+        {
+          "id": "q11-0-a",
+          "text": "9375π cm³",
+          "accessibleLabel": "9375π cm³"
+        },
+        {
+          "id": "q11-0-b",
+          "text": "750π cm³",
+          "accessibleLabel": "750π cm³"
+        },
+        {
+          "id": "q11-0-c",
+          "text": "2000π cm³",
+          "accessibleLabel": "2000π cm³"
+        },
+        {
+          "id": "q11-0-d",
+          "text": "375π cm³",
+          "accessibleLabel": "375π cm³"
+        }
+      ],
+      "correctOptionId": "q11-0-a",
+      "explanation": "V = πr²h = π×625×15.",
+      "sourceRefs": [
+        "SRC-CYL p.6, corrected"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "corrected"
+    },
+    {
+      "id": "q11-1",
+      "moduleId": "cylinders",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "That radius-25, height-15 cylinder has closed total area…",
+      "options": [
+        {
+          "id": "q11-1-a",
+          "text": "2000π cm²",
+          "accessibleLabel": "2000π cm²"
+        },
+        {
+          "id": "q11-1-b",
+          "text": "750π cm²",
+          "accessibleLabel": "750π cm²"
+        },
+        {
+          "id": "q11-1-c",
+          "text": "1250π cm²",
+          "accessibleLabel": "1250π cm²"
+        },
+        {
+          "id": "q11-1-d",
+          "text": "9375π cm²",
+          "accessibleLabel": "9375π cm²"
+        }
+      ],
+      "correctOptionId": "q11-1-a",
+      "explanation": "2πrh+2πr² = 750π+1250π.",
+      "sourceRefs": [
+        "SRC-CYL p.6, corrected"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "corrected"
+    },
+    {
+      "id": "q11-2",
+      "moduleId": "cylinders",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A cylinder has diameter 4 cm and height 10 cm. Its volume is…",
+      "options": [
+        {
+          "id": "q11-2-a",
+          "text": "40π cm³",
+          "accessibleLabel": "40π cm³"
+        },
+        {
+          "id": "q11-2-b",
+          "text": "160π cm³",
+          "accessibleLabel": "160π cm³"
+        },
+        {
+          "id": "q11-2-c",
+          "text": "80π cm³",
+          "accessibleLabel": "80π cm³"
+        },
+        {
+          "id": "q11-2-d",
+          "text": "4π cm³",
+          "accessibleLabel": "4π cm³"
+        }
+      ],
+      "correctOptionId": "q11-2-a",
+      "explanation": "Radius is 2 cm, so V = π×2²×10.",
+      "sourceRefs": [
+        "SRC-CYL p.12"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q11-3",
+      "moduleId": "cylinders",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "An elliptic cylinder has full axes 20 m and 10 m, height 5 m. Its volume is…",
+      "options": [
+        {
+          "id": "q11-3-a",
+          "text": "250π m³",
+          "accessibleLabel": "250π m³"
+        },
+        {
+          "id": "q11-3-b",
+          "text": "1000π m³",
+          "accessibleLabel": "1000π m³"
+        },
+        {
+          "id": "q11-3-c",
+          "text": "500π m³",
+          "accessibleLabel": "500π m³"
+        },
+        {
+          "id": "q11-3-d",
+          "text": "100π m³",
+          "accessibleLabel": "100π m³"
+        }
+      ],
+      "correctOptionId": "q11-3-a",
+      "explanation": "Semiaxes are 10 and 5; V = πabh = 250π.",
+      "sourceRefs": [
+        "SRC-CYL p.12, units clarified"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q11-4",
+      "moduleId": "cylinders",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Pipe radii are 8.5 and 7.5 cm; length is 1000 cm. Material volume is…",
+      "options": [
+        {
+          "id": "q11-4-a",
+          "text": "16000π cm³",
+          "accessibleLabel": "16000π cm³"
+        },
+        {
+          "id": "q11-4-b",
+          "text": "32000π cm³",
+          "accessibleLabel": "32000π cm³"
+        },
+        {
+          "id": "q11-4-c",
+          "text": "50265π cm³",
+          "accessibleLabel": "50265π cm³"
+        },
+        {
+          "id": "q11-4-d",
+          "text": "8000π cm³",
+          "accessibleLabel": "8000π cm³"
+        }
+      ],
+      "correctOptionId": "q11-4-a",
+      "explanation": "V = π(8.5²−7.5²)×1000 = 16000π.",
+      "sourceRefs": [
+        "SRC-CYL p.8, corrected"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "corrected"
+    },
+    {
+      "id": "q11-5",
+      "moduleId": "cylinders",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "For a right elliptic cylinder, which exact lateral-area expression works?",
+      "options": [
+        {
+          "id": "q11-5-a",
+          "text": "Ellipse perimeter × height",
+          "accessibleLabel": "Ellipse perimeter × height"
+        },
+        {
+          "id": "q11-5-b",
+          "text": "π(a+b) × height in every case",
+          "accessibleLabel": "π(a+b) × height in every case"
+        },
+        {
+          "id": "q11-5-c",
+          "text": "πab × height",
+          "accessibleLabel": "πab × height"
+        },
+        {
+          "id": "q11-5-d",
+          "text": "2πab",
+          "accessibleLabel": "2πab"
+        }
+      ],
+      "correctOptionId": "q11-5-a",
+      "explanation": "The base perimeter is not generally π(a+b); use the true perimeter or a labeled approximation.",
+      "sourceRefs": [
+        "SRC-CYL p.10, corrected"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "corrected"
+    },
+    {
+      "id": "q11-6",
+      "moduleId": "cylinders",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A circular cylinder has lateral area 1000 m² and diameter 20 m. Its volume is…",
+      "options": [
+        {
+          "id": "q11-6-a",
+          "text": "5000 m³",
+          "accessibleLabel": "5000 m³"
+        },
+        {
+          "id": "q11-6-b",
+          "text": "10000 m³",
+          "accessibleLabel": "10000 m³"
+        },
+        {
+          "id": "q11-6-c",
+          "text": "1000 m³",
+          "accessibleLabel": "1000 m³"
+        },
+        {
+          "id": "q11-6-d",
+          "text": "500π m³",
+          "accessibleLabel": "500π m³"
+        }
+      ],
+      "correctOptionId": "q11-6-a",
+      "explanation": "h = 1000/(20π) = 50/π; V = π×100×50/π = 5000.",
+      "sourceRefs": [
+        "SRC-CYL p.5"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q12-0",
+      "moduleId": "pyramids",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A regular pentagonal pyramid has base side 10 cm, lateral edge 13 cm. Its slant height is…",
+      "options": [
+        {
+          "id": "q12-0-a",
+          "text": "12 cm",
+          "accessibleLabel": "12 cm"
+        },
+        {
+          "id": "q12-0-b",
+          "text": "√69 cm",
+          "accessibleLabel": "√69 cm"
+        },
+        {
+          "id": "q12-0-c",
+          "text": "13 cm",
+          "accessibleLabel": "13 cm"
+        },
+        {
+          "id": "q12-0-d",
+          "text": "5 cm",
+          "accessibleLabel": "5 cm"
+        }
+      ],
+      "correctOptionId": "q12-0-a",
+      "explanation": "A half lateral face gives ℓ² = 13²−5² = 144.",
+      "sourceRefs": [
+        "SRC-PYCS pp.11–12"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q12-1",
+      "moduleId": "pyramids",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Which relation links slant height ℓ, altitude h and base apothem a?",
+      "options": [
+        {
+          "id": "q12-1-a",
+          "text": "ℓ² = h²+a²",
+          "accessibleLabel": "ℓ² = h²+a²"
+        },
+        {
+          "id": "q12-1-b",
+          "text": "h² = ℓ²+a²",
+          "accessibleLabel": "h² = ℓ²+a²"
+        },
+        {
+          "id": "q12-1-c",
+          "text": "a² = h²+ℓ²",
+          "accessibleLabel": "a² = h²+ℓ²"
+        },
+        {
+          "id": "q12-1-d",
+          "text": "ℓ = h+a",
+          "accessibleLabel": "ℓ = h+a"
+        }
+      ],
+      "correctOptionId": "q12-1-a",
+      "explanation": "The slant height is the hypotenuse of this right triangle.",
+      "sourceRefs": [
+        "SRC-PYCS p.8, corrected"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "corrected"
+    },
+    {
+      "id": "q12-2",
+      "moduleId": "pyramids",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Any pyramid of base area B and perpendicular height h has volume…",
+      "options": [
+        {
+          "id": "q12-2-a",
+          "text": "Bh/3",
+          "accessibleLabel": "Bh/3"
+        },
+        {
+          "id": "q12-2-b",
+          "text": "Bh",
+          "accessibleLabel": "Bh"
+        },
+        {
+          "id": "q12-2-c",
+          "text": "Bh/2",
+          "accessibleLabel": "Bh/2"
+        },
+        {
+          "id": "q12-2-d",
+          "text": "3Bh",
+          "accessibleLabel": "3Bh"
+        }
+      ],
+      "correctOptionId": "q12-2-a",
+      "explanation": "A pyramid occupies one-third of a prism with the same base area and height.",
+      "sourceRefs": [
+        "SRC-PYCS p.6"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q12-3",
+      "moduleId": "pyramids",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A regular pyramid has base perimeter 50 cm and slant height 12 cm. Its lateral area is…",
+      "options": [
+        {
+          "id": "q12-3-a",
+          "text": "300 cm²",
+          "accessibleLabel": "300 cm²"
+        },
+        {
+          "id": "q12-3-b",
+          "text": "600 cm²",
+          "accessibleLabel": "600 cm²"
+        },
+        {
+          "id": "q12-3-c",
+          "text": "200 cm²",
+          "accessibleLabel": "200 cm²"
+        },
+        {
+          "id": "q12-3-d",
+          "text": "150 cm²",
+          "accessibleLabel": "150 cm²"
+        }
+      ],
+      "correctOptionId": "q12-3-a",
+      "explanation": "Aₗ = Pℓ/2 = 50×12/2.",
+      "sourceRefs": [
+        "SRC-PYCS pp.11–12"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q12-4",
+      "moduleId": "pyramids",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "An inverted square pyramid has height 8 m, top side 12 m. At water depth 6 m, water-surface side is…",
+      "options": [
+        {
+          "id": "q12-4-a",
+          "text": "9 m",
+          "accessibleLabel": "9 m"
+        },
+        {
+          "id": "q12-4-b",
+          "text": "6 m",
+          "accessibleLabel": "6 m"
+        },
+        {
+          "id": "q12-4-c",
+          "text": "8 m",
+          "accessibleLabel": "8 m"
+        },
+        {
+          "id": "q12-4-d",
+          "text": "10 m",
+          "accessibleLabel": "10 m"
+        }
+      ],
+      "correctOptionId": "q12-4-a",
+      "explanation": "Similarity: x/12 = 6/8.",
+      "sourceRefs": [
+        "SRC-PYCS p.13"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q12-5",
+      "moduleId": "pyramids",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "That pyramid filled to depth 6 m contains…",
+      "options": [
+        {
+          "id": "q12-5-a",
+          "text": "162 m³",
+          "accessibleLabel": "162 m³"
+        },
+        {
+          "id": "q12-5-b",
+          "text": "486 m³",
+          "accessibleLabel": "486 m³"
+        },
+        {
+          "id": "q12-5-c",
+          "text": "288 m³",
+          "accessibleLabel": "288 m³"
+        },
+        {
+          "id": "q12-5-d",
+          "text": "216 m³",
+          "accessibleLabel": "216 m³"
+        }
+      ],
+      "correctOptionId": "q12-5-a",
+      "explanation": "The water forms a smaller pyramid of base side 9: V = 9²×6/3.",
+      "sourceRefs": [
+        "SRC-PYCS p.13"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q12-6",
+      "moduleId": "pyramids",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "The wetted wall area of that partially filled pyramid is…",
+      "options": [
+        {
+          "id": "q12-6-a",
+          "text": "135 m²",
+          "accessibleLabel": "135 m²"
+        },
+        {
+          "id": "q12-6-b",
+          "text": "216 m²",
+          "accessibleLabel": "216 m²"
+        },
+        {
+          "id": "q12-6-c",
+          "text": "81 m²",
+          "accessibleLabel": "81 m²"
+        },
+        {
+          "id": "q12-6-d",
+          "text": "270 m²",
+          "accessibleLabel": "270 m²"
+        }
+      ],
+      "correctOptionId": "q12-6-a",
+      "explanation": "Submerged slant height = √(6²+4.5²) = 7.5; area = ½×36×7.5.",
+      "sourceRefs": [
+        "SRC-PYCS p.13"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q13-0",
+      "moduleId": "cones",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A right cone has r = 6 cm and h = 8 cm. Its slant height is…",
+      "options": [
+        {
+          "id": "q13-0-a",
+          "text": "10 cm",
+          "accessibleLabel": "10 cm"
+        },
+        {
+          "id": "q13-0-b",
+          "text": "14 cm",
+          "accessibleLabel": "14 cm"
+        },
+        {
+          "id": "q13-0-c",
+          "text": "2 cm",
+          "accessibleLabel": "2 cm"
+        },
+        {
+          "id": "q13-0-d",
+          "text": "√28 cm",
+          "accessibleLabel": "√28 cm"
+        }
+      ],
+      "correctOptionId": "q13-0-a",
+      "explanation": "ℓ = √(6²+8²) = 10.",
+      "sourceRefs": [
+        "SRC-PYCS p.17"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q13-1",
+      "moduleId": "cones",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "That r = 6, h = 8 cone has total surface area…",
+      "options": [
+        {
+          "id": "q13-1-a",
+          "text": "96π cm²",
+          "accessibleLabel": "96π cm²"
+        },
+        {
+          "id": "q13-1-b",
+          "text": "60π cm²",
+          "accessibleLabel": "60π cm²"
+        },
+        {
+          "id": "q13-1-c",
+          "text": "36π cm²",
+          "accessibleLabel": "36π cm²"
+        },
+        {
+          "id": "q13-1-d",
+          "text": "48π cm²",
+          "accessibleLabel": "48π cm²"
+        }
+      ],
+      "correctOptionId": "q13-1-a",
+      "explanation": "πrℓ+πr² = 60π+36π.",
+      "sourceRefs": [
+        "SRC-PYCS p.17"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q13-2",
+      "moduleId": "cones",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A right cone has h = 12 cm and volume 324π cm³. Its radius is…",
+      "options": [
+        {
+          "id": "q13-2-a",
+          "text": "9 cm",
+          "accessibleLabel": "9 cm"
+        },
+        {
+          "id": "q13-2-b",
+          "text": "3 cm",
+          "accessibleLabel": "3 cm"
+        },
+        {
+          "id": "q13-2-c",
+          "text": "6 cm",
+          "accessibleLabel": "6 cm"
+        },
+        {
+          "id": "q13-2-d",
+          "text": "27 cm",
+          "accessibleLabel": "27 cm"
+        }
+      ],
+      "correctOptionId": "q13-2-a",
+      "explanation": "324π = (1/3)πr²×12, so r² = 81.",
+      "sourceRefs": [
+        "SRC-PYCS p.18"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q13-3",
+      "moduleId": "cones",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A cone has total area 360π cm² and base area 100π cm². Its volume is…",
+      "options": [
+        {
+          "id": "q13-3-a",
+          "text": "800π cm³",
+          "accessibleLabel": "800π cm³"
+        },
+        {
+          "id": "q13-3-b",
+          "text": "2400π cm³",
+          "accessibleLabel": "2400π cm³"
+        },
+        {
+          "id": "q13-3-c",
+          "text": "360π cm³",
+          "accessibleLabel": "360π cm³"
+        },
+        {
+          "id": "q13-3-d",
+          "text": "260π cm³",
+          "accessibleLabel": "260π cm³"
+        }
+      ],
+      "correctOptionId": "q13-3-a",
+      "explanation": "r=10, lateral area=260π, ℓ=26, h=24, hence V=800π.",
+      "sourceRefs": [
+        "SRC-PYCS p.19"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q13-4",
+      "moduleId": "cones",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A cone’s base is inscribed in one face of a 6 cm cube; apex is at the opposite face center. Radius and height?",
+      "options": [
+        {
+          "id": "q13-4-a",
+          "text": "r = 3, h = 6",
+          "accessibleLabel": "r = 3, h = 6"
+        },
+        {
+          "id": "q13-4-b",
+          "text": "r = 6, h = 6",
+          "accessibleLabel": "r = 6, h = 6"
+        },
+        {
+          "id": "q13-4-c",
+          "text": "r = 3, h = 3",
+          "accessibleLabel": "r = 3, h = 3"
+        },
+        {
+          "id": "q13-4-d",
+          "text": "r = 6, h = 3",
+          "accessibleLabel": "r = 6, h = 3"
+        }
+      ],
+      "correctOptionId": "q13-4-a",
+      "explanation": "Base diameter and perpendicular height both equal the cube edge.",
+      "sourceRefs": [
+        "SRC-PYCS p.20"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q13-5",
+      "moduleId": "cones",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "That cube-inscribed cone has volume…",
+      "options": [
+        {
+          "id": "q13-5-a",
+          "text": "18π cm³",
+          "accessibleLabel": "18π cm³"
+        },
+        {
+          "id": "q13-5-b",
+          "text": "36π cm³",
+          "accessibleLabel": "36π cm³"
+        },
+        {
+          "id": "q13-5-c",
+          "text": "54π cm³",
+          "accessibleLabel": "54π cm³"
+        },
+        {
+          "id": "q13-5-d",
+          "text": "72π cm³",
+          "accessibleLabel": "72π cm³"
+        }
+      ],
+      "correctOptionId": "q13-5-a",
+      "explanation": "V = (1/3)π×3²×6.",
+      "sourceRefs": [
+        "SRC-PYCS p.20"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q13-6",
+      "moduleId": "cones",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "That cube-inscribed cone has exact total area…",
+      "options": [
+        {
+          "id": "q13-6-a",
+          "text": "9π(1+√5) cm²",
+          "accessibleLabel": "9π(1+√5) cm²"
+        },
+        {
+          "id": "q13-6-b",
+          "text": "29.13π cm² exactly",
+          "accessibleLabel": "29.13π cm² exactly"
+        },
+        {
+          "id": "q13-6-c",
+          "text": "9π√5 cm²",
+          "accessibleLabel": "9π√5 cm²"
+        },
+        {
+          "id": "q13-6-d",
+          "text": "18π cm²",
+          "accessibleLabel": "18π cm²"
+        }
+      ],
+      "correctOptionId": "q13-6-a",
+      "explanation": "Slant height = 3√5; add base area 9π to lateral area 9π√5.",
+      "sourceRefs": [
+        "SRC-PYCS p.20, precision corrected"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "corrected"
+    },
+    {
+      "id": "q14-0",
+      "moduleId": "spheres-segments",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A sphere has volume 288π ft³. Its surface area is…",
+      "options": [
+        {
+          "id": "q14-0-a",
+          "text": "144π ft²",
+          "accessibleLabel": "144π ft²"
+        },
+        {
+          "id": "q14-0-b",
+          "text": "72π ft²",
+          "accessibleLabel": "72π ft²"
+        },
+        {
+          "id": "q14-0-c",
+          "text": "288π ft²",
+          "accessibleLabel": "288π ft²"
+        },
+        {
+          "id": "q14-0-d",
+          "text": "36π ft²",
+          "accessibleLabel": "36π ft²"
+        }
+      ],
+      "correctOptionId": "q14-0-a",
+      "explanation": "(4/3)πR³ = 288π gives R = 6; area = 4π×36.",
+      "sourceRefs": [
+        "SRC-PYCS p.27"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q14-1",
+      "moduleId": "spheres-segments",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A hemispherical shell has outer radius 9 and inner radius 6 in. Material volume is…",
+      "options": [
+        {
+          "id": "q14-1-a",
+          "text": "342π in³",
+          "accessibleLabel": "342π in³"
+        },
+        {
+          "id": "q14-1-b",
+          "text": "684π in³",
+          "accessibleLabel": "684π in³"
+        },
+        {
+          "id": "q14-1-c",
+          "text": "513π in³",
+          "accessibleLabel": "513π in³"
+        },
+        {
+          "id": "q14-1-d",
+          "text": "171π in³",
+          "accessibleLabel": "171π in³"
+        }
+      ],
+      "correctOptionId": "q14-1-a",
+      "explanation": "Hemisphere difference = (2/3)π(9³−6³) = 342π.",
+      "sourceRefs": [
+        "SRC-PYCS p.28"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q14-2",
+      "moduleId": "spheres-segments",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A radius-5 in hemispherical bowl has liquid depth 2 in. Liquid volume is…",
+      "options": [
+        {
+          "id": "q14-2-a",
+          "text": "52π/3 in³",
+          "accessibleLabel": "52π/3 in³"
+        },
+        {
+          "id": "q14-2-b",
+          "text": "20π in³",
+          "accessibleLabel": "20π in³"
+        },
+        {
+          "id": "q14-2-c",
+          "text": "36π in³",
+          "accessibleLabel": "36π in³"
+        },
+        {
+          "id": "q14-2-d",
+          "text": "100π/3 in³",
+          "accessibleLabel": "100π/3 in³"
+        }
+      ],
+      "correctOptionId": "q14-2-a",
+      "explanation": "Cap volume = πh²(3R−h)/3 = π×4×13/3.",
+      "sourceRefs": [
+        "SRC-PYCS p.29"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q14-3",
+      "moduleId": "spheres-segments",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "For that bowl, the wetted bowl area is…",
+      "options": [
+        {
+          "id": "q14-3-a",
+          "text": "20π in²",
+          "accessibleLabel": "20π in²"
+        },
+        {
+          "id": "q14-3-b",
+          "text": "36π in²",
+          "accessibleLabel": "36π in²"
+        },
+        {
+          "id": "q14-3-c",
+          "text": "16π in²",
+          "accessibleLabel": "16π in²"
+        },
+        {
+          "id": "q14-3-d",
+          "text": "100π in²",
+          "accessibleLabel": "100π in²"
+        }
+      ],
+      "correctOptionId": "q14-3-a",
+      "explanation": "Only curved bowl wall is wet: 2πRh = 20π. Do not add the free liquid surface.",
+      "sourceRefs": [
+        "SRC-PYCS p.29, corrected"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "corrected"
+    },
+    {
+      "id": "q14-4",
+      "moduleId": "spheres-segments",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "The exposed liquid surface in that bowl has radius…",
+      "options": [
+        {
+          "id": "q14-4-a",
+          "text": "4 in",
+          "accessibleLabel": "4 in"
+        },
+        {
+          "id": "q14-4-b",
+          "text": "2 in",
+          "accessibleLabel": "2 in"
+        },
+        {
+          "id": "q14-4-c",
+          "text": "3 in",
+          "accessibleLabel": "3 in"
+        },
+        {
+          "id": "q14-4-d",
+          "text": "5 in",
+          "accessibleLabel": "5 in"
+        }
+      ],
+      "correctOptionId": "q14-4-a",
+      "explanation": "r² = 2Rh−h² = 20−4 = 16.",
+      "sourceRefs": [
+        "SRC-PYCS p.29"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q14-5",
+      "moduleId": "spheres-segments",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A radius-12 cm sphere is cut 4 cm from its center. Sum of both curved cap areas?",
+      "options": [
+        {
+          "id": "q14-5-a",
+          "text": "576π cm²",
+          "accessibleLabel": "576π cm²"
+        },
+        {
+          "id": "q14-5-b",
+          "text": "288π cm²",
+          "accessibleLabel": "288π cm²"
+        },
+        {
+          "id": "q14-5-c",
+          "text": "192π cm²",
+          "accessibleLabel": "192π cm²"
+        },
+        {
+          "id": "q14-5-d",
+          "text": "384π cm²",
+          "accessibleLabel": "384π cm²"
+        }
+      ],
+      "correctOptionId": "q14-5-a",
+      "explanation": "The complementary zones reconstruct the full sphere area 4π×12².",
+      "sourceRefs": [
+        "SRC-PYCS p.30"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "q14-6",
+      "moduleId": "spheres-segments",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A hemisphere of radius 3 cm has total area including its flat base…",
+      "options": [
+        {
+          "id": "q14-6-a",
+          "text": "27π cm²",
+          "accessibleLabel": "27π cm²"
+        },
+        {
+          "id": "q14-6-b",
+          "text": "18π cm²",
+          "accessibleLabel": "18π cm²"
+        },
+        {
+          "id": "q14-6-c",
+          "text": "36π cm²",
+          "accessibleLabel": "36π cm²"
+        },
+        {
+          "id": "q14-6-d",
+          "text": "9π cm²",
+          "accessibleLabel": "9π cm²"
+        }
+      ],
+      "correctOptionId": "q14-6-a",
+      "explanation": "Curved area 2πr² plus one disk πr² gives 3πr².",
+      "sourceRefs": [
+        "Content pack SP-P01, supplemental"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    }
+  ],
+  "recall": [
+    {
+      "id": "r0",
+      "moduleId": "plane-figures-polygons",
+      "category": "vocabulary",
+      "interaction": "text-recall",
+      "prompt": "Name a polygon with 3–12 sides. Use its conventional name, not “n-gon”.",
+      "scope": "Polygons, 3–12 sides only",
+      "acceptedAnswers": [
+        {
+          "canonical": "Triangle",
+          "aliases": [
+            "triangle"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Quadrilateral",
+          "aliases": [
+            "quadrilateral",
+            "quadrangle",
+            "tetragon"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Pentagon",
+          "aliases": [
+            "pentagon"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Hexagon",
+          "aliases": [
+            "hexagon"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Heptagon",
+          "aliases": [
+            "heptagon",
+            "septagon"
+          ],
+          "tier": 3
+        },
+        {
+          "canonical": "Octagon",
+          "aliases": [
+            "octagon"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Nonagon",
+          "aliases": [
+            "nonagon",
+            "enneagon"
+          ],
+          "tier": 3
+        },
+        {
+          "canonical": "Decagon",
+          "aliases": [
+            "decagon"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Undecagon",
+          "aliases": [
+            "undecagon",
+            "hendecagon"
+          ],
+          "tier": 4
+        },
+        {
+          "canonical": "Dodecagon",
+          "aliases": [
+            "dodecagon"
+          ],
+          "tier": 4
+        }
+      ],
+      "explanation": "Naming the less familiar side counts earns a higher authored tier.",
+      "sourceRefs": [
+        "SRC-POLY p.10"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "r1",
+      "moduleId": "triangles",
+      "category": "vocabulary",
+      "interaction": "text-recall",
+      "prompt": "Name one of the triangle centers formed by medians, altitudes, or internal angle bisectors.",
+      "scope": "Three centers in this lesson",
+      "acceptedAnswers": [
+        {
+          "canonical": "Centroid",
+          "aliases": [
+            "centroid",
+            "barycenter"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Orthocenter",
+          "aliases": [
+            "orthocenter",
+            "orthocentre"
+          ],
+          "tier": 4
+        },
+        {
+          "canonical": "Incenter",
+          "aliases": [
+            "incenter",
+            "incentre"
+          ],
+          "tier": 3
+        }
+      ],
+      "explanation": "Medians → centroid; altitudes → orthocenter; internal bisectors → incenter.",
+      "sourceRefs": [
+        "SRC-TRI p.5"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "r2",
+      "moduleId": "quadrilaterals",
+      "category": "vocabulary",
+      "interaction": "text-recall",
+      "prompt": "Name a quadrilateral class in this lesson: one with 0, 1, or 2 parallel-side pairs, or a special parallelogram.",
+      "scope": "Use the source convention: trapezoid = exactly one parallel pair",
+      "acceptedAnswers": [
+        {
+          "canonical": "Square",
+          "aliases": [
+            "square"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Rectangle",
+          "aliases": [
+            "rectangle"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Rhombus",
+          "aliases": [
+            "rhombus",
+            "rhombi"
+          ],
+          "tier": 3
+        },
+        {
+          "canonical": "Parallelogram",
+          "aliases": [
+            "parallelogram"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Trapezoid",
+          "aliases": [
+            "trapezoid",
+            "right trapezoid",
+            "isosceles trapezoid"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Trapezium",
+          "aliases": [
+            "trapezium"
+          ],
+          "tier": 4
+        }
+      ],
+      "explanation": "The course uses trapezium for no parallel sides; this convention varies by region.",
+      "sourceRefs": [
+        "SRC-QUAD pp.4–17"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "r3",
+      "moduleId": "cartesian-coordinates",
+      "category": "vocabulary",
+      "interaction": "text-recall",
+      "prompt": "Name one coordinate-area or segment-location method taught in the module.",
+      "scope": "A method for area, midpoint, or division points",
+      "acceptedAnswers": [
+        {
+          "canonical": "Shoelace formula",
+          "aliases": [
+            "shoelace",
+            "shoelace formula",
+            "shoelace method",
+            "determinant formula",
+            "determinant method"
+          ],
+          "tier": 4
+        },
+        {
+          "canonical": "Midpoint formula",
+          "aliases": [
+            "midpoint",
+            "midpoint formula"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Internal division formula",
+          "aliases": [
+            "internal division",
+            "internal division formula",
+            "section formula",
+            "section formula internal"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "External division formula",
+          "aliases": [
+            "external division",
+            "external division formula"
+          ],
+          "tier": 3
+        },
+        {
+          "canonical": "Parametric division",
+          "aliases": [
+            "parametric division",
+            "parametric form",
+            "parameter form",
+            "linear interpolation",
+            "interpolation"
+          ],
+          "tier": 3
+        }
+      ],
+      "explanation": "These locate division points or calculate area from ordered coordinates.",
+      "sourceRefs": [
+        "SRC-CART pp.19–31"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "r4",
+      "moduleId": "lines",
+      "category": "vocabulary",
+      "interaction": "text-recall",
+      "prompt": "Name a line-equation form explicitly listed in this course.",
+      "scope": "A named form, rather than a specific equation",
+      "acceptedAnswers": [
+        {
+          "canonical": "General form",
+          "aliases": [
+            "general",
+            "general form",
+            "standard form"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Point-slope form",
+          "aliases": [
+            "point slope",
+            "point slope form"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Slope-intercept form",
+          "aliases": [
+            "slope intercept",
+            "slope intercept form"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Two-point form",
+          "aliases": [
+            "two point",
+            "two point form"
+          ],
+          "tier": 3
+        },
+        {
+          "canonical": "Intercept form",
+          "aliases": [
+            "intercept",
+            "intercept form",
+            "intercept intercept",
+            "intercept intercept form",
+            "two intercept form"
+          ],
+          "tier": 4
+        }
+      ],
+      "explanation": "Different forms encode different given information; vertical lines need special care.",
+      "sourceRefs": [
+        "SRC-LINE pp.15–20"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "r5",
+      "moduleId": "circles",
+      "category": "vocabulary",
+      "interaction": "text-recall",
+      "prompt": "Name a conic section covered by the course.",
+      "scope": "One of the four conic types",
+      "acceptedAnswers": [
+        {
+          "canonical": "Circle",
+          "aliases": [
+            "circle"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Parabola",
+          "aliases": [
+            "parabola"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Ellipse",
+          "aliases": [
+            "ellipse"
+          ],
+          "tier": 3
+        },
+        {
+          "canonical": "Hyperbola",
+          "aliases": [
+            "hyperbola"
+          ],
+          "tier": 4
+        }
+      ],
+      "explanation": "Circle is the e = 0 ellipse special case; parabola e = 1, ellipse 0 < e < 1, hyperbola e > 1.",
+      "sourceRefs": [
+        "SRC-CIRC pp.3–15"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "r6",
+      "moduleId": "parabolas",
+      "category": "vocabulary",
+      "interaction": "text-recall",
+      "prompt": "Name one essential part of a parabola: a point, line, or focal chord listed in the lesson.",
+      "scope": "Use the geometric feature’s name",
+      "acceptedAnswers": [
+        {
+          "canonical": "Vertex",
+          "aliases": [
+            "vertex"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Focus",
+          "aliases": [
+            "focus"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Directrix",
+          "aliases": [
+            "directrix"
+          ],
+          "tier": 3
+        },
+        {
+          "canonical": "Axis of symmetry",
+          "aliases": [
+            "axis",
+            "axis of symmetry",
+            "principal axis",
+            "axis of parabola"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Latus rectum",
+          "aliases": [
+            "latus rectum",
+            "focal chord",
+            "latera recta"
+          ],
+          "tier": 4
+        }
+      ],
+      "explanation": "The vertex is halfway from focus to directrix along the axis; the focal chord is perpendicular to the axis.",
+      "sourceRefs": [
+        "SRC-PARA pp.5–14"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "r7",
+      "moduleId": "ellipses",
+      "category": "vocabulary",
+      "interaction": "text-recall",
+      "prompt": "Name a defining part of an ellipse: center, axis, special axis endpoint, focus, directrix, or focal chord.",
+      "scope": "Use a geometric part, not a parameter letter",
+      "acceptedAnswers": [
+        {
+          "canonical": "Center",
+          "aliases": [
+            "center",
+            "centre"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Major axis",
+          "aliases": [
+            "major axis"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Minor axis",
+          "aliases": [
+            "minor axis"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Vertex",
+          "aliases": [
+            "vertex",
+            "vertices"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Covertex",
+          "aliases": [
+            "covertex",
+            "co vertex",
+            "co vertices",
+            "covertices"
+          ],
+          "tier": 4
+        },
+        {
+          "canonical": "Focus",
+          "aliases": [
+            "focus",
+            "foci"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Directrix",
+          "aliases": [
+            "directrix",
+            "directrices"
+          ],
+          "tier": 3
+        },
+        {
+          "canonical": "Latus rectum",
+          "aliases": [
+            "latus rectum",
+            "latera recta"
+          ],
+          "tier": 4
+        }
+      ],
+      "explanation": "Vertices end the major axis; covertices end the minor axis; directrices are perpendicular to the major axis.",
+      "sourceRefs": [
+        "SRC-ELLI pp.3–7"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "r8",
+      "moduleId": "hyperbolas",
+      "category": "vocabulary",
+      "interaction": "text-recall",
+      "prompt": "Name one hyperbola feature: a branch, axis, special point, asymptote, directrix, or focal chord.",
+      "scope": "Use a feature’s name",
+      "acceptedAnswers": [
+        {
+          "canonical": "Branch",
+          "aliases": [
+            "branch",
+            "branches"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Transverse axis",
+          "aliases": [
+            "transverse axis"
+          ],
+          "tier": 3
+        },
+        {
+          "canonical": "Conjugate axis",
+          "aliases": [
+            "conjugate axis"
+          ],
+          "tier": 4
+        },
+        {
+          "canonical": "Center",
+          "aliases": [
+            "center",
+            "centre"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Vertex",
+          "aliases": [
+            "vertex",
+            "vertices"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Focus",
+          "aliases": [
+            "focus",
+            "foci"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Principal axis",
+          "aliases": [
+            "principal axis",
+            "axis of symmetry"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Asymptote",
+          "aliases": [
+            "asymptote",
+            "asymptotes"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Directrix",
+          "aliases": [
+            "directrix",
+            "directrices"
+          ],
+          "tier": 3
+        },
+        {
+          "canonical": "Latus rectum",
+          "aliases": [
+            "latus rectum",
+            "latera recta"
+          ],
+          "tier": 4
+        }
+      ],
+      "explanation": "The conjugate-axis endpoints are reference points, not points on the curve.",
+      "sourceRefs": [
+        "SRC-HYP pp.3–8"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "r9",
+      "moduleId": "prisms",
+      "category": "vocabulary",
+      "interaction": "text-recall",
+      "prompt": "Name a prism part or section explicitly defined in the lesson.",
+      "scope": "Base, lateral feature, height, axis, vertex, or right section",
+      "acceptedAnswers": [
+        {
+          "canonical": "Base",
+          "aliases": [
+            "base",
+            "bases"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Lateral face",
+          "aliases": [
+            "lateral face",
+            "lateral surface"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Lateral edge",
+          "aliases": [
+            "lateral edge"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Altitude",
+          "aliases": [
+            "altitude",
+            "height",
+            "perpendicular height"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Axis",
+          "aliases": [
+            "axis",
+            "axis segment"
+          ],
+          "tier": 3
+        },
+        {
+          "canonical": "Right section",
+          "aliases": [
+            "right section",
+            "perpendicular section"
+          ],
+          "tier": 4
+        },
+        {
+          "canonical": "Vertex",
+          "aliases": [
+            "vertex",
+            "vertices"
+          ],
+          "tier": 1
+        }
+      ],
+      "explanation": "A right section is perpendicular to the lateral-edge direction. Altitude is perpendicular to the base planes.",
+      "sourceRefs": [
+        "SRC-PRISM pp.4–5"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "r10",
+      "moduleId": "parallelepipeds-cubes",
+      "category": "vocabulary",
+      "interaction": "text-recall",
+      "prompt": "Name a solid in this family: a parallelepiped, its rectangular special case, or the all-equal-edge rectangular case.",
+      "scope": "Give one of the three solid names",
+      "acceptedAnswers": [
+        {
+          "canonical": "Cube",
+          "aliases": [
+            "cube",
+            "regular hexahedron"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Cuboid",
+          "aliases": [
+            "cuboid",
+            "rectangular prism",
+            "rectangular parallelepiped",
+            "box"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Parallelepiped",
+          "aliases": [
+            "parallelepiped"
+          ],
+          "tier": 4
+        }
+      ],
+      "explanation": "Every cube is a cuboid, and every cuboid is a parallelepiped; the reverse implications fail.",
+      "sourceRefs": [
+        "SRC-BOX pp.3–16"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "r11",
+      "moduleId": "cylinders",
+      "category": "vocabulary",
+      "interaction": "text-recall",
+      "prompt": "Name a cylinder type featured in the course.",
+      "scope": "Circular, hollow, elliptic, right, or oblique",
+      "acceptedAnswers": [
+        {
+          "canonical": "Circular cylinder",
+          "aliases": [
+            "circular",
+            "circular cylinder",
+            "solid circular cylinder"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Right cylinder",
+          "aliases": [
+            "right",
+            "right cylinder",
+            "right circular cylinder"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Hollow cylinder",
+          "aliases": [
+            "hollow",
+            "hollow cylinder",
+            "hollow circular cylinder",
+            "pipe"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Oblique cylinder",
+          "aliases": [
+            "oblique",
+            "oblique cylinder"
+          ],
+          "tier": 3
+        },
+        {
+          "canonical": "Elliptic cylinder",
+          "aliases": [
+            "elliptic",
+            "elliptical",
+            "elliptic cylinder",
+            "elliptical cylinder"
+          ],
+          "tier": 4
+        }
+      ],
+      "explanation": "Right/oblique describe inclination; circular/elliptic describe base shape; hollow describes a removed bore.",
+      "sourceRefs": [
+        "SRC-CYL pp.3–10"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "r12",
+      "moduleId": "pyramids",
+      "category": "vocabulary",
+      "interaction": "text-recall",
+      "prompt": "Name a pyramid length explicitly distinguished in the lesson.",
+      "scope": "Height, slant height, edge, base apothem, or base circumradius",
+      "acceptedAnswers": [
+        {
+          "canonical": "Altitude",
+          "aliases": [
+            "altitude",
+            "height",
+            "perpendicular height"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Slant height",
+          "aliases": [
+            "slant height"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Lateral edge",
+          "aliases": [
+            "lateral edge"
+          ],
+          "tier": 3
+        },
+        {
+          "canonical": "Base edge",
+          "aliases": [
+            "base edge",
+            "base side"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Apothem",
+          "aliases": [
+            "apothem",
+            "base apothem"
+          ],
+          "tier": 4
+        },
+        {
+          "canonical": "Circumradius",
+          "aliases": [
+            "circumradius",
+            "base circumradius"
+          ],
+          "tier": 4
+        }
+      ],
+      "explanation": "Slant height, lateral edge, apothem, and circumradius refer to different segments.",
+      "sourceRefs": [
+        "SRC-PYCS pp.5–10"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "r13",
+      "moduleId": "cones",
+      "category": "vocabulary",
+      "interaction": "text-recall",
+      "prompt": "For the cone inscribed in a cube, name a dimension used to connect the two solids.",
+      "scope": "Cone radius, diameter, altitude, slant height, or cube edge",
+      "acceptedAnswers": [
+        {
+          "canonical": "Radius",
+          "aliases": [
+            "radius",
+            "base radius",
+            "cone radius"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Diameter",
+          "aliases": [
+            "diameter",
+            "base diameter"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Height",
+          "aliases": [
+            "height",
+            "altitude",
+            "cone height"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Slant height",
+          "aliases": [
+            "slant height"
+          ],
+          "tier": 4
+        },
+        {
+          "canonical": "Cube edge",
+          "aliases": [
+            "cube edge",
+            "edge of cube"
+          ],
+          "tier": 3
+        }
+      ],
+      "explanation": "For cube edge q: r = q/2, h = q, and slant height = q√5/2.",
+      "sourceRefs": [
+        "SRC-PYCS p.20"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "r14",
+      "moduleId": "spheres-segments",
+      "category": "vocabulary",
+      "interaction": "text-recall",
+      "prompt": "Name a sphere-related object or surface explicitly covered: whole, half, shell, cap, segment, zone, or a circle section.",
+      "scope": "Give a geometric object, not an area formula",
+      "acceptedAnswers": [
+        {
+          "canonical": "Sphere",
+          "aliases": [
+            "sphere"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Hemisphere",
+          "aliases": [
+            "hemisphere"
+          ],
+          "tier": 1
+        },
+        {
+          "canonical": "Hemispherical shell",
+          "aliases": [
+            "hemispherical shell",
+            "hemisphere shell",
+            "shell"
+          ],
+          "tier": 3
+        },
+        {
+          "canonical": "Spherical cap",
+          "aliases": [
+            "spherical cap",
+            "cap",
+            "one base segment",
+            "one base spherical segment"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Spherical segment",
+          "aliases": [
+            "spherical segment",
+            "two base segment",
+            "two base spherical segment"
+          ],
+          "tier": 3
+        },
+        {
+          "canonical": "Spherical zone",
+          "aliases": [
+            "spherical zone",
+            "zone"
+          ],
+          "tier": 4
+        },
+        {
+          "canonical": "Great circle",
+          "aliases": [
+            "great circle"
+          ],
+          "tier": 2
+        },
+        {
+          "canonical": "Small circle",
+          "aliases": [
+            "small circle"
+          ],
+          "tier": 3
+        }
+      ],
+      "explanation": "A zone is curved surface; a segment is a solid. Wetted bowl area excludes the liquid’s exposed top.",
+      "sourceRefs": [
+        "SRC-PYCS pp.24–30"
+      ],
+      "lessonIds": [],
+      "editorialStatus": "adapted"
+    }
+  ]
+}

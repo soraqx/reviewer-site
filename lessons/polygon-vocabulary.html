@@ -26,6 +26,7 @@
         <h2 class="module-title">Course navigation</h2>
         <label class="module-select-label" for="desktop-module-select">Module</label>
         <select id="desktop-module-select" class="module-select"></select>
+        <p id="desktop-module-name" class="module-name-readout"></p>
         <ol id="module-list" class="lesson-module-list" aria-label="Lessons in this module"></ol>
       </nav>
 
@@ -34,6 +35,7 @@
           <label>
             <span>Module</span>
             <select id="mobile-module-select" class="module-select"></select>
+            <span id="mobile-module-name" class="module-name-readout"></span>
           </label>
           <label>
             <span>Lesson</span>
@@ -53,6 +55,7 @@
           <p class="lesson-dateline" id="lesson-kicker"></p>
           <h1 id="lesson-title" tabindex="-1"></h1>
           <p class="lesson-lede" id="lesson-lede"></p>
+          <a id="lesson-quiz-link" class="lesson-quiz-link" href="/quiz/">Practice this module</a>
         </header>
 
         <section class="lesson-section" aria-labelledby="outcomes-title">

@@ -2,12 +2,14 @@ import katex from 'katex';
 import { readFile, readdir } from 'node:fs/promises';
 import { z } from 'zod';
 import { resolveUnit } from '../src/lib/units.js';
+import { formulaQuestions } from '../src/data/quiz-formulas.js';
 
 const formulasPath = new URL('../src/data/formulas.json', import.meta.url);
 const coursePath = new URL('../src/data/course.generated.json', import.meta.url);
 const problemsPath = new URL('../src/data/problems/geometry.json', import.meta.url);
 const generatedLessonsPath = new URL('../public/generated/lessons/', import.meta.url);
 const generatedPracticePath = new URL('../public/generated/practice.json', import.meta.url);
+const legacyQuizPath = new URL('../src/data/quiz-legacy.json', import.meta.url);
 const slugSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
 const sourceIdSchema = z.string().regex(/^[A-Z0-9]+(?:-[A-Z0-9]+)*$/);
 const variableSchema = z.object({
@@ -326,11 +328,12 @@ const problemsSchema = z.array(problemSchema).min(1).superRefine((problems, cont
   }
 });
 
-const [formulaSource, courseSource, practiceSource, problemsSource, lessonFiles] = await Promise.all([
+const [formulaSource, courseSource, practiceSource, problemsSource, legacyQuizSource, lessonFiles] = await Promise.all([
   readFile(formulasPath, 'utf8'),
   readFile(coursePath, 'utf8'),
   readFile(generatedPracticePath, 'utf8'),
   readFile(problemsPath, 'utf8'),
+  readFile(legacyQuizPath, 'utf8'),
   readdir(generatedLessonsPath),
 ]);
 const lessonSources = await Promise.all(
@@ -348,8 +351,141 @@ const parsedCourseLessons = courseLessonsSchema.safeParse(
 );
 const parsedCoursePractice = coursePracticeSchemaArray.safeParse(JSON.parse(practiceSource));
 const parsedProblems = problemsSchema.safeParse(JSON.parse(problemsSource));
-
 const validationErrors = [];
+let legacyQuiz;
+try {
+  legacyQuiz = JSON.parse(legacyQuizSource);
+} catch (error) {
+  validationErrors.push(`Legacy quiz data is not valid JSON: ${error.message}`);
+}
+
+const expectedLegacyModuleIds = [
+  'plane-figures-polygons',
+  'triangles',
+  'quadrilaterals',
+  'cartesian-coordinates',
+  'lines',
+  'circles',
+  'parabolas',
+  'ellipses',
+  'hyperbolas',
+  'prisms',
+  'parallelepipeds-cubes',
+  'cylinders',
+  'pyramids',
+  'cones',
+  'spheres-segments',
+];
+const quizIds = new Set();
+if (parsedCourse.success) {
+  const moduleById = new Map(parsedCourse.data.modules.map((module) => [module.id, module]));
+  if (formulaQuestions.length !== 90) {
+    validationErrors.push(`Expected 90 formula questions; found ${formulaQuestions.length}.`);
+  }
+  const formulaCounts = new Map();
+  for (const [index, question] of formulaQuestions.entries()) {
+    if (quizIds.has(question.id)) validationErrors.push(`Duplicate quiz question ID "${question.id}".`);
+    quizIds.add(question.id);
+    formulaCounts.set(question.moduleId, (formulaCounts.get(question.moduleId) ?? 0) + 1);
+    const module = moduleById.get(question.moduleId);
+    if (!module) {
+      validationErrors.push(`Formula question "${question.id}" references missing module "${question.moduleId}".`);
+    }
+    if (
+      !question.lessonIds.length
+      || question.lessonIds.some((lessonId) =>
+        !module?.lessons.some((lesson) => lesson.id === lessonId))
+    ) {
+      validationErrors.push(`Formula question "${question.id}" has an invalid lesson mapping.`);
+    }
+    if (
+      question.category !== 'formula'
+      || question.interaction !== 'single-choice'
+      || !question.prompt
+      || !question.symbolDefinitions
+      || !question.conditions
+      || !question.explanation
+      || !question.formulaFamilyId
+      || !question.sourceRefs.length
+      || question.options.length !== 4
+      || new Set(question.options.map(({ id }) => id)).size !== 4
+      || new Set(question.options.map(({ latex }) => latex)).size !== 4
+      || !question.options.some(({ id }) => id === question.correctOptionId)
+    ) {
+      validationErrors.push(`Formula question "${question.id}" is incomplete or has ambiguous option IDs.`);
+    }
+    for (const [optionIndex, option] of question.options.entries()) {
+      try {
+        katex.renderToString(option.latex, {
+          displayMode: true,
+          output: 'htmlAndMathml',
+          throwOnError: true,
+        });
+      } catch (error) {
+        validationErrors.push(
+          `Formula question "${question.id}" option ${optionIndex + 1} has invalid LaTeX: ${error.message}`,
+        );
+      }
+    }
+    if (!question.options.every(({ accessibleLabel }) => accessibleLabel)) {
+      validationErrors.push(`Formula question "${question.id}" is missing an accessible choice label.`);
+    }
+    if (!question.editorialStatus || !question.sourceRefs.length) {
+      validationErrors.push(`Formula question "${question.id}" is missing source or editorial metadata.`);
+    }
+    if (!Number.isInteger(index)) validationErrors.push('Formula question order is invalid.');
+  }
+  for (const module of parsedCourse.data.modules) {
+    if (formulaCounts.get(module.id) !== 6) {
+      validationErrors.push(`Module "${module.id}" must have six formula questions.`);
+    }
+  }
+}
+
+if (legacyQuiz) {
+  if (
+    JSON.stringify(legacyQuiz.moduleIds) !== JSON.stringify(expectedLegacyModuleIds)
+    || legacyQuiz.questions.length !== 105
+    || legacyQuiz.recall.length !== 15
+  ) {
+    validationErrors.push('Legacy quiz bank must preserve its 105 choice and 15 recall records with explicit module mapping.');
+  }
+  for (const question of [...(legacyQuiz.questions ?? []), ...(legacyQuiz.recall ?? [])]) {
+    if (quizIds.has(question.id)) validationErrors.push(`Duplicate quiz question ID "${question.id}".`);
+    quizIds.add(question.id);
+    if (
+      !expectedLegacyModuleIds.includes(question.moduleId)
+      || !question.prompt
+      || !question.explanation
+      || !question.sourceRefs?.length
+    ) {
+      validationErrors.push(`Legacy quiz question "${question.id}" has incomplete module or source metadata.`);
+    }
+  }
+  for (const question of legacyQuiz.questions ?? []) {
+    if (
+      question.category !== 'problem'
+      || question.interaction !== 'single-choice'
+      || question.options.length !== 4
+      || new Set(question.options.map(({ id }) => id)).size !== 4
+      || !question.options.some(({ id }) => id === question.correctOptionId)
+    ) {
+      validationErrors.push(`Legacy choice question "${question.id}" has invalid answer options.`);
+    }
+  }
+  for (const question of legacyQuiz.recall ?? []) {
+    if (
+      question.category !== 'vocabulary'
+      || question.interaction !== 'text-recall'
+      || !question.acceptedAnswers.length
+      || question.acceptedAnswers.some(({ canonical, aliases, tier }) =>
+        !canonical || !aliases.length || !Number.isInteger(tier) || tier < 1 || tier > 4)
+    ) {
+      validationErrors.push(`Vocabulary prompt "${question.id}" has invalid accepted answers.`);
+    }
+  }
+}
+
 if (parsedCourse.success && parsedCourseLessons.success) {
   const metadataById = new Map(parsedCourse.data.lessons.map((lesson) => [lesson.id, lesson]));
   const detailsById = new Map(parsedCourseLessons.data.map((lesson) => [lesson.id, lesson]));
@@ -456,6 +592,6 @@ if (
   process.exitCode = 1;
 } else {
   console.log(
-    `Validated ${parsedFormulas.data.length} formulas, ${parsedCourse.data.modules.length} modules, ${parsedCourse.data.lessons.length} lessons, ${parsedCoursePractice.data.length} practice items, and ${parsedProblems.data.length} randomized problem templates.`,
+    `Validated ${parsedFormulas.data.length} formulas, ${parsedCourse.data.modules.length} modules, ${parsedCourse.data.lessons.length} lessons, ${parsedCoursePractice.data.length} practice items, ${parsedProblems.data.length} randomized problem templates, and ${formulaQuestions.length + legacyQuiz.questions.length} quiz choices plus ${legacyQuiz.recall.length} recall prompts.`,
   );
 }

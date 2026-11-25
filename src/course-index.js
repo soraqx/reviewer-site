@@ -41,6 +41,11 @@ for (const module of course.modules) {
   prerequisites.className = 'module-prerequisite';
   prerequisites.textContent = `Prerequisites: ${module.prerequisites || 'None specified'}`;
   context.append(prerequisites);
+  const quizLink = document.createElement('a');
+  quizLink.className = 'text-link';
+  quizLink.href = `/quiz/?module=${encodeURIComponent(module.id)}`;
+  quizLink.textContent = 'Practice this module';
+  context.append(quizLink);
   const outcomes = document.createElement('ul');
   outcomes.className = 'module-outcomes';
   for (const outcome of module.outcomes) {

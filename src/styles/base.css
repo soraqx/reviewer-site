@@ -7,11 +7,13 @@
 }
 
 html {
+  overflow-x: clip;
   scrollbar-color: var(--color-muted) var(--color-paper);
   scroll-padding-top: var(--space-xl);
 }
 
 body {
+  overflow-x: clip;
   min-width: 320px;
   margin: 0;
   background: var(--color-paper);

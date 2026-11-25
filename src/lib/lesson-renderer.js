@@ -6,6 +6,8 @@ function renderModuleNavigation(course, currentLesson) {
   const mobileModuleSelect = document.querySelector('#mobile-module-select');
   const mobileLessonSelect = document.querySelector('#mobile-lesson-select');
   const currentModule = course.modules.find(({ id }) => id === currentLesson.moduleId);
+  document.querySelector('#desktop-module-name').textContent = currentModule.title;
+  document.querySelector('#mobile-module-name').textContent = currentModule.title;
   const moduleOptions = course.modules.map((module) => {
     const option = document.createElement('option');
     option.value = module.id;
@@ -30,8 +32,14 @@ function renderModuleNavigation(course, currentLesson) {
   for (const lesson of currentModule.lessons) {
     const item = document.createElement('li');
     const link = document.createElement('a');
+    const marker = document.createElement('span');
+    const label = document.createElement('span');
+    marker.className = 'lesson-link-marker';
+    marker.setAttribute('aria-hidden', 'true');
+    label.className = 'lesson-link-label';
     link.href = `/lessons/${lesson.id}.html`;
-    link.textContent = lesson.title;
+    label.textContent = lesson.title;
+    link.append(marker, label);
     link.title = lesson.title;
     if (lesson.id === currentLesson.id) {
       link.setAttribute('aria-current', 'page');
@@ -120,6 +128,8 @@ export function renderLesson(lesson, course) {
     `Module ${module.order} of ${course.modules.length}: ${module.title}`;
   document.querySelector('#lesson-title').textContent = lesson.title;
   document.querySelector('#lesson-lede').textContent = lesson.lead;
+  const quizLink = document.querySelector('#lesson-quiz-link');
+  quizLink.href = `/quiz/?module=${encodeURIComponent(module.id)}`;
   const sectionTitles = {
     'poly-01': 'Names and parts of polygons',
     'tri-01': 'Triangle classification',

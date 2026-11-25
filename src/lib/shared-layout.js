@@ -4,9 +4,10 @@ const headerMarkup = `
       Fieldnotes<span class="wordmark-period">.</span>
     </a>
     <nav class="site-nav" aria-label="Main navigation">
-      <a href="/formulas/">Formulas</a>
-      <a href="/lessons/">Lessons</a>
-      <a href="/practice/">Practice</a>
+      <a href="/formulas/" data-nav="formulas">Formulas</a>
+      <a href="/lessons/" data-nav="lessons">Lessons</a>
+      <a href="/practice/" data-nav="practice">Practice</a>
+      <a href="/quiz/" data-nav="quiz">Quiz</a>
     </nav>
     <button class="theme-toggle" type="button" aria-pressed="false">
       <span class="theme-toggle-label">Dark mode</span>
@@ -57,6 +58,10 @@ function setTheme(theme, button, status) {
 export function mountSharedLayout() {
   document.querySelector('#site-header').innerHTML = headerMarkup;
   document.querySelector('#site-footer').innerHTML = footerMarkup;
+  const activeSection = window.location.pathname.split('/')[1];
+  document.querySelectorAll('.site-nav [data-nav]').forEach((link) => {
+    link.setAttribute('aria-current', link.dataset.nav === activeSection ? 'page' : 'false');
+  });
 
   const toggle = document.querySelector('.theme-toggle');
   const status = document.querySelector('#theme-status');
