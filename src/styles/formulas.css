@@ -1,6 +1,6 @@
 /* Hallmark · shape: index · genre: editorial · theme: Newsprint · redesign: full
  * nav: kept · signature: ruled formula entries · states: filters, bookmarks, copy
- * axes: light/slab-serif/warm · contrast: rendered · v2.0.0 */
+ * axes: light/slab-serif/warm · contrast: rendered · v3.0.0 */
 /* Hallmark · critique: the index stays dense without boxing each relationship. */
 .formula-page {
   padding-block: clamp(3rem, 7vw, 6.25rem) 5rem;
@@ -17,7 +17,7 @@
 }
 
 .formula-intro > p:last-child {
-  max-width: 36rem;
+  max-width: 40rem;
   margin-bottom: 0;
   color: var(--muted);
   font-size: 1.03rem;
@@ -95,6 +95,76 @@
   text-underline-offset: 0.2em;
 }
 
+.formula-group {
+  scroll-margin-top: 1rem;
+}
+
+.formula-group:target {
+  outline: 1px solid var(--color-accent);
+  outline-offset: 0.6rem;
+}
+
+.formula-group-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-block: 2.25rem 0.85rem;
+  border-top: 3px double var(--color-rule-2);
+}
+
+.formula-group-index {
+  margin: 0 0 0.35rem;
+  color: var(--accent);
+  font-family: var(--font-outlier);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.formula-group-header h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.75rem);
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.formula-group-count {
+  flex: 0 0 auto;
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-outlier);
+  font-size: 0.74rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.formula-group-note,
+.formula-notation {
+  max-width: 62rem;
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.formula-notation summary {
+  color: var(--accent);
+  font-family: var(--font-outlier);
+  font-size: 0.76rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.formula-notation p {
+  margin: 0.45rem 0 0;
+  line-height: 1.5;
+}
+
+.formula-group--advanced .formula-group-header {
+  border-top-color: var(--accent);
+}
+
 .formula-entry {
   display: grid;
   grid-template-columns: minmax(12rem, 0.85fr) minmax(14rem, 1fr) minmax(13rem, 0.85fr);
@@ -130,10 +200,10 @@
   gap: 0.55rem;
 }
 
-.formula-name-row h2 {
+.formula-name-row h3 {
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(1.45rem, 2.15vw, 2rem);
+  font-size: clamp(1.35rem, 2.05vw, 1.85rem);
   letter-spacing: -0.035em;
   line-height: 1.12;
 }
@@ -148,10 +218,43 @@
   text-decoration: none;
 }
 
-.formula-equation {
+.formula-badge {
+  display: inline-block;
+  margin: 0.7rem 0 0;
+  padding: 0.2rem 0.45rem;
+  border: 1px solid var(--color-accent);
+  color: var(--accent);
+  font-family: var(--font-outlier);
+  font-size: 0.67rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.formula-expressions {
   grid-column: 2;
   min-width: 0;
   align-self: center;
+}
+
+.formula-expression + .formula-expression {
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid color-mix(in srgb, var(--line) 60%, transparent);
+}
+
+.formula-expression-label {
+  margin: 0 0 0.25rem;
+  color: var(--muted);
+  font-family: var(--font-outlier);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.formula-equation {
+  min-width: 0;
   overflow-x: auto;
   color: var(--ink);
   font-size: clamp(1rem, 1.35vw, 1.25rem);
@@ -165,6 +268,13 @@
 .formula-equation .katex-display {
   margin: 0.35rem 0;
   text-align: left;
+}
+
+.formula-rule {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.98rem;
+  line-height: 1.5;
 }
 
 .formula-explanation {
@@ -186,113 +296,105 @@
   font-weight: 500;
 }
 
-.formula-variables {
-  grid-column: 2 / 4;
+.formula-note {
+  color: var(--muted);
+}
+
+.formula-lesson-link,
+.formula-lesson-reference {
+  display: inline-block;
+  margin: 0.2rem 0 0;
+  font-family: var(--font-outlier);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.formula-lesson-link {
+  color: var(--accent);
+  text-underline-offset: 0.2em;
+}
+
+.formula-lesson-reference {
+  color: var(--muted);
+}
+
+.formula-source {
+  grid-column: 1 / -1;
   margin-top: 1.25rem;
 }
 
-.formula-variables h3 {
-  margin-bottom: var(--space-xs);
+.formula-source > summary {
+  width: fit-content;
   color: var(--muted);
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-family: var(--font-outlier);
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: pointer;
 }
 
-.variable-list {
+.source-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
-  gap: var(--space-2xs) var(--space-md);
-  margin: 0;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 0.35rem var(--space-md);
+  margin: 0.65rem 0 0;
+  padding-top: 0.65rem;
+  border-top: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
 }
 
-.variable-item {
+.source-list > div {
   display: grid;
-  grid-template-columns: 3.2rem minmax(7rem, 1.2fr) minmax(4rem, 0.8fr);
-  align-items: baseline;
-  gap: 0.4rem;
-  padding-block: 0.3rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--line) 65%, transparent);
-  font-size: 0.9rem;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: 0.5rem;
+  padding-block: 0.2rem;
 }
 
-.variable-item dt,
-.variable-item dd {
+.source-list dt,
+.source-list dd {
   margin: 0;
+  font-size: 0.76rem;
 }
 
-.variable-item dt {
+.source-list dt {
   color: var(--ink);
+  font-weight: 600;
 }
 
-.variable-item .katex {
-  font-size: 0.95em;
-}
-
-.variable-item dd {
+.source-list dd {
   min-width: 0;
   color: var(--muted);
-  overflow-wrap: break-word;
-}
-
-.variable-item .variable-unit {
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 .formula-entry-footer {
   display: flex;
   flex-wrap: wrap;
-  grid-column: 1 / 4;
+  grid-column: 1 / -1;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-md);
-  margin-top: 1.25rem;
+  justify-content: flex-end;
+  gap: var(--space-xs);
+  margin-top: 1rem;
 }
 
-.formula-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.formula-tags li {
-  padding: 0;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.formula-tags li + li::before {
-  padding-inline: 0.45rem;
-  color: var(--line);
-  content: "/";
+.copy-latex,
+.bookmark-toggle {
+  min-height: 2.5rem;
+  padding: 0.5rem 0.8rem;
+  border: 0;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .copy-latex {
-  min-height: 2.75rem;
-  padding: 0.55rem var(--space-sm);
-  border: 0;
   border-block: 1px solid var(--color-ink);
   background: transparent;
   color: var(--ink);
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
 }
 
 .bookmark-toggle {
-  min-height: 2.75rem;
-  padding: 0.55rem 0.8rem;
-  border: 0;
   background: var(--color-ink);
   color: var(--color-paper);
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
 }
 
 .bookmark-toggle:hover:not(:disabled) {
@@ -329,7 +431,7 @@
     grid-column: 1;
   }
 
-  .formula-equation {
+  .formula-expressions {
     grid-column: 2;
     grid-row: 1;
   }
@@ -339,10 +441,10 @@
     grid-row: 2;
   }
 
-  .formula-variables {
+  .formula-source {
     grid-column: 1 / 3;
     grid-row: 3;
-    margin-top: 0.1rem;
+    margin-top: 0.25rem;
   }
 
   .formula-entry-footer {
@@ -362,6 +464,12 @@
     grid-column: 1 / 3;
   }
 
+  .formula-group-header {
+    align-items: start;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
   .formula-entry {
     grid-template-columns: 1fr;
     row-gap: var(--space-sm);
@@ -369,9 +477,9 @@
   }
 
   .formula-heading,
-  .formula-equation,
+  .formula-expressions,
   .formula-explanation,
-  .formula-variables,
+  .formula-source,
   .formula-entry-footer {
     grid-column: 1;
     grid-row: auto;
@@ -381,7 +489,12 @@
     padding-block: 0.2rem;
   }
 
-  .variable-list {
+  .source-list {
     grid-template-columns: 1fr;
+  }
+
+  .source-list > div {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
   }
 }

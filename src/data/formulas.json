@@ -1,231 +1,4474 @@
-[
-  {
-    "id": "quadratic-formula",
-    "topic": "Algebra",
-    "name": "Quadratic formula",
-    "latex": "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}",
-    "variables": [
-      { "symbol": "a", "meaning": "Nonzero coefficient of the squared term", "unit": "same units as b/x" },
-      { "symbol": "b", "meaning": "Coefficient of the linear term", "unit": "context-dependent" },
-      { "symbol": "c", "meaning": "Constant term", "unit": "same units as ax²" },
-      { "symbol": "x", "meaning": "Root of the quadratic equation ax² + bx + c = 0", "unit": "context-dependent" }
-    ],
-    "notes": "Solves a quadratic equation in one variable.",
-    "conditions": "The equation is ax² + bx + c = 0 with a ≠ 0; real roots exist when b² − 4ac ≥ 0.",
-    "relatedLessons": [],
-    "tags": ["algebra", "equations", "roots"]
-  },
-  {
-    "id": "binomial-theorem",
-    "topic": "Algebra",
-    "name": "Binomial theorem",
-    "latex": "(x+y)^n = \\sum_{k=0}^{n} {n \\choose k}x^{n-k}y^k",
-    "variables": [
-      { "symbol": "x, y", "meaning": "Terms in the binomial", "unit": "context-dependent" },
-      { "symbol": "n", "meaning": "Nonnegative integer exponent", "unit": "dimensionless" },
-      { "symbol": "k", "meaning": "Summation index from 0 to n", "unit": "dimensionless" },
-      { "symbol": "{n \\choose k}", "meaning": "Binomial coefficient n!/[k!(n−k)!]", "unit": "dimensionless" }
-    ],
-    "notes": "Expands an integer power of a sum into terms involving powers of x and y.",
-    "conditions": "n is a nonnegative integer; the expansion also applies to commuting algebraic quantities.",
-    "relatedLessons": [],
-    "tags": ["algebra", "expansion", "series"]
-  },
-  {
-    "id": "euler-formula",
-    "topic": "Complex numbers",
-    "name": "Euler's formula",
-    "latex": "e^{i\\theta} = \\cos\\theta + i\\sin\\theta",
-    "variables": [
-      { "symbol": "i", "meaning": "Imaginary unit satisfying i² = −1", "unit": "dimensionless" },
-      { "symbol": "\\theta", "meaning": "Real angle", "unit": "rad" },
-      { "symbol": "e", "meaning": "Base of the natural logarithm", "unit": "dimensionless" }
-    ],
-    "notes": "Connects complex exponentials with trigonometric functions.",
-    "conditions": "The angle is expressed in radians.",
-    "relatedLessons": [],
-    "tags": ["complex numbers", "exponentials", "trigonometry"]
-  },
-  {
-    "id": "determinant-two-by-two",
-    "topic": "Linear algebra",
-    "name": "Determinant of a 2 × 2 matrix",
-    "latex": "\\det(A) = ad - bc,\\quad A = \\begin{bmatrix}a & b \\\\ c & d\\end{bmatrix}",
-    "variables": [
-      { "symbol": "A", "meaning": "Two-by-two square matrix", "unit": "entries inherit their units" },
-      { "symbol": "a, b, c, d", "meaning": "Entries of the matrix A", "unit": "context-dependent" },
-      { "symbol": "\\det(A)", "meaning": "Determinant of A", "unit": "product of matrix-entry units" }
-    ],
-    "notes": "Computes the determinant, which indicates whether a square matrix is invertible.",
-    "conditions": "For a 2 × 2 matrix A is invertible exactly when ad − bc ≠ 0.",
-    "relatedLessons": [],
-    "tags": ["determinant", "linear algebra", "matrices"]
-  },
-  {
-    "id": "inverse-two-by-two",
-    "topic": "Linear algebra",
-    "name": "Inverse of a 2 × 2 matrix",
-    "latex": "A^{-1} = \\frac{1}{ad-bc}\\begin{bmatrix}d & -b \\\\ -c & a\\end{bmatrix}",
-    "variables": [
-      { "symbol": "A", "meaning": "Matrix with rows (a, b) and (c, d)", "unit": "context-dependent" },
-      { "symbol": "a, b, c, d", "meaning": "Entries of A", "unit": "context-dependent" },
-      { "symbol": "A^{-1}", "meaning": "Multiplicative inverse of A", "unit": "reciprocal matrix-entry units" }
-    ],
-    "notes": "Gives a closed-form inverse for a two-by-two matrix.",
-    "conditions": "The determinant ad − bc must be nonzero.",
-    "relatedLessons": [],
-    "tags": ["inverse", "linear algebra", "matrices"]
-  },
-  {
-    "id": "eigenvalue-characteristic-equation",
-    "topic": "Linear algebra",
-    "name": "Characteristic equation for eigenvalues",
-    "latex": "\\det(A - \\lambda I) = 0",
-    "variables": [
-      { "symbol": "A", "meaning": "Square matrix", "unit": "context-dependent" },
-      { "symbol": "\\lambda", "meaning": "Eigenvalue of A", "unit": "same units as A's entries" },
-      { "symbol": "I", "meaning": "Identity matrix with the same size as A", "unit": "dimensionless" }
-    ],
-    "notes": "Find eigenvalues by solving the characteristic polynomial det(A − λI) = 0.",
-    "conditions": "A is a square matrix and I has the same dimensions; eigenvalues may be complex.",
-    "relatedLessons": [],
-    "tags": ["eigenvalues", "linear algebra", "matrices"]
-  },
-  {
-    "id": "power-rule-derivative",
-    "topic": "Calculus",
-    "name": "Power rule for differentiation",
-    "latex": "\\frac{d}{dx}x^n = nx^{n-1}",
-    "variables": [
-      { "symbol": "x", "meaning": "Independent variable", "unit": "context-dependent" },
-      { "symbol": "n", "meaning": "Constant exponent", "unit": "dimensionless" }
-    ],
-    "notes": "Bring the exponent down as a coefficient and reduce the exponent by one.",
-    "conditions": "For real n, the rule applies where xⁿ is differentiable; for noninteger n, restrict the domain as needed.",
-    "relatedLessons": [],
-    "tags": ["calculus", "derivatives", "power rule"]
-  },
-  {
-    "id": "chain-rule",
-    "topic": "Calculus",
-    "name": "Chain rule",
-    "latex": "\\frac{d}{dx}f(g(x)) = f'(g(x))g'(x)",
-    "variables": [
-      { "symbol": "x", "meaning": "Independent variable", "unit": "context-dependent" },
-      { "symbol": "g(x)", "meaning": "Inner function", "unit": "context-dependent" },
-      { "symbol": "f(g(x))", "meaning": "Composite function", "unit": "context-dependent" }
-    ],
-    "notes": "Differentiate the outer function evaluated at the inner function, then multiply by the inner derivative.",
-    "conditions": "The relevant functions are differentiable at the points considered.",
-    "relatedLessons": [],
-    "tags": ["calculus", "composite functions", "derivatives"]
-  },
-  {
-    "id": "integration-by-parts",
-    "topic": "Calculus",
-    "name": "Integration by parts",
-    "latex": "\\int u\\,dv = uv - \\int v\\,du",
-    "variables": [
-      { "symbol": "u", "meaning": "Differentiable function selected as the first factor", "unit": "context-dependent" },
-      { "symbol": "dv", "meaning": "Differential of the remaining integrand", "unit": "context-dependent" },
-      { "symbol": "v", "meaning": "Antiderivative of dv", "unit": "context-dependent" },
-      { "symbol": "du", "meaning": "Differential of u", "unit": "context-dependent" }
-    ],
-    "notes": "Transforms an integral of a product into a related integral that may be easier to evaluate.",
-    "conditions": "u and v are sufficiently differentiable and the integrals exist on the interval.",
-    "relatedLessons": [],
-    "tags": ["calculus", "integration", "integration by parts"]
-  },
-  {
-    "id": "fundamental-theorem-calculus",
-    "topic": "Calculus",
-    "name": "Fundamental theorem of calculus",
-    "latex": "\\int_a^b f(x)\\,dx = F(b)-F(a),\\quad F'(x)=f(x)",
-    "variables": [
-      { "symbol": "f(x)", "meaning": "Integrable function on [a,b]", "unit": "context-dependent" },
-      { "symbol": "F(x)", "meaning": "An antiderivative of f", "unit": "f-units × x-units" },
-      { "symbol": "a, b", "meaning": "Lower and upper integration limits", "unit": "same as x" }
-    ],
-    "notes": "Evaluates a definite integral using any antiderivative of the integrand.",
-    "conditions": "f is continuous on [a,b] and F is an antiderivative of f on that interval.",
-    "relatedLessons": [],
-    "tags": ["calculus", "definite integrals", "integration"]
-  },
-  {
-    "id": "gradient-scalar-field",
-    "topic": "Vector calculus",
-    "name": "Gradient of a scalar field",
-    "latex": "\\nabla f = \\left(\\frac{\\partial f}{\\partial x},\\frac{\\partial f}{\\partial y},\\frac{\\partial f}{\\partial z}\\right)",
-    "variables": [
-      { "symbol": "f", "meaning": "Scalar-valued field of position", "unit": "context-dependent" },
-      { "symbol": "\\nabla f", "meaning": "Vector of the field's partial derivatives", "unit": "f-units per coordinate unit" },
-      { "symbol": "x, y, z", "meaning": "Independent spatial coordinates", "unit": "context-dependent" }
-    ],
-    "notes": "The gradient points in the direction of greatest local increase and its magnitude is the maximum directional derivative.",
-    "conditions": "The scalar field is differentiable at the point.",
-    "relatedLessons": [],
-    "tags": ["calculus", "gradient", "vector calculus"]
-  },
-  {
-    "id": "divergence-vector-field",
-    "topic": "Vector calculus",
-    "name": "Divergence of a vector field",
-    "latex": "\\nabla\\cdot\\vec{F} = \\frac{\\partial F_x}{\\partial x}+\\frac{\\partial F_y}{\\partial y}+\\frac{\\partial F_z}{\\partial z}",
-    "variables": [
-      { "symbol": "\\vec{F}", "meaning": "Differentiable vector field with components Fₓ, Fᵧ, F_z", "unit": "context-dependent" },
-      { "symbol": "\\nabla\\cdot\\vec{F}", "meaning": "Scalar divergence of the vector field", "unit": "field-units per coordinate unit" },
-      { "symbol": "x, y, z", "meaning": "Independent coordinates", "unit": "context-dependent" }
-    ],
-    "notes": "Measures the net outward flux density of a vector field at a point.",
-    "conditions": "The vector field has differentiable components in Cartesian coordinates.",
-    "relatedLessons": [],
-    "tags": ["calculus", "divergence", "vector calculus"]
-  },
-  {
-    "id": "first-order-linear-ode",
-    "topic": "Differential equations",
-    "name": "First-order linear differential equation",
-    "latex": "y(x)=e^{-\\int P(x)\\,dx}\\left(\\int Q(x)e^{\\int P(x)\\,dx}\\,dx+C\\right)",
-    "variables": [
-      { "symbol": "y(x)", "meaning": "Unknown function", "unit": "context-dependent" },
-      { "symbol": "P(x), Q(x)", "meaning": "Known coefficient and forcing functions in y′ + P(x)y = Q(x)", "unit": "depends on x and y units" },
-      { "symbol": "C", "meaning": "Integration constant determined by an initial condition", "unit": "same as y" }
-    ],
-    "notes": "Solves a first-order linear ODE using an integrating factor.",
-    "conditions": "The ODE is y′ + P(x)y = Q(x) on an interval where P and Q are continuous.",
-    "relatedLessons": [],
-    "tags": ["differential equations", "first-order", "integrating factor"]
-  },
-  {
-    "id": "laplace-transform-derivative",
-    "topic": "Transforms",
-    "name": "Laplace transform of a derivative",
-    "latex": "\\mathcal{L}\\{f'(t)\\}=sF(s)-f(0^+)",
-    "variables": [
-      { "symbol": "f(t)", "meaning": "Time-domain function", "unit": "context-dependent" },
-      { "symbol": "F(s)", "meaning": "Laplace transform of f(t)", "unit": "f-units × time" },
-      { "symbol": "s", "meaning": "Complex transform variable", "unit": "inverse time when t is time" },
-      { "symbol": "f(0⁺)", "meaning": "Right-hand initial value of f", "unit": "same as f" }
-    ],
-    "notes": "Converts differentiation in time into multiplication by s and an initial-value term.",
-    "conditions": "f is piecewise continuous and of exponential order so its one-sided Laplace transform exists.",
-    "relatedLessons": [],
-    "tags": ["differential equations", "initial conditions", "Laplace transform"]
-  },
-  {
-    "id": "newton-raphson-method",
-    "topic": "Numerical methods",
-    "name": "Newton–Raphson method",
-    "latex": "x_{n+1}=x_n-\\frac{f(x_n)}{f'(x_n)}",
-    "variables": [
-      { "symbol": "x_n", "meaning": "Current estimate of a root", "unit": "same as x" },
-      { "symbol": "x_{n+1}", "meaning": "Next estimate produced by the iteration", "unit": "same as x" },
-      { "symbol": "f(x)", "meaning": "Function whose root is sought", "unit": "context-dependent" },
-      { "symbol": "f'(x)", "meaning": "Derivative of f", "unit": "f-units per x-unit" }
-    ],
-    "notes": "Iteratively improves an estimate by intersecting the tangent at the current point with the x-axis.",
-    "conditions": "f′(xₙ) is nonzero and the initial estimate is sufficiently close to a root for convergence.",
-    "relatedLessons": [],
-    "tags": ["iteration", "numerical methods", "root finding"]
-  }
-]
+{
+  "catalogueVersion": "1.0",
+  "sourceContentVersion": "1.1",
+  "sourceFile": "geometry-website-content-pack.md",
+  "sections": [
+    {
+      "id": "plane-figures-polygons",
+      "order": 1,
+      "title": "Plane Figures and Polygons",
+      "kind": "module",
+      "notation": "n: number of sides; s: side length; P: perimeter; A: area; r_a: apothem; N_d: diagonal count; S: interior-angle sum; q: similarity scale factor.",
+      "note": ""
+    },
+    {
+      "id": "triangles",
+      "order": 2,
+      "title": "Triangles",
+      "kind": "module",
+      "notation": "a,b,c: sides opposite A,B,C; K: area; s_p: semiperimeter; h_c,m_c,ℓ_c: altitude, median, internal bisector to side c; q: equilateral side.",
+      "note": ""
+    },
+    {
+      "id": "quadrilaterals",
+      "order": 3,
+      "title": "Quadrilaterals",
+      "kind": "module",
+      "notation": "a,b: adjacent parallelogram sides; θ: included side angle; φ: angle between diagonals; d₁,d₂: full diagonals; L,W: rectangle dimensions; q: square/rhombus side; s_p: semiperimeter.",
+      "note": ""
+    },
+    {
+      "id": "cartesian-coordinates",
+      "order": 4,
+      "title": "Cartesian Coordinates",
+      "kind": "module",
+      "notation": "(x₁,y₁),(x₂,y₂): endpoints; m:n: division ratio; t: directed interpolation parameter; A: area in the coordinate-area formulas. A and B in Q=A+t(B−A) denote points.",
+      "note": ""
+    },
+    {
+      "id": "lines",
+      "order": 5,
+      "title": "Lines",
+      "kind": "module",
+      "notation": "m: slope; (x₁,y₁): known point; A,B,C: line coefficients; a_x,b_y: nonzero intercepts; u,v: direction or vertex vectors as specified.",
+      "note": ""
+    },
+    {
+      "id": "circles",
+      "order": 6,
+      "title": "Conics and Circles",
+      "kind": "module",
+      "notation": "(h,k): circle center; r: radius; D,E,F: normalized general-circle coefficients; e: eccentricity; f: focus coordinate in the special focus/directrix constructions.",
+      "note": ""
+    },
+    {
+      "id": "parabolas",
+      "order": 7,
+      "title": "Parabolas",
+      "kind": "module",
+      "notation": "(h,k): vertex; p: signed vertex-to-focus displacement, p≠0. Vertical and horizontal formulas have different axis and directrix equations.",
+      "note": ""
+    },
+    {
+      "id": "ellipses",
+      "order": 8,
+      "title": "Ellipses",
+      "kind": "module",
+      "notation": "(h,k): center; a: semimajor axis; b: semiminor axis; c: center-to-focus distance; e: eccentricity. Use a>b>0 for the noncircular cases.",
+      "note": ""
+    },
+    {
+      "id": "hyperbolas",
+      "order": 9,
+      "title": "Hyperbolas",
+      "kind": "module",
+      "notation": "(h,k): center; a: center-to-vertex distance; b: conjugate semiaxis; c: center-to-focus distance; e: eccentricity. a,b>0, without an a>b requirement.",
+      "note": ""
+    },
+    {
+      "id": "prisms",
+      "order": 10,
+      "title": "Prisms",
+      "kind": "module",
+      "notation": "B: one base area; P_b: base perimeter; h: perpendicular base-plane separation; b₀,h_t: triangular-end base/altitude; u,v,w: triangular-end sides; L: perpendicular prism length.",
+      "note": ""
+    },
+    {
+      "id": "parallelepipeds-cubes",
+      "order": 11,
+      "title": "Parallelepipeds and Cubes",
+      "kind": "module",
+      "notation": "q: cube edge; L,W,H: cuboid edge lengths; B: selected base area; h: its perpendicular height. Vector u,v,w occur only in the optional extension.",
+      "note": ""
+    },
+    {
+      "id": "cylinders",
+      "order": 12,
+      "title": "Cylinders",
+      "kind": "module",
+      "notation": "r: circular radius or pipe inner radius; R: pipe outer radius; d: diameter; h: perpendicular height/pipe length; a,b: ellipse semiaxes; C_e: ellipse perimeter.",
+      "note": ""
+    },
+    {
+      "id": "pyramids",
+      "order": 13,
+      "title": "Pyramids",
+      "kind": "module",
+      "notation": "B,P_b: base area/perimeter; h: altitude; ℓ: face slant height; E: lateral edge; s: base side; r_a: base apothem; R_b: base circumradius.",
+      "note": ""
+    },
+    {
+      "id": "cones",
+      "order": 14,
+      "title": "Cones",
+      "kind": "module",
+      "notation": "r: base radius; h: perpendicular height; ℓ: slant height; q: cube edge only in the specified inscribed-cone preset.",
+      "note": ""
+    },
+    {
+      "id": "spheres-segments",
+      "order": 15,
+      "title": "Spheres and Spherical Segments",
+      "kind": "module",
+      "notation": "R: sphere radius; D: sphere diameter; h: zone/cap/segment height; r,r₁,r₂: cut-circle radii; R_o,R_i: outer/inner hemispherical shell radii.",
+      "note": ""
+    },
+    {
+      "id": "shared-support",
+      "order": 16,
+      "title": "Shared support formulas",
+      "kind": "shared",
+      "notation": "",
+      "note": ""
+    },
+    {
+      "id": "advanced-implementation",
+      "order": 17,
+      "title": "Optional advanced / implementation formulas",
+      "kind": "advanced",
+      "notation": "",
+      "note": "These relationships are already in the supplied content pack, but they are optional and are not required student material. Approximate expressions are labeled."
+    }
+  ],
+  "entries": [
+    {
+      "id": "x-poly-01",
+      "catalogueId": "X-POLY-01",
+      "name": "Similarity scale, perimeter ratio, and area ratio",
+      "sectionId": "plane-figures-polygons",
+      "sectionOrder": 1,
+      "sectionTitle": "Plane Figures and Polygons",
+      "topic": "Plane Figures and Polygons",
+      "kind": "module",
+      "lessonCode": "POLY-02",
+      "lessonId": "poly-02",
+      "lessonTitle": "Similar polygons",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L187",
+      "sourceNote": "SRC-POLY p. 11; corrected ratio notation.",
+      "conditions": "Corresponding sides s₁,s₂ with q=s₁/s₂; preserve numerator order.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "q=\\frac{s_1}{s_2},\\qquad \\frac{P_1}{P_2}=q,\\qquad \\frac{A_1}{A_2}=q^2"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-p01",
+      "catalogueId": "F-P01",
+      "name": "Perimeter",
+      "sectionId": "plane-figures-polygons",
+      "sectionOrder": 1,
+      "sectionTitle": "Plane Figures and Polygons",
+      "topic": "Plane Figures and Polygons",
+      "kind": "module",
+      "lessonCode": "POLY-03",
+      "lessonId": "poly-03",
+      "lessonTitle": "Angles, perimeter, and diagonals",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L203",
+      "sourceNote": "SRC-POLY pp. 12–14.",
+      "conditions": "Regular polygon with integer n≥3 and side length s>0. P is the perimeter.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "P=ns"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-p02",
+      "catalogueId": "F-P02",
+      "name": "Central angle",
+      "sectionId": "plane-figures-polygons",
+      "sectionOrder": 1,
+      "sectionTitle": "Plane Figures and Polygons",
+      "topic": "Plane Figures and Polygons",
+      "kind": "module",
+      "lessonCode": "POLY-03",
+      "lessonId": "poly-03",
+      "lessonTitle": "Angles, perimeter, and diagonals",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L204",
+      "sourceNote": "SRC-POLY pp. 12–14.",
+      "conditions": "Regular polygon with integer n≥3; this is one central angle, measured in degrees.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\theta_c=360^\\circ/n"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "degree-angles"
+      ]
+    },
+    {
+      "id": "f-p03",
+      "catalogueId": "F-P03",
+      "name": "Interior-angle sum",
+      "sectionId": "plane-figures-polygons",
+      "sectionOrder": 1,
+      "sectionTitle": "Plane Figures and Polygons",
+      "topic": "Plane Figures and Polygons",
+      "kind": "module",
+      "lessonCode": "POLY-03",
+      "lessonId": "poly-03",
+      "lessonTitle": "Angles, perimeter, and diagonals",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L205",
+      "sourceNote": "SRC-POLY pp. 12–14.",
+      "conditions": "Simple n-gon with integer n≥3; S is the total interior-angle sum in degrees, not one angle.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "S=(n-2)180^\\circ"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "degree-angles"
+      ]
+    },
+    {
+      "id": "f-p04",
+      "catalogueId": "F-P04",
+      "name": "Each interior angle",
+      "sectionId": "plane-figures-polygons",
+      "sectionOrder": 1,
+      "sectionTitle": "Plane Figures and Polygons",
+      "topic": "Plane Figures and Polygons",
+      "kind": "module",
+      "lessonCode": "POLY-03",
+      "lessonId": "poly-03",
+      "lessonTitle": "Angles, perimeter, and diagonals",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L206",
+      "sourceNote": "SRC-POLY pp. 12–14.",
+      "conditions": "Regular n-gon with integer n≥3; θ_i is each interior angle, measured in degrees.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\theta_i=(n-2)180^\\circ/n"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "degree-angles"
+      ]
+    },
+    {
+      "id": "f-p05",
+      "catalogueId": "F-P05",
+      "name": "Each exterior angle",
+      "sectionId": "plane-figures-polygons",
+      "sectionOrder": 1,
+      "sectionTitle": "Plane Figures and Polygons",
+      "topic": "Plane Figures and Polygons",
+      "kind": "module",
+      "lessonCode": "POLY-03",
+      "lessonId": "poly-03",
+      "lessonTitle": "Angles, perimeter, and diagonals",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L207",
+      "sourceNote": "SRC-POLY pp. 12–14.",
+      "conditions": "Regular n-gon with integer n≥3; θ_e is the exterior angle supplementary to the interior angle, in degrees.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\theta_e=180^\\circ-\\theta_i=360^\\circ/n"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "degree-angles"
+      ]
+    },
+    {
+      "id": "f-p06",
+      "catalogueId": "F-P06",
+      "name": "Diagonal count",
+      "sectionId": "plane-figures-polygons",
+      "sectionOrder": 1,
+      "sectionTitle": "Plane Figures and Polygons",
+      "topic": "Plane Figures and Polygons",
+      "kind": "module",
+      "lessonCode": "POLY-03",
+      "lessonId": "poly-03",
+      "lessonTitle": "Angles, perimeter, and diagonals",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L208",
+      "sourceNote": "SRC-POLY pp. 12–14.",
+      "conditions": "Simple n-gon with integer n≥3; diagonals join nonadjacent vertices and are counted once. The result is dimensionless.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "N_d=n(n-3)/2"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-poly-02",
+      "catalogueId": "X-POLY-02",
+      "name": "Apothem right-triangle tangent relation",
+      "sectionId": "plane-figures-polygons",
+      "sectionOrder": 1,
+      "sectionTitle": "Plane Figures and Polygons",
+      "topic": "Plane Figures and Polygons",
+      "kind": "module",
+      "lessonCode": "POLY-04",
+      "lessonId": "poly-04",
+      "lessonTitle": "Apothem and area",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L220",
+      "sourceNote": "SRC-POLY pp. 15–19.",
+      "conditions": "Regular polygon; s is side length, r_a apothem, P perimeter. Trigonometric angle is in degrees as written.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\tan(180^\\circ/n)=\\frac{s/2}{r_a}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship",
+        "degree-angles"
+      ]
+    },
+    {
+      "id": "f-p07",
+      "catalogueId": "F-P07",
+      "name": "Regular-polygon apothem",
+      "sectionId": "plane-figures-polygons",
+      "sectionOrder": 1,
+      "sectionTitle": "Plane Figures and Polygons",
+      "topic": "Plane Figures and Polygons",
+      "kind": "module",
+      "lessonCode": "POLY-04",
+      "lessonId": "poly-04",
+      "lessonTitle": "Apothem and area",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L224",
+      "sourceNote": "SRC-POLY pp. 15–19.",
+      "conditions": "Regular polygon; s is side length, r_a apothem, P perimeter. Trigonometric angle is in degrees as written.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{r_a=\\frac{s}{2\\tan(180^\\circ/n)}}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "degree-angles"
+      ]
+    },
+    {
+      "id": "f-p08",
+      "catalogueId": "F-P08",
+      "name": "Regular-polygon area",
+      "sectionId": "plane-figures-polygons",
+      "sectionOrder": 1,
+      "sectionTitle": "Plane Figures and Polygons",
+      "topic": "Plane Figures and Polygons",
+      "kind": "module",
+      "lessonCode": "POLY-04",
+      "lessonId": "poly-04",
+      "lessonTitle": "Apothem and area",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L226",
+      "sourceNote": "SRC-POLY pp. 15–19.",
+      "conditions": "Regular polygon; s is side length, r_a apothem, P perimeter. Trigonometric angle is in degrees as written.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{A=\\frac12Pr_a=\\frac{ns^2}{4\\tan(180^\\circ/n)}}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "degree-angles"
+      ]
+    },
+    {
+      "id": "x-tri-01",
+      "catalogueId": "X-TRI-01",
+      "name": "Triangle semiperimeter",
+      "sectionId": "triangles",
+      "sectionOrder": 2,
+      "sectionTitle": "Triangles",
+      "topic": "Triangles",
+      "kind": "module",
+      "lessonCode": "TRI-02",
+      "lessonId": "tri-02",
+      "lessonTitle": "Altitudes, medians, angle bisectors, and centers",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L314",
+      "sourceNote": "SRC-TRI pp. 5–7; notation standardized and geometric details clarified.",
+      "conditions": "a,b,c are the three triangle side lengths.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "s_p=(a+b+c)/2"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-t01",
+      "catalogueId": "F-T01",
+      "name": "Triangle altitude",
+      "sectionId": "triangles",
+      "sectionOrder": 2,
+      "sectionTitle": "Triangles",
+      "topic": "Triangles",
+      "kind": "module",
+      "lessonCode": "TRI-02",
+      "lessonId": "tri-02",
+      "lessonTitle": "Altitudes, medians, angle bisectors, and centers",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L316",
+      "sourceNote": "SRC-TRI pp. 5–7; notation standardized and geometric details clarified.",
+      "conditions": "Nondegenerate triangle; a,b,c are opposite A,B,C; s_p is semiperimeter and K area. Cycle labels for the other vertices.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "h_c=\\frac{2K}{c}=\\frac{2\\sqrt{s_p(s_p-a)(s_p-b)(s_p-c)}}{c}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-t02",
+      "catalogueId": "F-T02",
+      "name": "Triangle median",
+      "sectionId": "triangles",
+      "sectionOrder": 2,
+      "sectionTitle": "Triangles",
+      "topic": "Triangles",
+      "kind": "module",
+      "lessonCode": "TRI-02",
+      "lessonId": "tri-02",
+      "lessonTitle": "Altitudes, medians, angle bisectors, and centers",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L318",
+      "sourceNote": "SRC-TRI pp. 5–7; notation standardized and geometric details clarified.",
+      "conditions": "Nondegenerate triangle; a,b,c are opposite A,B,C; s_p is semiperimeter and K area. Cycle labels for the other vertices.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "m_c=\\frac12\\sqrt{2a^2+2b^2-c^2}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-t03",
+      "catalogueId": "F-T03",
+      "name": "Triangle internal angle-bisector length",
+      "sectionId": "triangles",
+      "sectionOrder": 2,
+      "sectionTitle": "Triangles",
+      "topic": "Triangles",
+      "kind": "module",
+      "lessonCode": "TRI-02",
+      "lessonId": "tri-02",
+      "lessonTitle": "Altitudes, medians, angle bisectors, and centers",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L320",
+      "sourceNote": "SRC-TRI pp. 5–7; notation standardized and geometric details clarified.",
+      "conditions": "Nondegenerate triangle; a,b,c are opposite A,B,C; s_p is semiperimeter and K area. Cycle labels for the other vertices.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\ell_c=\\frac{\\sqrt{ab[(a+b)^2-c^2]}}{a+b}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-t04",
+      "catalogueId": "F-T04",
+      "name": "Triangle perimeter",
+      "sectionId": "triangles",
+      "sectionOrder": 2,
+      "sectionTitle": "Triangles",
+      "topic": "Triangles",
+      "kind": "module",
+      "lessonCode": "TRI-03",
+      "lessonId": "tri-03",
+      "lessonTitle": "Perimeter and area",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L344",
+      "sourceNote": "SRC-TRI pp. 8–13.",
+      "conditions": "Use a perpendicular base/height pair or the included angle for the two specified sides. Heron requires valid triangle side lengths.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "P=a+b+c"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-t05",
+      "catalogueId": "F-T05",
+      "name": "Triangle area from base and altitude",
+      "sectionId": "triangles",
+      "sectionOrder": 2,
+      "sectionTitle": "Triangles",
+      "topic": "Triangles",
+      "kind": "module",
+      "lessonCode": "TRI-03",
+      "lessonId": "tri-03",
+      "lessonTitle": "Perimeter and area",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L345",
+      "sourceNote": "SRC-TRI pp. 8–13.",
+      "conditions": "Use a perpendicular base/height pair or the included angle for the two specified sides. Heron requires valid triangle side lengths.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "K=b_0h/2"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-t06",
+      "catalogueId": "F-T06",
+      "name": "Triangle area from two sides and included angle",
+      "sectionId": "triangles",
+      "sectionOrder": 2,
+      "sectionTitle": "Triangles",
+      "topic": "Triangles",
+      "kind": "module",
+      "lessonCode": "TRI-03",
+      "lessonId": "tri-03",
+      "lessonTitle": "Perimeter and area",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L346",
+      "sourceNote": "SRC-TRI pp. 8–13.",
+      "conditions": "Use a perpendicular base/height pair or the included angle for the two specified sides. Heron requires valid triangle side lengths.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "K=ab\\sin\\theta/2"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-t07",
+      "catalogueId": "F-T07",
+      "name": "Heron’s formula",
+      "sectionId": "triangles",
+      "sectionOrder": 2,
+      "sectionTitle": "Triangles",
+      "topic": "Triangles",
+      "kind": "module",
+      "lessonCode": "TRI-03",
+      "lessonId": "tri-03",
+      "lessonTitle": "Perimeter and area",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L347",
+      "sourceNote": "SRC-TRI pp. 8–13.",
+      "conditions": "Use a perpendicular base/height pair or the included angle for the two specified sides. Heron requires valid triangle side lengths.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "K=\\sqrt{s_p(s_p-a)(s_p-b)(s_p-c)}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-t08",
+      "catalogueId": "F-T08",
+      "name": "Equilateral triangle height, area, and perimeter",
+      "sectionId": "triangles",
+      "sectionOrder": 2,
+      "sectionTitle": "Triangles",
+      "topic": "Triangles",
+      "kind": "module",
+      "lessonCode": "TRI-03",
+      "lessonId": "tri-03",
+      "lessonTitle": "Perimeter and area",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L348",
+      "sourceNote": "SRC-TRI pp. 8–13.",
+      "conditions": "Use a perpendicular base/height pair or the included angle for the two specified sides. Heron requires valid triangle side lengths.",
+      "expressions": [
+        {
+          "label": "Equilateral altitude",
+          "latex": "h=q\\sqrt3/2"
+        },
+        {
+          "label": "Equilateral area",
+          "latex": "K=q^2\\sqrt3/4"
+        },
+        {
+          "label": "Equilateral perimeter",
+          "latex": "P=3q"
+        }
+      ],
+      "notes": [
+        "Companion rule stated in TRI-01: For a valid triangle, compare the longest side squared with the sum of the other two squares to classify right/acute/obtuse. The centroid division ratio 2:1 is labeled supplemental explanatory material in TRI-02."
+      ],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-qd01",
+      "catalogueId": "F-QD01",
+      "name": "Parallelogram perimeter and area",
+      "sectionId": "quadrilaterals",
+      "sectionOrder": 3,
+      "sectionTitle": "Quadrilaterals",
+      "topic": "Quadrilaterals",
+      "kind": "module",
+      "lessonCode": "QUAD-01",
+      "lessonId": "quad-01",
+      "lessonTitle": "Classification and parallelograms",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L407",
+      "sourceNote": "SRC-QUAD pp. 4–7.",
+      "conditions": "Adjacent sides a,b with included angle θ. For the diagonal-area formula, φ is the angle between diagonals, not generally θ.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "P=2(a+b),\\qquad K=ab\\sin\\theta=b h"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-qd02",
+      "catalogueId": "F-QD02",
+      "name": "Parallelogram diagonal lengths (unordered pair)",
+      "sectionId": "quadrilaterals",
+      "sectionOrder": 3,
+      "sectionTitle": "Quadrilaterals",
+      "topic": "Quadrilaterals",
+      "kind": "module",
+      "lessonCode": "QUAD-01",
+      "lessonId": "quad-01",
+      "lessonTitle": "Classification and parallelograms",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L411",
+      "sourceNote": "SRC-QUAD pp. 4–7.",
+      "conditions": "Adjacent sides a,b with included angle θ. For the diagonal-area formula, φ is the angle between diagonals, not generally θ.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\left\\{\\sqrt{a^2+b^2-2ab\\cos\\theta},\\sqrt{a^2+b^2+2ab\\cos\\theta}\\right\\}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-qd03",
+      "catalogueId": "F-QD03",
+      "name": "Parallelogram area from diagonals and their included angle",
+      "sectionId": "quadrilaterals",
+      "sectionOrder": 3,
+      "sectionTitle": "Quadrilaterals",
+      "topic": "Quadrilaterals",
+      "kind": "module",
+      "lessonCode": "QUAD-01",
+      "lessonId": "quad-01",
+      "lessonTitle": "Classification and parallelograms",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L415",
+      "sourceNote": "SRC-QUAD pp. 4–7.",
+      "conditions": "Adjacent sides a,b with included angle θ. For the diagonal-area formula, φ is the angle between diagonals, not generally θ.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "K=\\tfrac12d_1d_2\\sin\\phi"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-qd04",
+      "catalogueId": "F-QD04",
+      "name": "Rectangle perimeter, area, and diagonal",
+      "sectionId": "quadrilaterals",
+      "sectionOrder": 3,
+      "sectionTitle": "Quadrilaterals",
+      "topic": "Quadrilaterals",
+      "kind": "module",
+      "lessonCode": "QUAD-02",
+      "lessonId": "quad-02",
+      "lessonTitle": "Rectangles and squares",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L433",
+      "sourceNote": "SRC-QUAD pp. 8–11.",
+      "conditions": "Positive rectangle dimensions L,W or square side q; formulas are expressions under the source table headers.",
+      "expressions": [
+        {
+          "label": "Perimeter expression",
+          "latex": "2(L+W)"
+        },
+        {
+          "label": "Area expression",
+          "latex": "LW"
+        },
+        {
+          "label": "Diagonal expression",
+          "latex": "\\sqrt{L^2+W^2}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-qd05",
+      "catalogueId": "F-QD05",
+      "name": "Square perimeter, area, and diagonal",
+      "sectionId": "quadrilaterals",
+      "sectionOrder": 3,
+      "sectionTitle": "Quadrilaterals",
+      "topic": "Quadrilaterals",
+      "kind": "module",
+      "lessonCode": "QUAD-02",
+      "lessonId": "quad-02",
+      "lessonTitle": "Rectangles and squares",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L434",
+      "sourceNote": "SRC-QUAD pp. 8–11.",
+      "conditions": "Positive rectangle dimensions L,W or square side q; formulas are expressions under the source table headers.",
+      "expressions": [
+        {
+          "label": "Perimeter expression",
+          "latex": "4q"
+        },
+        {
+          "label": "Area expression",
+          "latex": "q^2"
+        },
+        {
+          "label": "Diagonal expression",
+          "latex": "q\\sqrt2"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-qd06",
+      "catalogueId": "F-QD06",
+      "name": "Rhombus perimeter, area, and side from diagonals",
+      "sectionId": "quadrilaterals",
+      "sectionOrder": 3,
+      "sectionTitle": "Quadrilaterals",
+      "topic": "Quadrilaterals",
+      "kind": "module",
+      "lessonCode": "QUAD-03",
+      "lessonId": "quad-03",
+      "lessonTitle": "Rhombi",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L452",
+      "sourceNote": "SRC-QUAD pp. 12–14.",
+      "conditions": "Rhombus side q, full diagonal lengths d₁,d₂, perpendicular height h, and included side angle θ.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "P=4q,\\quad K=bh=q^2\\sin\\theta=\\frac{d_1d_2}{2},\\quad q=\\frac12\\sqrt{d_1^2+d_2^2}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-quad-01",
+      "catalogueId": "X-QUAD-01",
+      "name": "Rhombus diagonal-square expressions",
+      "sectionId": "quadrilaterals",
+      "sectionOrder": 3,
+      "sectionTitle": "Quadrilaterals",
+      "topic": "Quadrilaterals",
+      "kind": "module",
+      "lessonCode": "QUAD-03",
+      "lessonId": "quad-03",
+      "lessonTitle": "Rhombi",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L454",
+      "sourceNote": "SRC-QUAD pp. 12–14.",
+      "conditions": "Rhombus side q, full diagonal lengths d₁,d₂, perpendicular height h, and included side angle θ.",
+      "expressions": [
+        {
+          "label": "One diagonal square",
+          "latex": "2q^2(1-\\cos\\theta)"
+        },
+        {
+          "label": "Other diagonal square",
+          "latex": "2q^2(1+\\cos\\theta)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "x-quad-03",
+      "catalogueId": "X-QUAD-03",
+      "name": "Rhombus side/diagonal relation used in the corrected example",
+      "sectionId": "quadrilaterals",
+      "sectionOrder": 3,
+      "sectionTitle": "Quadrilaterals",
+      "topic": "Quadrilaterals",
+      "kind": "module",
+      "lessonCode": "QUAD-03",
+      "lessonId": "quad-03",
+      "lessonTitle": "Rhombi",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L461",
+      "sourceNote": "SRC-QUAD pp. 12–14.",
+      "conditions": "Consecutive rhombus vertices A,B,C,D; q is side length. Relation is explicitly used in worked example QD04.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "AC^2+BD^2=4q^2"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-qd07",
+      "catalogueId": "F-QD07",
+      "name": "Trapezoid area",
+      "sectionId": "quadrilaterals",
+      "sectionOrder": 3,
+      "sectionTitle": "Quadrilaterals",
+      "topic": "Quadrilaterals",
+      "kind": "module",
+      "lessonCode": "QUAD-04",
+      "lessonId": "quad-04",
+      "lessonTitle": "Trapezoids and general convex quadrilaterals",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L473",
+      "sourceNote": "SRC-QUAD pp. 15–18.",
+      "conditions": "Use perpendicular height between trapezoid bases. Bretschneider uses a convex quadrilateral, consistent side data, semiperimeter, and opposite interior angles.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "K=\\tfrac12(b_1+b_2)h"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-quad-02",
+      "catalogueId": "X-QUAD-02",
+      "name": "Quadrilateral semiperimeter",
+      "sectionId": "quadrilaterals",
+      "sectionOrder": 3,
+      "sectionTitle": "Quadrilaterals",
+      "topic": "Quadrilaterals",
+      "kind": "module",
+      "lessonCode": "QUAD-04",
+      "lessonId": "quad-04",
+      "lessonTitle": "Trapezoids and general convex quadrilaterals",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L488",
+      "sourceNote": "SRC-QUAD pp. 15–18.",
+      "conditions": "Four boundary side lengths a,b,c,d.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "s_p=(a+b+c+d)/2"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-qd08",
+      "catalogueId": "F-QD08",
+      "name": "Bretschneider’s convex-quadrilateral area",
+      "sectionId": "quadrilaterals",
+      "sectionOrder": 3,
+      "sectionTitle": "Quadrilaterals",
+      "topic": "Quadrilaterals",
+      "kind": "module",
+      "lessonCode": "QUAD-04",
+      "lessonId": "quad-04",
+      "lessonTitle": "Trapezoids and general convex quadrilaterals",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L490",
+      "sourceNote": "SRC-QUAD pp. 15–18.",
+      "conditions": "Use perpendicular height between trapezoid bases. Bretschneider uses a convex quadrilateral, consistent side data, semiperimeter, and opposite interior angles.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "K=\\sqrt{(s_p-a)(s_p-b)(s_p-c)(s_p-d)-abcd\\cos^2\\!\\left(\\frac{\\alpha+\\gamma}{2}\\right)}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-cart-01",
+      "catalogueId": "X-CART-01",
+      "name": "Directed and ordinary number-line distances",
+      "sectionId": "cartesian-coordinates",
+      "sectionOrder": 4,
+      "sectionTitle": "Cartesian Coordinates",
+      "topic": "Cartesian Coordinates",
+      "kind": "module",
+      "lessonCode": "CART-02",
+      "lessonId": "cart-02",
+      "lessonTitle": "Directed distance and distance between points",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L538",
+      "sourceNote": "SRC-CART pp. 11–17.",
+      "conditions": "First expression is signed displacement; second is ordinary nonnegative distance.",
+      "expressions": [
+        {
+          "label": "Directed displacement expression",
+          "latex": "x_2-x_1"
+        },
+        {
+          "label": "Ordinary distance expression",
+          "latex": "|x_2-x_1|"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "x-cart-02",
+      "catalogueId": "X-CART-02",
+      "name": "Coordinate differences",
+      "sectionId": "cartesian-coordinates",
+      "sectionOrder": 4,
+      "sectionTitle": "Cartesian Coordinates",
+      "topic": "Cartesian Coordinates",
+      "kind": "module",
+      "lessonCode": "CART-02",
+      "lessonId": "cart-02",
+      "lessonTitle": "Directed distance and distance between points",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L540",
+      "sourceNote": "SRC-CART pp. 11–17.",
+      "conditions": "Final coordinate minus initial coordinate.",
+      "expressions": [
+        {
+          "label": "Horizontal coordinate difference",
+          "latex": "\\Delta x=x_2-x_1"
+        },
+        {
+          "label": "Vertical coordinate difference",
+          "latex": "\\Delta y=y_2-y_1"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-c01",
+      "catalogueId": "F-C01",
+      "name": "Distance between plane points",
+      "sectionId": "cartesian-coordinates",
+      "sectionOrder": 4,
+      "sectionTitle": "Cartesian Coordinates",
+      "topic": "Cartesian Coordinates",
+      "kind": "module",
+      "lessonCode": "CART-02",
+      "lessonId": "cart-02",
+      "lessonTitle": "Directed distance and distance between points",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L542",
+      "sourceNote": "SRC-CART pp. 11–17.",
+      "conditions": "Ordinary distance is nonnegative. Horizontal/vertical segment formulas use absolute values; coincident points have distance zero.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{d=\\sqrt{(\\Delta x)^2+(\\Delta y)^2}}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-cart-03",
+      "catalogueId": "X-CART-03",
+      "name": "Vertical and horizontal distance expressions",
+      "sectionId": "cartesian-coordinates",
+      "sectionOrder": 4,
+      "sectionTitle": "Cartesian Coordinates",
+      "topic": "Cartesian Coordinates",
+      "kind": "module",
+      "lessonCode": "CART-02",
+      "lessonId": "cart-02",
+      "lessonTitle": "Directed distance and distance between points",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L546, L547",
+      "sourceNote": "SRC-CART pp. 11–17.",
+      "conditions": "First: same x-coordinate; second: same y-coordinate.",
+      "expressions": [
+        {
+          "label": "Vertical distance expression",
+          "latex": "\\vert y_2-y_1\\vert"
+        },
+        {
+          "label": "Horizontal distance expression",
+          "latex": "\\vert x_2-x_1\\vert"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "x-cart-05",
+      "catalogueId": "X-CART-05",
+      "name": "Collinearity determinant expression",
+      "sectionId": "cartesian-coordinates",
+      "sectionOrder": 4,
+      "sectionTitle": "Cartesian Coordinates",
+      "topic": "Cartesian Coordinates",
+      "kind": "module",
+      "lessonCode": "CART-02",
+      "lessonId": "cart-02",
+      "lessonTitle": "Directed distance and distance between points",
+      "classification": "Supplemental teaching relationship already in the pack",
+      "referenceType": "supplemental-relationship",
+      "sourceLocation": "L562",
+      "sourceNote": "SRC-CART pp. 11–17.",
+      "conditions": "Zero means collinear, as explicitly stated in the pack’s supplemental proof tools.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "(x_B-x_A)(y_C-y_A)-(y_B-y_A)(x_C-x_A)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "supplemental-relationship"
+      ]
+    },
+    {
+      "id": "f-c02",
+      "catalogueId": "F-C02",
+      "name": "Midpoint",
+      "sectionId": "cartesian-coordinates",
+      "sectionOrder": 4,
+      "sectionTitle": "Cartesian Coordinates",
+      "topic": "Cartesian Coordinates",
+      "kind": "module",
+      "lessonCode": "CART-03",
+      "lessonId": "cart-03",
+      "lessonTitle": "Midpoints and division of a segment",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L570",
+      "sourceNote": "SRC-CART pp. 19–26; midpoint formula made explicit.",
+      "conditions": "Endpoints are (x₁,y₁),(x₂,y₂). Internal unsigned ratio m:n has m,n>0; external division also requires m≠n and distinct endpoints.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{M=\\left(\\frac{x_1+x_2}{2},\\frac{y_1+y_2}{2}\\right)}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-c03",
+      "catalogueId": "F-C03",
+      "name": "Parametric division point",
+      "sectionId": "cartesian-coordinates",
+      "sectionOrder": 4,
+      "sectionTitle": "Cartesian Coordinates",
+      "topic": "Cartesian Coordinates",
+      "kind": "module",
+      "lessonCode": "CART-03",
+      "lessonId": "cart-03",
+      "lessonTitle": "Midpoints and division of a segment",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L574",
+      "sourceNote": "SRC-CART pp. 19–26; midpoint formula made explicit.",
+      "conditions": "Endpoints are (x₁,y₁),(x₂,y₂). Internal unsigned ratio m:n has m,n>0; external division also requires m≠n and distinct endpoints.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{Q=A+t(B-A)}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-c04",
+      "catalogueId": "F-C04",
+      "name": "Internal segment division",
+      "sectionId": "cartesian-coordinates",
+      "sectionOrder": 4,
+      "sectionTitle": "Cartesian Coordinates",
+      "topic": "Cartesian Coordinates",
+      "kind": "module",
+      "lessonCode": "CART-03",
+      "lessonId": "cart-03",
+      "lessonTitle": "Midpoints and division of a segment",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L580",
+      "sourceNote": "SRC-CART pp. 19–26; midpoint formula made explicit.",
+      "conditions": "Endpoints are (x₁,y₁),(x₂,y₂). Internal unsigned ratio m:n has m,n>0; external division also requires m≠n and distinct endpoints.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{Q=\\left(\\frac{nx_1+mx_2}{m+n},\\frac{ny_1+my_2}{m+n}\\right)}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-cart-04",
+      "catalogueId": "X-CART-04",
+      "name": "Division parameters for unsigned ratios",
+      "sectionId": "cartesian-coordinates",
+      "sectionOrder": 4,
+      "sectionTitle": "Cartesian Coordinates",
+      "topic": "Cartesian Coordinates",
+      "kind": "module",
+      "lessonCode": "CART-03",
+      "lessonId": "cart-03",
+      "lessonTitle": "Midpoints and division of a segment",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L582, L588",
+      "sourceNote": "SRC-CART pp. 19–26; midpoint formula made explicit.",
+      "conditions": "First is internal m:n; second external m:n with m≠n.",
+      "expressions": [
+        {
+          "label": "Internal-division parameter",
+          "latex": "t=m/(m+n)"
+        },
+        {
+          "label": "External-division parameter",
+          "latex": "t=m/(m-n)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-c05",
+      "catalogueId": "F-C05",
+      "name": "External segment division",
+      "sectionId": "cartesian-coordinates",
+      "sectionOrder": 4,
+      "sectionTitle": "Cartesian Coordinates",
+      "topic": "Cartesian Coordinates",
+      "kind": "module",
+      "lessonCode": "CART-03",
+      "lessonId": "cart-03",
+      "lessonTitle": "Midpoints and division of a segment",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L586",
+      "sourceNote": "SRC-CART pp. 19–26; midpoint formula made explicit.",
+      "conditions": "Endpoints are (x₁,y₁),(x₂,y₂). Internal unsigned ratio m:n has m,n>0; external division also requires m≠n and distinct endpoints.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{Q=\\left(\\frac{mx_2-nx_1}{m-n},\\frac{my_2-ny_1}{m-n}\\right)}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-c06",
+      "catalogueId": "F-C06",
+      "name": "Triangle area from coordinates",
+      "sectionId": "cartesian-coordinates",
+      "sectionOrder": 4,
+      "sectionTitle": "Cartesian Coordinates",
+      "topic": "Cartesian Coordinates",
+      "kind": "module",
+      "lessonCode": "CART-04",
+      "lessonId": "cart-04",
+      "lessonTitle": "Area from coordinates",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L606",
+      "sourceNote": "SRC-CART pp. 28–31.",
+      "conditions": "Vertices are listed around a simple polygon boundary; close the cycle by setting vertex n+1 equal to vertex 1. Take the absolute value.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{A=\\frac12\\left|x_1(y_2-y_3)+x_2(y_3-y_1)+x_3(y_1-y_2)\\right|}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-c07",
+      "catalogueId": "F-C07",
+      "name": "Shoelace area of an ordered polygon",
+      "sectionId": "cartesian-coordinates",
+      "sectionOrder": 4,
+      "sectionTitle": "Cartesian Coordinates",
+      "topic": "Cartesian Coordinates",
+      "kind": "module",
+      "lessonCode": "CART-04",
+      "lessonId": "cart-04",
+      "lessonTitle": "Area from coordinates",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L610",
+      "sourceNote": "SRC-CART pp. 28–31.",
+      "conditions": "Vertices are listed around a simple polygon boundary; close the cycle by setting vertex n+1 equal to vertex 1. Take the absolute value.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{A=\\frac12\\left|\\sum_{i=1}^n(x_i y_{i+1}-y_i x_{i+1})\\right|}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-l01",
+      "catalogueId": "F-L01",
+      "name": "Slope",
+      "sectionId": "lines",
+      "sectionOrder": 5,
+      "sectionTitle": "Lines",
+      "topic": "Lines",
+      "kind": "module",
+      "lessonCode": "LINE-01",
+      "lessonId": "line-01",
+      "lessonTitle": "Slope and relationships",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L679",
+      "sourceNote": "SRC-LINE pp. 4–6, 17–19.",
+      "conditions": "Slope requires distinct points and x₂≠x₁. Vertical slope is undefined. Include separate horizontal/vertical perpendicular cases.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{m=\\frac{y_2-y_1}{x_2-x_1}}\\quad (x_2\\ne x_1)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-line-01",
+      "catalogueId": "X-LINE-01",
+      "name": "Nonvertical perpendicular slopes",
+      "sectionId": "lines",
+      "sectionOrder": 5,
+      "sectionTitle": "Lines",
+      "topic": "Lines",
+      "kind": "module",
+      "lessonCode": "LINE-01",
+      "lessonId": "line-01",
+      "lessonTitle": "Slope and relationships",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L683",
+      "sourceNote": "SRC-LINE pp. 4–6, 17–19.",
+      "conditions": "The pack separately treats a vertical line as perpendicular to a horizontal line.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "m_1m_2=-1"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-l02",
+      "catalogueId": "F-L02",
+      "name": "Directed angle tangent between finite-slope lines",
+      "sectionId": "lines",
+      "sectionOrder": 5,
+      "sectionTitle": "Lines",
+      "topic": "Lines",
+      "kind": "module",
+      "lessonCode": "LINE-02",
+      "lessonId": "line-02",
+      "lessonTitle": "Angles between lines",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L693",
+      "sourceNote": "SRC-LINE pp. 7–13; vector formulation added for robustness.",
+      "conditions": "Do not confuse directed angle, smaller unoriented angle, and triangle interior angle. Slope-tangent fractions exclude perpendicular denominators; vector angles require nonzero vectors.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\tan\\theta=\\frac{m_2-m_1}{1+m_1m_2}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-line-02",
+      "catalogueId": "X-LINE-02",
+      "name": "Smaller unoriented angle tangent",
+      "sectionId": "lines",
+      "sectionOrder": 5,
+      "sectionTitle": "Lines",
+      "topic": "Lines",
+      "kind": "module",
+      "lessonCode": "LINE-02",
+      "lessonId": "line-02",
+      "lessonTitle": "Angles between lines",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L699",
+      "sourceNote": "SRC-LINE pp. 7–13; vector formulation added for robustness.",
+      "conditions": "Use absolute value; the perpendicular case is 90° rather than division by zero.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\tan\\alpha=\\left|\\frac{m_2-m_1}{1+m_1m_2}\\right|"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-l03",
+      "catalogueId": "F-L03",
+      "name": "Smaller line angle from direction vectors",
+      "sectionId": "lines",
+      "sectionOrder": 5,
+      "sectionTitle": "Lines",
+      "topic": "Lines",
+      "kind": "module",
+      "lessonCode": "LINE-02",
+      "lessonId": "line-02",
+      "lessonTitle": "Angles between lines",
+      "classification": "Supplemental teaching formula already in the pack",
+      "referenceType": "supplemental-relationship",
+      "sourceLocation": "L703",
+      "sourceNote": "SRC-LINE pp. 7–13; vector formulation added for robustness.",
+      "conditions": "Do not confuse directed angle, smaller unoriented angle, and triangle interior angle. Slope-tangent fractions exclude perpendicular denominators; vector angles require nonzero vectors.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\alpha=\\operatorname{atan2}(|u_xv_y-u_yv_x|,|u\\cdot v|)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "supplemental-relationship"
+      ]
+    },
+    {
+      "id": "f-l04",
+      "catalogueId": "F-L04",
+      "name": "Triangle interior angle from vertex vectors",
+      "sectionId": "lines",
+      "sectionOrder": 5,
+      "sectionTitle": "Lines",
+      "topic": "Lines",
+      "kind": "module",
+      "lessonCode": "LINE-02",
+      "lessonId": "line-02",
+      "lessonTitle": "Angles between lines",
+      "classification": "Supplemental teaching formula already in the pack",
+      "referenceType": "supplemental-relationship",
+      "sourceLocation": "L707",
+      "sourceNote": "SRC-LINE pp. 7–13; vector formulation added for robustness.",
+      "conditions": "Do not confuse directed angle, smaller unoriented angle, and triangle interior angle. Slope-tangent fractions exclude perpendicular denominators; vector angles require nonzero vectors.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\beta=\\operatorname{atan2}(|u_xv_y-u_yv_x|,u\\cdot v)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "supplemental-relationship"
+      ]
+    },
+    {
+      "id": "x-line-03",
+      "catalogueId": "X-LINE-03",
+      "name": "Tangent of a non-right interior angle",
+      "sectionId": "lines",
+      "sectionOrder": 5,
+      "sectionTitle": "Lines",
+      "topic": "Lines",
+      "kind": "module",
+      "lessonCode": "LINE-02",
+      "lessonId": "line-02",
+      "lessonTitle": "Angles between lines",
+      "classification": "Supplemental teaching relationship already in the pack",
+      "referenceType": "supplemental-relationship",
+      "sourceLocation": "L709",
+      "sourceNote": "SRC-LINE pp. 7–13; vector formulation added for robustness.",
+      "conditions": "Vectors point from the same vertex; negative tangent indicates an obtuse interior angle.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\tan\\beta=|\\det(u,v)|/(u\\cdot v)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "supplemental-relationship"
+      ]
+    },
+    {
+      "id": "f-l05",
+      "catalogueId": "F-L05",
+      "name": "General equation of a line",
+      "sectionId": "lines",
+      "sectionOrder": 5,
+      "sectionTitle": "Lines",
+      "topic": "Lines",
+      "kind": "module",
+      "lessonCode": "LINE-03",
+      "lessonId": "line-03",
+      "lessonTitle": "Equations of a line",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L727",
+      "sourceNote": "SRC-LINE pp. 15–21.",
+      "conditions": "Respect each line form’s conditions: nonzero general-form normal, distinct points, finite slope where used, and nonzero intercepts for intercept form.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "Ax+By+C=0"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-l06",
+      "catalogueId": "F-L06",
+      "name": "Point-slope form",
+      "sectionId": "lines",
+      "sectionOrder": 5,
+      "sectionTitle": "Lines",
+      "topic": "Lines",
+      "kind": "module",
+      "lessonCode": "LINE-03",
+      "lessonId": "line-03",
+      "lessonTitle": "Equations of a line",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L728",
+      "sourceNote": "SRC-LINE pp. 15–21.",
+      "conditions": "Respect each line form’s conditions: nonzero general-form normal, distinct points, finite slope where used, and nonzero intercepts for intercept form.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "y-y_1=m(x-x_1)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-l07",
+      "catalogueId": "F-L07",
+      "name": "Slope-intercept form",
+      "sectionId": "lines",
+      "sectionOrder": 5,
+      "sectionTitle": "Lines",
+      "topic": "Lines",
+      "kind": "module",
+      "lessonCode": "LINE-03",
+      "lessonId": "line-03",
+      "lessonTitle": "Equations of a line",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L729",
+      "sourceNote": "SRC-LINE pp. 15–21.",
+      "conditions": "Respect each line form’s conditions: nonzero general-form normal, distinct points, finite slope where used, and nonzero intercepts for intercept form.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "y=mx+b"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-l08",
+      "catalogueId": "F-L08",
+      "name": "Two-point line equation",
+      "sectionId": "lines",
+      "sectionOrder": 5,
+      "sectionTitle": "Lines",
+      "topic": "Lines",
+      "kind": "module",
+      "lessonCode": "LINE-03",
+      "lessonId": "line-03",
+      "lessonTitle": "Equations of a line",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L730",
+      "sourceNote": "SRC-LINE pp. 15–21.",
+      "conditions": "Respect each line form’s conditions: nonzero general-form normal, distinct points, finite slope where used, and nonzero intercepts for intercept form.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "(x_2-x_1)(y-y_1)=(y_2-y_1)(x-x_1)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-l09",
+      "catalogueId": "F-L09",
+      "name": "Intercept-intercept form",
+      "sectionId": "lines",
+      "sectionOrder": 5,
+      "sectionTitle": "Lines",
+      "topic": "Lines",
+      "kind": "module",
+      "lessonCode": "LINE-03",
+      "lessonId": "line-03",
+      "lessonTitle": "Equations of a line",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L731",
+      "sourceNote": "SRC-LINE pp. 15–21.",
+      "conditions": "Respect each line form’s conditions: nonzero general-form normal, distinct points, finite slope where used, and nonzero intercepts for intercept form.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "x/a_x+y/b_y=1"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-l10",
+      "catalogueId": "F-L10",
+      "name": "Vertical-line equation",
+      "sectionId": "lines",
+      "sectionOrder": 5,
+      "sectionTitle": "Lines",
+      "topic": "Lines",
+      "kind": "module",
+      "lessonCode": "LINE-03",
+      "lessonId": "line-03",
+      "lessonTitle": "Equations of a line",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L732",
+      "sourceNote": "SRC-LINE pp. 15–21.",
+      "conditions": "Respect each line form’s conditions: nonzero general-form normal, distinct points, finite slope where used, and nonzero intercepts for intercept form.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "x=x_1"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-l11",
+      "catalogueId": "F-L11",
+      "name": "Horizontal-line equation",
+      "sectionId": "lines",
+      "sectionOrder": 5,
+      "sectionTitle": "Lines",
+      "topic": "Lines",
+      "kind": "module",
+      "lessonCode": "LINE-03",
+      "lessonId": "line-03",
+      "lessonTitle": "Equations of a line",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L733",
+      "sourceNote": "SRC-LINE pp. 15–21.",
+      "conditions": "Respect each line form’s conditions: nonzero general-form normal, distinct points, finite slope where used, and nonzero intercepts for intercept form.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "y=y_1"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-l12",
+      "catalogueId": "F-L12",
+      "name": "Point-to-line perpendicular distance",
+      "sectionId": "lines",
+      "sectionOrder": 5,
+      "sectionTitle": "Lines",
+      "topic": "Lines",
+      "kind": "module",
+      "lessonCode": "LINE-03",
+      "lessonId": "line-03",
+      "lessonTitle": "Equations of a line",
+      "classification": "Supplemental teaching formula already in the pack",
+      "referenceType": "supplemental-relationship",
+      "sourceLocation": "L747",
+      "sourceNote": "SRC-LINE pp. 15–21.",
+      "conditions": "Respect each line form’s conditions: nonzero general-form normal, distinct points, finite slope where used, and nonzero intercepts for intercept form.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{d=\\frac{|Ax_0+By_0+C|}{\\sqrt{A^2+B^2}}}"
+        }
+      ],
+      "notes": [
+        "Companion rule stated in LINE-01: Distinct nonvertical parallel lines have equal slopes. A vertical line is perpendicular to a horizontal line. The pack states these rules in words; this catalogue does not add newly typeset equations for them."
+      ],
+      "tags": [
+        "supplemental-relationship"
+      ]
+    },
+    {
+      "id": "f-k01",
+      "catalogueId": "F-K01",
+      "name": "Focus-directrix conic definition",
+      "sectionId": "circles",
+      "sectionOrder": 6,
+      "sectionTitle": "Conics and Circles",
+      "topic": "Conics and Circles",
+      "kind": "module",
+      "lessonCode": "CIRC-01",
+      "lessonId": "circ-01",
+      "lessonTitle": "Conics and eccentricity",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L808",
+      "sourceNote": "SRC-CIRC pp. 3–14; limitations clarified.",
+      "conditions": "Positive eccentricity and a nondegenerate focus/directrix construction. A circle has no finite directrix in this model.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{PF=e\\,d(P,\\ell)},\\qquad e>0"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-k02",
+      "catalogueId": "F-K02",
+      "name": "Focus on x-axis, directrix the y-axis",
+      "sectionId": "circles",
+      "sectionOrder": 6,
+      "sectionTitle": "Conics and Circles",
+      "topic": "Conics and Circles",
+      "kind": "module",
+      "lessonCode": "CIRC-01",
+      "lessonId": "circ-01",
+      "lessonTitle": "Conics and eccentricity",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L825",
+      "sourceNote": "SRC-CIRC pp. 3–14; limitations clarified.",
+      "conditions": "Positive eccentricity and a nondegenerate focus/directrix construction. A circle has no finite directrix in this model.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{(x-f)^2+y^2=e^2x^2}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-k03",
+      "catalogueId": "F-K03",
+      "name": "Focus on y-axis, directrix the x-axis",
+      "sectionId": "circles",
+      "sectionOrder": 6,
+      "sectionTitle": "Conics and Circles",
+      "topic": "Conics and Circles",
+      "kind": "module",
+      "lessonCode": "CIRC-01",
+      "lessonId": "circ-01",
+      "lessonTitle": "Conics and eccentricity",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L829",
+      "sourceNote": "SRC-CIRC pp. 3–14; limitations clarified.",
+      "conditions": "Positive eccentricity and a nondegenerate focus/directrix construction. A circle has no finite directrix in this model.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{x^2+(y-f)^2=e^2y^2}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-o01",
+      "catalogueId": "F-O01",
+      "name": "Standard circle equation",
+      "sectionId": "circles",
+      "sectionOrder": 6,
+      "sectionTitle": "Conics and Circles",
+      "topic": "Conics and Circles",
+      "kind": "module",
+      "lessonCode": "CIRC-02",
+      "lessonId": "circ-02",
+      "lessonTitle": "Circle equations and classification",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L868",
+      "sourceNote": "SRC-CIRC pp. 15–30.",
+      "conditions": "Normalize equal nonzero quadratic coefficients first. Positive r² gives a circle; zero gives a point and negative gives an empty real locus.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{(x-h)^2+(y-k)^2=r^2},\\quad r>0"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-circ-01",
+      "catalogueId": "X-CIRC-01",
+      "name": "Normalized general circle equation",
+      "sectionId": "circles",
+      "sectionOrder": 6,
+      "sectionTitle": "Conics and Circles",
+      "topic": "Conics and Circles",
+      "kind": "module",
+      "lessonCode": "CIRC-02",
+      "lessonId": "circ-02",
+      "lessonTitle": "Circle equations and classification",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L872",
+      "sourceNote": "SRC-CIRC pp. 15–30.",
+      "conditions": "Normalize equal nonzero quadratic coefficients first. Positive r² gives a circle; zero gives a point and negative gives an empty real locus.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "x^2+y^2+Dx+Ey+F=0"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-o02",
+      "catalogueId": "F-O02",
+      "name": "Circle center and radius squared from general form",
+      "sectionId": "circles",
+      "sectionOrder": 6,
+      "sectionTitle": "Conics and Circles",
+      "topic": "Conics and Circles",
+      "kind": "module",
+      "lessonCode": "CIRC-02",
+      "lessonId": "circ-02",
+      "lessonTitle": "Circle equations and classification",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L876",
+      "sourceNote": "SRC-CIRC pp. 15–30.",
+      "conditions": "Normalize equal nonzero quadratic coefficients first. Positive r² gives a circle; zero gives a point and negative gives an empty real locus.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{(h,k)=(-D/2,-E/2),\\qquad r^2=(D^2+E^2)/4-F}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-circ-02",
+      "catalogueId": "X-CIRC-02",
+      "name": "Completing the square identity",
+      "sectionId": "circles",
+      "sectionOrder": 6,
+      "sectionTitle": "Conics and Circles",
+      "topic": "Conics and Circles",
+      "kind": "module",
+      "lessonCode": "CIRC-02",
+      "lessonId": "circ-02",
+      "lessonTitle": "Circle equations and classification",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L886",
+      "sourceNote": "SRC-CIRC pp. 15–30.",
+      "conditions": "Preserve the factored coefficient of a variable group when completing its square.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "x^2+Dx=(x+D/2)^2-(D/2)^2"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-o03",
+      "catalogueId": "F-O03",
+      "name": "Circle tangent at a known circle point",
+      "sectionId": "circles",
+      "sectionOrder": 6,
+      "sectionTitle": "Conics and Circles",
+      "topic": "Conics and Circles",
+      "kind": "module",
+      "lessonCode": "CIRC-03",
+      "lessonId": "circ-03",
+      "lessonTitle": "Tangent lines",
+      "classification": "Supplemental teaching formula already in the pack",
+      "referenceType": "supplemental-relationship",
+      "sourceLocation": "L934",
+      "sourceNote": "SRC-CIRC pp. 31–33; general tangent formula added.",
+      "conditions": "The tangency point lies on a positive-radius circle. For a tangent line, (A,B)≠(0,0); radius is the positive center-to-line distance.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{(x_t-h)(x-x_t)+(y_t-k)(y-y_t)=0}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "supplemental-relationship"
+      ]
+    },
+    {
+      "id": "f-o04",
+      "catalogueId": "F-O04",
+      "name": "Circle radius from center and a tangent line",
+      "sectionId": "circles",
+      "sectionOrder": 6,
+      "sectionTitle": "Conics and Circles",
+      "topic": "Conics and Circles",
+      "kind": "module",
+      "lessonCode": "CIRC-03",
+      "lessonId": "circ-03",
+      "lessonTitle": "Tangent lines",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L940",
+      "sourceNote": "SRC-CIRC pp. 31–33; general tangent formula added.",
+      "conditions": "The tangency point lies on a positive-radius circle. For a tangent line, (A,B)≠(0,0); radius is the positive center-to-line distance.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{r=\\frac{|Ah+Bk+C|}{\\sqrt{A^2+B^2}}}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-para-01",
+      "catalogueId": "X-PARA-01",
+      "name": "Origin-vertex focus/directrix derivation",
+      "sectionId": "parabolas",
+      "sectionOrder": 7,
+      "sectionTitle": "Parabolas",
+      "topic": "Parabolas",
+      "kind": "module",
+      "lessonCode": "PARA-01",
+      "lessonId": "para-01",
+      "lessonTitle": "Definition, parts, and derivation",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L994",
+      "sourceNote": "SRC-PARA pp. 3–14.",
+      "conditions": "Signed p≠0; focus (p,0), directrix x=−p, vertex at origin for the derivation.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\sqrt{(x-p)^2+y^2}=|x+p|"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-q01",
+      "catalogueId": "F-Q01",
+      "name": "Horizontal parabola: equation and essential parts",
+      "sectionId": "parabolas",
+      "sectionOrder": 7,
+      "sectionTitle": "Parabolas",
+      "topic": "Parabolas",
+      "kind": "module",
+      "lessonCode": "PARA-02",
+      "lessonId": "para-02",
+      "lessonTitle": "Standard forms and essential parts",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1004, L1005, L1006, L1007, L1008",
+      "sourceNote": "SRC-PARA pp. 6–21; signed notation standardized.",
+      "conditions": "Vertex (h,k); signed p≠0. Horizontal axis is y=k, vertical axis is x=h. Distances and lengths use |p|.",
+      "expressions": [
+        {
+          "label": "Standard equation",
+          "latex": "(y-k)^2=4p(x-h)"
+        },
+        {
+          "label": "Vertex",
+          "latex": "(h,k)"
+        },
+        {
+          "label": "Focus",
+          "latex": "(h+p,k)"
+        },
+        {
+          "label": "Directrix",
+          "latex": "x=h-p"
+        },
+        {
+          "label": "Axis",
+          "latex": "y=k"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-q02",
+      "catalogueId": "F-Q02",
+      "name": "Vertical parabola: equation and essential parts",
+      "sectionId": "parabolas",
+      "sectionOrder": 7,
+      "sectionTitle": "Parabolas",
+      "topic": "Parabolas",
+      "kind": "module",
+      "lessonCode": "PARA-02",
+      "lessonId": "para-02",
+      "lessonTitle": "Standard forms and essential parts",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1004, L1005, L1006, L1007, L1008",
+      "sourceNote": "SRC-PARA pp. 6–21; signed notation standardized.",
+      "conditions": "Vertex (h,k); signed p≠0. Horizontal axis is y=k, vertical axis is x=h. Distances and lengths use |p|.",
+      "expressions": [
+        {
+          "label": "Standard equation",
+          "latex": "(x-h)^2=4p(y-k)"
+        },
+        {
+          "label": "Vertex",
+          "latex": "(h,k)"
+        },
+        {
+          "label": "Focus",
+          "latex": "(h,k+p)"
+        },
+        {
+          "label": "Directrix",
+          "latex": "y=k-p"
+        },
+        {
+          "label": "Axis",
+          "latex": "x=h"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-q03",
+      "catalogueId": "F-Q03",
+      "name": "Parabola latus rectum: length and endpoints",
+      "sectionId": "parabolas",
+      "sectionOrder": 7,
+      "sectionTitle": "Parabolas",
+      "topic": "Parabolas",
+      "kind": "module",
+      "lessonCode": "PARA-02",
+      "lessonId": "para-02",
+      "lessonTitle": "Standard forms and essential parts",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1011, L1012",
+      "sourceNote": "SRC-PARA pp. 6–21; signed notation standardized.",
+      "conditions": "Vertex (h,k); signed p≠0. Horizontal axis is y=k, vertical axis is x=h. Distances and lengths use |p|.",
+      "expressions": [
+        {
+          "label": "Length expression",
+          "latex": "4\\vert p\\vert"
+        },
+        {
+          "label": "Horizontal-axis endpoints",
+          "latex": "(h+p,k\\pm2\\vert p\\vert )"
+        },
+        {
+          "label": "Vertical-axis endpoints",
+          "latex": "(h\\pm2\\vert p\\vert ,k+p)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-para-02",
+      "catalogueId": "X-PARA-02",
+      "name": "Axis-parallel parabola general forms",
+      "sectionId": "parabolas",
+      "sectionOrder": 7,
+      "sectionTitle": "Parabolas",
+      "topic": "Parabolas",
+      "kind": "module",
+      "lessonCode": "PARA-03",
+      "lessonId": "para-03",
+      "lessonTitle": "Constructing equations",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L1053, L1054",
+      "sourceNote": "SRC-PARA pp. 23–32.",
+      "conditions": "For a vertical parabola, the x² coefficient and y-linear coefficient are nonzero; reverse variables for a horizontal parabola.",
+      "expressions": [
+        {
+          "label": "Vertical-axis general form",
+          "latex": "Ax^2+Dx+Ey+F=0"
+        },
+        {
+          "label": "Horizontal-axis general form",
+          "latex": "By^2+Dx+Ey+F=0"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-e01",
+      "catalogueId": "F-E01",
+      "name": "Ellipse constant focal-distance sum",
+      "sectionId": "ellipses",
+      "sectionOrder": 8,
+      "sectionTitle": "Ellipses",
+      "topic": "Ellipses",
+      "kind": "module",
+      "lessonCode": "ELLI-01",
+      "lessonId": "elli-01",
+      "lessonTitle": "Definition and parameters",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1119",
+      "sourceNote": "SRC-ELLI pp. 3–8.",
+      "conditions": "Noncircular ellipse: a>b>0, c²=a²−b², e=c/a. Full axis lengths are 2a and 2b. Circle limit a=b has no finite directrix.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{PF_1+PF_2=2a}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-elli-01",
+      "catalogueId": "X-ELLI-01",
+      "name": "Ellipse major/minor axis lengths and focal half-chord",
+      "sectionId": "ellipses",
+      "sectionOrder": 8,
+      "sectionTitle": "Ellipses",
+      "topic": "Ellipses",
+      "kind": "module",
+      "lessonCode": "ELLI-01",
+      "lessonId": "elli-01",
+      "lessonTitle": "Definition and parameters",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L1121, L1125",
+      "sourceNote": "SRC-ELLI pp. 3–8.",
+      "conditions": "Noncircular ellipse: a>b>0, c²=a²−b², e=c/a. Full axis lengths are 2a and 2b. Circle limit a=b has no finite directrix.",
+      "expressions": [
+        {
+          "label": "Full major-axis length expression",
+          "latex": "2a"
+        },
+        {
+          "label": "Full minor-axis length expression",
+          "latex": "2b"
+        },
+        {
+          "label": "Focus-to-latus-endpoint distance expression",
+          "latex": "b^2/a"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-e02",
+      "catalogueId": "F-E02",
+      "name": "Ellipse focal relation and eccentricity",
+      "sectionId": "ellipses",
+      "sectionOrder": 8,
+      "sectionTitle": "Ellipses",
+      "topic": "Ellipses",
+      "kind": "module",
+      "lessonCode": "ELLI-01",
+      "lessonId": "elli-01",
+      "lessonTitle": "Definition and parameters",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1123",
+      "sourceNote": "SRC-ELLI pp. 3–8.",
+      "conditions": "Noncircular ellipse: a>b>0, c²=a²−b², e=c/a. Full axis lengths are 2a and 2b. Circle limit a=b has no finite directrix.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{c^2=a^2-b^2,\\qquad e=c/a,\\qquad0<e<1}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-elli-02",
+      "catalogueId": "X-ELLI-02",
+      "name": "Ellipse center-to-directrix distance",
+      "sectionId": "ellipses",
+      "sectionOrder": 8,
+      "sectionTitle": "Ellipses",
+      "topic": "Ellipses",
+      "kind": "module",
+      "lessonCode": "ELLI-01",
+      "lessonId": "elli-01",
+      "lessonTitle": "Definition and parameters",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L1125",
+      "sourceNote": "SRC-ELLI pp. 3–8.",
+      "conditions": "Noncircular ellipse with c>0.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "a/e=a^2/c"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-e03",
+      "catalogueId": "F-E03",
+      "name": "Horizontal ellipse: standard equation and parts",
+      "sectionId": "ellipses",
+      "sectionOrder": 8,
+      "sectionTitle": "Ellipses",
+      "topic": "Ellipses",
+      "kind": "module",
+      "lessonCode": "ELLI-02",
+      "lessonId": "elli-02",
+      "lessonTitle": "Standard forms, parts, and graphing",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1137, L1138, L1139, L1140, L1141, L1142, L1143",
+      "sourceNote": "SRC-ELLI pp. 9–21.",
+      "conditions": "Noncircular axis-parallel ellipse; a>b>0. In focal-chord endpoint formulas, the two ± signs are independent, giving four points.",
+      "expressions": [
+        {
+          "label": "Equation",
+          "latex": "(x-h)^2/a^2+(y-k)^2/b^2=1"
+        },
+        {
+          "label": "Center",
+          "latex": "(h,k)"
+        },
+        {
+          "label": "Vertices",
+          "latex": "(h\\pm a,k)"
+        },
+        {
+          "label": "Covertices",
+          "latex": "(h,k\\pm b)"
+        },
+        {
+          "label": "Foci",
+          "latex": "(h\\pm c,k)"
+        },
+        {
+          "label": "Directrices",
+          "latex": "x=h\\pm a^2/c"
+        },
+        {
+          "label": "Latus rectum endpoints",
+          "latex": "(h\\pm c,k\\pm b^2/a)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-e04",
+      "catalogueId": "F-E04",
+      "name": "Vertical ellipse: standard equation and parts",
+      "sectionId": "ellipses",
+      "sectionOrder": 8,
+      "sectionTitle": "Ellipses",
+      "topic": "Ellipses",
+      "kind": "module",
+      "lessonCode": "ELLI-02",
+      "lessonId": "elli-02",
+      "lessonTitle": "Standard forms, parts, and graphing",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1137, L1138, L1139, L1140, L1141, L1142, L1143",
+      "sourceNote": "SRC-ELLI pp. 9–21.",
+      "conditions": "Noncircular axis-parallel ellipse; a>b>0. In focal-chord endpoint formulas, the two ± signs are independent, giving four points.",
+      "expressions": [
+        {
+          "label": "Equation",
+          "latex": "(x-h)^2/b^2+(y-k)^2/a^2=1"
+        },
+        {
+          "label": "Center",
+          "latex": "(h,k)"
+        },
+        {
+          "label": "Vertices",
+          "latex": "(h,k\\pm a)"
+        },
+        {
+          "label": "Covertices",
+          "latex": "(h\\pm b,k)"
+        },
+        {
+          "label": "Foci",
+          "latex": "(h,k\\pm c)"
+        },
+        {
+          "label": "Directrices",
+          "latex": "y=k\\pm a^2/c"
+        },
+        {
+          "label": "Latus rectum endpoints",
+          "latex": "(h\\pm b^2/a,k\\pm c)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-e05",
+      "catalogueId": "F-E05",
+      "name": "Ellipse latus rectum length",
+      "sectionId": "ellipses",
+      "sectionOrder": 8,
+      "sectionTitle": "Ellipses",
+      "topic": "Ellipses",
+      "kind": "module",
+      "lessonCode": "ELLI-02",
+      "lessonId": "elli-02",
+      "lessonTitle": "Standard forms, parts, and graphing",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1145",
+      "sourceNote": "SRC-ELLI pp. 9–21.",
+      "conditions": "Noncircular ellipse: a>b>0, c²=a²−b², e=c/a. Full axis lengths are 2a and 2b. Circle limit a=b has no finite directrix.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "2b^2/a"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-elli-03",
+      "catalogueId": "X-ELLI-03",
+      "name": "Axis-parallel ellipse general form",
+      "sectionId": "ellipses",
+      "sectionOrder": 8,
+      "sectionTitle": "Ellipses",
+      "topic": "Ellipses",
+      "kind": "module",
+      "lessonCode": "ELLI-03",
+      "lessonId": "elli-03",
+      "lessonTitle": "Constructing equations",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L1192",
+      "sourceNote": "SRC-ELLI pp. 24–33.",
+      "conditions": "Axis-parallel general form with same-sign nonzero quadratic coefficients; complete squares and check a positive real locus.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "Ax^2+By^2+Dx+Ey+F=0"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-h01",
+      "catalogueId": "F-H01",
+      "name": "Hyperbola constant absolute focal-distance difference",
+      "sectionId": "hyperbolas",
+      "sectionOrder": 9,
+      "sectionTitle": "Hyperbolas",
+      "topic": "Hyperbolas",
+      "kind": "module",
+      "lessonCode": "HYP-01",
+      "lessonId": "hyp-01",
+      "lessonTitle": "Definition and parameters",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1250",
+      "sourceNote": "SRC-HYP pp. 3–7.",
+      "conditions": "a,b>0; c²=a²+b² and e>1. No condition a>b is required.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{|PF_1-PF_2|=2a}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-hyp-01",
+      "catalogueId": "X-HYP-01",
+      "name": "Hyperbola transverse/conjugate axis lengths",
+      "sectionId": "hyperbolas",
+      "sectionOrder": 9,
+      "sectionTitle": "Hyperbolas",
+      "topic": "Hyperbolas",
+      "kind": "module",
+      "lessonCode": "HYP-01",
+      "lessonId": "hyp-01",
+      "lessonTitle": "Definition and parameters",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L1252",
+      "sourceNote": "SRC-HYP pp. 3–7.",
+      "conditions": "Full lengths: transverse 2a, conjugate 2b.",
+      "expressions": [
+        {
+          "label": "Transverse-axis length expression",
+          "latex": "2a"
+        },
+        {
+          "label": "Conjugate-axis length expression",
+          "latex": "2b"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-h02",
+      "catalogueId": "F-H02",
+      "name": "Hyperbola focal relation and eccentricity",
+      "sectionId": "hyperbolas",
+      "sectionOrder": 9,
+      "sectionTitle": "Hyperbolas",
+      "topic": "Hyperbolas",
+      "kind": "module",
+      "lessonCode": "HYP-01",
+      "lessonId": "hyp-01",
+      "lessonTitle": "Definition and parameters",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1256",
+      "sourceNote": "SRC-HYP pp. 3–7.",
+      "conditions": "a,b>0; c²=a²+b² and e>1. No condition a>b is required.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{c^2=a^2+b^2,\\qquad e=c/a>1}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-hyp-02",
+      "catalogueId": "X-HYP-02",
+      "name": "Hyperbola center-to-directrix distance",
+      "sectionId": "hyperbolas",
+      "sectionOrder": 9,
+      "sectionTitle": "Hyperbolas",
+      "topic": "Hyperbolas",
+      "kind": "module",
+      "lessonCode": "HYP-01",
+      "lessonId": "hyp-01",
+      "lessonTitle": "Definition and parameters",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L1258",
+      "sourceNote": "SRC-HYP pp. 3–7.",
+      "conditions": "a,b>0; c²=a²+b² and e>1. No condition a>b is required.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "a/e=a^2/c"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-h03",
+      "catalogueId": "F-H03",
+      "name": "Horizontal hyperbola: standard equation and parts",
+      "sectionId": "hyperbolas",
+      "sectionOrder": 9,
+      "sectionTitle": "Hyperbolas",
+      "topic": "Hyperbolas",
+      "kind": "module",
+      "lessonCode": "HYP-02",
+      "lessonId": "hyp-02",
+      "lessonTitle": "Standard forms, asymptotes, and graphing",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1266, L1268, L1269, L1270, L1271, L1272, L1274",
+      "sourceNote": "SRC-HYP pp. 8–21.",
+      "conditions": "Axis-parallel hyperbola, a,b>0. Positive squared term determines transverse-axis direction. Independent ± signs generate all four latus endpoints.",
+      "expressions": [
+        {
+          "label": "Equation",
+          "latex": "(x-h)^2/a^2-(y-k)^2/b^2=1"
+        },
+        {
+          "label": "Center",
+          "latex": "(h,k)"
+        },
+        {
+          "label": "Vertices",
+          "latex": "(h\\pm a,k)"
+        },
+        {
+          "label": "Conjugate-axis endpoints",
+          "latex": "(h,k\\pm b)"
+        },
+        {
+          "label": "Foci",
+          "latex": "(h\\pm c,k)"
+        },
+        {
+          "label": "Directrices",
+          "latex": "x=h\\pm a^2/c"
+        },
+        {
+          "label": "Latus rectum endpoints",
+          "latex": "(h\\pm c,k\\pm b^2/a)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-h04",
+      "catalogueId": "F-H04",
+      "name": "Vertical hyperbola: standard equation and parts",
+      "sectionId": "hyperbolas",
+      "sectionOrder": 9,
+      "sectionTitle": "Hyperbolas",
+      "topic": "Hyperbolas",
+      "kind": "module",
+      "lessonCode": "HYP-02",
+      "lessonId": "hyp-02",
+      "lessonTitle": "Standard forms, asymptotes, and graphing",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1266, L1268, L1269, L1270, L1271, L1272, L1274",
+      "sourceNote": "SRC-HYP pp. 8–21.",
+      "conditions": "Axis-parallel hyperbola, a,b>0. Positive squared term determines transverse-axis direction. Independent ± signs generate all four latus endpoints.",
+      "expressions": [
+        {
+          "label": "Equation",
+          "latex": "(y-k)^2/a^2-(x-h)^2/b^2=1"
+        },
+        {
+          "label": "Center",
+          "latex": "(h,k)"
+        },
+        {
+          "label": "Vertices",
+          "latex": "(h,k\\pm a)"
+        },
+        {
+          "label": "Conjugate-axis endpoints",
+          "latex": "(h\\pm b,k)"
+        },
+        {
+          "label": "Foci",
+          "latex": "(h,k\\pm c)"
+        },
+        {
+          "label": "Directrices",
+          "latex": "y=k\\pm a^2/c"
+        },
+        {
+          "label": "Latus rectum endpoints",
+          "latex": "(h\\pm b^2/a,k\\pm c)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-h05",
+      "catalogueId": "F-H05",
+      "name": "Hyperbola asymptotes in both orientations",
+      "sectionId": "hyperbolas",
+      "sectionOrder": 9,
+      "sectionTitle": "Hyperbolas",
+      "topic": "Hyperbolas",
+      "kind": "module",
+      "lessonCode": "HYP-02",
+      "lessonId": "hyp-02",
+      "lessonTitle": "Standard forms, asymptotes, and graphing",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1273",
+      "sourceNote": "SRC-HYP pp. 8–21.",
+      "conditions": "Axis-parallel hyperbola, a,b>0. Positive squared term determines transverse-axis direction. Independent ± signs generate all four latus endpoints.",
+      "expressions": [
+        {
+          "label": "Horizontal transverse axis",
+          "latex": "y-k=\\pm(b/a)(x-h)"
+        },
+        {
+          "label": "Vertical transverse axis",
+          "latex": "y-k=\\pm(a/b)(x-h)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-h06",
+      "catalogueId": "F-H06",
+      "name": "Hyperbola latus rectum length",
+      "sectionId": "hyperbolas",
+      "sectionOrder": 9,
+      "sectionTitle": "Hyperbolas",
+      "topic": "Hyperbolas",
+      "kind": "module",
+      "lessonCode": "HYP-02",
+      "lessonId": "hyp-02",
+      "lessonTitle": "Standard forms, asymptotes, and graphing",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1276",
+      "sourceNote": "SRC-HYP pp. 8–21.",
+      "conditions": "a,b>0; c²=a²+b² and e>1. No condition a>b is required.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "2b^2/a"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-hyp-03",
+      "catalogueId": "X-HYP-03",
+      "name": "Axis-parallel hyperbola general form and coefficient condition",
+      "sectionId": "hyperbolas",
+      "sectionOrder": 9,
+      "sectionTitle": "Hyperbolas",
+      "topic": "Hyperbolas",
+      "kind": "module",
+      "lessonCode": "HYP-03",
+      "lessonId": "hyp-03",
+      "lessonTitle": "Constructing equations",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L1312",
+      "sourceNote": "SRC-HYP pp. 23–32.",
+      "conditions": "Opposite-sign quadratic coefficients AB<0. A zero translated constant gives intersecting lines, not a nondegenerate hyperbola.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "Ax^2+By^2+Dx+Ey+F=0"
+        },
+        {
+          "label": null,
+          "latex": "AB<0"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "x-prism-01",
+      "catalogueId": "X-PRISM-01",
+      "name": "n-gonal prism face, edge, and vertex counts",
+      "sectionId": "prisms",
+      "sectionOrder": 10,
+      "sectionTitle": "Prisms",
+      "topic": "Prisms",
+      "kind": "module",
+      "lessonCode": "PRISM-01",
+      "lessonId": "prism-01",
+      "lessonTitle": "Parts, types, and nets",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L1388",
+      "sourceNote": "SRC-PRISM pp. 3–6, 8–10.",
+      "conditions": "In order: faces, edges, vertices. These are counts, not measurements.",
+      "expressions": [
+        {
+          "label": "Face count expression",
+          "latex": "n+2"
+        },
+        {
+          "label": "Edge count expression",
+          "latex": "3n"
+        },
+        {
+          "label": "Vertex count expression",
+          "latex": "2n"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-pr01",
+      "catalogueId": "F-PR01",
+      "name": "Volume",
+      "sectionId": "prisms",
+      "sectionOrder": 10,
+      "sectionTitle": "Prisms",
+      "topic": "Prisms",
+      "kind": "module",
+      "lessonCode": "PRISM-02",
+      "lessonId": "prism-02",
+      "lessonTitle": "Area, volume, and applicability",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1400",
+      "sourceNote": "SRC-PRISM pp. 7–10; formula labels and restrictions corrected.",
+      "conditions": "B is one base area; h is perpendicular base-plane separation. P_bh is lateral area only for a right prism. A closed prism includes two bases.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "V=Bh"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-pr02",
+      "catalogueId": "F-PR02",
+      "name": "Lateral surface area",
+      "sectionId": "prisms",
+      "sectionOrder": 10,
+      "sectionTitle": "Prisms",
+      "topic": "Prisms",
+      "kind": "module",
+      "lessonCode": "PRISM-02",
+      "lessonId": "prism-02",
+      "lessonTitle": "Area, volume, and applicability",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1401",
+      "sourceNote": "SRC-PRISM pp. 7–10; formula labels and restrictions corrected.",
+      "conditions": "B is one base area; h is perpendicular base-plane separation. P_bh is lateral area only for a right prism. A closed prism includes two bases.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "A_L=P_bh"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "f-pr03",
+      "catalogueId": "F-PR03",
+      "name": "Total surface area",
+      "sectionId": "prisms",
+      "sectionOrder": 10,
+      "sectionTitle": "Prisms",
+      "topic": "Prisms",
+      "kind": "module",
+      "lessonCode": "PRISM-02",
+      "lessonId": "prism-02",
+      "lessonTitle": "Area, volume, and applicability",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1402",
+      "sourceNote": "SRC-PRISM pp. 7–10; formula labels and restrictions corrected.",
+      "conditions": "B is one base area; h is perpendicular base-plane separation. P_bh is lateral area only for a right prism. A closed prism includes two bases.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "A_T=A_L+2B"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "f-pr04",
+      "catalogueId": "F-PR04",
+      "name": "General oblique-prism lateral-area rule",
+      "sectionId": "prisms",
+      "sectionOrder": 10,
+      "sectionTitle": "Prisms",
+      "topic": "Prisms",
+      "kind": "module",
+      "lessonCode": "PRISM-02",
+      "lessonId": "prism-02",
+      "lessonTitle": "Area, volume, and applicability",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1403",
+      "sourceNote": "SRC-PRISM pp. 7–10; formula labels and restrictions corrected.",
+      "conditions": "B is one base area; h is perpendicular base-plane separation. P_bh is lateral area only for a right prism. A closed prism includes two bases.",
+      "expressions": [],
+      "notes": [
+        "Sum the actual areas of the lateral parallelogram faces. The source states a rule rather than a symbolic equation."
+      ],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-pr05",
+      "catalogueId": "F-PR05",
+      "name": "Right triangular prism",
+      "sectionId": "prisms",
+      "sectionOrder": 10,
+      "sectionTitle": "Prisms",
+      "topic": "Prisms",
+      "kind": "module",
+      "lessonCode": "PRISM-02",
+      "lessonId": "prism-02",
+      "lessonTitle": "Area, volume, and applicability",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1404",
+      "sourceNote": "SRC-PRISM pp. 7–10; formula labels and restrictions corrected.",
+      "conditions": "B is one base area; h is perpendicular base-plane separation. P_bh is lateral area only for a right prism. A closed prism includes two bases.",
+      "expressions": [
+        {
+          "label": "Volume",
+          "latex": "V=(b_0h_t/2)L"
+        },
+        {
+          "label": "Closed total surface area",
+          "latex": "A_T=b_0h_t+(u+v+w)L"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-pr06",
+      "catalogueId": "F-PR06",
+      "name": "Rectangular prism",
+      "sectionId": "prisms",
+      "sectionOrder": 10,
+      "sectionTitle": "Prisms",
+      "topic": "Prisms",
+      "kind": "module",
+      "lessonCode": "PRISM-02",
+      "lessonId": "prism-02",
+      "lessonTitle": "Area, volume, and applicability",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1405",
+      "sourceNote": "SRC-PRISM pp. 7–10; formula labels and restrictions corrected.",
+      "conditions": "B is one base area; h is perpendicular base-plane separation. P_bh is lateral area only for a right prism. A closed prism includes two bases.",
+      "expressions": [
+        {
+          "label": "Volume",
+          "latex": "V=LWH"
+        },
+        {
+          "label": "Closed total surface area",
+          "latex": "A_T=2(LW+LH+WH)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-bx01",
+      "catalogueId": "F-BX01",
+      "name": "Cube and cuboid: Volume",
+      "sectionId": "parallelepipeds-cubes",
+      "sectionOrder": 11,
+      "sectionTitle": "Parallelepipeds and Cubes",
+      "topic": "Parallelepipeds and Cubes",
+      "kind": "module",
+      "lessonCode": "BOX-01",
+      "lessonId": "box-01",
+      "lessonTitle": "Cubes and rectangular parallelepipeds",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1509",
+      "sourceNote": "SRC-BOX pp. 3–11, 16.",
+      "conditions": "Cube edge q or three mutually perpendicular cuboid edges L,W,H. Face and space diagonals are distinct.",
+      "expressions": [
+        {
+          "label": "Cube expression",
+          "latex": "q^3"
+        },
+        {
+          "label": "Cuboid expression",
+          "latex": "LWH"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-bx02",
+      "catalogueId": "F-BX02",
+      "name": "Cube and cuboid: Total surface area",
+      "sectionId": "parallelepipeds-cubes",
+      "sectionOrder": 11,
+      "sectionTitle": "Parallelepipeds and Cubes",
+      "topic": "Parallelepipeds and Cubes",
+      "kind": "module",
+      "lessonCode": "BOX-01",
+      "lessonId": "box-01",
+      "lessonTitle": "Cubes and rectangular parallelepipeds",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1510",
+      "sourceNote": "SRC-BOX pp. 3–11, 16.",
+      "conditions": "Cube edge q or three mutually perpendicular cuboid edges L,W,H. Face and space diagonals are distinct.",
+      "expressions": [
+        {
+          "label": "Cube expression",
+          "latex": "6q^2"
+        },
+        {
+          "label": "Cuboid expression",
+          "latex": "2(LW+LH+WH)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "f-bx03",
+      "catalogueId": "F-BX03",
+      "name": "Cube and cuboid: Face diagonal",
+      "sectionId": "parallelepipeds-cubes",
+      "sectionOrder": 11,
+      "sectionTitle": "Parallelepipeds and Cubes",
+      "topic": "Parallelepipeds and Cubes",
+      "kind": "module",
+      "lessonCode": "BOX-01",
+      "lessonId": "box-01",
+      "lessonTitle": "Cubes and rectangular parallelepipeds",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1511",
+      "sourceNote": "SRC-BOX pp. 3–11, 16.",
+      "conditions": "Cube edge q or three mutually perpendicular cuboid edges L,W,H. Face and space diagonals are distinct.",
+      "expressions": [
+        {
+          "label": "Cube expression",
+          "latex": "q\\sqrt2"
+        },
+        {
+          "label": "Cuboid expression",
+          "latex": "\\sqrt{L^2+W^2}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-bx04",
+      "catalogueId": "F-BX04",
+      "name": "Cube and cuboid: Space diagonal",
+      "sectionId": "parallelepipeds-cubes",
+      "sectionOrder": 11,
+      "sectionTitle": "Parallelepipeds and Cubes",
+      "topic": "Parallelepipeds and Cubes",
+      "kind": "module",
+      "lessonCode": "BOX-01",
+      "lessonId": "box-01",
+      "lessonTitle": "Cubes and rectangular parallelepipeds",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1512",
+      "sourceNote": "SRC-BOX pp. 3–11, 16.",
+      "conditions": "Cube edge q or three mutually perpendicular cuboid edges L,W,H. Face and space diagonals are distinct.",
+      "expressions": [
+        {
+          "label": "Cube expression",
+          "latex": "q\\sqrt3"
+        },
+        {
+          "label": "Cuboid expression",
+          "latex": "\\sqrt{L^2+W^2+H^2}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "x-box-01",
+      "catalogueId": "X-BOX-01",
+      "name": "General parallelepiped volume",
+      "sectionId": "parallelepipeds-cubes",
+      "sectionOrder": 11,
+      "sectionTitle": "Parallelepipeds and Cubes",
+      "topic": "Parallelepipeds and Cubes",
+      "kind": "module",
+      "lessonCode": "BOX-02",
+      "lessonId": "box-02",
+      "lessonTitle": "General parallelepipeds and painting",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L1528",
+      "sourceNote": "SRC-BOX pp. 12–17, 20; general surface-area claims corrected.",
+      "conditions": "B is base area and h perpendicular height. Reuses the prism volume relationship.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "V=Bh"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "x-cyl-01",
+      "catalogueId": "X-CYL-01",
+      "name": "Cylinder diameter-radius relationship",
+      "sectionId": "cylinders",
+      "sectionOrder": 12,
+      "sectionTitle": "Cylinders",
+      "topic": "Cylinders",
+      "kind": "module",
+      "lessonCode": "CYL-01",
+      "lessonId": "cyl-01",
+      "lessonTitle": "Circular cylinders",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L1602",
+      "sourceNote": "SRC-CYL pp. 3–6; diameter formula and example arithmetic corrected.",
+      "conditions": "d is full diameter and r radius.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "d=2r"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-cy01",
+      "catalogueId": "F-CY01",
+      "name": "Circular-cylinder volume: radius and diameter forms",
+      "sectionId": "cylinders",
+      "sectionOrder": 12,
+      "sectionTitle": "Cylinders",
+      "topic": "Cylinders",
+      "kind": "module",
+      "lessonCode": "CYL-01",
+      "lessonId": "cyl-01",
+      "lessonTitle": "Circular cylinders",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1604",
+      "sourceNote": "SRC-CYL pp. 3–6; diameter formula and example arithmetic corrected.",
+      "conditions": "Right circular cylinder with positive radius r, diameter d=2r, and perpendicular height h. Closed total area includes two disks.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "V=\\pi r^2h=\\frac{\\pi d^2h}{4}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "f-cy02",
+      "catalogueId": "F-CY02",
+      "name": "Right circular-cylinder lateral and closed total areas",
+      "sectionId": "cylinders",
+      "sectionOrder": 12,
+      "sectionTitle": "Cylinders",
+      "topic": "Cylinders",
+      "kind": "module",
+      "lessonCode": "CYL-01",
+      "lessonId": "cyl-01",
+      "lessonTitle": "Circular cylinders",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1606",
+      "sourceNote": "SRC-CYL pp. 3–6; diameter formula and example arithmetic corrected.",
+      "conditions": "Right circular cylinder with positive radius r, diameter d=2r, and perpendicular height h. Closed total area includes two disks.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "A_L=2\\pi rh=\\pi dh,\\qquad A_T=2\\pi rh+2\\pi r^2=2\\pi r(h+r)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "f-cy03",
+      "catalogueId": "F-CY03",
+      "name": "Hollow-cylinder material volume",
+      "sectionId": "cylinders",
+      "sectionOrder": 12,
+      "sectionTitle": "Cylinders",
+      "topic": "Cylinders",
+      "kind": "module",
+      "lessonCode": "CYL-02",
+      "lessonId": "cyl-02",
+      "lessonTitle": "Hollow cylinders and material quantities",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1634",
+      "sourceNote": "SRC-CYL pp. 7–9.",
+      "conditions": "Right pipe, R>r>0. Curved area includes inner and outer walls; all-area formula also includes two annular ends, not full bore-closing disks.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "V_{material}=\\pi(R^2-r^2)h"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "f-cy04",
+      "catalogueId": "F-CY04",
+      "name": "Combined inner and outer curved pipe area",
+      "sectionId": "cylinders",
+      "sectionOrder": 12,
+      "sectionTitle": "Cylinders",
+      "topic": "Cylinders",
+      "kind": "module",
+      "lessonCode": "CYL-02",
+      "lessonId": "cyl-02",
+      "lessonTitle": "Hollow cylinders and material quantities",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1636",
+      "sourceNote": "SRC-CYL pp. 7–9.",
+      "conditions": "Right pipe, R>r>0. Curved area includes inner and outer walls; all-area formula also includes two annular ends, not full bore-closing disks.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "A_{curved}=2\\pi Rh+2\\pi rh=2\\pi(R+r)h"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "f-cy05",
+      "catalogueId": "F-CY05",
+      "name": "All pipe surfaces, including annular ends",
+      "sectionId": "cylinders",
+      "sectionOrder": 12,
+      "sectionTitle": "Cylinders",
+      "topic": "Cylinders",
+      "kind": "module",
+      "lessonCode": "CYL-02",
+      "lessonId": "cyl-02",
+      "lessonTitle": "Hollow cylinders and material quantities",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1638",
+      "sourceNote": "SRC-CYL pp. 7–9.",
+      "conditions": "Right pipe, R>r>0. Curved area includes inner and outer walls; all-area formula also includes two annular ends, not full bore-closing disks.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "A_{all}=2\\pi(R+r)h+2\\pi(R^2-r^2)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "x-cyl-02",
+      "catalogueId": "X-CYL-02",
+      "name": "Pipe interior capacity expression",
+      "sectionId": "cylinders",
+      "sectionOrder": 12,
+      "sectionTitle": "Cylinders",
+      "topic": "Cylinders",
+      "kind": "module",
+      "lessonCode": "CYL-02",
+      "lessonId": "cyl-02",
+      "lessonTitle": "Hollow cylinders and material quantities",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L1640",
+      "sourceNote": "SRC-CYL pp. 7–9.",
+      "conditions": "Use inner radius r and length h; this is capacity, not material volume.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\pi r^2h"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-cy06",
+      "catalogueId": "F-CY06",
+      "name": "Ellipse base area and elliptic-cylinder volume",
+      "sectionId": "cylinders",
+      "sectionOrder": 12,
+      "sectionTitle": "Cylinders",
+      "topic": "Cylinders",
+      "kind": "module",
+      "lessonCode": "CYL-03",
+      "lessonId": "cyl-03",
+      "lessonTitle": "Elliptic cylinders and practice",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1671",
+      "sourceNote": "SRC-CYL pp. 10–13; ellipse-perimeter formula corrected.",
+      "conditions": "Right elliptic cylinder; a,b are semiaxes, not full axes, and C_e is the true ellipse perimeter. Clearly distinguish exact and approximate expressions.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "B=\\pi ab,\\qquad V=\\pi abh"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "approximation"
+      ]
+    },
+    {
+      "id": "f-cy07",
+      "catalogueId": "F-CY07",
+      "name": "Right elliptic-cylinder lateral and total areas",
+      "sectionId": "cylinders",
+      "sectionOrder": 12,
+      "sectionTitle": "Cylinders",
+      "topic": "Cylinders",
+      "kind": "module",
+      "lessonCode": "CYL-03",
+      "lessonId": "cyl-03",
+      "lessonTitle": "Elliptic cylinders and practice",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1673",
+      "sourceNote": "SRC-CYL pp. 10–13; ellipse-perimeter formula corrected.",
+      "conditions": "Right elliptic cylinder; a,b are semiaxes, not full axes, and C_e is the true ellipse perimeter. Clearly distinguish exact and approximate expressions.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "A_L=C_eh,\\qquad A_T=C_eh+2\\pi ab"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "approximation",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "f-py01",
+      "catalogueId": "F-PY01",
+      "name": "Regular-pyramid right-triangle relations",
+      "sectionId": "pyramids",
+      "sectionOrder": 13,
+      "sectionTitle": "Pyramids",
+      "topic": "Pyramids",
+      "kind": "module",
+      "lessonCode": "PYR-01",
+      "lessonId": "pyr-01",
+      "lessonTitle": "Parts and measurements",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1731",
+      "sourceNote": "SRC-PYCS pp. 5–10; two Pythagorean relations corrected.",
+      "conditions": "Regular pyramid: h altitude, ℓ face slant height, E lateral edge, s base edge, r_a apothem, R_b circumradius.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\ell^2=h^2+r_a^2,\\quad E^2=\\ell^2+(s/2)^2=h^2+R_b^2,\\quad R_b^2=r_a^2+(s/2)^2"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-py02",
+      "catalogueId": "F-PY02",
+      "name": "Pyramid volume",
+      "sectionId": "pyramids",
+      "sectionOrder": 13,
+      "sectionTitle": "Pyramids",
+      "topic": "Pyramids",
+      "kind": "module",
+      "lessonCode": "PYR-02",
+      "lessonId": "pyr-02",
+      "lessonTitle": "Surface area and volume",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1739",
+      "sourceNote": "SRC-PYCS pp. 6, 11–12.",
+      "conditions": "Volume uses perpendicular altitude for any pyramid. Factored lateral-area formula requires the common slant height of a regular pyramid.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "V=\\frac13Bh\\quad\\text{for any pyramid}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-py03",
+      "catalogueId": "F-PY03",
+      "name": "Regular-pyramid lateral and total areas",
+      "sectionId": "pyramids",
+      "sectionOrder": 13,
+      "sectionTitle": "Pyramids",
+      "topic": "Pyramids",
+      "kind": "module",
+      "lessonCode": "PYR-02",
+      "lessonId": "pyr-02",
+      "lessonTitle": "Surface area and volume",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1741",
+      "sourceNote": "SRC-PYCS pp. 6, 11–12.",
+      "conditions": "Volume uses perpendicular altitude for any pyramid. Factored lateral-area formula requires the common slant height of a regular pyramid.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "A_L=\\frac12P_b\\ell,\\qquad A_T=A_L+B\\quad\\text{for a regular pyramid}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "f-co01",
+      "catalogueId": "F-CO01",
+      "name": "Right circular-cone slant-height relation",
+      "sectionId": "cones",
+      "sectionOrder": 14,
+      "sectionTitle": "Cones",
+      "topic": "Cones",
+      "kind": "module",
+      "lessonCode": "CONE-01",
+      "lessonId": "cone-01",
+      "lessonTitle": "Right circular cone geometry",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1795",
+      "sourceNote": "SRC-PYCS pp. 15–16.",
+      "conditions": "Right circular cone for the slant-height and surface-area relations; r radius, h perpendicular height, ℓ slant height. Closed total area includes its disk.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\ell^2=r^2+h^2"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "x-cone-01",
+      "catalogueId": "X-CONE-01",
+      "name": "Cone base circumference expression",
+      "sectionId": "cones",
+      "sectionOrder": 14,
+      "sectionTitle": "Cones",
+      "topic": "Cones",
+      "kind": "module",
+      "lessonCode": "CONE-01",
+      "lessonId": "cone-01",
+      "lessonTitle": "Right circular cone geometry",
+      "classification": "Unnumbered relationship already in the pack",
+      "referenceType": "unnumbered-relationship",
+      "sourceLocation": "L1797",
+      "sourceNote": "SRC-PYCS pp. 15–16.",
+      "conditions": "The net sector’s arc length equals this circumference; r is base radius.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "2\\pi r"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "unnumbered-relationship"
+      ]
+    },
+    {
+      "id": "f-co02",
+      "catalogueId": "F-CO02",
+      "name": "Right circular-cone lateral area, total area, and volume",
+      "sectionId": "cones",
+      "sectionOrder": 14,
+      "sectionTitle": "Cones",
+      "topic": "Cones",
+      "kind": "module",
+      "lessonCode": "CONE-01",
+      "lessonId": "cone-01",
+      "lessonTitle": "Right circular cone geometry",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1799",
+      "sourceNote": "SRC-PYCS pp. 15–16.",
+      "conditions": "Right circular cone for the slant-height and surface-area relations; r radius, h perpendicular height, ℓ slant height. Closed total area includes its disk.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "A_L=\\pi r\\ell,\\quad A_T=\\pi r\\ell+\\pi r^2=\\pi r(\\ell+r),\\quad V=\\frac13\\pi r^2h"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "x-cone-02",
+      "catalogueId": "X-CONE-02",
+      "name": "Cube-inscribed cone preset relations",
+      "sectionId": "cones",
+      "sectionOrder": 14,
+      "sectionTitle": "Cones",
+      "topic": "Cones",
+      "kind": "module",
+      "lessonCode": "CONE-03",
+      "lessonId": "cone-03",
+      "lessonTitle": "Cone inscribed in a cube",
+      "classification": "General preset rule already in the pack",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1847",
+      "sourceNote": "SRC-PYCS p. 20; rounding improved and placement stated explicitly.",
+      "conditions": "Specific inscription: cone base circle inscribed in one cube face; apex at center of the opposite face. q is cube edge.",
+      "expressions": [
+        {
+          "label": "Height",
+          "latex": "h=q"
+        },
+        {
+          "label": "Base radius",
+          "latex": "r=q/2"
+        },
+        {
+          "label": "Slant height",
+          "latex": "\\ell=q\\sqrt5/2"
+        },
+        {
+          "label": "Volume",
+          "latex": "V=\\pi q^3/12"
+        },
+        {
+          "label": "Closed total surface area",
+          "latex": "A_T=\\pi q^2(1+\\sqrt5)/4"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-sp01",
+      "catalogueId": "F-SP01",
+      "name": "Full sphere surface area",
+      "sectionId": "spheres-segments",
+      "sectionOrder": 15,
+      "sectionTitle": "Spheres and Spherical Segments",
+      "topic": "Spheres and Spherical Segments",
+      "kind": "module",
+      "lessonCode": "SPH-01",
+      "lessonId": "sph-01",
+      "lessonTitle": "Sphere, hemisphere, and shell",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1872",
+      "sourceNote": "SRC-PYCS pp. 24–25, 27–28.",
+      "conditions": "R is sphere/hemisphere radius; D diameter. Hemisphere total area includes its disk. Shell volume subtracts concentric hemispherical volumes.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "4\\pi R^2=\\pi D^2"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "f-sp02",
+      "catalogueId": "F-SP02",
+      "name": "Full sphere volume",
+      "sectionId": "spheres-segments",
+      "sectionOrder": 15,
+      "sectionTitle": "Spheres and Spherical Segments",
+      "topic": "Spheres and Spherical Segments",
+      "kind": "module",
+      "lessonCode": "SPH-01",
+      "lessonId": "sph-01",
+      "lessonTitle": "Sphere, hemisphere, and shell",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1873",
+      "sourceNote": "SRC-PYCS pp. 24–25, 27–28.",
+      "conditions": "R is sphere/hemisphere radius; D diameter. Hemisphere total area includes its disk. Shell volume subtracts concentric hemispherical volumes.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "4\\pi R^3/3"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "f-sp03",
+      "catalogueId": "F-SP03",
+      "name": "Hemisphere curved area",
+      "sectionId": "spheres-segments",
+      "sectionOrder": 15,
+      "sectionTitle": "Spheres and Spherical Segments",
+      "topic": "Spheres and Spherical Segments",
+      "kind": "module",
+      "lessonCode": "SPH-01",
+      "lessonId": "sph-01",
+      "lessonTitle": "Sphere, hemisphere, and shell",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1874",
+      "sourceNote": "SRC-PYCS pp. 24–25, 27–28.",
+      "conditions": "R is sphere/hemisphere radius; D diameter. Hemisphere total area includes its disk. Shell volume subtracts concentric hemispherical volumes.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "2\\pi R^2"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "f-sp04",
+      "catalogueId": "F-SP04",
+      "name": "Hemisphere total area including base disk",
+      "sectionId": "spheres-segments",
+      "sectionOrder": 15,
+      "sectionTitle": "Spheres and Spherical Segments",
+      "topic": "Spheres and Spherical Segments",
+      "kind": "module",
+      "lessonCode": "SPH-01",
+      "lessonId": "sph-01",
+      "lessonTitle": "Sphere, hemisphere, and shell",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1875",
+      "sourceNote": "SRC-PYCS pp. 24–25, 27–28.",
+      "conditions": "R is sphere/hemisphere radius; D diameter. Hemisphere total area includes its disk. Shell volume subtracts concentric hemispherical volumes.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "3\\pi R^2"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "f-sp05",
+      "catalogueId": "F-SP05",
+      "name": "Hemisphere volume",
+      "sectionId": "spheres-segments",
+      "sectionOrder": 15,
+      "sectionTitle": "Spheres and Spherical Segments",
+      "topic": "Spheres and Spherical Segments",
+      "kind": "module",
+      "lessonCode": "SPH-01",
+      "lessonId": "sph-01",
+      "lessonTitle": "Sphere, hemisphere, and shell",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1876",
+      "sourceNote": "SRC-PYCS pp. 24–25, 27–28.",
+      "conditions": "R is sphere/hemisphere radius; D diameter. Hemisphere total area includes its disk. Shell volume subtracts concentric hemispherical volumes.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "2\\pi R^3/3"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "f-sp06",
+      "catalogueId": "F-SP06",
+      "name": "Hemispherical shell material volume",
+      "sectionId": "spheres-segments",
+      "sectionOrder": 15,
+      "sectionTitle": "Spheres and Spherical Segments",
+      "topic": "Spheres and Spherical Segments",
+      "kind": "module",
+      "lessonCode": "SPH-01",
+      "lessonId": "sph-01",
+      "lessonTitle": "Sphere, hemisphere, and shell",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1877",
+      "sourceNote": "SRC-PYCS pp. 24–25, 27–28.",
+      "conditions": "R is sphere/hemisphere radius; D diameter. Hemisphere total area includes its disk. Shell volume subtracts concentric hemispherical volumes.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "2\\pi(R_o^3-R_i^3)/3"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "f-sp07",
+      "catalogueId": "F-SP07",
+      "name": "Spherical-zone curved area",
+      "sectionId": "spheres-segments",
+      "sectionOrder": 15,
+      "sectionTitle": "Spheres and Spherical Segments",
+      "topic": "Spheres and Spherical Segments",
+      "kind": "module",
+      "lessonCode": "SPH-02",
+      "lessonId": "sph-02",
+      "lessonTitle": "Zones and spherical segments",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1901",
+      "sourceNote": "SRC-PYCS p. 26.",
+      "conditions": "R sphere radius, h perpendicular segment/zone height. Cap: 0<h<2R. Cut radii must come from the same sphere; total boundary adds the cut disk(s).",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\boxed{A_{zone}=2\\pi Rh}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "f-sp08",
+      "catalogueId": "F-SP08",
+      "name": "Spherical-cap cut-radius relation",
+      "sectionId": "spheres-segments",
+      "sectionOrder": 15,
+      "sectionTitle": "Spheres and Spherical Segments",
+      "topic": "Spheres and Spherical Segments",
+      "kind": "module",
+      "lessonCode": "SPH-02",
+      "lessonId": "sph-02",
+      "lessonTitle": "Zones and spherical segments",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1907",
+      "sourceNote": "SRC-PYCS p. 26.",
+      "conditions": "R sphere radius, h perpendicular segment/zone height. Cap: 0<h<2R. Cut radii must come from the same sphere; total boundary adds the cut disk(s).",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "r^2=2Rh-h^2"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-sp09",
+      "catalogueId": "F-SP09",
+      "name": "One-base spherical-cap volume",
+      "sectionId": "spheres-segments",
+      "sectionOrder": 15,
+      "sectionTitle": "Spheres and Spherical Segments",
+      "topic": "Spheres and Spherical Segments",
+      "kind": "module",
+      "lessonCode": "SPH-02",
+      "lessonId": "sph-02",
+      "lessonTitle": "Zones and spherical segments",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1909",
+      "sourceNote": "SRC-PYCS p. 26.",
+      "conditions": "R sphere radius, h perpendicular segment/zone height. Cap: 0<h<2R. Cut radii must come from the same sphere; total boundary adds the cut disk(s).",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "V_{cap}=\\frac{\\pi h^2}{3}(3R-h)=\\frac{\\pi h}{6}(3r^2+h^2)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-sp10",
+      "catalogueId": "F-SP10",
+      "name": "One-base cap curved and closed total areas",
+      "sectionId": "spheres-segments",
+      "sectionOrder": 15,
+      "sectionTitle": "Spheres and Spherical Segments",
+      "topic": "Spheres and Spherical Segments",
+      "kind": "module",
+      "lessonCode": "SPH-02",
+      "lessonId": "sph-02",
+      "lessonTitle": "Zones and spherical segments",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1911",
+      "sourceNote": "SRC-PYCS p. 26.",
+      "conditions": "R sphere radius, h perpendicular segment/zone height. Cap: 0<h<2R. Cut radii must come from the same sphere; total boundary adds the cut disk(s).",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "A_{curved}=2\\pi Rh,\\qquad A_{total}=2\\pi Rh+\\pi r^2"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "f-sp11",
+      "catalogueId": "F-SP11",
+      "name": "Two-base spherical-segment volume",
+      "sectionId": "spheres-segments",
+      "sectionOrder": 15,
+      "sectionTitle": "Spheres and Spherical Segments",
+      "topic": "Spheres and Spherical Segments",
+      "kind": "module",
+      "lessonCode": "SPH-02",
+      "lessonId": "sph-02",
+      "lessonTitle": "Zones and spherical segments",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1915",
+      "sourceNote": "SRC-PYCS p. 26.",
+      "conditions": "R sphere radius, h perpendicular segment/zone height. Cap: 0<h<2R. Cut radii must come from the same sphere; total boundary adds the cut disk(s).",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "V=\\frac{\\pi h}{6}(3r_1^2+3r_2^2+h^2)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "teaching-formula"
+      ]
+    },
+    {
+      "id": "f-sp12",
+      "catalogueId": "F-SP12",
+      "name": "Two-base segment curved and closed total areas",
+      "sectionId": "spheres-segments",
+      "sectionOrder": 15,
+      "sectionTitle": "Spheres and Spherical Segments",
+      "topic": "Spheres and Spherical Segments",
+      "kind": "module",
+      "lessonCode": "SPH-02",
+      "lessonId": "sph-02",
+      "lessonTitle": "Zones and spherical segments",
+      "classification": "Teaching formula",
+      "referenceType": "teaching-formula",
+      "sourceLocation": "L1917",
+      "sourceNote": "SRC-PYCS p. 26.",
+      "conditions": "R sphere radius, h perpendicular segment/zone height. Cap: 0<h<2R. Cut radii must come from the same sphere; total boundary adds the cut disk(s).",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "A_{curved}=2\\pi Rh,\\qquad A_{total}=2\\pi Rh+\\pi r_1^2+\\pi r_2^2"
+        }
+      ],
+      "notes": [
+        "Wetted-area distinction already in SPH-03: Example SP03 uses the same curved-area relationship, 2πRh, for the bowl wall in contact with liquid. The liquid’s top disk is excluded from wetted wall area. Its numerical example gives wet area 20π in² and total segment boundary 36π in². These are example values, not additional general formulas."
+      ],
+      "tags": [
+        "teaching-formula",
+        "surface-area"
+      ]
+    },
+    {
+      "id": "x-shared-01",
+      "catalogueId": "X-SHARED-01",
+      "name": "Mass from density and volume",
+      "sectionId": "shared-support",
+      "sectionOrder": 16,
+      "sectionTitle": "Shared support formulas",
+      "topic": "Shared support formulas",
+      "kind": "shared",
+      "lessonCode": "Shared/implementation reference",
+      "lessonId": null,
+      "lessonTitle": "",
+      "classification": "Shared notation already in the pack",
+      "referenceType": "shared-support",
+      "sourceLocation": "L116",
+      "sourceNote": "",
+      "conditions": "ρ is mass per unit volume; m is mass, not force weight.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "m=\\rho V"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "shared-support"
+      ]
+    },
+    {
+      "id": "x-shared-02",
+      "catalogueId": "X-SHARED-02",
+      "name": "Degrees-to-radians conversion",
+      "sectionId": "shared-support",
+      "sectionOrder": 16,
+      "sectionTitle": "Shared support formulas",
+      "topic": "Shared support formulas",
+      "kind": "shared",
+      "lessonCode": "Shared/implementation reference",
+      "lessonId": null,
+      "lessonTitle": "",
+      "classification": "Shared numerical rule already in the pack",
+      "referenceType": "shared-support",
+      "sourceLocation": "L120",
+      "sourceNote": "",
+      "conditions": "The pack uses degree angles unless otherwise stated; programming trigonometric functions commonly use radians.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "\\theta_{rad}=\\theta_{deg}\\pi/180"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "shared-support"
+      ]
+    },
+    {
+      "id": "f-bx05",
+      "catalogueId": "F-BX05",
+      "name": "General parallelepiped: vector volume and surface area",
+      "sectionId": "advanced-implementation",
+      "sectionOrder": 17,
+      "sectionTitle": "Optional advanced / implementation formulas",
+      "topic": "Optional advanced / implementation formulas",
+      "kind": "advanced",
+      "lessonCode": "BOX-02",
+      "lessonId": "box-02",
+      "lessonTitle": "General parallelepipeds and painting",
+      "classification": "Optional implementation extension already in the pack",
+      "referenceType": "optional-extension",
+      "sourceLocation": "L1532",
+      "sourceNote": "SRC-BOX pp. 12–17, 20; general surface-area claims corrected.",
+      "conditions": "V=Bh uses base area, not total surface area. The vector expression is an optional implementation extension already in the pack.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "V=|u\\cdot(v\\times w)|,\\qquad A_T=2\\bigl(\\|u\\times v\\|+\\|u\\times w\\|+\\|v\\times w\\|\\bigr)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "optional-extension",
+        "surface-area",
+        "implementation"
+      ]
+    },
+    {
+      "id": "f-cy08",
+      "catalogueId": "F-CY08",
+      "name": "Exact ellipse perimeter as an integral",
+      "sectionId": "advanced-implementation",
+      "sectionOrder": 17,
+      "sectionTitle": "Optional advanced / implementation formulas",
+      "topic": "Optional advanced / implementation formulas",
+      "kind": "advanced",
+      "lessonCode": "CYL-03",
+      "lessonId": "cyl-03",
+      "lessonTitle": "Elliptic cylinders and practice",
+      "classification": "Exact advanced perimeter reference already in the pack",
+      "referenceType": "exact-advanced-reference",
+      "sourceLocation": "L1677",
+      "sourceNote": "SRC-CYL pp. 10–13; ellipse-perimeter formula corrected.",
+      "conditions": "Ellipse semiaxes a≥b>0; the expression is exact and intended as an advanced numerical-integration reference in the pack.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "C_e=4\\int_0^{\\pi/2}\\sqrt{a^2\\sin^2t+b^2\\cos^2t}\\,dt"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "exact-advanced-reference",
+        "implementation"
+      ]
+    },
+    {
+      "id": "f-cy09",
+      "catalogueId": "F-CY09",
+      "name": "Approximate ellipse perimeter",
+      "sectionId": "advanced-implementation",
+      "sectionOrder": 17,
+      "sectionTitle": "Optional advanced / implementation formulas",
+      "topic": "Optional advanced / implementation formulas",
+      "kind": "advanced",
+      "lessonCode": "CYL-03",
+      "lessonId": "cyl-03",
+      "lessonTitle": "Elliptic cylinders and practice",
+      "classification": "Optional approximation already in the pack",
+      "referenceType": "approximation",
+      "sourceLocation": "L1681",
+      "sourceNote": "SRC-CYL pp. 10–13; ellipse-perimeter formula corrected.",
+      "conditions": "Right elliptic cylinder; a,b are semiaxes, not full axes, and C_e is the true ellipse perimeter. Clearly distinguish exact and approximate expressions.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "C_e\\approx\\pi\\left[3(a+b)-\\sqrt{(3a+b)(a+3b)}\\right]"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "approximation",
+        "implementation"
+      ]
+    },
+    {
+      "id": "impl-2200",
+      "catalogueId": "IMPL-2200",
+      "name": "Circle parameterization",
+      "sectionId": "advanced-implementation",
+      "sectionOrder": 17,
+      "sectionTitle": "Optional advanced / implementation formulas",
+      "topic": "Optional advanced / implementation formulas",
+      "kind": "advanced",
+      "lessonCode": "Shared/implementation reference",
+      "lessonId": null,
+      "lessonTitle": "",
+      "classification": "Implementation addition already labeled in the pack",
+      "referenceType": "implementation",
+      "sourceLocation": "L2200",
+      "sourceNote": "",
+      "conditions": "t is in radians for trigonometric parameterizations; hyperbola branches use σ=−1 or +1, with a finite viewport-dependent parameter range.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "x=h+r\\cos t"
+        },
+        {
+          "label": null,
+          "latex": "y=k+r\\sin t"
+        },
+        {
+          "label": null,
+          "latex": "0\\le t\\le2\\pi"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "implementation"
+      ]
+    },
+    {
+      "id": "impl-2201",
+      "catalogueId": "IMPL-2201",
+      "name": "Horizontal-major ellipse parameterization",
+      "sectionId": "advanced-implementation",
+      "sectionOrder": 17,
+      "sectionTitle": "Optional advanced / implementation formulas",
+      "topic": "Optional advanced / implementation formulas",
+      "kind": "advanced",
+      "lessonCode": "Shared/implementation reference",
+      "lessonId": null,
+      "lessonTitle": "",
+      "classification": "Implementation addition already labeled in the pack",
+      "referenceType": "implementation",
+      "sourceLocation": "L2201",
+      "sourceNote": "",
+      "conditions": "t is in radians for trigonometric parameterizations; hyperbola branches use σ=−1 or +1, with a finite viewport-dependent parameter range.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "x=h+a\\cos t"
+        },
+        {
+          "label": null,
+          "latex": "y=k+b\\sin t"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "implementation"
+      ]
+    },
+    {
+      "id": "impl-2202",
+      "catalogueId": "IMPL-2202",
+      "name": "Vertical-major ellipse parameterization",
+      "sectionId": "advanced-implementation",
+      "sectionOrder": 17,
+      "sectionTitle": "Optional advanced / implementation formulas",
+      "topic": "Optional advanced / implementation formulas",
+      "kind": "advanced",
+      "lessonCode": "Shared/implementation reference",
+      "lessonId": null,
+      "lessonTitle": "",
+      "classification": "Implementation addition already labeled in the pack",
+      "referenceType": "implementation",
+      "sourceLocation": "L2202",
+      "sourceNote": "",
+      "conditions": "t is in radians for trigonometric parameterizations; hyperbola branches use σ=−1 or +1, with a finite viewport-dependent parameter range.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "x=h+b\\cos t"
+        },
+        {
+          "label": null,
+          "latex": "y=k+a\\sin t"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "implementation"
+      ]
+    },
+    {
+      "id": "impl-2203",
+      "catalogueId": "IMPL-2203",
+      "name": "Horizontal parabola parameterization",
+      "sectionId": "advanced-implementation",
+      "sectionOrder": 17,
+      "sectionTitle": "Optional advanced / implementation formulas",
+      "topic": "Optional advanced / implementation formulas",
+      "kind": "advanced",
+      "lessonCode": "Shared/implementation reference",
+      "lessonId": null,
+      "lessonTitle": "",
+      "classification": "Implementation addition already labeled in the pack",
+      "referenceType": "implementation",
+      "sourceLocation": "L2203",
+      "sourceNote": "",
+      "conditions": "t is in radians for trigonometric parameterizations; hyperbola branches use σ=−1 or +1, with a finite viewport-dependent parameter range.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "x=h+t^2/(4p)"
+        },
+        {
+          "label": null,
+          "latex": "y=k+t"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "implementation"
+      ]
+    },
+    {
+      "id": "impl-2204",
+      "catalogueId": "IMPL-2204",
+      "name": "Vertical parabola parameterization",
+      "sectionId": "advanced-implementation",
+      "sectionOrder": 17,
+      "sectionTitle": "Optional advanced / implementation formulas",
+      "topic": "Optional advanced / implementation formulas",
+      "kind": "advanced",
+      "lessonCode": "Shared/implementation reference",
+      "lessonId": null,
+      "lessonTitle": "",
+      "classification": "Implementation addition already labeled in the pack",
+      "referenceType": "implementation",
+      "sourceLocation": "L2204",
+      "sourceNote": "",
+      "conditions": "t is in radians for trigonometric parameterizations; hyperbola branches use σ=−1 or +1, with a finite viewport-dependent parameter range.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "x=h+t"
+        },
+        {
+          "label": null,
+          "latex": "y=k+t^2/(4p)"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "implementation"
+      ]
+    },
+    {
+      "id": "impl-2205",
+      "catalogueId": "IMPL-2205",
+      "name": "Horizontal hyperbola branch parameterization",
+      "sectionId": "advanced-implementation",
+      "sectionOrder": 17,
+      "sectionTitle": "Optional advanced / implementation formulas",
+      "topic": "Optional advanced / implementation formulas",
+      "kind": "advanced",
+      "lessonCode": "Shared/implementation reference",
+      "lessonId": null,
+      "lessonTitle": "",
+      "classification": "Implementation addition already labeled in the pack",
+      "referenceType": "implementation",
+      "sourceLocation": "L2205",
+      "sourceNote": "",
+      "conditions": "t is in radians for trigonometric parameterizations; hyperbola branches use σ=−1 or +1, with a finite viewport-dependent parameter range.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "x=h+\\sigma a\\cosh t"
+        },
+        {
+          "label": null,
+          "latex": "y=k+b\\sinh t"
+        },
+        {
+          "label": null,
+          "latex": "\\sigma\\in\\{-1,1\\}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "implementation"
+      ]
+    },
+    {
+      "id": "impl-2206",
+      "catalogueId": "IMPL-2206",
+      "name": "Vertical hyperbola branch parameterization",
+      "sectionId": "advanced-implementation",
+      "sectionOrder": 17,
+      "sectionTitle": "Optional advanced / implementation formulas",
+      "topic": "Optional advanced / implementation formulas",
+      "kind": "advanced",
+      "lessonCode": "Shared/implementation reference",
+      "lessonId": null,
+      "lessonTitle": "",
+      "classification": "Implementation addition already labeled in the pack",
+      "referenceType": "implementation",
+      "sourceLocation": "L2206",
+      "sourceNote": "",
+      "conditions": "t is in radians for trigonometric parameterizations; hyperbola branches use σ=−1 or +1, with a finite viewport-dependent parameter range.",
+      "expressions": [
+        {
+          "label": null,
+          "latex": "x=h+b\\sinh t"
+        },
+        {
+          "label": null,
+          "latex": "y=k+\\sigma a\\cosh t"
+        },
+        {
+          "label": null,
+          "latex": "\\sigma\\in\\{-1,1\\}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "implementation"
+      ]
+    },
+    {
+      "id": "impl-polygon",
+      "catalogueId": "IMPL-POLYGON",
+      "name": "Regular-polygon vertex construction and circumradius",
+      "sectionId": "advanced-implementation",
+      "sectionOrder": 17,
+      "sectionTitle": "Optional advanced / implementation formulas",
+      "topic": "Optional advanced / implementation formulas",
+      "kind": "advanced",
+      "lessonCode": "Shared/implementation reference",
+      "lessonId": null,
+      "lessonTitle": "",
+      "classification": "Implementation addition already labeled in the pack",
+      "referenceType": "implementation",
+      "sourceLocation": "L2208",
+      "sourceNote": "",
+      "conditions": "Center C, circumradius R, rotation φ, integer n≥3; the source uses R here for the polygon circumradius.",
+      "expressions": [
+        {
+          "label": "Vertex expression",
+          "latex": "C+R(\\cos(\\phi+2\\pi j/n),\\sin(\\phi+2\\pi j/n))"
+        },
+        {
+          "label": "Vertex index range",
+          "latex": "j=0,\\ldots,n-1"
+        },
+        {
+          "label": "Circumradius relation",
+          "latex": "R=s/[2\\sin(\\pi/n)]"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "implementation"
+      ]
+    },
+    {
+      "id": "impl-sphere",
+      "catalogueId": "IMPL-SPHERE",
+      "name": "Sphere cut geometry and volume cross-check",
+      "sectionId": "advanced-implementation",
+      "sectionOrder": 17,
+      "sectionTitle": "Optional advanced / implementation formulas",
+      "topic": "Optional advanced / implementation formulas",
+      "kind": "advanced",
+      "lessonCode": "SPH-03",
+      "lessonId": "sph-03",
+      "lessonTitle": "Bowl liquid, wetted area, and complementary zones",
+      "classification": "Implementation geometry already labeled in the pack",
+      "referenceType": "implementation",
+      "sourceLocation": "L1951",
+      "sourceNote": "SRC-PYCS pp. 29–30.",
+      "conditions": "Cuts z₁,z₂ refer to the same radius-R sphere centered at the origin; h=z₂−z₁.",
+      "expressions": [
+        {
+          "label": "Cut radius expression",
+          "latex": "\\sqrt{R^2-z^2}"
+        },
+        {
+          "label": "Cut-position range",
+          "latex": "-R\\le z_1<z_2\\le R"
+        },
+        {
+          "label": "Plane separation",
+          "latex": "h=z_2-z_1"
+        },
+        {
+          "label": "Cut radius relation",
+          "latex": "r_i=\\sqrt{R^2-z_i^2}"
+        },
+        {
+          "label": "Volume cross-check",
+          "latex": "V=\\pi[R^2z-z^3/3]_{z_1}^{z_2}"
+        }
+      ],
+      "notes": [],
+      "tags": [
+        "implementation"
+      ]
+    }
+  ]
+}

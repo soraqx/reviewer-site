@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Search engineering mathematics formulas by topic, tag, or variable. Find each symbol's meaning, units, and conditions of use."
+      content="Search the geometry formula catalogue by name, module, lesson, or condition. Optional implementation formulas are kept separate."
     />
     <meta name="theme-color" content="#f1eee3" />
-    <title>Formula index: Fieldnotes</title>
+    <title>Formula catalogue: Fieldnotes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,34 +22,35 @@
 
     <main id="main" class="formula-page page-width">
       <section class="formula-intro" aria-labelledby="page-title">
-        <h1 id="page-title">Formula index.</h1>
+        <h1 id="page-title">Formula catalogue.</h1>
         <p>
-          Look up a relationship by name, topic, tag, or variable. Each entry includes
-          units and the conditions that matter.
+          Search the supplied geometry catalogue by name, module, lesson, or condition.
+          Entries preserve the source expressions and their use conditions; optional
+          implementation material is kept in its own section at the end.
         </p>
       </section>
 
-      <section class="formula-directory" aria-label="Searchable engineering mathematics formulas">
+      <section class="formula-directory" aria-label="Searchable geometry formula catalogue">
         <div class="formula-filters" role="search" aria-label="Filter formulas">
           <label class="formula-search">
             <span>Search formulas</span>
             <input
               id="formula-search"
               type="search"
-              placeholder="Try derivative, eigenvalue, Laplace…"
+              placeholder="Try slope, ellipse, lateral area…"
               autocomplete="off"
             />
           </label>
           <label class="filter-field">
-            <span>Topic</span>
+            <span>Module</span>
             <select id="topic-filter">
-              <option value="">All topics</option>
+              <option value="">All modules and references</option>
             </select>
           </label>
           <label class="filter-field">
-            <span>Tag</span>
+            <span>Reference type</span>
             <select id="tag-filter">
-              <option value="">All tags</option>
+              <option value="">All reference types</option>
             </select>
           </label>
         </div>

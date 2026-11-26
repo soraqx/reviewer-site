@@ -12,54 +12,102 @@ const generatedPracticePath = new URL('../public/generated/practice.json', impor
 const legacyQuizPath = new URL('../src/data/quiz-legacy.json', import.meta.url);
 const slugSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
 const sourceIdSchema = z.string().regex(/^[A-Z0-9]+(?:-[A-Z0-9]+)*$/);
-const variableSchema = z.object({
-  symbol: z.string().trim().min(1),
-  meaning: z.string().trim().min(1),
-  unit: z.string().trim().min(1),
+const formulaExpressionSchema = z.object({
+  label: z.string().nullable(),
+  latex: z.string().trim().min(1),
 }).strict();
 
-const formulaSchema = z.object({
+const formulaEntrySchema = z.object({
   id: slugSchema,
-  topic: z.string().trim().min(1),
+  catalogueId: sourceIdSchema,
   name: z.string().trim().min(1),
-  latex: z.string().trim().min(1),
-  variables: z.array(variableSchema).min(1),
-  notes: z.string().trim().min(1),
+  sectionId: slugSchema,
+  sectionOrder: z.number().int().positive(),
+  sectionTitle: z.string().trim().min(1),
+  topic: z.string().trim().min(1),
+  kind: z.enum(['module', 'shared', 'advanced']),
+  lessonCode: z.string().trim().min(1),
+  lessonId: slugSchema.nullable(),
+  lessonTitle: z.string(),
+  classification: z.string().trim().min(1),
+  referenceType: z.string().trim().min(1),
+  sourceLocation: z.string().trim().min(1),
+  sourceNote: z.string(),
   conditions: z.string().trim().min(1),
-  relatedLessons: z.array(z.string().trim().min(1)),
+  expressions: z.array(formulaExpressionSchema),
+  notes: z.array(z.string().trim().min(1)),
   tags: z.array(z.string().trim().min(1)).min(1),
 }).strict().superRefine((formula, context) => {
-  const expressions = [
-    { path: ['latex'], value: formula.latex },
-    ...formula.variables.map(({ symbol }, index) => ({
-      path: ['variables', index, 'symbol'],
-      value: symbol,
-    })),
-  ];
-  for (const expression of expressions) {
+  if (!formula.expressions.length && !formula.notes.length) {
+    context.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: `Formula "${formula.id}" needs an expression or a stated rule.`,
+      path: ['expressions'],
+    });
+  }
+  for (const [index, expression] of formula.expressions.entries()) {
     try {
-      katex.renderToString(expression.value, { throwOnError: true });
+      katex.renderToString(expression.latex, { throwOnError: true });
     } catch (error) {
       context.addIssue({
         code: z.ZodIssueCode.custom,
         message: `Invalid LaTeX: ${error.message}`,
-        path: expression.path,
+        path: ['expressions', index, 'latex'],
       });
     }
   }
 });
 
-const formulasSchema = z.array(formulaSchema).min(1).superRefine((formulas, context) => {
+const formulaSectionSchema = z.object({
+  id: slugSchema,
+  order: z.number().int().positive(),
+  title: z.string().trim().min(1),
+  kind: z.enum(['module', 'shared', 'advanced']),
+  notation: z.string(),
+  note: z.string(),
+}).strict();
+
+const formulaCatalogueSchema = z.object({
+  catalogueVersion: z.string().trim().min(1),
+  sourceContentVersion: z.string().trim().min(1),
+  sourceFile: z.string().trim().min(1),
+  sections: z.array(formulaSectionSchema).length(17),
+  entries: z.array(formulaEntrySchema).length(142),
+}).strict().superRefine((catalogue, context) => {
   const ids = new Set();
-  for (const [index, formula] of formulas.entries()) {
+  const sectionIds = new Set(catalogue.sections.map((section) => section.id));
+  for (const [index, formula] of catalogue.entries.entries()) {
     if (ids.has(formula.id)) {
       context.addIssue({
         code: z.ZodIssueCode.custom,
         message: `Duplicate formula id "${formula.id}"`,
-        path: [index, 'id'],
+        path: ['entries', index, 'id'],
       });
     }
     ids.add(formula.id);
+    if (!sectionIds.has(formula.sectionId)) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: `Formula "${formula.id}" references missing section "${formula.sectionId}".`,
+        path: ['entries', index, 'sectionId'],
+      });
+    }
+  }
+  const counts = {
+    module: catalogue.entries.filter((formula) => formula.kind === 'module').length,
+    shared: catalogue.entries.filter((formula) => formula.kind === 'shared').length,
+    advanced: catalogue.entries.filter((formula) => formula.kind === 'advanced').length,
+    named: new Set(catalogue.entries.filter((formula) => formula.catalogueId.startsWith('F-')).map((formula) => formula.catalogueId)).size,
+  };
+  const expected = { module: 128, shared: 2, advanced: 12, named: 101 };
+  for (const [key, value] of Object.entries(expected)) {
+    if (counts[key] !== value) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: `Expected ${value} ${key} formula entries; found ${counts[key]}.`,
+        path: ['entries'],
+      });
+    }
   }
 });
 
@@ -344,7 +392,7 @@ const lessonSources = await Promise.all(
       source: await readFile(new URL(file, generatedLessonsPath), 'utf8'),
     })),
 );
-const parsedFormulas = formulasSchema.safeParse(JSON.parse(formulaSource));
+const parsedFormulas = formulaCatalogueSchema.safeParse(JSON.parse(formulaSource));
 const parsedCourse = courseSchema.safeParse(JSON.parse(courseSource));
 const parsedCourseLessons = courseLessonsSchema.safeParse(
   lessonSources.map(({ source }) => JSON.parse(source)),
@@ -352,6 +400,23 @@ const parsedCourseLessons = courseLessonsSchema.safeParse(
 const parsedCoursePractice = coursePracticeSchemaArray.safeParse(JSON.parse(practiceSource));
 const parsedProblems = problemsSchema.safeParse(JSON.parse(problemsSource));
 const validationErrors = [];
+if (parsedCourse.success && parsedFormulas.success) {
+  const formulaLessonById = new Map(parsedCourse.data.lessons.map((lesson) => [lesson.id, lesson]));
+  for (const formula of parsedFormulas.data.entries) {
+    if (!formula.lessonId) {
+      if (formula.lessonCode !== 'Shared/implementation reference') {
+        validationErrors.push(`Formula "${formula.id}" has no lesson link but uses "${formula.lessonCode}".`);
+      }
+      continue;
+    }
+    const lesson = formulaLessonById.get(formula.lessonId);
+    if (!lesson) {
+      validationErrors.push(`Formula "${formula.id}" references missing lesson "${formula.lessonId}".`);
+    } else if (lesson.code !== formula.lessonCode) {
+      validationErrors.push(`Formula "${formula.id}" lesson code does not match "${formula.lessonId}".`);
+    }
+  }
+}
 let legacyQuiz;
 try {
   legacyQuiz = JSON.parse(legacyQuizSource);
@@ -592,6 +657,6 @@ if (
   process.exitCode = 1;
 } else {
   console.log(
-    `Validated ${parsedFormulas.data.length} formulas, ${parsedCourse.data.modules.length} modules, ${parsedCourse.data.lessons.length} lessons, ${parsedCoursePractice.data.length} practice items, ${parsedProblems.data.length} randomized problem templates, and ${formulaQuestions.length + legacyQuiz.questions.length} quiz choices plus ${legacyQuiz.recall.length} recall prompts.`,
+    `Validated ${parsedFormulas.data.entries.length} catalogue entries, ${parsedCourse.data.modules.length} modules, ${parsedCourse.data.lessons.length} lessons, ${parsedCoursePractice.data.length} practice items, ${parsedProblems.data.length} randomized problem templates, and ${formulaQuestions.length + legacyQuiz.questions.length} quiz choices plus ${legacyQuiz.recall.length} recall prompts.`,
   );
 }
