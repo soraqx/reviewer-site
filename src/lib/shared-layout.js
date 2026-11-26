@@ -1,3 +1,5 @@
+import { watchReducedMotionChanges } from './motion.js';
+
 const headerMarkup = `
   <div class="site-header page-width">
     <a class="wordmark" href="/" aria-label="Fieldnotes home">
@@ -56,6 +58,7 @@ function setTheme(theme, button, status) {
 }
 
 export function mountSharedLayout() {
+  watchReducedMotionChanges();
   document.querySelector('#site-header').innerHTML = headerMarkup;
   document.querySelector('#site-footer').innerHTML = footerMarkup;
   const activeSection = window.location.pathname.split('/')[1];

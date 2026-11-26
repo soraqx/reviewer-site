@@ -1,4 +1,5 @@
 import { bindNumberRange } from '../lib/slider.js';
+import { replayMotion } from '../lib/motion.js';
 import {
   addSvgLine,
   addSvgText,
@@ -184,6 +185,7 @@ export function mountPolygonExplorer() {
     },
     onInvalid(message) {
       countError.textContent = message;
+      replayMotion(countError, 'motion-validation');
     },
   });
 
@@ -198,17 +200,22 @@ export function mountPolygonExplorer() {
     },
     onInvalid(message) {
       lengthError.textContent = message;
+      replayMotion(lengthError, 'motion-validation');
     },
   });
 
   for (const toggle of toggles) {
-    toggle.addEventListener('change', draw);
+    toggle.addEventListener('change', () => {
+      draw();
+      replayMotion(svg, 'motion-highlight');
+    });
   }
 
   const preset = document.querySelector('#polygon-preset');
   preset.addEventListener('change', () => {
     countInput.value = preset.value;
     countInput.dispatchEvent(new Event('input', { bubbles: true }));
+    replayMotion(svg, 'motion-demo');
   });
   document.querySelector('#polygon-reset').addEventListener('click', () => {
     countInput.value = '6';
@@ -220,5 +227,6 @@ export function mountPolygonExplorer() {
       toggle.checked = toggle.dataset.show !== 'angles' && toggle.dataset.show !== 'exterior';
     }
     draw();
+    replayMotion(svg, 'motion-demo');
   });
 }

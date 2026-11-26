@@ -597,11 +597,3 @@
     grid-template-columns: 1fr;
   }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .course-index *,
-  .course-index *::before,
-  .course-index *::after {
-    scroll-behavior: auto !important;
-  }
-}

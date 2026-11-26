@@ -1,0 +1,252 @@
+/* Hallmark · shared motion system · restrained feedback and content entrances
+ * Tokens live in tokens.css; this layer owns named effects and reduced-motion overrides. */
+@keyframes motion-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--motion-distance), 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes motion-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes motion-demo {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes motion-highlight {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes motion-progress-fill {
+  from {
+    width: 0;
+  }
+}
+
+/* Surfaces: brief, named transitions only. Focus rings stay immediate. */
+body {
+  transition:
+    background-color var(--motion-control) var(--motion-ease-out),
+    color var(--motion-control) var(--motion-ease-out);
+}
+
+:where(button, select, input[type="number"], input[type="text"], input[type="search"], summary):not(:disabled) {
+  transition:
+    background-color var(--motion-control) var(--motion-ease-out),
+    border-color var(--motion-fast) var(--motion-ease-out),
+    color var(--motion-control) var(--motion-ease-out);
+}
+
+button:not(:disabled):active {
+  transform: translateY(1px);
+}
+
+.hero-link,
+.module-entry > summary,
+.module-lessons a,
+.lesson-module-list a,
+.site-nav a,
+.text-link,
+.quiz-link-button {
+  transition:
+    background-color var(--motion-control) var(--motion-ease-out),
+    border-color var(--motion-fast) var(--motion-ease-out),
+    color var(--motion-control) var(--motion-ease-out);
+}
+
+.hero-link:hover {
+  transform: translateY(-1px);
+}
+
+/* Disclosures expand by real layout; content only fades in, never clipped. */
+details[open] > :not(summary) {
+  animation: motion-fade var(--motion-content) var(--motion-ease-out) both;
+}
+
+/* Reusable content boundaries, applied by JS at a single changed region. */
+.motion-enter,
+.motion-results,
+.motion-card {
+  animation: motion-enter var(--motion-content) var(--motion-ease-out) both;
+}
+
+.motion-feedback,
+.motion-panel,
+.motion-validation {
+  animation: motion-fade var(--motion-content) var(--motion-ease-out) both;
+}
+
+.motion-validation {
+  animation-duration: var(--motion-fast);
+}
+
+/* Module index arrival: a short, capped stagger; mobile stays still. */
+.course-index .module-entry:nth-child(-n + 6) {
+  animation: motion-enter var(--motion-content) var(--motion-ease-out) both;
+}
+
+.course-index .module-entry:nth-child(2) { animation-delay: var(--motion-stagger); }
+.course-index .module-entry:nth-child(3) { animation-delay: calc(var(--motion-stagger) * 2); }
+.course-index .module-entry:nth-child(4) { animation-delay: calc(var(--motion-stagger) * 3); }
+.course-index .module-entry:nth-child(5) { animation-delay: calc(var(--motion-stagger) * 4); }
+.course-index .module-entry:nth-child(6) { animation-delay: calc(var(--motion-stagger) * 5); }
+
+/* Quiz answer selection and real-value progress. */
+.quiz-option {
+  transition:
+    background-color var(--motion-fast) var(--motion-ease-out),
+    border-color var(--motion-fast) var(--motion-ease-out),
+    color var(--motion-fast) var(--motion-ease-out);
+}
+
+.quiz-option:has(input:checked) {
+  border-top-color: var(--color-accent);
+}
+
+.quiz-progress {
+  overflow: hidden;
+  appearance: none;
+  background: var(--color-paper-3);
+}
+
+.quiz-progress::-webkit-progress-bar {
+  background: var(--color-paper-3);
+}
+
+.quiz-progress::-webkit-progress-value {
+  background: var(--color-accent);
+  transition: width var(--motion-content) var(--motion-ease-out);
+}
+
+.quiz-progress::-moz-progress-bar {
+  background: var(--color-accent);
+  transition: width var(--motion-content) var(--motion-ease-out);
+}
+
+.motion-progress-fill::-webkit-progress-value {
+  animation: motion-progress-fill var(--motion-content) var(--motion-ease-out);
+}
+
+.motion-progress-fill::-moz-progress-bar {
+  animation: motion-progress-fill var(--motion-content) var(--motion-ease-out);
+}
+
+/* Geometry demonstrations: valid presets crossfade; toggled constructions
+ * reveal their guide strokes. Slider-driven values remain immediate. */
+.course-explorer-svg.motion-demo,
+.polygon-diagram.motion-demo {
+  animation: motion-demo var(--motion-demo) var(--motion-ease-out) both;
+}
+
+.course-explorer-svg.motion-highlight :is(
+  .explorer-highlight,
+  .explorer-secondary,
+  .explorer-outline,
+  .explorer-directrix
+),
+.polygon-diagram.motion-highlight :is(
+  .polygon-highlight,
+  .angle-arc,
+  .diagram-label
+) {
+  animation: motion-highlight var(--motion-demo) var(--motion-ease-out) both;
+}
+
+/* Native dialogs, if introduced, get the same short backdrop and panel entrance. */
+dialog[open] {
+  animation: motion-enter var(--motion-content) var(--motion-ease-out) both;
+}
+
+dialog[open]::backdrop {
+  animation: motion-fade var(--motion-control) var(--motion-ease-out) both;
+}
+
+@media (max-width: 760px) {
+  .course-index .module-entry:nth-child(-n + 6) {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .motion-enter,
+  .motion-feedback,
+  .motion-panel,
+  .motion-results,
+  .motion-card,
+  .motion-validation,
+  details[open] > :not(summary),
+  .course-index .module-entry:nth-child(-n + 6),
+  .course-explorer-svg.motion-demo,
+  .polygon-diagram.motion-demo,
+  .course-explorer-svg.motion-highlight :is(
+    .explorer-highlight,
+    .explorer-secondary,
+    .explorer-outline,
+    .explorer-directrix
+  ),
+  .polygon-diagram.motion-highlight :is(
+    .polygon-highlight,
+    .angle-arc,
+    .diagram-label
+  ),
+  dialog[open],
+  dialog[open]::backdrop {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .motion-progress-fill::-webkit-progress-value,
+  .motion-progress-fill::-moz-progress-bar,
+  .check-answer[aria-busy="true"]::after {
+    animation: none !important;
+  }
+
+  :where(
+    body,
+    button,
+    select,
+    input[type="number"],
+    input[type="text"],
+    input[type="search"],
+    summary,
+    a,
+    .hero-link,
+    .module-entry > summary,
+    .module-lessons a,
+    .lesson-module-list a,
+    .quiz-option
+  ) {
+    transition: none !important;
+  }
+
+  button:not(:disabled):active,
+  .hero-link:hover {
+    transform: none !important;
+  }
+}

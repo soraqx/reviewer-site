@@ -1,3 +1,5 @@
+import { replayMotion } from '../lib/motion.js';
+
 const NS = 'http://www.w3.org/2000/svg';
 const VIEW = { width: 600, height: 360, cx: 300, cy: 180 };
 const fmt = (value, digits = 2) => Number(value.toFixed(digits)).toString();
@@ -1075,7 +1077,7 @@ export function mountCourseExplorer(lesson) {
   figureColumn.append(figure);
   layout.replaceChildren(figureColumn, controls, results, summary);
 
-  function draw() {
+  function draw({ animate = false, motionKind = 'demo' } = {}) {
     for (const { spec, select } of modeBindings) modes[spec.key] = select.value;
     for (const { spec, range, number, output } of bindings) {
       const value = Number(range.value);
@@ -1106,16 +1108,22 @@ export function mountCourseExplorer(lesson) {
     summary.textContent = textSummary;
     if (titleNode.textContent !== title) titleNode.textContent = title;
     status.hidden = true;
+    if (animate) {
+      replayMotion(figure, motionKind === 'highlight' ? 'motion-highlight' : 'motion-demo');
+    }
   }
 
+  const highlightModes = new Set(['segment', 'diagonal', 'convention']);
+
   for (const binding of bindings) {
-    binding.range.addEventListener('input', draw);
+    binding.range.addEventListener('input', () => draw());
     binding.number.addEventListener('input', () => {
       const value = Number(binding.number.value);
       if (!Number.isFinite(value) || value < binding.spec.min || value > binding.spec.max) {
         status.textContent = `Enter a value from ${binding.spec.min} to ${binding.spec.max} ${binding.spec.unit}.`;
         status.hidden = false;
         binding.number.setAttribute('aria-invalid', 'true');
+        replayMotion(status, 'motion-validation');
         return;
       }
       binding.number.removeAttribute('aria-invalid');
@@ -1123,7 +1131,14 @@ export function mountCourseExplorer(lesson) {
       draw();
     });
   }
-  for (const { select } of modeBindings) select.addEventListener('change', draw);
+  for (const { spec, select } of modeBindings) {
+    select.addEventListener('change', () => {
+      draw({
+        animate: true,
+        motionKind: highlightModes.has(spec.key) ? 'highlight' : 'demo',
+      });
+    });
+  }
   reset.addEventListener('click', () => {
     for (const { spec, range, number } of bindings) {
       range.value = String(spec.value);
@@ -1131,7 +1146,7 @@ export function mountCourseExplorer(lesson) {
       number.removeAttribute('aria-invalid');
     }
     for (const { spec, select } of modeBindings) select.value = spec.value;
-    draw();
+    draw({ animate: true });
   });
   draw();
 }

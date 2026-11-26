@@ -10,6 +10,7 @@ import {
   listBookmarks,
   removeBookmark,
 } from './lib/api-client.js';
+import { replayMotion } from './lib/motion.js';
 
 mountSharedLayout();
 
@@ -191,6 +192,7 @@ function showDeepLinkedFormula() {
 
   requestAnimationFrame(() => {
     const target = document.getElementById(id);
+    replayMotion(target, 'motion-enter');
     target?.focus({ preventScroll: true });
     target?.scrollIntoView({ block: 'start' });
   });

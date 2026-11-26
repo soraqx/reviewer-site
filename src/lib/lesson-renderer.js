@@ -1,4 +1,4 @@
-import { appendInlineMath } from './katex-render.js';
+import { appendInlineMath, stripMathDelimiters } from './katex-render.js';
 
 function renderModuleNavigation(course, currentLesson) {
   const nav = document.querySelector('#module-list');
@@ -121,13 +121,15 @@ function setSiblingLink(id, lesson) {
 
 export function renderLesson(lesson, course) {
   document.title = `${lesson.title}: Fieldnotes`;
-  document.querySelector('meta[name="description"]').content = lesson.lead;
+  document.querySelector('meta[name="description"]').content = stripMathDelimiters(lesson.lead);
   const module = renderModuleNavigation(course, lesson);
   const lessonIndex = course.lessons.findIndex(({ id }) => id === lesson.id);
   document.querySelector('#lesson-kicker').textContent =
     `Module ${module.order} of ${course.modules.length}: ${module.title}`;
   document.querySelector('#lesson-title').textContent = lesson.title;
-  document.querySelector('#lesson-lede').textContent = lesson.lead;
+  const lede = document.querySelector('#lesson-lede');
+  lede.replaceChildren();
+  appendInlineMath(lede, lesson.lead);
   const quizLink = document.querySelector('#lesson-quiz-link');
   quizLink.href = `/quiz/?module=${encodeURIComponent(module.id)}`;
   const sectionTitles = {

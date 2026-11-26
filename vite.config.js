@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
+import { renderMathText } from './src/lib/katex-render.js';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 const course = JSON.parse(
@@ -35,7 +36,7 @@ function renderLessonNoScript(lesson) {
   const practiceNotes = lesson.practiceNotesHtml.map((html, index) =>
     `<details class="inline-practice"><summary>Supplemental practice ${index + 1}</summary><div class="practice-answer">${html}</div></details>`,
   ).join('');
-  return `<noscript id="lesson-noscript"><style>#main > .module-nav, #main > .lesson-content { display: none; }</style><article class="lesson-content"><p class="lesson-dateline">${escapeHtml(lesson.moduleTitle)}. Lesson code ${escapeHtml(lesson.code)}</p><h1>${escapeHtml(lesson.title)}</h1><p class="lesson-lede">${escapeHtml(lesson.lead)}</p><p><a class="lesson-quiz-link" href="/quiz/?module=${encodeURIComponent(lesson.moduleId)}">Practice this module</a></p><section class="lesson-section"><h2>Learning outcomes</h2><ul class="outcome-list">${outcomes}</ul></section><section class="lesson-section"><h2>The idea</h2><div class="lesson-prose">${lesson.contentHtml}</div></section>${examples ? `<section class="lesson-section"><h2>Worked examples</h2><div class="example-list">${examples}</div></section>` : ''}${practiceNotes ? `<section class="lesson-section"><h2>Practice from this lesson</h2>${practiceNotes}</section>` : ''}<footer class="lesson-sources"><h2 class="sources-title">Sources and attribution</h2><p>${escapeHtml(lesson.source)}</p></footer></article></noscript>`;
+  return `<noscript id="lesson-noscript"><style>#main > .module-nav, #main > .lesson-content { display: none; }</style><article class="lesson-content"><p class="lesson-dateline">${escapeHtml(lesson.moduleTitle)}. Lesson code ${escapeHtml(lesson.code)}</p><h1>${escapeHtml(lesson.title)}</h1><p class="lesson-lede">${renderMathText(lesson.lead)}</p><p><a class="lesson-quiz-link" href="/quiz/?module=${encodeURIComponent(lesson.moduleId)}">Practice this module</a></p><section class="lesson-section"><h2>Learning outcomes</h2><ul class="outcome-list">${outcomes}</ul></section><section class="lesson-section"><h2>The idea</h2><div class="lesson-prose">${lesson.contentHtml}</div></section>${examples ? `<section class="lesson-section"><h2>Worked examples</h2><div class="example-list">${examples}</div></section>` : ''}${practiceNotes ? `<section class="lesson-section"><h2>Practice from this lesson</h2>${practiceNotes}</section>` : ''}<footer class="lesson-sources"><h2 class="sources-title">Sources and attribution</h2><p>${escapeHtml(lesson.source)}</p></footer></article></noscript>`;
 }
 
 function renderCourseNoScript() {

@@ -8,6 +8,7 @@ import course from './data/course.generated.json';
 import { mountPolygonExplorer } from './sims/polygon-vocabulary.js';
 import { mountCourseExplorer } from './sims/module-explorer.js';
 import { firstLessonId, lessonIdFromUrl, lessonUrl } from './lib/course-navigation.js';
+import { replayMotion } from './lib/motion.js';
 
 mountSharedLayout();
 
@@ -51,6 +52,7 @@ async function loadLesson(lessonId, { focus = false } = {}) {
     polygonExplorerMounted = true;
   }
   else mountCourseExplorer(lesson);
+  replayMotion(document.querySelector('.lesson-content'), 'motion-enter');
   if (focus) {
     const heading = document.querySelector('#lesson-title');
     heading.focus({ preventScroll: true });

@@ -1,12 +1,17 @@
+import { replayMotion } from './motion.js';
+
 export function setupHashTabs(root) {
   const tabs = [...root.querySelectorAll('[role="tab"]')];
 
   function activate(tab, updateHash = false) {
     for (const candidate of tabs) {
       const selected = candidate === tab;
+      const panel = document.getElementById(candidate.getAttribute('aria-controls'));
+      const wasHidden = panel.hidden;
       candidate.setAttribute('aria-selected', String(selected));
       candidate.tabIndex = selected ? 0 : -1;
-      document.getElementById(candidate.getAttribute('aria-controls')).hidden = !selected;
+      panel.hidden = !selected;
+      if (selected && wasHidden) replayMotion(panel, 'motion-panel');
     }
 
     if (updateHash) {

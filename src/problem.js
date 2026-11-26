@@ -11,6 +11,7 @@ import {
   submitFeedback,
 } from './lib/api-client.js';
 import problemTemplates from './data/problems/geometry.json';
+import { replayMotion } from './lib/motion.js';
 
 mountSharedLayout();
 
@@ -183,21 +184,25 @@ window.addEventListener('resize', () => {
 nextStepButton.addEventListener('click', () => {
   session.revealNextStep();
   renderSteps();
+  replayMotion(steps.lastElementChild, 'motion-enter');
 });
 
 solutionButton.addEventListener('click', () => {
   session.revealSolution();
   renderSteps();
+  replayMotion(steps.lastElementChild, 'motion-enter');
 });
 
 nextHintButton.addEventListener('click', () => {
   session.revealNextHint();
   renderHints();
+  replayMotion(hints.lastElementChild, 'motion-enter');
 });
 
 document.querySelector('#new-problem').addEventListener('click', () => {
   session.reset();
   renderProblem();
+  replayMotion(prompt, 'motion-enter');
   prompt.focus({ preventScroll: true });
   prompt.scrollIntoView({
     block: 'center',
@@ -210,6 +215,7 @@ answerForm.addEventListener('submit', (event) => {
   const result = session.checkAnswer(answerInput.value, unitInput.value);
   feedback.textContent = result.message;
   feedback.dataset.state = result.correct ? 'correct' : 'incorrect';
+  replayMotion(feedback, 'motion-feedback');
   void saveAttempt(result);
 });
 

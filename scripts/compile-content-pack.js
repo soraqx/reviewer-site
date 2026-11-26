@@ -104,14 +104,24 @@ function lessonLead(markdown, fallback) {
     .split(/\n\s*\n/)
     .find((paragraph) => paragraph.trim() && !paragraph.trim().startsWith('|'));
   if (!firstParagraph) return fallback;
-  const plainText = firstParagraph
-    .replace(/\$([^$]+)\$/g, '$1')
+  const mathSegments = [];
+  const protectedText = firstParagraph
+    .replace(/\$\$([^$]+)\$\$/g, (_, expression) => {
+      const token = `\u0000${mathSegments.push(`$$${expression}$$`) - 1}\u0000`;
+      return token;
+    })
+    .replace(/\$([^$]+)\$/g, (_, expression) => {
+      const token = `\u0000${mathSegments.push(`$${expression}$`) - 1}\u0000`;
+      return token;
+    })
     .replace(/\^\s*\\circ\b/g, '°')
     .replace(/[*`]/g, '')
     .replace(/\s+/g, ' ')
     .trim();
-  const firstSentence = plainText.match(/^.*?(?:[.!?](?=\s|$)|$)/)?.[0] ?? plainText;
-  return firstSentence.slice(0, 200);
+  const firstSentence = protectedText.match(/^.*?(?:[.!?](?=\s|$)|$)/)?.[0] ?? protectedText;
+  return firstSentence
+    .replace(/\u0000(\d+)\u0000/g, (_, index) => mathSegments[Number(index)])
+    .slice(0, 200);
 }
 
 function collectExamples(markdown) {

@@ -22,6 +22,7 @@ import {
   updateQuestionProgress,
 } from './lib/quiz-progress.js';
 import { formulaQuestions } from './data/quiz-formulas.js';
+import { replayMotion } from './lib/motion.js';
 
 mountSharedLayout();
 
@@ -336,6 +337,7 @@ function renderSetup({ moduleId = '', category = 'formula', mode = 'learn', push
   renderProgressOverview(section);
 
   app.replaceChildren(section);
+  replayMotion(section, 'motion-enter');
   updateStorageStatus();
   refreshSetupAvailability(form);
   const selectedMode = form.querySelector(`input[name="mode"][value="${mode === 'test' ? 'test' : 'learn'}"]`);
@@ -594,7 +596,7 @@ function renderRecallInput(result) {
 }
 
 function makeFeedback(question, result) {
-  const feedback = element('section', 'quiz-feedback');
+  const feedback = element('section', 'quiz-feedback motion-feedback');
   feedback.setAttribute('role', 'status');
   if (activeSession.mode === 'test') {
     feedback.append(element('strong', '', 'Answer recorded.'));
@@ -660,13 +662,13 @@ function renderQuestion(focusHeading = false) {
   timerLabel.dataset.timer = '';
   timerLabel.textContent = activeSession.seconds ? `${activeSession.seconds}s remaining` : 'Untimed';
   header.append(timerLabel);
-  const progressBar = element('progress', 'quiz-progress');
+  const progressBar = element('progress', result ? 'quiz-progress' : 'quiz-progress motion-progress-fill');
   progressBar.max = activeSession.questionIds.length;
   progressBar.value = activeSession.currentIndex;
   progressBar.setAttribute('aria-label', 'Quiz progress');
   section.append(header, progressBar);
 
-  const article = element('article', 'quiz-question');
+  const article = element('article', result ? 'quiz-question' : 'quiz-question motion-enter');
   const kicker = element(
     'p',
     'quiz-kicker',
@@ -942,6 +944,7 @@ function renderResults(record) {
   storageStatus.dataset.storageStatus = '';
   section.append(storageStatus);
   app.replaceChildren(section);
+  replayMotion(section, 'motion-results');
   updateStorageStatus();
 }
 

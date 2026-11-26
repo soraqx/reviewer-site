@@ -69,6 +69,17 @@
   --serif: var(--font-display);
   --sans: var(--font-body);
   --page-gutter: var(--gutter);
+
+  /* Shared motion system. Durations stay short and distances stay small. */
+  --motion-fast: 110ms;
+  --motion-control: 160ms;
+  --motion-content: 220ms;
+  --motion-demo: 280ms;
+  --motion-ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --motion-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --motion-distance: 6px;
+  --motion-lift: 2px;
+  --motion-stagger: 25ms;
 }
 
 :root[data-theme="dark"] {
