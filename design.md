@@ -18,7 +18,7 @@ Newsprint, adapted for an engineering mathematics reference: warm paper, ink-fir
 - Home: a typographic lead, a mathematical figure with caption, and ruled pathways.
 - Formula index: searchable controls followed by dense, ruled reference entries.
 - Lesson: simulation first, then outcomes, explanation, vocabulary, comparison, and sources.
-- Practice: a focused work area beside the answer and progress controls.
+- Gallery: an anatomy viewer with selectable figures, parts, and terminology.
 
 ## Interaction and accessibility
 

@@ -15,10 +15,6 @@ const lessons = new Map(
     JSON.parse(readFileSync(resolve(root, `public/generated/lessons/${lesson.id}.json`), 'utf8')),
   ]),
 );
-const practice = JSON.parse(
-  readFileSync(resolve(root, 'public/generated/practice.json'), 'utf8'),
-);
-
 function escapeHtml(value) {
   return String(value)
     .replaceAll('&', '&amp;')
@@ -49,18 +45,6 @@ function renderCourseNoScript() {
   return `<noscript id="course-noscript"><style>.course-search, #course-modules { display: none; }</style><section class="course-modules">${modules}</section></noscript>`;
 }
 
-function renderPracticeNoScript() {
-  const modules = course.modules.map((module) => {
-    const items = practice.filter((item) => item.moduleId === module.id);
-    if (!items.length) return '';
-    const entries = items.map((item) =>
-      `<article class="practice-item"><div class="practice-prompt">${item.promptHtml}</div><details><summary><strong>${escapeHtml(item.id)}</strong>Reveal answer and teaching note</summary><div class="practice-answer">${item.answerHtml}${item.source ? `<p class="module-prerequisite">${escapeHtml(item.source)}</p>` : ''}</div></details></article>`,
-    ).join('');
-    return `<section class="practice-module"><h2>${escapeHtml(module.title)}</h2>${entries}</section>`;
-  }).join('');
-  return `<noscript id="practice-noscript"><style>.practice-search, #practice-list { display: none; }</style><section class="practice-list">${modules}</section></noscript>`;
-}
-
 function courseLessonRoutes() {
   const lessonIds = new Set(course.lessons.map(({ id }) => id));
   return {
@@ -75,9 +59,6 @@ function courseLessonRoutes() {
       }
       if (requestUrl.pathname === '/lessons/' || requestUrl.pathname === '/lessons/index.html') {
         return html.replace('<noscript id="course-noscript"></noscript>', renderCourseNoScript());
-      }
-      if (requestUrl.pathname === '/practice/' || requestUrl.pathname === '/practice/index.html') {
-        return html.replace('<noscript id="practice-noscript"></noscript>', renderPracticeNoScript());
       }
       return html;
     },
@@ -129,6 +110,7 @@ export default defineConfig({
         'lessons/index': resolve(root, 'lessons/index.html'),
         'practice/index': resolve(root, 'practice/index.html'),
         'quiz/index': resolve(root, 'quiz/index.html'),
+        'gallery/index': resolve(root, 'gallery/index.html'),
         'problems/coordinate-distance': resolve(root, 'problems/coordinate-distance.html'),
       },
     },

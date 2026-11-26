@@ -8,7 +8,7 @@ const headerMarkup = `
     <nav class="site-nav" aria-label="Main navigation">
       <a href="/formulas/" data-nav="formulas">Formulas</a>
       <a href="/lessons/" data-nav="lessons">Lessons</a>
-      <a href="/practice/" data-nav="practice">Practice</a>
+      <a href="/gallery/" data-nav="gallery">Gallery</a>
       <a href="/quiz/" data-nav="quiz">Quiz</a>
     </nav>
     <button class="theme-toggle" type="button" aria-pressed="false">
@@ -61,7 +61,8 @@ export function mountSharedLayout() {
   watchReducedMotionChanges();
   document.querySelector('#site-header').innerHTML = headerMarkup;
   document.querySelector('#site-footer').innerHTML = footerMarkup;
-  const activeSection = window.location.pathname.split('/')[1];
+  const pathSection = window.location.pathname.split('/')[1];
+  const activeSection = pathSection === 'practice' ? 'gallery' : pathSection;
   document.querySelectorAll('.site-nav [data-nav]').forEach((link) => {
     link.setAttribute('aria-current', link.dataset.nav === activeSection ? 'page' : 'false');
   });

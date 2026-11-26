@@ -15,10 +15,10 @@ import {
 } from '../src/lib/quiz-session.js';
 
 test('preserves the original bank and adds six formula prompts per verified module', () => {
-  assert.equal(legacy.questions.length, 105);
+  assert.equal(legacy.questions.length, 140);
   assert.equal(legacy.recall.length, 15);
   assert.equal(formulaQuestions.length, 90);
-  assert.equal(questionBank.length, 210);
+  assert.equal(questionBank.length, 245);
   assert.deepEqual(legacy.moduleIds, [
     'plane-figures-polygons', 'triangles', 'quadrilaterals', 'cartesian-coordinates',
     'lines', 'circles', 'parabolas', 'ellipses', 'hyperbolas', 'prisms',

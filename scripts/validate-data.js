@@ -510,10 +510,10 @@ if (parsedCourse.success) {
 if (legacyQuiz) {
   if (
     JSON.stringify(legacyQuiz.moduleIds) !== JSON.stringify(expectedLegacyModuleIds)
-    || legacyQuiz.questions.length !== 105
+    || legacyQuiz.questions.length !== 140
     || legacyQuiz.recall.length !== 15
   ) {
-    validationErrors.push('Legacy quiz bank must preserve its 105 choice and 15 recall records with explicit module mapping.');
+    validationErrors.push('Legacy quiz bank must preserve its 140 choice and 15 recall records with explicit module mapping.');
   }
   for (const question of [...(legacyQuiz.questions ?? []), ...(legacyQuiz.recall ?? [])]) {
     if (quizIds.has(question.id)) validationErrors.push(`Duplicate quiz question ID "${question.id}".`);

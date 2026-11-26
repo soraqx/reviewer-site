@@ -3,38 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Practice geometry questions from the Engineering Mathematics 2 content pack, with answer keys hidden until opened." />
+    <meta
+      name="description"
+      content="The practice archive has moved. Questions are now in Quiz and shape exploration is in Gallery."
+    />
     <meta name="theme-color" content="#f1eee3" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
-    <title>Practice index: Fieldnotes</title>
+    <title>Practice has moved: Fieldnotes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500&family=Spectral:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Zilla+Slab:wght@700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500&family=Spectral:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Zilla+Slab:wght@700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header id="site-header"></header>
     <main id="main" class="course-index page-width">
-      <noscript id="practice-noscript"></noscript>
       <header class="course-index-heading">
-        <p class="course-dateline">Practice archive</p>
-        <h1>Try the question first.</h1>
-        <p>Browse the eligible practice set. Open an answer only after you have worked it out.</p>
-        <a class="text-link" href="/problems/coordinate-distance.html">Open randomized distance practice</a>
+        <p class="course-dateline">Compatibility page</p>
+        <h1>Practice has moved.</h1>
+        <p>
+          Questions are now integrated into Quiz, and the old shape exploration material
+          lives in the interactive Gallery. Your saved progress has not been changed.
+        </p>
+        <p class="practice-redirect-links">
+          <a class="text-link" href="/gallery/">Open the shape gallery</a>
+          <a class="text-link" href="/quiz/">Open Quiz</a>
+          <a class="text-link" href="/problems/coordinate-distance.html">Try the randomized coordinate-distance problem</a>
+        </p>
       </header>
-      <form class="course-search practice-search" role="search">
-        <label for="practice-module">Module</label>
-        <select id="practice-module">
-          <option value="">All modules</option>
-        </select>
-        <label for="practice-query">Search questions</label>
-        <input id="practice-query" type="search" autocomplete="off" />
-        <p id="practice-count" aria-live="polite"></p>
-      </form>
-      <div id="practice-list" class="practice-list"></div>
     </main>
     <footer id="site-footer"></footer>
     <p class="visually-hidden" id="theme-status" aria-live="polite"></p>
-    <script type="module" src="/src/practice-index.js"></script>
+    <script type="module" src="/src/practice-redirect.js"></script>
   </body>
 </html>

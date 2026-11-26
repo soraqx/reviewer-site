@@ -3797,6 +3797,1336 @@
       ],
       "lessonIds": [],
       "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P02",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is the directed distance from A = −√48 to B = −√12?",
+      "options": [
+        {
+          "id": "C-P02-a",
+          "text": "2√3",
+          "accessibleLabel": "2√3"
+        },
+        {
+          "id": "C-P02-b",
+          "text": "−2√3",
+          "accessibleLabel": "−2√3"
+        },
+        {
+          "id": "C-P02-c",
+          "text": "6√3",
+          "accessibleLabel": "6√3"
+        },
+        {
+          "id": "C-P02-d",
+          "text": "4√3",
+          "accessibleLabel": "4√3"
+        }
+      ],
+      "correctOptionId": "C-P02-a",
+      "explanation": "B − A = −√12 − (−√48) = −2√3 + 4√3 = 2√3.",
+      "sourceRefs": [
+        "Content pack C-P02, SRC-CART p.12 item 2"
+      ],
+      "lessonIds": [
+        "cart-02"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P03",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is the directed distance from A = k to B = 3k?",
+      "options": [
+        {
+          "id": "C-P03-a",
+          "text": "2k",
+          "accessibleLabel": "2k"
+        },
+        {
+          "id": "C-P03-b",
+          "text": "3k",
+          "accessibleLabel": "3k"
+        },
+        {
+          "id": "C-P03-c",
+          "text": "4k",
+          "accessibleLabel": "4k"
+        },
+        {
+          "id": "C-P03-d",
+          "text": "−2k",
+          "accessibleLabel": "−2k"
+        }
+      ],
+      "correctOptionId": "C-P03-a",
+      "explanation": "Directed distance is final coordinate minus initial coordinate: 3k − k = 2k.",
+      "sourceRefs": [
+        "Content pack C-P03, SRC-CART p.12 item 3"
+      ],
+      "lessonIds": [
+        "cart-02"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P04",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is the directed distance from A = x + y to B = x + y?",
+      "options": [
+        {
+          "id": "C-P04-a",
+          "text": "0",
+          "accessibleLabel": "0"
+        },
+        {
+          "id": "C-P04-b",
+          "text": "x + y",
+          "accessibleLabel": "x + y"
+        },
+        {
+          "id": "C-P04-c",
+          "text": "2(x + y)",
+          "accessibleLabel": "2(x + y)"
+        },
+        {
+          "id": "C-P04-d",
+          "text": "1",
+          "accessibleLabel": "1"
+        }
+      ],
+      "correctOptionId": "C-P04-a",
+      "explanation": "The coordinates are identical, so B − A = (x + y) − (x + y) = 0.",
+      "sourceRefs": [
+        "Content pack C-P04, SRC-CART p.12 item 4"
+      ],
+      "lessonIds": [
+        "cart-02"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P05",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is the directed distance from A = √63 to B = −√28?",
+      "options": [
+        {
+          "id": "C-P05-a",
+          "text": "−5√7",
+          "accessibleLabel": "−5√7"
+        },
+        {
+          "id": "C-P05-b",
+          "text": "5√7",
+          "accessibleLabel": "5√7"
+        },
+        {
+          "id": "C-P05-c",
+          "text": "−√91",
+          "accessibleLabel": "−√91"
+        },
+        {
+          "id": "C-P05-d",
+          "text": "−√35",
+          "accessibleLabel": "−√35"
+        }
+      ],
+      "correctOptionId": "C-P05-a",
+      "explanation": "−√28 − √63 = −2√7 − 3√7 = −5√7.",
+      "sourceRefs": [
+        "Content pack C-P05, SRC-CART p.12 item 5"
+      ],
+      "lessonIds": [
+        "cart-02"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P06",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "On the number line A = −5, B = −1, C = 0, D = 3, E = 8, F = 12, what are the undirected lengths AD, CA, FC, CE, BF in that order?",
+      "options": [
+        {
+          "id": "C-P06-a",
+          "text": "8, 5, 12, 8, 13",
+          "accessibleLabel": "8, 5, 12, 8, 13"
+        },
+        {
+          "id": "C-P06-b",
+          "text": "8, 5, 9, 8, 13",
+          "accessibleLabel": "8, 5, 9, 8, 13"
+        },
+        {
+          "id": "C-P06-c",
+          "text": "8, −5, 12, 8, 13",
+          "accessibleLabel": "8, −5, 12, 8, 13"
+        },
+        {
+          "id": "C-P06-d",
+          "text": "5, 5, 12, 8, 13",
+          "accessibleLabel": "5, 5, 12, 8, 13"
+        }
+      ],
+      "correctOptionId": "C-P06-a",
+      "explanation": "|3 − (−5)| = 8, |−5 − 0| = 5, |12 − 0| = 12, |8 − 0| = 8, and |12 − (−1)| = 13.",
+      "sourceRefs": [
+        "Content pack C-P06, SRC-CART p.13"
+      ],
+      "lessonIds": [
+        "cart-02"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P07",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A square has side 2, one vertex at (0,0), and a diagonal on the positive x-axis. What are the other three vertices?",
+      "options": [
+        {
+          "id": "C-P07-a",
+          "text": "(√2,√2), (√2,−√2), (2√2,0)",
+          "accessibleLabel": "(√2,√2), (√2,−√2), (2√2,0)"
+        },
+        {
+          "id": "C-P07-b",
+          "text": "(1,1), (1,−1), (2,0)",
+          "accessibleLabel": "(1,1), (1,−1), (2,0)"
+        },
+        {
+          "id": "C-P07-c",
+          "text": "(2,2), (2,−2), (4,0)",
+          "accessibleLabel": "(2,2), (2,−2), (4,0)"
+        },
+        {
+          "id": "C-P07-d",
+          "text": "(√2,√2), (√2,−√2), (−2√2,0)",
+          "accessibleLabel": "(√2,√2), (√2,−√2), (−2√2,0)"
+        }
+      ],
+      "correctOptionId": "C-P07-a",
+      "explanation": "The diagonal is 2√2, so its far endpoint is (2√2,0) and its midpoint is (√2,0); the other vertices lie √2 above and below that midpoint. The positive x-axis condition removes the reflected solution.",
+      "sourceRefs": [
+        "Content pack C-P07, SRC-CART p.14"
+      ],
+      "lessonIds": [
+        "cart-01"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P08",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is the distance between (−9,6) and (3,9), and what type of segment joins them?",
+      "options": [
+        {
+          "id": "C-P08-a",
+          "text": "3√17; oblique",
+          "accessibleLabel": "3√17; oblique"
+        },
+        {
+          "id": "C-P08-b",
+          "text": "3√17; horizontal",
+          "accessibleLabel": "3√17; horizontal"
+        },
+        {
+          "id": "C-P08-c",
+          "text": "√117; oblique",
+          "accessibleLabel": "√117; oblique"
+        },
+        {
+          "id": "C-P08-d",
+          "text": "3√17; vertical",
+          "accessibleLabel": "3√17; vertical"
+        }
+      ],
+      "correctOptionId": "C-P08-a",
+      "explanation": "Δx = 12 and Δy = 3, so d = √(144 + 9) = √153 = 3√17. Both coordinate differences are nonzero, so the segment is oblique.",
+      "sourceRefs": [
+        "Content pack C-P08, SRC-CART p.16 item 1"
+      ],
+      "lessonIds": [
+        "cart-02"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P09",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is the distance between (2,13) and (4,5), and what type of segment joins them?",
+      "options": [
+        {
+          "id": "C-P09-a",
+          "text": "2√17; oblique",
+          "accessibleLabel": "2√17; oblique"
+        },
+        {
+          "id": "C-P09-b",
+          "text": "2√17; vertical",
+          "accessibleLabel": "2√17; vertical"
+        },
+        {
+          "id": "C-P09-c",
+          "text": "√68; horizontal",
+          "accessibleLabel": "√68; horizontal"
+        },
+        {
+          "id": "C-P09-d",
+          "text": "8√2; oblique",
+          "accessibleLabel": "8√2; oblique"
+        }
+      ],
+      "correctOptionId": "C-P09-a",
+      "explanation": "Δx = 2 and Δy = −8, so d = √(4 + 64) = √68 = 2√17. Both coordinates change, so the segment is oblique.",
+      "sourceRefs": [
+        "Content pack C-P09, SRC-CART p.16 item 2"
+      ],
+      "lessonIds": [
+        "cart-02"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P10",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is the distance between (0,0) and (9,18), and what type of segment joins them?",
+      "options": [
+        {
+          "id": "C-P10-a",
+          "text": "9√5; oblique",
+          "accessibleLabel": "9√5; oblique"
+        },
+        {
+          "id": "C-P10-b",
+          "text": "9√5; vertical",
+          "accessibleLabel": "9√5; vertical"
+        },
+        {
+          "id": "C-P10-c",
+          "text": "9√3; oblique",
+          "accessibleLabel": "9√3; oblique"
+        },
+        {
+          "id": "C-P10-d",
+          "text": "27; oblique",
+          "accessibleLabel": "27; oblique"
+        }
+      ],
+      "correctOptionId": "C-P10-a",
+      "explanation": "Δx = 9 and Δy = 18, so d = √(81 + 324) = √405 = 9√5. Neither coordinate difference is zero, so the segment is oblique.",
+      "sourceRefs": [
+        "Content pack C-P10, SRC-CART p.16 item 3"
+      ],
+      "lessonIds": [
+        "cart-02"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P13",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Which statement about A = (4,−3), B = (0,0), C = (3,4) is correct?",
+      "options": [
+        {
+          "id": "C-P13-a",
+          "text": "Yes; the right angle is at B.",
+          "accessibleLabel": "Yes; the right angle is at B."
+        },
+        {
+          "id": "C-P13-b",
+          "text": "Yes; the right angle is at A.",
+          "accessibleLabel": "Yes; the right angle is at A."
+        },
+        {
+          "id": "C-P13-c",
+          "text": "Yes; the right angle is at C.",
+          "accessibleLabel": "Yes; the right angle is at C."
+        },
+        {
+          "id": "C-P13-d",
+          "text": "No; the triangle is not right.",
+          "accessibleLabel": "No; the triangle is not right."
+        }
+      ],
+      "correctOptionId": "C-P13-a",
+      "explanation": "The vectors from B are BA = (4,−3) and BC = (3,4); their dot product is 12 − 12 = 0, so the triangle is right at B.",
+      "sourceRefs": [
+        "Content pack C-P13, SRC-CART p.17 item 1"
+      ],
+      "lessonIds": [
+        "cart-02"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P14",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "For D = (−2,0), E = (1,−2), F = (5,4), which statement gives all three pairwise distances and the right-angle vertex?",
+      "options": [
+        {
+          "id": "C-P14-a",
+          "text": "DE = √13, EF = 2√13, DF = √65; right angle at E",
+          "accessibleLabel": "DE = √13, EF = 2√13, DF = √65; right angle at E"
+        },
+        {
+          "id": "C-P14-b",
+          "text": "DE = √13, EF = 2√13, DF = √65; right angle at D",
+          "accessibleLabel": "DE = √13, EF = 2√13, DF = √65; right angle at D"
+        },
+        {
+          "id": "C-P14-c",
+          "text": "DE = √13, EF = 4√13, DF = √65; right angle at E",
+          "accessibleLabel": "DE = √13, EF = 4√13, DF = √65; right angle at E"
+        },
+        {
+          "id": "C-P14-d",
+          "text": "DE = 5, EF = 2√13, DF = √65; right angle at E",
+          "accessibleLabel": "DE = 5, EF = 2√13, DF = √65; right angle at E"
+        }
+      ],
+      "correctOptionId": "C-P14-a",
+      "explanation": "DE = √13, EF = √52 = 2√13, DF = √65. At E, (−3,2)·(4,6) = −12 + 12 = 0, and 13 + 52 = 65, so the right angle is at E.",
+      "sourceRefs": [
+        "Content pack C-P14, SRC-CART p.17 item 2"
+      ],
+      "lessonIds": [
+        "cart-02"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P15",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Which statement about (−1,2), (3,0), (7,−2) is correct?",
+      "options": [
+        {
+          "id": "C-P15-a",
+          "text": "They are collinear; both successive displacements are (4,−2).",
+          "accessibleLabel": "They are collinear; both successive displacements are (4,−2)."
+        },
+        {
+          "id": "C-P15-b",
+          "text": "They are collinear; the second displacement is (4,2).",
+          "accessibleLabel": "They are collinear; the second displacement is (4,2)."
+        },
+        {
+          "id": "C-P15-c",
+          "text": "They form a right triangle at (3,0).",
+          "accessibleLabel": "They form a right triangle at (3,0)."
+        },
+        {
+          "id": "C-P15-d",
+          "text": "They form an isosceles triangle but are not collinear.",
+          "accessibleLabel": "They form an isosceles triangle but are not collinear."
+        }
+      ],
+      "correctOptionId": "C-P15-a",
+      "explanation": "From (−1,2) to (3,0) the displacement is (4,−2), and from (3,0) to (7,−2) it is again (4,−2), so the three points are collinear.",
+      "sourceRefs": [
+        "Content pack C-P15, SRC-CART p.17 item 3"
+      ],
+      "lessonIds": [
+        "cart-02"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P16",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Which statement about the triangle with vertices (0,1), (2,5), (−1,4) is correct?",
+      "options": [
+        {
+          "id": "C-P16-a",
+          "text": "It is isosceles: the distances are 2√5, √10, √10.",
+          "accessibleLabel": "It is isosceles: the distances are 2√5, √10, √10."
+        },
+        {
+          "id": "C-P16-b",
+          "text": "It is isosceles: the distances are 2√5, 2√5, √10.",
+          "accessibleLabel": "It is isosceles: the distances are 2√5, 2√5, √10."
+        },
+        {
+          "id": "C-P16-c",
+          "text": "It is not isosceles because all three distances differ.",
+          "accessibleLabel": "It is not isosceles because all three distances differ."
+        },
+        {
+          "id": "C-P16-d",
+          "text": "It is not a triangle because the three points are collinear.",
+          "accessibleLabel": "It is not a triangle because the three points are collinear."
+        }
+      ],
+      "correctOptionId": "C-P16-a",
+      "explanation": "The squared side lengths are 20, 10, 10, so two sides equal √10 and the third is 2√5; the triangle is isosceles.",
+      "sourceRefs": [
+        "Content pack C-P16, SRC-CART p.17 item 4"
+      ],
+      "lessonIds": [
+        "cart-02"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P17",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Which conclusion about A = (−2,6), B = (4,3), C = (1,−3), D = (−5,0) is correct?",
+      "options": [
+        {
+          "id": "C-P17-a",
+          "text": "ABCD is a square: all sides are 3√5 and adjacent sides are perpendicular.",
+          "accessibleLabel": "ABCD is a square: all sides are 3√5 and adjacent sides are perpendicular."
+        },
+        {
+          "id": "C-P17-b",
+          "text": "ABCD is a rhombus but not a square.",
+          "accessibleLabel": "ABCD is a rhombus but not a square."
+        },
+        {
+          "id": "C-P17-c",
+          "text": "ABCD is a rectangle but not a square.",
+          "accessibleLabel": "ABCD is a rectangle but not a square."
+        },
+        {
+          "id": "C-P17-d",
+          "text": "ABCD is not a parallelogram.",
+          "accessibleLabel": "ABCD is not a parallelogram."
+        }
+      ],
+      "correctOptionId": "C-P17-a",
+      "explanation": "AB = (6,−3) and BC = (−3,−6) both have length 3√5 and dot product −18 + 18 = 0; opposite sides match, so ABCD is a square.",
+      "sourceRefs": [
+        "Content pack C-P17, SRC-CART p.17 item 5"
+      ],
+      "lessonIds": [
+        "cart-02"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P22",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A = (−7,−8), B = (−3,−5), and C are collinear with B between A and C and AB:AC = 1:4. Find C.",
+      "options": [
+        {
+          "id": "C-P22-a",
+          "text": "(9,4)",
+          "accessibleLabel": "(9,4)"
+        },
+        {
+          "id": "C-P22-b",
+          "text": "(1,−2)",
+          "accessibleLabel": "(1,−2)"
+        },
+        {
+          "id": "C-P22-c",
+          "text": "(5,1)",
+          "accessibleLabel": "(5,1)"
+        },
+        {
+          "id": "C-P22-d",
+          "text": "(−11,−11)",
+          "accessibleLabel": "(−11,−11)"
+        }
+      ],
+      "correctOptionId": "C-P22-a",
+      "explanation": "AB = (4,3), so AC = 4AB = (16,12) and C = A + 4(B − A) = (−7,−8) + (16,12) = (9,4).",
+      "sourceRefs": [
+        "Content pack C-P22, SRC-CART p.26 item 4"
+      ],
+      "lessonIds": [
+        "cart-03"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P23",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A = (−7,2), C = (3,−2), and B lies on AC with AB:BC = 3:1. Find B.",
+      "options": [
+        {
+          "id": "C-P23-a",
+          "text": "(1/2,−1)",
+          "accessibleLabel": "(1/2,−1)"
+        },
+        {
+          "id": "C-P23-b",
+          "text": "(−9/2,1)",
+          "accessibleLabel": "(−9/2,1)"
+        },
+        {
+          "id": "C-P23-c",
+          "text": "(−2,0)",
+          "accessibleLabel": "(−2,0)"
+        },
+        {
+          "id": "C-P23-d",
+          "text": "(1/2,1)",
+          "accessibleLabel": "(1/2,1)"
+        }
+      ],
+      "correctOptionId": "C-P23-a",
+      "explanation": "AB/AC = 3/4, so B = A + (3/4)(C − A) = (−7,2) + (3/4)(10,−4) = (1/2,−1).",
+      "sourceRefs": [
+        "Content pack C-P23, SRC-CART p.26 items 5–6"
+      ],
+      "lessonIds": [
+        "cart-03"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P24",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A = (8,1), C = (−7,7), and B lies on AC with AB = AC/3. Find B.",
+      "options": [
+        {
+          "id": "C-P24-a",
+          "text": "(3,3)",
+          "accessibleLabel": "(3,3)"
+        },
+        {
+          "id": "C-P24-b",
+          "text": "(−2,5)",
+          "accessibleLabel": "(−2,5)"
+        },
+        {
+          "id": "C-P24-c",
+          "text": "(−7,7)",
+          "accessibleLabel": "(−7,7)"
+        },
+        {
+          "id": "C-P24-d",
+          "text": "(13,−1)",
+          "accessibleLabel": "(13,−1)"
+        }
+      ],
+      "correctOptionId": "C-P24-a",
+      "explanation": "C − A = (−15,6), one third is (−5,2), so B = A + (−5,2) = (3,3).",
+      "sourceRefs": [
+        "Content pack C-P24, SRC-CART p.26 item 7"
+      ],
+      "lessonIds": [
+        "cart-03"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P26",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is the area of the triangle with vertices (3,0), (2,3), (−2,−1)?",
+      "options": [
+        {
+          "id": "C-P26-a",
+          "text": "8 square units",
+          "accessibleLabel": "8 square units"
+        },
+        {
+          "id": "C-P26-b",
+          "text": "4 square units",
+          "accessibleLabel": "4 square units"
+        },
+        {
+          "id": "C-P26-c",
+          "text": "16 square units",
+          "accessibleLabel": "16 square units"
+        },
+        {
+          "id": "C-P26-d",
+          "text": "10 square units",
+          "accessibleLabel": "10 square units"
+        }
+      ],
+      "correctOptionId": "C-P26-a",
+      "explanation": "Shoelace gives ½|7 − (−9)| = 8 square units.",
+      "sourceRefs": [
+        "Content pack C-P26, SRC-CART p.29 item 2"
+      ],
+      "lessonIds": [
+        "cart-04"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P27",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is the area of triangle FUE with F = (2,0), E = (6,4), U = (3,2)?",
+      "options": [
+        {
+          "id": "C-P27-a",
+          "text": "2 square units",
+          "accessibleLabel": "2 square units"
+        },
+        {
+          "id": "C-P27-b",
+          "text": "1 square unit",
+          "accessibleLabel": "1 square unit"
+        },
+        {
+          "id": "C-P27-c",
+          "text": "4 square units",
+          "accessibleLabel": "4 square units"
+        },
+        {
+          "id": "C-P27-d",
+          "text": "8 square units",
+          "accessibleLabel": "8 square units"
+        }
+      ],
+      "correctOptionId": "C-P27-a",
+      "explanation": "Shoelace gives ½|20 − 16| = 2 square units.",
+      "sourceRefs": [
+        "Content pack C-P27, SRC-CART p.29 item 3"
+      ],
+      "lessonIds": [
+        "cart-04"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P28",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is the area of the quadrilateral (3,5), (6,8), (9,6), (5,0), taken in that order?",
+      "options": [
+        {
+          "id": "C-P28-a",
+          "text": "47/2 square units",
+          "accessibleLabel": "47/2 square units"
+        },
+        {
+          "id": "C-P28-b",
+          "text": "47 square units",
+          "accessibleLabel": "47 square units"
+        },
+        {
+          "id": "C-P28-c",
+          "text": "24 square units",
+          "accessibleLabel": "24 square units"
+        },
+        {
+          "id": "C-P28-d",
+          "text": "49/2 square units",
+          "accessibleLabel": "49/2 square units"
+        }
+      ],
+      "correctOptionId": "C-P28-a",
+      "explanation": "Shoelace gives ½|85 − 132| = 47/2 square units.",
+      "sourceRefs": [
+        "Content pack C-P28, SRC-CART p.31 item 1"
+      ],
+      "lessonIds": [
+        "cart-04"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P29",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is the area of the pentagon (0,8), (6,5), (6,−1), (−2,−4), (−5,3), taken in that order?",
+      "options": [
+        {
+          "id": "C-P29-a",
+          "text": "88 square units",
+          "accessibleLabel": "88 square units"
+        },
+        {
+          "id": "C-P29-b",
+          "text": "44 square units",
+          "accessibleLabel": "44 square units"
+        },
+        {
+          "id": "C-P29-c",
+          "text": "176 square units",
+          "accessibleLabel": "176 square units"
+        },
+        {
+          "id": "C-P29-d",
+          "text": "76 square units",
+          "accessibleLabel": "76 square units"
+        }
+      ],
+      "correctOptionId": "C-P29-a",
+      "explanation": "Shoelace gives ½|−76 − 100| = 88 square units.",
+      "sourceRefs": [
+        "Content pack C-P29, SRC-CART p.31 item 2"
+      ],
+      "lessonIds": [
+        "cart-04"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P30",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is the area of the triangle with vertices (−3,10), (9,4), (9,−10)?",
+      "options": [
+        {
+          "id": "C-P30-a",
+          "text": "84 square units",
+          "accessibleLabel": "84 square units"
+        },
+        {
+          "id": "C-P30-b",
+          "text": "42 square units",
+          "accessibleLabel": "42 square units"
+        },
+        {
+          "id": "C-P30-c",
+          "text": "168 square units",
+          "accessibleLabel": "168 square units"
+        },
+        {
+          "id": "C-P30-d",
+          "text": "70 square units",
+          "accessibleLabel": "70 square units"
+        }
+      ],
+      "correctOptionId": "C-P30-a",
+      "explanation": "The vertical base at x = 9 is 14 units long and the horizontal distance to (−3,10) is 12, so the area is ½×14×12 = 84.",
+      "sourceRefs": [
+        "Content pack C-P30, SRC-CART p.31 item 3"
+      ],
+      "lessonIds": [
+        "cart-04"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "C-P31",
+      "moduleId": "cartesian-coordinates",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "What is the area of the quadrilateral (−4,4), (−9,−1), (−4,−6), (1,−1), taken in that order?",
+      "options": [
+        {
+          "id": "C-P31-a",
+          "text": "50 square units",
+          "accessibleLabel": "50 square units"
+        },
+        {
+          "id": "C-P31-b",
+          "text": "25 square units",
+          "accessibleLabel": "25 square units"
+        },
+        {
+          "id": "C-P31-c",
+          "text": "100 square units",
+          "accessibleLabel": "100 square units"
+        },
+        {
+          "id": "C-P31-d",
+          "text": "40 square units",
+          "accessibleLabel": "40 square units"
+        }
+      ],
+      "correctOptionId": "C-P31-a",
+      "explanation": "The perpendicular diagonals are both 10 units long, so the area is d₁d₂/2 = 10×10/2 = 50 square units.",
+      "sourceRefs": [
+        "Content pack C-P31, SRC-CART p.31 item 4"
+      ],
+      "lessonIds": [
+        "cart-04"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "L-P01",
+      "moduleId": "lines",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Which statement about D = (−2,0), E = (1,−2), F = (5,4) is correct?",
+      "options": [
+        {
+          "id": "L-P01-a",
+          "text": "They form a right triangle with the right angle at E.",
+          "accessibleLabel": "They form a right triangle with the right angle at E."
+        },
+        {
+          "id": "L-P01-b",
+          "text": "They form a right triangle with the right angle at D.",
+          "accessibleLabel": "They form a right triangle with the right angle at D."
+        },
+        {
+          "id": "L-P01-c",
+          "text": "They form a right triangle with the right angle at F.",
+          "accessibleLabel": "They form a right triangle with the right angle at F."
+        },
+        {
+          "id": "L-P01-d",
+          "text": "They do not form a right triangle.",
+          "accessibleLabel": "They do not form a right triangle."
+        }
+      ],
+      "correctOptionId": "L-P01-a",
+      "explanation": "At E, the vectors to D and F are (−3,2) and (4,6); their dot product is −12 + 12 = 0, so the right angle is at E.",
+      "sourceRefs": [
+        "Content pack L-P01, SRC-LINE p.5 item 1a"
+      ],
+      "lessonIds": [
+        "line-01"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "L-P02",
+      "moduleId": "lines",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Which statement about A = (1,2), B = (3,5), C = (−3,9) is correct?",
+      "options": [
+        {
+          "id": "L-P02-a",
+          "text": "They form a right triangle with the right angle at B.",
+          "accessibleLabel": "They form a right triangle with the right angle at B."
+        },
+        {
+          "id": "L-P02-b",
+          "text": "They form a right triangle with the right angle at A.",
+          "accessibleLabel": "They form a right triangle with the right angle at A."
+        },
+        {
+          "id": "L-P02-c",
+          "text": "They form a right triangle with the right angle at C.",
+          "accessibleLabel": "They form a right triangle with the right angle at C."
+        },
+        {
+          "id": "L-P02-d",
+          "text": "They do not form a right triangle.",
+          "accessibleLabel": "They do not form a right triangle."
+        }
+      ],
+      "correctOptionId": "L-P02-a",
+      "explanation": "At B, BA = (−2,−3) and BC = (−6,4); their dot product is 12 − 12 = 0, so the right angle is at B.",
+      "sourceRefs": [
+        "Content pack L-P02, SRC-LINE p.5 item 1b"
+      ],
+      "lessonIds": [
+        "line-01"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "L-P03",
+      "moduleId": "lines",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Which statement about (−1,2), (3,0), (7,−2) is correct?",
+      "options": [
+        {
+          "id": "L-P03-a",
+          "text": "They are collinear; both successive slopes are −1/2.",
+          "accessibleLabel": "They are collinear; both successive slopes are −1/2."
+        },
+        {
+          "id": "L-P03-b",
+          "text": "They are collinear; both successive slopes are −2.",
+          "accessibleLabel": "They are collinear; both successive slopes are −2."
+        },
+        {
+          "id": "L-P03-c",
+          "text": "They are not collinear; the slopes are −1/2 and −2.",
+          "accessibleLabel": "They are not collinear; the slopes are −1/2 and −2."
+        },
+        {
+          "id": "L-P03-d",
+          "text": "They form a right triangle at (3,0).",
+          "accessibleLabel": "They form a right triangle at (3,0)."
+        }
+      ],
+      "correctOptionId": "L-P03-a",
+      "explanation": "(0 − 2)/(3 − (−1)) = −1/2 and (−2 − 0)/(7 − 3) = −1/2; equal slopes through the shared point mean the points are collinear.",
+      "sourceRefs": [
+        "Content pack L-P03, SRC-LINE p.5 item 2a"
+      ],
+      "lessonIds": [
+        "line-01"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "L-P04",
+      "moduleId": "lines",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Which statement about (−6,2), (0,−2), (3,−4) is correct?",
+      "options": [
+        {
+          "id": "L-P04-a",
+          "text": "They are collinear; both successive slopes are −2/3.",
+          "accessibleLabel": "They are collinear; both successive slopes are −2/3."
+        },
+        {
+          "id": "L-P04-b",
+          "text": "They are collinear; both successive slopes are −3/2.",
+          "accessibleLabel": "They are collinear; both successive slopes are −3/2."
+        },
+        {
+          "id": "L-P04-c",
+          "text": "They are not collinear; the slopes are −2/3 and −3/2.",
+          "accessibleLabel": "They are not collinear; the slopes are −2/3 and −3/2."
+        },
+        {
+          "id": "L-P04-d",
+          "text": "They form a right triangle at (0,−2).",
+          "accessibleLabel": "They form a right triangle at (0,−2)."
+        }
+      ],
+      "correctOptionId": "L-P04-a",
+      "explanation": "(−2 − 2)/(0 − (−6)) = −2/3 and (−4 − (−2))/(3 − 0) = −2/3, so the shared point lies on one straight line.",
+      "sourceRefs": [
+        "Content pack L-P04, SRC-LINE p.5 item 2b"
+      ],
+      "lessonIds": [
+        "line-01"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "L-P07",
+      "moduleId": "lines",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "The segment from (22/9,y) to (4,1) is perpendicular to the segment from (−5,−6) to (4,1). Find y.",
+      "options": [
+        {
+          "id": "L-P07-a",
+          "text": "3",
+          "accessibleLabel": "3"
+        },
+        {
+          "id": "L-P07-b",
+          "text": "−1",
+          "accessibleLabel": "−1"
+        },
+        {
+          "id": "L-P07-c",
+          "text": "1/3",
+          "accessibleLabel": "1/3"
+        },
+        {
+          "id": "L-P07-d",
+          "text": "22/9",
+          "accessibleLabel": "22/9"
+        }
+      ],
+      "correctOptionId": "L-P07-a",
+      "explanation": "The second segment has slope 7/9, so the first must have slope −9/7. Solving (1 − y)/(4 − 22/9) = −9/7 gives 1 − y = −2, hence y = 3.",
+      "sourceRefs": [
+        "Content pack L-P07, SRC-LINE p.6 item 5"
+      ],
+      "lessonIds": [
+        "line-01"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "L-P08",
+      "moduleId": "lines",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A circle has diameter endpoints (−4,3) and (6,3). Which statement about (−2,7) is correct?",
+      "options": [
+        {
+          "id": "L-P08-a",
+          "text": "It lies on the circle; its distance from the center (1,3) is 5.",
+          "accessibleLabel": "It lies on the circle; its distance from the center (1,3) is 5."
+        },
+        {
+          "id": "L-P08-b",
+          "text": "It lies on the circle; its distance from the center (1,3) is √7.",
+          "accessibleLabel": "It lies on the circle; its distance from the center (1,3) is √7."
+        },
+        {
+          "id": "L-P08-c",
+          "text": "It is outside the circle; its distance from (1,3) is 6.",
+          "accessibleLabel": "It is outside the circle; its distance from (1,3) is 6."
+        },
+        {
+          "id": "L-P08-d",
+          "text": "It is inside the circle; the center is (1,3) but the radius is 10.",
+          "accessibleLabel": "It is inside the circle; the center is (1,3) but the radius is 10."
+        }
+      ],
+      "correctOptionId": "L-P08-a",
+      "explanation": "The center is (1,3) and the radius is 5; (−2 − 1)² + (7 − 3)² = 9 + 16 = 25 = 5², so the point lies on the circle.",
+      "sourceRefs": [
+        "Content pack L-P08, SRC-LINE p.6 item 6"
+      ],
+      "lessonIds": [
+        "line-01"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "L-P09",
+      "moduleId": "lines",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "For the triangle A = (0,1), B = (7,2), C = (3,8), what are the tangents of the interior angles at A, B, C in that order?",
+      "options": [
+        {
+          "id": "L-P09-a",
+          "text": "tan A = 23/14, tan B = 23/11, tan C = 23/15",
+          "accessibleLabel": "tan A = 23/14, tan B = 23/11, tan C = 23/15"
+        },
+        {
+          "id": "L-P09-b",
+          "text": "tan A = 23/11, tan B = 23/14, tan C = 23/15",
+          "accessibleLabel": "tan A = 23/11, tan B = 23/14, tan C = 23/15"
+        },
+        {
+          "id": "L-P09-c",
+          "text": "tan A = 14/23, tan B = 11/23, tan C = 15/23",
+          "accessibleLabel": "tan A = 14/23, tan B = 11/23, tan C = 15/23"
+        },
+        {
+          "id": "L-P09-d",
+          "text": "tan A = 23/14, tan B = 23/15, tan C = 23/11",
+          "accessibleLabel": "tan A = 23/14, tan B = 23/15, tan C = 23/11"
+        }
+      ],
+      "correctOptionId": "L-P09-a",
+      "explanation": "For each vertex, tan(angle) = |det(u,v)|/(u·v). The determinants are all 46 and the dot products are 28, 22, 30, giving 23/14, 23/11, 23/15.",
+      "sourceRefs": [
+        "Content pack L-P09, SRC-LINE p.10 item 1"
+      ],
+      "lessonIds": [
+        "line-02"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "L-P11",
+      "moduleId": "lines",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "For the segments from (4,3) to (6,−2) and from (9,5) to (6,−2), what is tan θ when θ is the smaller angle between the supporting lines?",
+      "options": [
+        {
+          "id": "L-P11-a",
+          "text": "1 (the smaller angle is 45°)",
+          "accessibleLabel": "1 (the smaller angle is 45°)"
+        },
+        {
+          "id": "L-P11-b",
+          "text": "−1 (the 135° supplementary angle)",
+          "accessibleLabel": "−1 (the 135° supplementary angle)"
+        },
+        {
+          "id": "L-P11-c",
+          "text": "29/14",
+          "accessibleLabel": "29/14"
+        },
+        {
+          "id": "L-P11-d",
+          "text": "14/29",
+          "accessibleLabel": "14/29"
+        }
+      ],
+      "correctOptionId": "L-P11-a",
+      "explanation": "At the shared point the ray directions are (−2,5) and (3,7), so tan θ = |(−2)(7) − 5(3)|/|(−2)(3) + 5(7)| = 29/29 = 1 and the smaller line angle is 45°. The interior angle between these two rays is also 45°; choosing the directed or supplementary 135° angle instead gives −1, so the angle convention must be stated explicitly.",
+      "sourceRefs": [
+        "Content pack L-P11, SRC-LINE p.10 item 3"
+      ],
+      "lessonIds": [
+        "line-02"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "L-P13",
+      "moduleId": "lines",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "For B = (8,43), E = (2,1), L = (−1,5), O = (6,4), which statement about ray EB and ∠LEO is correct?",
+      "options": [
+        {
+          "id": "L-P13-a",
+          "text": "EB bisects ∠LEO; the unit directions from E sum to (1/5,7/5), a positive multiple of EB = (6,42).",
+          "accessibleLabel": "EB bisects ∠LEO; the unit directions from E sum to (1/5,7/5), a positive multiple of EB = (6,42)."
+        },
+        {
+          "id": "L-P13-b",
+          "text": "EB bisects the external angle at E, not ∠LEO.",
+          "accessibleLabel": "EB bisects the external angle at E, not ∠LEO."
+        },
+        {
+          "id": "L-P13-c",
+          "text": "EB is perpendicular to the bisector of ∠LEO.",
+          "accessibleLabel": "EB is perpendicular to the bisector of ∠LEO."
+        },
+        {
+          "id": "L-P13-d",
+          "text": "EB is parallel to EL and therefore cannot bisect ∠LEO.",
+          "accessibleLabel": "EB is parallel to EL and therefore cannot bisect ∠LEO."
+        }
+      ],
+      "correctOptionId": "L-P13-a",
+      "explanation": "EL = (−3,4) and EO = (4,3) are both length 5, so their unit vectors sum to (1/5,7/5), which points along the internal bisector. EB = (6,42) = 30(1/5,7/5), so EB bisects ∠LEO.",
+      "sourceRefs": [
+        "Content pack L-P13, SRC-LINE p.11 item 5"
+      ],
+      "lessonIds": [
+        "line-02"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "BX-P01",
+      "moduleId": "parallelepipeds-cubes",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A cube has edge 6 cm. What is its total surface area?",
+      "options": [
+        {
+          "id": "BX-P01-a",
+          "text": "216 cm²",
+          "accessibleLabel": "216 cm²"
+        },
+        {
+          "id": "BX-P01-b",
+          "text": "36 cm²",
+          "accessibleLabel": "36 cm²"
+        },
+        {
+          "id": "BX-P01-c",
+          "text": "144 cm²",
+          "accessibleLabel": "144 cm²"
+        },
+        {
+          "id": "BX-P01-d",
+          "text": "216 cm³",
+          "accessibleLabel": "216 cm³"
+        }
+      ],
+      "correctOptionId": "BX-P01-a",
+      "explanation": "A cube has six congruent square faces: 6×6² = 216 cm².",
+      "sourceRefs": [
+        "Content pack BX-P01, SRC-BOX p.11"
+      ],
+      "lessonIds": [
+        "box-01"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "BX-P02",
+      "moduleId": "parallelepipeds-cubes",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "A cube has edge 4 cm. What is its volume?",
+      "options": [
+        {
+          "id": "BX-P02-a",
+          "text": "64 cm³",
+          "accessibleLabel": "64 cm³"
+        },
+        {
+          "id": "BX-P02-b",
+          "text": "16 cm³",
+          "accessibleLabel": "16 cm³"
+        },
+        {
+          "id": "BX-P02-c",
+          "text": "48 cm³",
+          "accessibleLabel": "48 cm³"
+        },
+        {
+          "id": "BX-P02-d",
+          "text": "96 cm³",
+          "accessibleLabel": "96 cm³"
+        }
+      ],
+      "correctOptionId": "BX-P02-a",
+      "explanation": "Cube volume is edge cubed: 4³ = 64 cm³.",
+      "sourceRefs": [
+        "Content pack BX-P02, SRC-BOX p.11"
+      ],
+      "lessonIds": [
+        "box-01"
+      ],
+      "editorialStatus": "adapted"
+    },
+    {
+      "id": "CY-P01",
+      "moduleId": "cylinders",
+      "category": "problem",
+      "interaction": "single-choice",
+      "prompt": "Which expression gives the volume of a circular cylinder with radius r and height h?",
+      "options": [
+        {
+          "id": "CY-P01-a",
+          "text": "πr²h",
+          "accessibleLabel": "πr²h"
+        },
+        {
+          "id": "CY-P01-b",
+          "text": "2πrh",
+          "accessibleLabel": "2πrh"
+        },
+        {
+          "id": "CY-P01-c",
+          "text": "πrh",
+          "accessibleLabel": "πrh"
+        },
+        {
+          "id": "CY-P01-d",
+          "text": "2πr²h",
+          "accessibleLabel": "2πr²h"
+        }
+      ],
+      "correctOptionId": "CY-P01-a",
+      "explanation": "The circular base has area πr²; multiplying by the perpendicular height h gives V = πr²h. The expression 2πrh is lateral area, not volume.",
+      "sourceRefs": [
+        "Content pack CY-P01, SRC-CYL pp.12–13"
+      ],
+      "lessonIds": [
+        "cyl-01"
+      ],
+      "editorialStatus": "adapted"
     }
   ],
   "recall": [
